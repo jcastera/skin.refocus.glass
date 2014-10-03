@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<!--Square Music-->
+	<!--SQUARE SMALL-->
+	<include name="view_IconSquareSmallAlbum">
+		<control type="group">
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<visible>Control.IsVisible(68)</visible>
+			<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+			<!--info-->
+				<control type="grouplist" id="1000">
+				<posx>385</posx>
+				<posy>195</posy>
+				<itemgap>0</itemgap>
+				<control type="label">
+					<width>680</width>
+					<label>$INFO[ListItem.Label]</label>
+					<include>detail_Title</include>
+				</control>
+				<control type="label">
+						<posy>27</posy>
+						<width>680</width>
+						<label>$VAR[global_Info]</label>
+						<include>detail_Sub</include>
+					</control>
+				</control>
+				<control type="image">
+				<posx>240</posx>
+				<posy>580</posy>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<include>detail_StarRating</include>
+				<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+
+				</control>
+				<control type="image">
+				<posx>240</posx>
+				<posy>650</posy>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+					<include>detail_StarRating</include>
+					<visible>Skin.HasSetting(tracklist) + Container.Content(albums) </visible>
+				</control>
+				<control type="group">
+				 <control type="image">
+				    <posx>50</posx>
+				    <posy>255</posy>
+					<width>315</width>
+					<height>315</height>
+					<texture>$VAR[thumb_Square]</texture>
+					<aspectratio>scale</aspectratio>
+					<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<!-- logo -->
+				<control type="image">
+					<posx>50</posx>
+					<posy>550</posy>
+					   <width>100</width>
+				       <height>100</height>
+					  <aspectratio align="center">keep</aspectratio>
+				<texture>$VAR[art_Logo.Condition]</texture>
+				<visible>!Skin.HasSetting(tracklist) + Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<control type="image">
+					<posx>50</posx>
+					<posy>630</posy>
+					   <width>100</width>
+				       <height>100</height>
+					  <aspectratio align="center">keep</aspectratio>
+				<texture>$VAR[art_Logo.Condition]</texture>
+				<visible>Skin.HasSetting(tracklist) + Container.Content(albums)</visible>
+				</control>
+				<control type="textbox">
+						<posy>580</posy>
+						 <posx>390</posx>
+						<width>770</width>
+						<height>80</height>
+						<align>justify</align>
+						<label>$VAR[global_Plot]</label>
+						<include>detail_Text</include>
+						<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+						</control>
+				<control type="label">
+						 <posx>50</posx>
+				    <posy>250</posy>
+					<width>300</width>
+					<height>320</height>
+						<label>$VAR[Tracklist_Info]</label>
+						<include>detail_Sub</include>
+						<visible>Skin.HasSetting(tracklist) + Container.Content(albums)</visible>
+					</control>
+			</control>
+
+			<!--container-->
+			<control type="panel" id="68">
+				<viewtype label="Icon Album">bigicon</viewtype>
+				<posx>380</posx>
+				<posy>250</posy>
+				<width>850</width>
+				<height>321</height>
+				<onleft>6000</onleft>
+				<onright>70</onright>
+				<onup>68</onup>
+				<ondown>68</ondown>
+				<pagecontrol>70</pagecontrol>
+				<preloaditems>2</preloaditems>
+				<include>global_ListScroll</include>
+				<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+				<itemlayout height="80" width="80">
+					<control type="group">
+						<posx>7</posx>
+						<posy>7</posy>
+						<control type="image">
+							<width>70</width>
+							<height>70</height>
+							<texture>thumbs/default_Square.png</texture>
+						</control>
+						<control type="image">
+							<centerleft>37</centerleft>
+							<centertop>37</centertop>
+							<width>70</width>
+							<height>70</height>
+							<include>art_DefaultIcon</include>
+						</control>
+						<control type="image">
+							<width>70</width>
+							<height>70</height>
+							<texture background="true">$VAR[thumb_Square]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+						<control type="image">
+						<width>75</width>
+						<height>75</height>
+						<include>art_Frame-nf</include>
+					</control>
+					</control>
+				</itemlayout>
+				<focusedlayout height="80" width="80">
+					<control type="image">
+					<posx>2</posx>
+						<posy>2</posy>
+						<width>80</width>
+						<height>80</height>
+						<include>art_Frame-fo</include>
+					</control>
+						<control type="group">
+						<posx>7</posx>
+						<posy>7</posy>
+						<control type="image">
+							<width>70</width>
+							<height>70</height>
+							<texture>thumbs/default_Square.png</texture>
+						</control>
+						<control type="image">
+							<centerleft>37</centerleft>
+							<centertop>37</centertop>
+							<width>70</width>
+							<height>70</height>
+							<include>art_DefaultIcon</include>
+						</control>
+						<control type="image">
+							<width>70</width>
+							<height>70</height>
+							<texture background="true">$VAR[thumb_Square]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+	</include>
+	<!--Fin-->
+</includes>

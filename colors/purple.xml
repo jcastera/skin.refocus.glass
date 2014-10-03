@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<colors>
+<!--main colors-->
+	<color name="base_1">ff8358aa</color><!--main background color-->
+	<color name="base_2">ff8358aa</color><!--primary overlay / menu color-->
+	<color name="base_3">ff5c3d78</color><!--secondary overlay / menu color (home menu)-->
+	<color name="base_4">eeb4a4b9</color><!--vignette2-->
+	<color name="colorrefocus">ff004160</color><!--color refocus-->
+	<color name="base_5">ff8358aa</color><!--main color menu horizontal-->
+	<color name="base_6">ee081e2b</color><!--main color menu vertical-->
+	<color name="base_7">aa8358aa</color><!--main color submenu vertical-->
+	<color name="accent_1">ff5c3d78</color><!--primary accent color (seekbar)-->
+	<color name="accent_2">ff245678</color><!--secondary accent color (home submenu)-->
+	<color name="accent_3">ff7e94a4</color><!--color  top title windows-->
+	<color name="accent_4">ee422c56</color><!--color supp -->
+	<color name="accent_5">aa000000</color><!--color overlays strip -->
+	
+<!--text-->
+    <color name="Color1">FFebebeb</color><!--Home textcolor-->
+	<color name="Color11">ffffffff</color><!--main textcolor-->
+	<color name="Color2">ff9ec83e</color><!--secondary textcolor-->
+	<color name="Color3">ffcacaca</color><!--tertiary textcolor-->
+	<color name="Color4">FF696a6c</color><!--primary dialog textcolor-->
+	<color name="Color5">FF000000</color><!--extra dark dialog textcolor-->
+	<color name="Color7">FFf1f7e2</color><!--description / plot textcolor-->
+	<color name="Color8">FFbcd4e6</color><!--description / plot textcolor-->
+	<color name="Color9">FFd1e0d6</color><!--description / plot textcolor-->
+	<color name="Color10">aa9c9c9c</color><!--OSD color info -->
+	<color name="Color16">aa8358aa</color><!-- Setting focus-->
+	<color name="FocusSubmenu">ffffffff</color><!--Home textcolor-->
+
+<!--buttons / control states-->
+	<color name="Focused">FF111111</color>
+	<color name="Disabled">ff9a9a9a</color>
+	<color name="Selected">ff27ae60</color>
+	<color name="Warning">ffff4e4e</color>
+
+<!--columns / lists-->
+	<color name="column1">ffffffff</color><!--main columns text color-->
+	<color name="column2">ff260e21</color><!--primary columns base color-->
+	<color name="column3">ff8358aa</color><!--secondary columns base color-->
+	
+<!--Views-->
+    <color name="Color_Art">ff8358aa</color><!--frames Panel ART-->		
+</colors>

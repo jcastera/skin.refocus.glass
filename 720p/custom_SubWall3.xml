@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="7121">
+	<defaultcontrol>149</defaultcontrol>
+	<include>Animation_TopDialogPopup</include>
+	<height>200</height>
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+		<origin x="0" y="0" />
+	</coordinates>
+	<zorder>1</zorder>
+	<controls>
+	<control type="image" id="149">
+			<width>270</width>
+			<height>80</height>
+			<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+		</control>
+		<control type="image">
+			<posx>4</posx>
+			<posy>18</posy>
+			<width>650</width>
+			<include>dialog_Separator</include>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>60</posy>
+			<width>270</width>
+			<height>720</height>
+			<include>dialog_Menu</include>
+			<colordiffuse></colordiffuse>
+		</control>
+		<control type="image" id="1490">
+	<posy>185</posy>
+	<posx>0</posx>
+			<width>270</width>
+			<height>20</height>
+			<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
+			<colordiffuse>Color3</colordiffuse>
+		</control>
+		<control type="label">
+					<posx>-1050</posx>
+			<posy>15</posy>
+					    <label>SETTINGS</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>Color3</textcolor>
+					</control>
+			<control type="label">
+					<posx>-1150</posx>
+			<posy>70</posy>
+					    <label>LAYOUT</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+		<control type="label">
+					<posx>-1050</posx>
+			<posy>95</posy>
+					    <label>Wall</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+		<control type="label">
+					<posx>-1170</posx>
+			<posy>125</posy>
+					    <label>VIEW</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+					<control type="label">
+				<posx>-1100</posx>
+			<posy>150</posy>
+					    <label></label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+		<control type="label">
+					<posx>-1050</posx>
+			<posy>200</posy>
+					    <label>OPTIONS</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+
+		<control type="grouplist" id="149">
+		<onleft>back</onleft>
+		<onright>back</onright>
+			<posx>5</posx>
+			<posy>250</posy>
+			<width>275</width>
+			<height min="40" max="720">auto</height>
+			<itemgap>0</itemgap>
+				 <control type="radiobutton" id="155">
+		            <label>Poster & Discart</label>
+					<width>260</width>
+                    <onclick>Skin.ToggleSetting(Wall3PosterMovies)</onclick>
+		            <onclick condition="Skin.HasSetting(Wall3ThumbsMovies)">Skin.ToggleSetting(Wall3ThumbsMovies)</onclick>
+                     <selected>!Skin.HasSetting(Wall3PosterMovies)</selected>
+		           <include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+				<visible>![Container.Content(sets)]</visible>
+                </control>
+				<control type="radiobutton" id="1550">
+		            <label>Discart</label>
+					<width>260</width>
+                    <onclick>Skin.ToggleSetting(WallFanart.Discart)</onclick>
+		            <selected>Skin.HasSetting(WallFanart.Discart)</selected>
+		           <include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+                </control>
+                <control type="radiobutton" id="156">
+	                <label>Extra Thumbs</label>
+					<width>260</width>
+                    <onclick>Skin.ToggleSetting(Wall3ThumbsMovies)</onclick>
+                    <onclick condition="!Skin.HasSetting(Wall3PosterMovies)">Skin.ToggleSetting(Wall3PosterMovies)</onclick>
+                    <selected>Skin.HasSetting(Wall3ThumbsMovies)</selected>
+		            <include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+					<visible>![Container.Content(sets)]</visible>
+                </control>
+
+						<control type="radiobutton" id="157">
+                        <label>Logo</label>
+						<width>260</width>
+		                  <onclick>Skin.ToggleSetting(Wall3Logo)</onclick>
+						  <selected>Skin.HasSetting(Wall3Logo</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+					<visible>![Container.Content(sets)]</visible>
+		            </control>
+				<control type="radiobutton" id="158">
+                        <label>All Posters's Sets</label>
+						<width>260</width>
+		               <onclick>Skin.ToggleSetting(Wall3PosterDiscartsets)</onclick>
+					   <onclick>Skin.ToggleSetting(Wall3AllPosterssets)</onclick>
+		                <selected>Skin.HasSetting(Wall3PosterDiscartsets)</selected>
+						<selected>!Skin.HasSetting(Wall3AllPosterssets)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+				<visible>![Container.Content(movies) | Container.Content(tvshows)]</visible>
+		            </control>
+					<control type="radiobutton" id="159">
+                        <label>Poster & Discart </label>
+						<width>260</width>
+		                <onclick>Skin.ToggleSetting(Wall3AllPosterssets)</onclick>
+						  <onclick>Skin.ToggleSetting(Wall3PosterDiscartsets)</onclick>
+						 <selected>!Skin.HasSetting(Wall3PosterDiscartsets)</selected>
+						 <selected>Skin.HasSetting(Wall3AllPosterssets)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+					<visible>![Container.Content(movies) | Container.Content(tvshows)]</visible>
+		            </control>
+					<control type="radiobutton" id="160">
+                        <label>Glass</label>
+						<width>260</width>
+		                  <onclick>Skin.ToggleSetting(Wall3glass.enable)</onclick>
+						  <selected>!Skin.HasSetting(Wall3glass.enable)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+					<visible>![Container.Content(sets)]</visible>
+		            </control>
+					<control type="radiobutton" id="161">
+                        <label>Case</label>
+						<width>260</width>
+		                  <onclick>Skin.ToggleSetting(WallFanart.case)</onclick>
+						  <selected>Skin.HasSetting(WallFanart.case)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+					<visible>![Container.Content(sets)]</visible>
+		            </control>
+					<control type="radiobutton" id="162">
+                        <label>Back Case</label>
+						<width>260</width>
+		                  <onclick>Skin.ToggleSetting(WallFanart.caseback)</onclick>
+						  <selected>Skin.HasSetting(WallFanart.caseback)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+					<visible>![Container.Content(sets) | Container.Content(tvshows)]</visible>
+		            </control>
+
+	</control>
+	</controls>
+</window>

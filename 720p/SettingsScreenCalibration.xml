@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol>8</defaultcontrol>
+	<controls>
+		<control type="videowindow" id="20">
+			<include>screen_Dimensions</include>
+			<visible>Player.HasVideo</visible>
+		</control>
+		<!--overlay-->
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture>black.png</texture>
+		</control>
+		<!--top left mover-->
+		<control type="mover" id="8">
+			<width>128</width>
+			<height>128</height>
+			<texturenofocus>calibration/TopLeft.png</texturenofocus>
+			<texturefocus>calibration/TopLeft-focus.png</texturefocus>
+		</control>
+		<!--right bottom mover-->
+		<control type="mover" id="9">
+			<posx>700</posx>
+			<posy>500</posy>
+			<width>128</width>
+			<height>128</height>
+			<texturenofocus>calibration/BottomRight.png</texturenofocus>
+			<texturefocus>calibration/BottomRight-focus.png</texturefocus>
+		</control>
+		<!--subtitle position mover-->
+		<control type="mover" id="10">
+			<posx>200</posx>
+			<posy>500</posy>
+			<width>512</width>
+			<height>128</height>
+			<texturenofocus>calibration/Subtitles.png</texturenofocus>
+			<texturefocus>calibration/Subtitles-focus.png</texturefocus>
+		</control>
+		<!--pixel aspect ratio box-->
+		<control type="resize" id="11">
+			<posy>232</posy>
+			<width>256</width>
+			<height>256</height>
+			<texturenofocus>calibration/PixelRatio.png</texturenofocus>
+			<texturefocus>calibration/PixelRatio-focus.png</texturefocus>
+		</control>
+		<control type="group">
+			<posx>20</posx>
+			<posy>80</posy>
+			<!--coordinates label-->
+			<control type="label" id="2">
+				<posy>10</posy>
+				<width>1240</width>
+				<label>-</label>
+				<font>semibold-U</font>
+				<align>center</align>
+			</control>
+			<!--help information-->
+			<control type="label" id="3">
+				<posy>40</posy>
+				<width>1240</width>
+				<label>-</label>
+				<font>regular</font>
+				<align>center</align>
+			</control>
+		</control>
+	</controls>
+</window>

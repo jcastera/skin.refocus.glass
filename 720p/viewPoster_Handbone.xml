@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<include name="detail_Poster_Handbone">
+<control type="group">
+<include>toggle_Menu</include>
+			<include>transition_Info</include>
+			<include>transition_Content</include>
+<visible>Control.IsVisible(535)</visible>
+<control type="group">
+<!--frame-->
+		<control type="image">
+		<!--frame-->
+		<posx>90</posx>
+	<posy>100</posy>
+					<width>1100</width>
+					<height>50</height>
+					 <texture border="5" colordiffuse="base_2">overlays/osd_info_base.png</texture>
+			</control>
+			<control type="image">
+		<posx>90</posx>
+	<posy>155</posy>
+					<width>545</width>
+					<height>190</height>
+					 <texture border="5" colordiffuse="base_2">overlays/osd_info_base.png</texture>
+			</control>
+		<control type="image">
+		<posx>90</posx>
+	<posy>350</posy>
+					<width>545</width>
+					<height>50</height>
+					 <texture border="5" colordiffuse="base_2">overlays/osd_info_base.png</texture>
+			</control>
+		<control type="image">
+		<posx>645</posx>
+	<posy>155</posy>
+					<width>545</width>
+					<height>190</height>
+					 <texture border="5" colordiffuse="base_2">overlays/osd_info_base.png</texture>
+			</control>
+		<control type="image">
+		<posx>645</posx>
+	<posy>350</posy>
+					<width>545</width>
+					<height>50</height>
+					 <texture border="5" colordiffuse="base_2">overlays/osd_info_base.png</texture>
+			</control>
+</control>
+<control type="group">
+<!--Left-->
+<control type="textbox">
+				<posx>97</posx>
+	<posy>160</posy>
+				<width>530</width>
+				<align>justify</align>
+				<height max="170">auto</height>
+				<label>$VAR[global_Plot]</label>
+				<include>detail_Text</include>
+				</control>
+	</control>
+<control type="group">
+<!--right-->
+	<control type="image">
+		<posx>665</posx>
+	<posy>173</posy>
+		<width>245</width>
+		<height>150</height>
+		<texture background="true">$VAR[thumb_Landscape]</texture>
+		<aspectratio>scale</aspectratio>
+ 		<visible>!SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+		<visible>!Skin.HasSetting(Strip1logo.movies.enable)</visible>
+		</control>
+		<control type="image">
+		<posx>665</posx>
+		<posy>173</posy>
+		<width>245</width>
+		<height>150</height>
+		<include>art_ClearLogo</include>
+		<visible>Control.IsVisible(535)</visible>
+		<visible>Skin.HasSetting(Strip1logo.movies.enable)</visible>
+		</control>
+
+
+			<control type="image">
+		<posx>930</posx>
+	<posy>173</posy>
+		<width>245</width>
+		<height>150</height>
+		<texture background="true">$VAR[view_Extra.Thumb]</texture>
+		<aspectratio>scale</aspectratio>
+		<visible>Container.Content(movies)</visible>
+		</control>
+		<!--image right -->
+		<control type="multiimage">
+		<posx>930</posx>
+	<posy>173</posy>
+		<width>245</width>
+		<height>150</height>
+		<imagepath>$INFO[ListItem.Path,,extrafanart]</imagepath>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+			<visible>Container.Content(tvshows)</visible>
+			<timeperimage>9000</timeperimage>
+            <randomize>true</randomize>
+          <loop>yes</loop>
+		</control>
+		</control>
+		<control type="group">
+		<!--SETS-->
+		<control type="image">
+		<posx>665</posx>
+	<posy>173</posy>
+		<width>245</width>
+		<height>150</height>
+		<texture background="true">$VAR[global_Fanart]</texture>
+		<aspectratio>scale</aspectratio>
+		<visible>Container.Content(sets)</visible>
+		</control>
+		<control type="image">
+			<posx>930</posx>
+			<posy>173</posy>
+			<width>245</width>
+			<height>150</height>
+			<texture>$VAR[logo_clearart]</texture>
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(535)</visible>
+				<aspectratio align="center" aligny="top">keep</aspectratio>
+				<visible>Container.Content(sets)</visible>
+		</control>
+		</control>
+	<control type="label">
+					<posy>113</posy>
+					<posx>25%</posx>
+					<align>center</align>
+					<aligny>center</aligny>
+				    <width>630</width>
+				    <height>20</height>
+					<label>$VAR[global_Title]</label>
+					<include>detail_Title</include>
+			</control>
+			<!--Flag-->
+			<control type="grouplist" id="100">
+				<posx>660</posx>
+				<posy>355</posy>
+				<width>510</width>
+				<height>40</height>
+				<itemgap>30</itemgap>
+				<orientation>horizontal</orientation>
+				<visible>Control.IsVisible(535)</visible>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
+					<aspectratio align="center">keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[ListItem.Property(mediaTag-videoResolution),flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)] </visible>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[ListItem.Property(mediaTag-videoCodec),flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[ListItem.Property(mediaTag-audioCodec),flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)] </visible>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture>$INFO[ListItem.Property(mediaTag-audioChannels),flags/audio/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)] </visible>
+				</control>
+				<control type="image">
+					<width>76</width>
+					<height>44</height>
+					<texture>$VAR[flag_Studio]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+				</control>
+			</control>
+			<control type="label">
+					<posx>97</posx>
+					<posy>358</posy>
+					<width>520</width>
+					<label>$VAR[global_Info]</label>
+					<font>semibold-U</font>
+					<scroll>true</scroll>
+				</control>
+</control>
+</include>
+<!--PORTRAIT-->
+	<include name="viewPoster_Handbone">
+	<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+		<control type="wraplist" id="535">
+			<viewtype label="Strip">StripsmallPoster 1</viewtype>
+			<posx>38</posx>
+			<posy>510</posy>
+			<width>1280</width>
+			<height>425</height>
+			<onup>6000</onup>
+			<ondown>71</ondown>
+			<onleft>535</onleft>
+			<onright>535</onright>
+			<focusposition>3</focusposition>
+			<pagecontrol>71</pagecontrol>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+			<itemlayout width="180" >
+			<include>viewPoster_Handbone-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="180">
+
+			<include>viewPoster_Handbone-ContainerCommons</include>
+			<control type="image">
+                        <posx>55</posx>
+                        <posy>205</posy>
+                        <width>165</width>
+                        <height>160</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">$VAR[Icon_Discart]</texture>
+                        <animation effect="slide" delay="1600" end="0,-155" time="300" tween="quadratic">Focus</animation>
+                        <animation effect="slide" start="0,-155" end="0" time="150" tween="quadratic" easing="in">Unfocus</animation>
+                      	  <bordersize>7</bordersize>
+						 <visible>Skin.HasSetting(Strip1Discart.movies.enable)</visible>
+                    </control>
+			</focusedlayout>
+		</control>
+	</include>
+	<include name="viewPoster_Handbone-ContainerCommons">
+	<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<control type="group">
+				<include>focus_SlidePoster3</include>
+				<control type="image">
+					<width>135</width>
+					<height>200</height>
+				<texture border="5">frames/frame-back-alt.png</texture>
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(535)</visible>
+			</control>
+				<control type="image">
+					<width>137</width>
+					<height>200</height>
+				<texture background="true">thumbs/default_Portrait.png</texture>
+					<aspectratio align="center">stretch</aspectratio>
+					<visible>Control.IsVisible(535)</visible>
+				</control>
+				<control type="image">
+					<posx>12%</posx>
+					<posy>50</posy>
+					<width>96</width>
+					<height>96</height>
+					<include>art_DefaultIcon</include>
+				</control>
+				<control type="image">
+					<width>137</width>
+					<height>200</height>
+					<texture background="true">$VAR[thumb_Portrait]</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+					<visible>Control.IsVisible(535)</visible>
+				</control>
+				 <control type="image">
+			      <width>137</width>
+					<height>200</height>
+		            <texture>frames/Glass.png</texture>
+		            <visible>Skin.HasSetting(Strip1.Glass)</visible>
+				    <aspectratio align="center" aligny="top">stretch</aspectratio>
+					<visible>Control.IsVisible(535)</visible>
+		        </control>
+				   <!-- MikeBZH44 : ajout du boitier selon la resolution du film -->
+		<control type="group">
+				<control type="image">
+				<posx>-15</posx>
+					<posy>-10</posy>
+				    <width>170</width>
+					<height>220</height>
+					<texture background="true" fallback="thumbs/boxes/p.png">thumbs/boxes/$INFO[ListItem.Property(mediaTag-videoResolution)]p.png</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+					<visible>Control.IsVisible(535)</visible>
+				    <!--MikeBZH44-->
+				</control>
+				<control type="image">
+				   <posx>-15</posx>
+					<posy>-10</posy>
+				    <width>170</width>
+					<height>220</height>
+				    <texture>$VAR[UnFocusHDIndicator]</texture>
+					<visible>true</visible>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+					<visible>Control.IsVisible(535)</visible>
+				</control>
+					<visible>Skin.HasSetting(Strip1.case)</visible>
+		</control>
+			</control>
+
+			  <control type="group">
+			  <include>focus_SlidePoster3</include>
+				<posx>108</posx>
+                        <posy>175</posy>
+					<include>status_Info</include>
+					<visible>Control.IsVisible(535)</visible>
+					<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+					</control>
+				<control type="group">
+				<include>focus_SlidePoster3</include>
+					<posx>103</posx>
+                        <posy>170</posy>
+					<width>32</width>
+					<height>32</height>
+					<visible>Control.IsVisible(535)</visible>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+					<control type="image">
+						<info>ListItem.Overlay</info>
+					</control>
+				</control>
+	</include>
+</includes>

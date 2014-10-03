@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<!--POSTERSMALL-->
+	<include name="view_Icon2PortraitSmall-ContainerCommons">
+	<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
+			<control type="group">
+			<posx>7</posx>
+			<posy>7</posy>
+			<include></include>
+			<control type="image">
+				<posy>-5</posy>
+				<posx></posx>
+				<width>120</width>
+				<height>170</height>
+			<texture border="5">frames/frame-back-alt.png</texture>
+			<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<width>115</width>
+				<height>170</height>
+				<texture background="true">thumbs/default_Portrait.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<posx>25</posx>
+				<posy>53</posy>
+				<width>64</width>
+				<height>64</height>
+				<texture>$INFO[ListItem.ActualIcon]</texture>
+				<aspectratio>keep</aspectratio>
+				<visible>IsEmpty(ListItem.Thumb)</visible>
+			</control>
+			<control type="image">
+				<width>115</width>
+				<height>170</height>
+				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+					<posx>0</posx>
+					<posy>138</posy>
+					<width>32</width>
+            <height>32</height>
+			<texture background="true" colordiffuse="videoextras_overlay.png">$VAR[VideoextrasOverlay]</texture>
+			<visible>Control.IsVisible(581) + System.HasAddon(script.videoextras) + Window.IsVisible(Videos) + Container.Content(Movies) + !Skin.HasSetting(Enable.videoextrasOverlays)</visible>
+		<colordiffuse>FFFFFFFF</colordiffuse>
+		</control>
+			<control type="group">
+				<posx>89</posx>
+				<posy>144</posy>
+				<include>status_Info</include>
+				<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+			</control>
+				<control type="group">
+					<posx>84</posx>
+				<posy>141</posy>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+					<control type="image">
+						<info>ListItem.Overlay</info>
+					</control>
+				</control>
+				<control type="image">
+                <posx>-7</posx>
+                <posy>-7</posy>
+                <width>127</width>
+                <height>183</height>
+               <texture>frames/Glass.png</texture>
+		        <visible>Skin.HasSetting(StripPosterSmall.Glass)</visible>
+                </control>
+               <control type="group">
+				<!-- MikeBZH44 : ajout du boitier selon la resolution du film -->
+				<control type="image">
+				<posx>-13</posx>
+					<posy>-13</posy>
+					<width>143</width>
+					<height>195</height>
+					<texture background="true" fallback="thumbs/boxes/p.png">thumbs/boxes/$INFO[ListItem.Property(mediaTag-videoResolution)]p.png</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+				    <!--MikeBZH44-->
+
+					  </control>
+				<control type="image">
+				<posx>-13</posx>
+					<posy>-13</posy>
+					<width>143</width>
+					<height>195</height>
+				<texture>$VAR[UnFocusHDIndicator]</texture>
+						<visible>true</visible>
+						<aspectratio align="center" aligny="top">stretch</aspectratio>
+						</control>
+						<visible>Skin.HasSetting(StripPosterSmall.case)</visible>
+					</control>
+		</control>
+	</include>
+	<include name="view_Icon2PortraitSmall">
+	<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
+	    <control type="image">
+		 <include>transition_Content</include>
+            <include>toggle_Menu</include>
+            <include>transition_Info</include>
+				<posy>440</posy>
+				<posx>screenleft</posx>
+				<width>1280</width>
+				<height>600</height>
+               <texture background="true" colordiffuse="170FFFFFF">frames/strip.png</texture>
+			   <aspectratio>stretch</aspectratio>
+			   <visible>Control.IsVisible(581)</visible>
+			</control>
+
+		<control type="fixedlist" id="581">
+			<viewtype label="Strip">StripsmallPoster 2</viewtype>
+            <hitrect x="0" y="-10" w="1280" h="190"/>
+			<posx>25</posx>
+            <posy>450</posy>
+            <width>1272</width>
+            <height>300</height>
+            <onup>6000</onup>
+            <ondown condition="Window.IsActive(Pictures)">71</ondown>
+			<ondown condition="!Window.IsActive(Pictures)">8000</ondown>
+            <onleft>581</onleft>
+            <onright>581</onright>
+            <pagecontrol>71</pagecontrol>
+            <preloaditems>2</preloaditems>
+			<focusposition>1</focusposition>
+            <orientation>horizontal</orientation>
+            <include>global_Scrolltime</include>
+            <include>transition_Content</include>
+            <include>toggle_Menu</include>
+            <include>transition_Info</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+			<itemlayout width="135" height="160">
+				<include>view_Icon2PortraitSmall-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="135" height="160">
+				<control type="image">
+				 <posx>-5</posx>
+					<width>140</width>
+					<height>185</height>
+					<include>art_Frame-fo</include>
+				</control>
+				<include>view_Icon2PortraitSmall-ContainerCommons</include>
+			</focusedlayout>
+		</control>
+	</include>
+
+	<include name="detail_Strip">
+<control type="group">
+<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+		</control>
+		<control type="image">
+		<posy>120</posy>
+			<include>screen_Dimensions</include>
+			<texture background="true" colordiffuse="50ff111111">overlays\vignetteFullScreen.png</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+		</control>
+		<control type="label">
+				<posx>20</posx>
+			<posy>680</posy>
+						<label>$VAR[global_Title]</label>
+						<width>625</width>
+						<include>detail_Title</include>
+					</control>
+
+		<visible>Control.IsVisible(581) + Control.HasFocus(8000)</visible>
+		</control>
+		<control type="group">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<!--small grid info 1-->
+			<control type="group">
+			<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
+
+			<posx>20</posx>
+					<posy>100</posy>
+			<control type="group">
+				<control type="image">
+					 <posx>-350</posx>
+					<posy>-35</posy>
+				     <width>640</width>
+				     <height>450</height>
+				     <texture background="true">frames/Landscape-overlays.png</texture>
+				     <aspectratio>scale</aspectratio>
+					 <colordiffuse>accent_5</colordiffuse>
+			      </control>
+				  <control type="image">
+					 <posx>-140</posx>
+					<posy>-35</posy>
+				     <width>640</width>
+				     <height>450</height>
+				     <texture background="true">frames/Landscape-overlays.png</texture>
+				     <aspectratio>scale</aspectratio>
+					 <colordiffuse>accent_5</colordiffuse>
+			      </control>
+				<control type="image">
+					 <posx>-205</posx>
+					<posy>10</posy>
+				     <width>550</width>
+				     <height>315</height>
+				     <texture background="true">frames/Landscape-diffuse.png</texture>
+					 <animation condition="true" effect="Fade" start="50" end="50" time="0">Conditional</animation>
+				     <aspectratio>scale</aspectratio>
+					 <colordiffuse>base_2</colordiffuse>
+			      </control>
+					<control type="image">
+					 <posx>-240</posx>
+					<posy>10</posy>
+				     <width>630</width>
+				     <height>315</height>
+				     <texture background="true">$VAR[thumb_Landscape]</texture>
+				     <aspectratio>keep</aspectratio>
+					 <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+			      </control>
+				  <control type="image">
+					 <posx>-650</posx>
+					<posy>10</posy>
+				     <width>395</width>
+				     <height>315</height>
+				     <texture background="true">frames/Landscape-diffuse.png</texture>
+					 <animation condition="true" effect="Fade" start="50" end="50" time="0">Conditional</animation>
+				     <aspectratio>scale</aspectratio>
+					 <colordiffuse>accent_4</colordiffuse>
+			      </control>
+				  <posx>755</posx>
+				 <include>fadeinout</include>
+				  <control type="group">
+				  <visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
+				  <control type="textbox">
+				  <posy>12</posy>
+			        <posx>-634</posx>
+					<width>365</width>
+					<height>300</height>
+                    <align>justify</align>
+					<textcolor>Color1</textcolor>
+					<label>$VAR[global_Plot]</label>
+							<include>detail_Text</include>
+					<visible>!SubString(ListItem.Icon,default)</visible>
+					</control>
+					</control>
+				  <control type="image">
+				  <posx>-50</posx>
+				  <posy>120</posy>
+				  <width>260</width>
+				  <height>160</height>
+				  <include>art_ClearLogo</include>
+				  </control>
+				  <visible>!Skin.HasSetting(stripsmallinfo1.enable)</visible>
+				  </control>
+				  <!--fin str^p smal info 1-->
+
+				  <!--small grid info 2-->
+			<control type="group">
+			<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
+			<posx>62</posx>
+					<posy>0</posy>
+			<control type="group">
+				<control type="image">
+					 <posx>-350</posx>
+					<posy>-35</posy>
+				     <width>640</width>
+				     <height>450</height>
+				     <texture background="true">frames/Landscape-overlays.png</texture>
+				     <aspectratio>scale</aspectratio>
+					 <colordiffuse>accent_5</colordiffuse>
+			      </control>
+				  <control type="image">
+					 <posx>-140</posx>
+					<posy>-35</posy>
+				     <width>640</width>
+				     <height>450</height>
+				     <texture background="true">frames/Landscape-overlays.png</texture>
+				     <aspectratio>scale</aspectratio>
+					 <colordiffuse>accent_5</colordiffuse>
+			      </control>
+				<control type="image">
+					 <posx>-240</posx>
+					<posy>10</posy>
+				     <width>630</width>
+				     <height>315</height>
+				     <texture background="true">frames/Landscape-diffuse.png</texture>
+					 <animation condition="true" effect="Fade" start="50" end="50" time="0">Conditional</animation>
+				     <aspectratio>scale</aspectratio>
+					 <colordiffuse>base_2</colordiffuse>
+			      </control>
+					<control type="image">
+					 <posx>-240</posx>
+					<posy>10</posy>
+				     <width>630</width>
+				     <height>315</height>
+				     <texture background="true">$VAR[thumb_Landscape]</texture>
+				     <aspectratio>scale</aspectratio>
+					 <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+			      </control>
+				  <posx>755</posx>
+				  <include>fadeinout</include>
+			<control type="image">
+				<posx>-510</posx>
+				<posy>8</posy>
+				<width>250</width>
+				<height>141</height>
+				<texture background="true">$VAR[thumb_Landscape]</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+
+   <control type="image">
+				<posx>-510</posx>
+				<posy>8</posy>
+				<width>250</width>
+				<height>141</height>
+				<texture background="true">$VAR[view_Extra.Thumb]</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+			  <control type="image">
+				<posx>-735</posx>
+				<posy>8</posy>
+				<width>180</width>
+				<height>150</height>
+				<texture background="true">$VAR[logo_clearart]</texture>
+				<aspectratio>keep</aspectratio>
+			</control>
+			       <control type="image">
+				<posx>-780</posx>
+				<posy>8</posy>
+				<width>250</width>
+				<height>141</height>
+				<texture background="true">$VAR[view_Extra.Thumb2]</texture>
+				<aspectratio>scale</aspectratio>
+			</control>
+			<control type="textbox" id="4">
+				  <posy>160</posy>
+			        <posx>-780</posx>
+					<width>510</width>
+					<height>158</height>
+					 <align>justify</align>
+					<textcolor>Color1</textcolor>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>!SubString(ListItem.Icon,default)</visible>
+					</control>
+
+				  <control type="image">
+				  <posx>-50</posx>
+				  <posy>120</posy>
+				  <width>260</width>
+				  <height>160</height>
+				  <include>art_ClearLogo</include>
+				  </control>
+				  <visible>Skin.HasSetting(stripsmallinfo2.enable)</visible>
+				  </control>
+				  <!--fin strip smal info 2-->
+				  </control>
+					<control type="label">
+					<posx>-730</posx>
+					<posy>580</posy>
+						<width>400</width>
+						<label>$INFO[ListItem.Genre]</label>
+						<include>detail_Sub</include>
+						<visible>Container.Content(movies) | Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
+					</control>
+
+					<posx>770</posx>
+				    <posy>93</posy>
+					<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
+				<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+						<control type="label">
+						<posy>320</posy>
+						<posx>-730</posx>
+						<width>460</width>
+						<label>$VAR[nextaired_Info]</label>
+						<include>detail_Sub</include>
+						<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
+					</control>
+
+				<control type="group">
+					<control type="label">
+					<label>$VAR[global_Title]</label>
+					<width>958</width>
+					<posy>540</posy>
+					<posx>20</posx>
+					<include>detail_Title</include>
+					<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
+				</control>
+				</control>
+				<control type="group">
+				<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
+				 <posx>790</posx>
+					<control type="image">
+				    <posy>560</posy>
+				    <posx>5</posx>
+					<bottom>40</bottom>
+					<width>70</width>
+					<height>45</height>
+					<aspectratio align="left">keep</aspectratio>
+					<texture>$VAR[flag_Studio]</texture>
+				</control>
+				<control type="image">
+			    <posy>565</posy>
+				<posx>85</posx>
+				<width>60</width>
+				<height>45</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[ListItem.Property(mediaTag-videoResolution),flags/video/resolution/,.png]</texture>
+				<visible>true</visible>
+			</control>
+			<control type="image">
+				<posy>570</posy>
+				<posx>165</posx>
+				<width>35</width>
+				<height>35</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[ListItem.Property(mediaTag-audioChannels),flags/audio/,.png]</texture>
+				<visible>true</visible>
+			 </control>
+			 <control type="image">
+			        <posy>565</posy>
+			        <posx>233</posx>
+					<width>60</width>
+					<height>45</height>
+					<texture>$INFO[ListItem.Property(mediaTag-videoCodec),flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+				<control type="image">
+				    <posy>565</posy>
+			        <posx>330</posx>
+					<width>60</width>
+					<height>45</height>
+					<texture>$INFO[ListItem.Property(mediaTag-audioCodec),flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)] </visible>
+				</control>
+				<control type="image">
+				 <posy>569</posy>
+			        <posx>370</posx>
+				<width>80</width>
+				<height>40</height>
+				<aspectratio align="right">keep</aspectratio>
+				<texture>$VAR[flag_VideoType-fo]</texture>
+				<visible>Control.IsVisible(581)</visible>
+			</control>
+				</control>
+				</control>
+				<control type="label">
+					    <posx>40</posx>
+					<posy>675</posy>
+						<width>700</width>
+						<label>$VAR[global_Info]</label>
+						<include>detail_Sub</include>
+						<visible>!SubString(Container.FolderPath,plugin) + !SubString(ListItem.Icon,default)</visible>
+						<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>	</control>
+					<control type="image">
+					    <posx>1100</posx>
+					    <posy>635</posy>
+						<width>100</width>
+						<height>34</height>
+						<include>detail_StarRating</include>
+						<aspectratio align="left" aligny="center">keep</aspectratio>
+						<visible>Control.IsVisible(581) + !Control.HasFocus(8000)</visible>
+						</control>
+		</control>
+	</include>
+</includes>

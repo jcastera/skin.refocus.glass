@@ -1,0 +1,359 @@
+<includes>
+	<include name="detail_Shelf">
+	<control type="group">
+<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+		</control>
+		<control type="image">
+		<posy>120</posy>
+			<include>screen_Dimensions</include>
+			<texture background="true" colordiffuse="50ff111111">overlays\vignetteFullScreen.png</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+		</control>
+		<control type="label">
+				<posx>20</posx>
+			<posy>680</posy>
+						<label>$VAR[global_Title]</label>
+						<width>625</width>
+						<include>detail_Title</include>
+					</control>
+
+		<visible>Control.IsVisible(594) + Control.HasFocus(8000)</visible>
+		</control>
+	<control type="group">
+	<animation effect="slide" time="1000" start="-800,0" end="0,0" tween="cubic" easing="out">WindowOpen</animation>
+	<animation effect="slide" time="700" start="0,0" end="-800,0" tween="cubic" easing="out">WindowClose</animation>
+	<animation effect="slide" time="1000" start="0,600" end="0,0" tween="cubic" easing="out">Visible</animation>
+	<animation effect="fade" time="200" start="100" end="0">Hidden</animation>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<visible>Control.IsVisible(594) + !Control.HasFocus(8000)</visible>
+				<animation effect="slide" start="0" end="57" time="0" condition="Control.IsVisible(594)">Conditional</animation>
+				<control type="image">
+					 <posx>415</posx>
+					 <posy>170</posy>
+				     <width>860</width>
+				     <height>550</height>
+				     <texture background="true">frames/Landscape-overlays.png</texture>
+				     <aspectratio>scale</aspectratio>
+					 <colordiffuse>base_2</colordiffuse>
+			    </control>
+				<control type="image">
+				     <posy>310</posy>
+				     <posx>450</posx>
+				     <width>800</width>
+				     <height>325</height>
+                     <texture background="true">frames/strip.png</texture>
+                     <colordiffuse>190FFFFFF</colordiffuse>
+			         <aspectratio>stretch</aspectratio>
+					  <colordiffuse>base_2</colordiffuse>
+			         <visible>Control.IsVisible(594)</visible>
+			    </control>
+				<control type="textbox" id="4">
+					    <posy>325</posy>
+			        <posx>800</posx>
+					<width>380</width>
+					<height>215</height>
+						<align>justify</align>
+						<label>$VAR[global_Plot]</label>
+						<textcolor>Color13</textcolor>
+						<include>detail_Text</include>
+						<visible>!SubString(ListItem.Icon,default)</visible>
+					</control>
+			    <control type="image">
+				    <posy>90</posy>
+			        <posx>740</posx>
+					<width>350</width>
+					<height>160</height>
+				    <include>art_ClearLogo</include>
+				</control>
+				<control type="image">
+					<posx>180r</posx>
+					<posy>270</posy>
+					<width>90</width>
+					<height>44</height>
+					<include>detail_StarRating</include>
+					<aspectratio align="right" aligny="top">keep</aspectratio>
+				</control>
+				<control type="image">
+					<posx>490</posx>
+					<posy>350</posy>
+					<width>200</width>
+					<height>200</height>
+					<texture background="true">$VAR[Icon_Discart]</texture>
+					<visible>Skin.HasSetting(ShelfDiscart.movies.enable)</visible>
+					<visible>Control.IsVisible(594)</visible>
+				    <animation type="WindowOpen">
+					<effect type="slide" start="0,0" end="100,0" time="800" delay="1800" tween="cubic" easing="out"/>
+					<effect type="fade" start="0" end="100" time="600" delay="1000"/>
+					</animation>
+					<animation type="Visible">
+					<effect type="slide" start="0,0" end="0,0" time="600" delay="1000" tween="cubic" easing="out"/>
+					<effect type="fade" start="0" end="100" time="600" delay="1000"/>
+					</animation>
+					<animation effect="fade" start="100" end="0" time="200">WindowClose</animation>
+					<animation type="Hidden">
+					<effect type="slide" start="-5,0" end="0,0" time="300" tween="cubic" easing="out"/>
+					<effect type="fade" start="-100" end="0" time="200"/>
+					</animation>
+					</control>
+				<control type="image">
+					<posy>315</posy>
+			        <posx>450</posx>
+				    <width>220</width>
+				    <height>310</height>
+				    <texture background="true">thumbs/default_Portrait.png</texture>
+				    <aspectratio>stretch</aspectratio>
+			    </control>
+				<control type="image">
+					<posy>315</posy>
+			        <posx>452</posx>
+				    <width>220</width>
+				    <height>310</height>
+				    <texture background="true">$VAR[thumb_Portrait]</texture>
+				    <aspectratio>stretch</aspectratio>
+			    </control>
+				<control type="image">
+					<posx>642</posx>
+					<posy>335</posy>
+					<width>30</width>
+            <height>30</height>
+			<texture background="true" colordiffuse="videoextras_overlay.png">$VAR[VideoextrasOverlay]</texture>
+			<visible>Control.IsVisible(594) + System.HasAddon(script.videoextras) + Window.IsVisible(Videos) + Container.Content(Movies) + !Skin.HasSetting(Enable.videoextrasOverlays)</visible>
+		<colordiffuse>FFFFFFFF</colordiffuse>
+		</control>
+			<control type="group">
+					<posx>645</posx>
+					<posy>600</posy>
+					<include>status_Info</include>
+				    <visible>Skin.HasSetting(overlay_statu.disable)</visible>
+			</control>
+			<control type="group">
+					<posx>640</posx>
+					<posy>597</posy>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+					<control type="image">
+					<info>ListItem.Overlay</info>
+					</control>
+			</control>
+			<control type="image">
+					<posy>310</posy>
+			        <posx>448</posx>
+				    <width>230</width>
+				    <height>325</height>
+		            <texture>frames/Glass.png</texture>
+		            <visible>Skin.HasSetting(ShelfPoster.Glass)</visible>
+				    <aspectratio align="center" aligny="top">stretch</aspectratio>
+		    </control>
+				   <!-- MikeBZH44 : ajout du boitier selon la resolution du film -->
+			<control type="group">
+				 <control type="image">
+				    <posy>290</posy>
+			        <posx>420</posx>
+				    <width>280</width>
+				    <height>355</height>
+					<texture background="true" fallback="thumbs/boxes/p.png">thumbs/boxes/$INFO[ListItem.Property(mediaTag-videoResolution)]p.png</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+				    <!--MikeBZH44-->
+				 </control>
+				 <control type="image">
+				    <posy>290</posy>
+			        <posx>420</posx>
+				    <width>280</width>
+				    <height>355</height>
+				    <texture>$VAR[UnFocusHDIndicator]</texture>
+					<visible>true</visible>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+				</control>
+					<visible>Skin.HasSetting(ShelfPoster.case)</visible>
+			</control>
+					<control type="label">
+			        <posy>570</posy>
+			        <posx>450</posx>
+					<width>690</width>
+					<height>190</height>
+					<label>$INFO[ListItem.Label]</label>
+					<include>detail_Title</include>
+					</control>
+				<control type="label">
+					<posy>685</posy>
+					<posx>450</posx>
+					<label>$VAR[global_Info]</label>
+					<width>650</width>
+					<include>detail_Sub</include>
+					<animation effect="slide" start="0,0" end="-45,0" time="0" tween="sine" easing="inout" condition="IsEmpty(ListItem.VideoResolution) + !Substring(ListItem.Path,videodb://movies/sets/)">Conditional</animation>
+		            <animation effect="slide" start="0,0" end="5,0" time="0" tween="sine" easing="inout" condition="Substring(ListItem.Path,videodb://movies/sets/)">Conditional</animation>
+		            <animation effect="slide" start="0,0" end="60,0" time="0" tween="sine" easing="inout" condition="Container.Content(TVShows) | Container.Content(Seasons)">Conditional</animation>
+				</control>
+			<!--flags-->
+				<control type="image">
+				 <posy>582</posy>
+				<posx>675</posx>
+				<width>80</width>
+				<height>40</height>
+				<aspectratio align="right">keep</aspectratio>
+				<texture>$VAR[flag_VideoType-fo]</texture>
+			</control>
+			<control type="image">
+					<posy>650</posy>
+				    <posx>380</posx>
+					<width>75</width>
+					<height>41</height>
+					<aspectratio align="left">keep</aspectratio>
+					<texture>$VAR[flag_Studio]</texture>
+			</control>
+			<control type="image">
+			    <posy>585</posy>
+				<posx>790</posx>
+				<width>80</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[ListItem.Property(mediaTag-videoResolution),flags/video/resolution/,.png]</texture>
+				<visible>true</visible>
+			</control>
+			<control type="image">
+				<posy>585</posy>
+				<posx>900</posx>
+				<width>58</width>
+				<height>31</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[ListItem.Property(mediaTag-audioChannels),flags/audio/,.png]</texture>
+				<visible>true</visible>
+			 </control>
+			 <control type="image">
+			        <posy>585</posy>
+			        <posx>990</posx>
+					<width>70</width>
+					<height>35</height>
+					<texture>$INFO[ListItem.Property(mediaTag-videoCodec),flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+				<control type="image">
+				    <posy>580</posy>
+			        <posx>1100</posx>
+					<width>70</width>
+					<height>45</height>
+					<texture>$INFO[ListItem.Property(mediaTag-audioCodec),flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)] </visible>
+				</control>
+		</control>
+</include>
+<!--PORTRAIT-->
+<include name="view_ShelfPortrait">
+	<control type="image">
+	 <include>transition_Content</include>
+            <include>transition_Info</include>
+				<posy>300</posy>
+				<posx>screenleft</posx>
+				<width>1280</width>
+				<height>280</height>
+				<animation effect="rotatey" center="540" end="55" time="200" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+                            <animation effect="rotatey" center="540" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+               <texture background="true">frames/strip.png</texture>
+               <colordiffuse>180FFFFFF</colordiffuse>
+			   <aspectratio>stretch</aspectratio>
+			   <visible>Control.IsVisible(594)</visible>
+	</control>
+	<control type="fixedlist" id="594">
+			<viewtype label="Strip">wrap</viewtype>
+			<posx>80</posx>
+			<posy>310</posy>
+			<width>1280</width>
+			<height>800</height>
+			<onup>6000</onup>
+			<ondown condition="!Window.IsActive(Pictures)">8000</ondown>
+			<ondown condition="Window.IsActive(Pictures)">71</ondown>
+			<onleft>594</onleft>
+			<onright>594</onright>
+			<focusposition>2</focusposition>
+			<pagecontrol>71</pagecontrol>
+			<camera x="600" y="380" />
+	        <animation effect="rotatey" center="540" end="55" time="200" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+            <animation effect="rotatey" center="540" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)</visible>
+			<itemlayout width="202" height="300">
+			<include>view_ShelfPortrait-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="520" height="300">
+			</focusedlayout>
+	</control>
+</include>
+<include name="view_ShelfPortrait-ContainerCommons">
+<control type="group">
+<control type="image">
+				<posy>-8</posy>
+				<posx>-6</posx>
+				<width>217</width>
+				<height>323</height>
+			    <texture border="5">frames/frame-back-alt.png</texture>
+			    <aspectratio>stretch</aspectratio>
+		</control>
+				<control type="image">
+				<width>183</width>
+				<height>280</height>
+				<texture background="true">thumbs/default_Portrait.png</texture>
+				<aspectratio align="center">stretch</aspectratio>
+		    </control>
+		    <control type="image">
+					<width>183</width>
+					<height>280</height>
+					<texture>$VAR[thumb_Portrait]</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+		    </control>
+			<control type="image">
+					<posx>153</posx>
+					<posy>25</posy>
+					<width>25</width>
+            <height>25</height>
+			<texture background="true" colordiffuse="videoextras_overlay.png">$VAR[VideoextrasOverlay]</texture>
+			<visible>Control.IsVisible(594) + System.HasAddon(script.videoextras) + Window.IsVisible(Videos) + Container.Content(Movies) + !Skin.HasSetting(Enable.videoextrasOverlays)</visible>
+		<colordiffuse>FFFFFFFF</colordiffuse>
+		</control>
+			<control type="group">
+		    <control type="image">
+					<posx>-5</posx>
+					<posy>-5</posy>
+					<width>193</width>
+					<height>293</height>
+		            <texture>frames/Glass.png</texture>
+				    <aspectratio align="center" aligny="top">stretch</aspectratio>
+		    </control>
+			 <visible>Skin.HasSetting(ShelfPoster.Glass)</visible>
+			</control>
+				   <!-- MikeBZH44 : ajout du boitier selon la resolution du film -->
+			<control type="group">
+			<control type="image">
+				    <posx>-24</posx>
+					<posy>-15</posy>
+					<width>230</width>
+					<height>312</height>
+					<texture background="true" fallback="thumbs/boxes/p.png">thumbs/boxes/$INFO[ListItem.Property(mediaTag-videoResolution)]p.png</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+				    <!--MikeBZH44-->
+			</control>
+			<control type="image">
+				    <posy>300</posy>
+			        <posx>420</posx>
+				    <width>280</width>
+				    <height>350</height>
+				    <texture>$VAR[UnFocusHDIndicator]</texture>
+					<visible>true</visible>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+			</control>
+			<visible>Skin.HasSetting(ShelfPoster.case)</visible>
+			</control>
+	</control>
+</include>
+</includes>

@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<include name="detail_StripFanart">
+<control type="group">
+<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+		</control>
+		<control type="image">
+		<posy>120</posy>
+			<include>screen_Dimensions</include>
+			<texture background="true" colordiffuse="50ff111111">overlays\vignetteFullScreen.png</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+		</control>
+		<control type="label">
+				<posx>20</posx>
+			<posy>680</posy>
+						<label>$VAR[global_Title]</label>
+						<width>625</width>
+						<include>detail_Title</include>
+					</control>
+		<visible>Control.IsVisible(597) + Control.HasFocus(8000)</visible>
+		</control>
+		<control type="group">
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<visible>Control.IsVisible(597) | Container.Content(sets)</visible>
+			<!--info strip fanart 1-->
+				<control type="group">
+					       <posx>77</posx>
+							<posy>55</posy>
+					<control type="textbox">
+							<posy>155</posy>
+							<width>290</width>
+							<align>justify</align>
+							<height max="350">auto</height>
+							<label>$VAR[global_Plot]</label>
+							<include>detail_Text</include>
+					<visible>!SubString(ListItem.Icon,default)</visible>
+					<visible>Control.IsVisible(597) + Container.Content(sets)</visible>
+					</control>
+					        <visible>!Skin.HasSetting(stripfanartinfo1.enable)</visible>
+				</control>
+                <!--info strip fanart 2-->
+				<control type="group">
+				<posx>77</posx>
+					<posy>55</posy>
+				<control type="textbox">
+					<posy>155</posy>
+					<width>290</width>
+					<align>justify</align>
+					<height max="160">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(597) + Container.Content(sets)</visible>
+				</control>
+					<visible>Skin.HasSetting(stripfanartinfo2.enable)</visible>
+			    </control>
+				<!--info strip fanart 3-->
+				<control type="group">
+				<posx>77</posx>
+				<posy>55</posy>
+				<control type="textbox">
+					<posy>155</posy>
+					<width>290</width>
+					<align>justify</align>
+					<height max="210">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(597) + Container.Content(sets)</visible>
+				</control>
+					<visible>Skin.HasSetting(stripfanartinfo3.enable)</visible>
+			    </control>
+		</control>
+
+</include>
+<include name="viewStripFanartPoster-ContainerCommons">
+		<centerleft>50%</centerleft>
+		<visible>Control.IsVisible(597) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)</visible>
+		<control type="group">
+			<control type="image">
+				<posx>85</posx>
+                <posy>25</posy>
+                <width>1250</width>
+                <height>690</height>
+				<texture border="50">overlays/panel.png</texture>
+			</control>
+		<control type="group">
+				 <posx>450</posx>
+				 <posy>135</posy>
+			<control type="image">
+					<width>815</width>
+					<height>450</height>
+					<texture background="true">thumbs/default_Landscape.png</texture>
+					<aspectratio align="center">stretch</aspectratio>
+			</control>
+			<control type="image">
+					<posx>370</posx>
+				    <posy>150</posy>
+					<width>120</width>
+					<height>120</height>
+					<include>art_DefaultIcon</include>
+			</control>
+			<control type="image">
+					<width>815</width>
+					<height>450</height>
+					<texture background="true">$VAR[thumb_Landscape]</texture>
+					<aspectratio align="center" aligny="top">scale</aspectratio>
+			</control>
+			<control type="image">
+					<centerleft>410</centerleft>
+					<posy>300</posy>
+					<width>289</width>
+					<height>112</height>
+					<include>art_ClearLogo</include>
+			</control>
+		</control>
+		<control type="group">
+				    <posx>1080</posx>
+				    <posy>300</posy>
+			<control type="group">
+					<posx>157</posx>
+					<posy>254</posy>
+					<include>status_Info</include>
+					<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+			</control>
+		    <control type="group">
+					<posx>152</posx>
+					<posy>250</posy>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+				<control type="image">
+					<info>ListItem.Overlay</info>
+				</control>
+			</control>
+				<control type="label">
+					<label>$INFO[ListItem.Label]</label>
+					<posx>180</posx>
+					<posy>-195</posy>
+					<align>right</align>
+					<width>600</width>
+					<include>detail_Title</include>
+				</control>
+				<control type="label">
+						<posx>772</posx>
+						<label>$INFO[Container(597).ListItem(1).Label]</label>
+						<width>770</width>
+						<include>detail_Title</include>
+						<animation effect="fade" start="100" end="30" time="0" condition="true">Conditional</animation>
+				</control>
+				<control type="label">
+			            <posx>180</posx>
+						<posy>290</posy>
+						<align>right</align>
+						<label>$VAR[gallery_Header]</label>
+						<width>772</width>
+						<textcolor>Color1</textcolor>
+						<include>detail_Title</include>
+				</control>
+			<control type="group">
+				<control type="image">
+					    <posx>-930</posx>
+					    <posy>-165</posy>
+				        <width>128</width>
+				        <height>32</height>
+				        <texture>$VAR[global_Rating]</texture>
+				        <aspectratio align="center">keep</aspectratio>
+				        <visible>!Container.Content(files)</visible>
+			    </control>
+			</control>
+			    <control type="group">
+						 <posx>-930</posx>
+					    <posy>-195</posy>
+					<control type="label">
+							<width>400</width>
+							<label>$VAR[global_Info]</label>
+							<include>detail_Sub</include>
+							<align>left</align>
+							<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
+					<visible>Control.IsVisible(597)</visible>
+					</control>
+					<control type="label">
+							<width>960</width>
+							<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
+							<include>detail_Sub</include>
+							<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
+					<visible>Control.IsVisible(597)</visible>
+					</control>
+			    </control>
+			<control type="group">
+			<control type="image">
+				           <posy>20</posy>
+				           <posx>-985</posx>
+				           <width>28</width>
+				           <height>28</height>
+			               <aspectratio>scale</aspectratio>
+					       <texture background="true">toast/indicator.png</texture>
+			</control>
+			        <control type="image">
+				           <posy>20</posy>
+				           <posx>217</posx>
+				           <width>28</width>
+				           <height>28</height>
+			               <aspectratio>scale</aspectratio>
+					       <texture background="true">toast/right.png</texture>
+					 </control>
+			</control>
+		</control>
+			 <!--info strip fanart 1-->
+				<control type="group">
+					       <posx>153</posx>
+							<posy>25</posy>
+					<control type="textbox">
+							<posy>155</posy>
+							<width>290</width>
+							<align>justify</align>
+							<height max="350">auto</height>
+							<label>$VAR[global_Plot]</label>
+							<include>detail_Text</include>
+					<visible>!SubString(ListItem.Icon,default)</visible>
+					</control>
+					<control type="image">
+				            <posx>-5</posx>
+				            <posy>515</posy>
+				            <width>100</width>
+				            <height>70</height>
+				            <aspectratio align="left">keep</aspectratio>
+				            <texture>$VAR[flag_Studio]</texture>
+				            <visible>Control.IsVisible(597) | [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			        </control>
+					        <visible>!Skin.HasSetting(stripfanartinfo1.enable)</visible>
+				</control>
+                <!--info strip fanart 2-->
+				<control type="group">
+				<posx>153</posx>
+					<posy>25</posy>
+				<control type="image">
+					<posx>30</posx>
+					<posy>340</posy>
+					<width>155</width>
+					<height>155</height>
+					<texture background="true">$VAR[Icon_Discart]</texture>
+					<visible>Skin.HasSetting(StripFanartDiscart.movies.enable)</visible>
+
+					</control>
+				<control type="textbox">
+					<posy>155</posy>
+					<width>290</width>
+					<align>justify</align>
+					<height max="142">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+				</control>
+				<control type="image">
+					<posy>330</posy>
+				    <posx>115</posx>
+				    <width>170</width>
+				    <height>230</height>
+				   <texture background="true">$VAR[thumb_Portrait]</texture>
+				    <aspectratio>stretch</aspectratio>
+			    </control>
+				<control type="image">
+				<posy>327</posy>
+				    <posx>112</posx>
+				    <width>177</width>
+				    <height>238</height>
+		            <texture>frames/Glass.png</texture>
+		            <visible>Skin.HasSetting(StripFanartPosterSmall.Glass)</visible>
+				    <aspectratio align="center" aligny="top">stretch</aspectratio>
+
+		    </control>
+				   <!-- MikeBZH44 : ajout du boitier selon la resolution du film -->
+			<control type="group">
+				 <control type="image">
+				  <posy>305</posy>
+				    <posx>95</posx>
+				    <width>215</width>
+				    <height>270</height>
+					<texture background="true" fallback="thumbs/boxes/p.png">thumbs/boxes/$INFO[ListItem.Property(mediaTag-videoResolution)]p.png</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+					<visible>Control.IsVisible(597)</visible>
+				    <!--MikeBZH44-->
+				 </control>
+				 <control type="image">
+				    <posy>305</posy>
+				    <posx>95</posx>
+				    <width>215</width>
+				    <height>270</height>
+				    <texture>$VAR[UnFocusHDIndicator]</texture>
+					<visible>true</visible>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+
+				</control>
+					<visible>Skin.HasSetting(StripFanartPosterSmall.case)</visible>
+			</control>
+				<control type="image">
+				    <posx>-5</posx>
+				    <posy>515</posy>
+				    <width>100</width>
+				    <height>70</height>
+				    <aspectratio align="left">keep</aspectratio>
+				    <texture>$VAR[flag_Studio]</texture>
+				    <visible>Container.Content(movies)</visible>
+			        </control>
+					<visible>Skin.HasSetting(stripfanartinfo2.enable)</visible>
+			    </control>
+				<!--info strip fanart 3-->
+				<control type="group">
+				<posx>153</posx>
+				<posy>25</posy>
+				<control type="textbox">
+					<posy>155</posy>
+					<width>290</width>
+					<align>justify</align>
+					<height max="210">auto</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+				</control>
+				<control type="image">
+				<posy>403</posy>
+				<width>280</width>
+				<height>158</height>
+				<texture background="true">$VAR[view_Extra.Thumb3]</texture>
+				<aspectratio>stretch</aspectratio>
+				</control>
+					<visible>Skin.HasSetting(stripfanartinfo3.enable)</visible>
+			    </control>
+				<!--info strip fanart 4-->
+		<control type="group">
+				<control type="image">
+				<posy>185</posy>
+				<posx>160</posx>
+				<width>267</width>
+				<height>400</height>
+				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<aspectratio>stretch</aspectratio>
+				</control>
+			<control type="image">
+				<posy>179</posy>
+				<posx>155</posx>
+				<width>278</width>
+				<height>417</height>
+		        <texture>frames/Glass.png</texture>
+		        <visible>Skin.HasSetting(StripFanartPoster.Glass)</visible>
+				<aspectratio align="center" aligny="top">stretch</aspectratio>
+
+		    </control>
+				   <!-- MikeBZH44 : ajout du boitier selon la resolution du film -->
+			<control type="group">
+				 <control type="image">
+				 <posy>155</posy>
+				 <posx>125</posx>
+				 <width>338</width>
+				 <height>455</height>
+				<texture background="true" fallback="thumbs/boxes/p.png">thumbs/boxes/$INFO[ListItem.Property(mediaTag-videoResolution)]p.png</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+					<visible>Control.IsVisible(597)</visible>
+				    <!--MikeBZH44-->
+				 </control>
+				 <control type="image">
+				    <posy>155</posy>
+					<posx>125</posx>
+					<width>338</width>
+					<height>455</height>
+				    <texture>$VAR[UnFocusHDIndicator]</texture>
+					<visible>true</visible>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+
+				</control>
+					<visible>Skin.HasSetting(StripFanartPoster.case)</visible>
+			</control>
+					<visible>Skin.HasSetting(stripfanartinfo4.enable)</visible>
+		</control>
+		</control>
+</include>
+<include name="view_StripFanart">
+		<control type="fixedlist" id="597">
+			<viewtype label="Strip">wrap</viewtype>
+			<posx>-70</posx>
+			<posy>50</posy>
+			<width>1920</width>
+			<height>800</height>
+			<onup>6000</onup>
+			<ondown condition="Window.IsActive(Pictures)">71</ondown>
+			<ondown condition="!Window.IsActive(Pictures)">8000</ondown>
+			<onleft>597</onleft>
+			<onright>597</onright>
+			<pagecontrol>71</pagecontrol>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)</visible>
+			<preloaditems>0</preloaditems>
+			<focusposition>0</focusposition>
+			<include>BannerListInfoAnimation</include>
+			<itemlayout width="1280">
+			<include>viewStripFanartPoster-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="1280">
+			<include>viewStripFanartPoster-ContainerCommons</include>
+			</focusedlayout>
+		</control>
+</include>
+</includes>

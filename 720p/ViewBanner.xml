@@ -1,0 +1,692 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+<!--BANNERS SMALL GRID-->
+	<include name="view_Banner-ContainerCommons">
+		<control type="group">
+		    <posx>7</posx>
+			<posy>7</posy>
+			<control type="image">
+				<width>558</width>
+				<height>103</height>
+				<texture background="true">thumbs/default_Banner.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<centerleft>279</centerleft>
+				<centertop>51.5</centertop>
+				<width>72</width>
+				<height>72</height>
+				<include>art_DefaultIcon</include>
+			</control>
+			<control type="image">
+				<centerleft>279</centerleft>
+				<centertop>51.5</centertop>
+				<texture background="true">$VAR[thumb_Banner]</texture>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+			</control>
+			<control type="group">
+				<posx>532</posx>
+				<posy>77</posy>
+				<include>status_Info</include>
+				<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+			</control>
+				<control type="group">
+					<posx>530</posx>
+				<posy>73</posy>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+					<control type="image">
+						<info>ListItem.Overlay</info>
+					</control>
+				</control>
+			<control type="image">
+			<posx>-7</posx>
+			<posy>-5</posy>
+			<width>572</width>
+			<height>115</height>
+			<include>art_Frame-nf</include>
+		</control>
+		<control type="image">
+                <posx>-8</posx>
+                <posy>-7</posy>
+                <width>590</width>
+                <height>122</height>
+               <texture>frames/Glassbanner.png</texture>
+		        <visible>Skin.HasSetting(GlassbannerSmall)</visible>
+                </control>
+		</control>
+	</include>
+	<include name="view_Banner">
+		<control type="panel" id="54">
+			<viewtype label="31110">wide</viewtype>
+			<posx>35</posx>
+			<posy>180</posy>
+			<width>572</width>
+			<height>495</height>
+			<onleft>6000</onleft>
+			<onright>70</onright>
+			<onup>54</onup>
+			<ondown>54</ondown>
+			<pagecontrol>70</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>vertical</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
+			<itemlayout width="572" height="123">
+				<include>view_Banner-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="572" height="123">
+				<control type="image">
+					<width>572</width>
+					<height>117</height>
+					<include>art_Frame-fo</include>
+				</control>
+				<include>view_Banner-ContainerCommons</include>
+			</focusedlayout>
+		</control>
+		<!--container info-->
+		<control type="group">
+		<control type="label">
+					<posx>-610</posx>
+					<posy>590</posy>
+						<width>300</width>
+						<label>$INFO[ListItem.Genre]</label>
+						<include>detail_Sub</include>
+						<visible>Container.Content(tvshows) + !IsEmpty(ListItem.TVShowTitle)</visible>
+					</control>
+					<control type="label">
+					<posx>-195</posx>
+					<posy>590</posy>
+					<width>250</width>
+					<label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(tvshows)</visible>
+				</control>
+				<control type="label" id="1">
+				    <posx>-610</posx>
+					<posy>60</posy>
+					<width>380</width>
+					<label>$VAR[global_Title]</label>
+					<include>detail_Title</include>
+				</control>
+				<control type="image">
+				    <posx>-135</posx>
+					<posy>55</posy>
+					<width>100</width>
+					<height>40</height>
+					<include>detail_StarRating</include>
+					<aspectratio align="left" aligny="center">keep</aspectratio>
+				</control>
+
+				<!--banner info 1 -->
+				<control type="group">
+				<control type="image">
+					<posx>150</posx>
+					<posy>-25</posy>
+					<width>180</width>
+					<height>180</height>
+					<include>art_ClearLogo</include>
+				</control>
+				<visible>!Skin.HasSetting(bannerinfo1.enable)</visible>
+				</control>
+
+				<!--banner info 2-->
+				<control type="group">
+				<posx>5</posx>
+						<posy>90</posy>
+				<control type="image">
+						    <posx>-22</posx>
+						    <posy>-5</posy>
+							<width>575</width>
+							<height>325</height>
+							<texture>frames/frame-landscape-back-alt.png</texture>
+							<aspectratio>stretch</aspectratio>
+							</control>
+						<control type="image">
+							<width>532</width>
+							<height>295</height>
+							<texture background="true">thumbs/default_Landscape.png</texture>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>fadetime_Thumb</fadetime>
+						</control>
+						<control type="image">
+							<posx>202</posx>
+							<posy>83.5</posy>
+							<width>128</width>
+							<height>128</height>
+							<include>art_DefaultIcon</include>
+							<fadetime>fadetime_Thumb</fadetime>
+						</control>
+						<control type="image">
+							<width>532</width>
+							<height>295</height>
+							<texture background="true">$VAR[thumb_Landscape]</texture>
+							<fadetime>fadetime_Thumb</fadetime>
+							<aspectratio align="center" aligny="top">scale</aspectratio>
+						</control>
+						<control type="image">
+							<centerleft>266</centerleft>
+							<posy>189</posy>
+							<width>532</width>
+							<height>96</height>
+							<aspectratio align="center" aligny="bottom">keep</aspectratio>
+							<include>art_ClearLogo</include>
+						</control>
+
+				<visible>Skin.HasSetting(bannerinfo2.enable)</visible>
+				</control>
+
+				<!--banner info 3-->
+				<control type="group">
+				<posx>290</posx>
+						<posy>120</posy>
+				<control type="image">
+						    <posx>-15</posx>
+						    <posy>-5</posy>
+							<width>267</width>
+							<height>400</height>
+							<texture>frames/frame-landscape-back-alt.png</texture>
+							<aspectratio>stretch</aspectratio>
+							</control>
+						<control type="image">
+							<width>267</width>
+							<height>400</height>
+							<texture background="true">thumbs/default_Portrait.png</texture>
+							<aspectratio>stretch</aspectratio>
+							<fadetime>fadetime_Thumb</fadetime>
+						</control>
+						<control type="image">
+							<posx>80</posx>
+							<posy>83.5</posy>
+							<width>128</width>
+							<height>128</height>
+							<include>art_DefaultIcon</include>
+							<fadetime>fadetime_Thumb</fadetime>
+						</control>
+
+				<visible>Skin.HasSetting(bannerinfo3.enable)</visible>
+				</control>
+
+				<control type="label">
+				    <posx>-610</posx>
+					<posy>590</posy>
+					<width>550</width>
+					<label>$VAR[global_Info]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(movies)</visible>
+				</control>
+		<control type="image">
+			        <posx>-20</posx>
+					<posy>0</posy>
+					<width>690</width>
+					<height>690</height>
+					<texture background="true">frames/frame-cadre2.png</texture>
+					<colordiffuse>accent_4</colordiffuse>
+					</control>
+					<control type="group">
+				<control type="textbox" id="4">
+				<posy>210</posy>
+				    <width>555</width>
+					<height>220</height>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+				</control>
+				<visible>!Skin.HasSetting(bannerinfo1.enable)</visible>
+				</control>
+
+
+					<control type="group">
+					<posx>5</posx>
+						<posy>90</posy>
+					<control type="textbox">
+							<posy>315</posy>
+							<width>532</width>
+							<align>justify</align>
+							<height max="115">auto</height>
+							<label>$VAR[global_Plot]</label>
+							<include>detail_Text</include>
+						</control>
+				<visible>Skin.HasSetting(bannerinfo2.enable)</visible>
+				</control>
+				<control type="group">
+				<posx>255</posx>
+						<posy>90</posy>
+						<control type="label">
+						<posx>-280</posx>
+					<posy>-10</posy>
+						<label>$VAR[gallery_Header]</label>
+						<width>582</width>
+						<textcolor>Color2</textcolor>
+						<include>detail_Title</include>
+						<visible>Control.IsVisible(54)</visible>
+					</control>
+						<control type="textbox">
+						<posx>-280</posx>
+							<posy>25</posy>
+							<width>290</width>
+							<align>justify</align>
+							<height max="400">auto</height>
+							<label>$VAR[global_Plot]</label>
+							<include>detail_Text</include>
+						</control>
+
+				<control type="image">
+				<posx>35</posx>
+				            <posy>30</posy>
+							<width>267</width>
+							<height>400</height>
+							<texture background="true">$VAR[thumb_Portrait]</texture>
+							<fadetime>fadetime_Thumb</fadetime>
+							<aspectratio>scale</aspectratio>
+						</control>
+
+				<visible>Skin.HasSetting(bannerinfo3.enable)</visible>
+				</control>
+
+			<posx>645</posx>
+			<posy>90</posy>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<visible>Control.IsVisible(54) + [Container.Content(tvshows) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]]</visible>
+			<control type="grouplist">
+				<itemgap>0</itemgap>
+				<control type="label">
+					<width>550</width>
+					<label>$VAR[nextaired_Info]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(tvshows) + !SubString(ListItem.Icon,default)</visible>
+				</control>
+				</control>
+				<control type="group">
+				<posx>12</posx>
+			<control type="image">
+				<bottom>40</bottom>
+				<posx>-2</posx>
+				<posy>535</posy>
+				<width>150</width>
+				<height>70</height>
+				<aspectratio align="left">keep</aspectratio>
+				<texture>$VAR[flag_Studio]</texture>
+				<visible>[Container.Content(movies) | Control.IsVisible(54) + Container.Content(tvshows) | Container.Content(seasons)]</visible>
+			</control>
+			<control type="image">
+			    <posy>555</posy>
+				<posx>115</posx>
+				<width>96</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[ListItem.Property(mediaTag-videoResolution),flags/video/resolution/,.png]</texture>
+				<visible>true</visible>
+			</control>
+			<control type="image">
+				<posy>555</posy>
+				<posx>210</posx>
+				<width>96</width>
+				<height>34</height>
+				<aspectratio align="center">keep</aspectratio>
+				<texture>$INFO[ListItem.Property(mediaTag-audioChannels),flags/audio/,.png]</texture>
+				<visible>true</visible>
+			 </control>
+			 <control type="image">
+			        <posy>550</posy>
+			        <posx>320</posx>
+					<width>96</width>
+					<height>50</height>
+					<texture>$INFO[ListItem.Property(mediaTag-videoCodec),flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+			 <control type="image">
+				    <posy>540</posy>
+			        <posx>450</posx>
+					<width>96</width>
+					<height>64</height>
+					<texture>$INFO[ListItem.Property(mediaTag-audioCodec),flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+				</control>
+		</control>
+	</include>
+
+<!--BANNERS BIG GRID-->
+	<include name="view_BigBanner-ContainerCommons">
+		<control type="group">
+			<posx>7</posx>
+			<posy>7</posy>
+			<control type="image">
+				<width>590</width>
+				<height>109</height>
+				<texture background="true">thumbs/default_Banner.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<posx>259</posx>
+				<posy>18.5</posy>
+				<width>72</width>
+				<height>72</height>
+				<include>art_DefaultIcon</include>
+			</control>
+			<control type="image">
+				<width>590</width>
+				<height>109</height>
+				<texture background="true">$VAR[thumb_Banner]</texture>
+				<aspectratio align="center" aligny="center">scale</aspectratio>
+			</control>
+				<control type="group">
+				<posx>566</posx>
+				<posy>77</posy>
+				<include>status_Info</include>
+				<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+			</control>
+				<control type="group">
+					<posx>560</posx>
+				<posy>77</posy>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+					<control type="image">
+						<info>ListItem.Overlay</info>
+					</control>
+				</control>
+			<control type="image">
+			<posx>-5</posx>
+			<posy>-8</posy>
+			<width>603</width>
+			<height>125</height>
+			<include>art_Frame-nf</include>
+		</control>
+		<control type="image">
+                <posx>-7</posx>
+                <posy>-8</posy>
+                <width>605</width>
+                <height>128</height>
+               <texture>frames/Glassbanner.png</texture>
+		        <visible>Skin.HasSetting(Enable.Glassbannerbig)</visible>
+                </control>
+		</control>
+		<control type="image">
+			<right>14</right>
+			<posy>133</posy>
+			<height>22</height>
+			<include>detail_StarRating</include>
+			<aspectratio align="right">keep</aspectratio>
+			<visible>!SubString(ListItem.Icon,default)</visible>
+		</control>
+		<control type="group">
+			<posx>7</posx>
+			<posy>130</posy>
+			<control type="label">
+				<width>470</width>
+				<label>$VAR[global_Title]</label>
+				<include>detail_Title</include>
+			</control>
+			<control type="group">
+				<posy>22</posy>
+				<control type="label">
+					<width>440</width>
+					<label>$VAR[global_Info]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(tvshows) + !SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<control type="label">
+					<width>590</width>
+					<label>$VAR[global_Info]</label>
+					<include>detail_Sub</include>
+					<visible>Container.Content(movies)</visible>
+				</control>
+				<control type="label">
+					<width>440</width>
+					<label>$VAR[global_Info.Addon]</label>
+					<include>detail_Title</include>
+					<visible>SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<control type="label">
+					<posx>590</posx>
+					<width>150</width>
+					<label>$INFO[ListItem.Studio]</label>
+					<align>right</align>
+					<include>detail_Sub</include>
+					<visible>Container.Content(tvshows) + !SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+	<include name="view_BigBanner">
+		<control type="panel" id="541">
+			<viewtype label="31110">bigwide</viewtype>
+			<posx>25</posx>
+			<posy>105</posy>
+			<width>1240</width>
+			<height>570</height>
+			<onleft>6000</onleft>
+			<onright>70</onright>
+			<onup>541</onup>
+			<ondown>541</ondown>
+			<pagecontrol>70</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>vertical</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
+			<itemlayout width="620" height="190">
+				<include>view_BigBanner-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="620" height="190">
+				<control type="image">
+					<width>604</width>
+					<height>123</height>
+					<include>art_Frame-fo</include>
+				</control>
+				<include>view_BigBanner-ContainerCommons</include>
+			</focusedlayout>
+		</control>
+	</include>
+
+
+	<!--BANNERS small GRID-->
+	<include name="view_SmallBanner-ContainerCommons">
+
+		<control type="group">
+
+			<control type="image">
+				<width>250</width>
+				<height>50</height>
+				<texture background="true">thumbs/default_Banner.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<width>250</width>
+				<height>50</height>
+				<texture background="true">$VAR[thumb_Banner]</texture>
+				<aspectratio align="left" aligny="top">scale</aspectratio>
+			</control>
+			<animation effect="zoom" center="auto" start="85" end="100" time="480" tween="back" reversible="false">Focus</animation>
+
+		</control>
+	</include>
+	<include name="view_SmallBanner">
+		<control type="panel" id="543">
+			<viewtype label="31110">bigwide</viewtype>
+			<posx>60</posx>
+			<posy>105</posy>
+			<width>945</width>
+			<height>445</height>
+			<onleft>6000</onleft>
+			<onright>70</onright>
+			<onup>543</onup>
+			<ondown>543</ondown>
+			<pagecontrol>70</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>vertical</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(tvshows) | Container.Content(movies) + Skin.HasSetting(banner.movies.enable)</visible>
+			<itemlayout width="250" height="50">
+
+				<include>view_SmallBanner-ContainerCommons</include>
+				<control type="image">
+					<width>250</width>
+					<height>50</height>
+					<texture background="true">white.png</texture>
+					<colordiffuse>190ffffff</colordiffuse>
+				</control>
+			</itemlayout>
+			<focusedlayout width="250" height="50">
+				<include>view_SmallBanner-ContainerCommons</include>
+			</focusedlayout>
+		</control>
+		<control type="group">
+			<control type="image">
+			<visible>Control.IsVisible(543)</visible>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<posx>815</posx>
+			<posy>105</posy>
+				<width>430</width>
+				<height>593</height>
+				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<visible>!Skin.HasSetting(thumb_Portrait)</visible>
+		</control>
+		<control type="group">
+		<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+		<visible>Control.IsVisible(543)</visible>
+			<control type="image">
+		<posx>815</posx>
+			<posy>105</posy>
+				<width>430</width>
+				<height>593</height>
+					<texture background="true">black.png</texture>
+				</control>
+			<control type="textbox">
+			<posx>820</posx>
+			<posy>105</posy>
+				<width>415</width>
+				<height>593</height>
+					<align>justify</align>
+					<label>$INFO[ListItem.Plot]</label>
+					<include>detail_Text</include>
+					<visible>Control.IsVisible(543)</visible>
+				</control>
+		<visible>Skin.HasSetting(Text_Box)</visible>
+		</control>
+		<control type="group">
+		<visible>Control.IsVisible(543)</visible>
+		<control type="image">
+		<posx>-12</posx>
+		<posy>-23</posy>
+					<width>753</width>
+					<height>140</height>
+					<texture background="true">view\background_panel_Art.png</texture>
+					<colordiffuse>base_2</colordiffuse>
+			  	</control>
+		<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<posx>70</posx>
+				<posy>580</posy>
+					<control type="group">
+					<control type="label">
+					<posx>35</posx>
+					<posy>-9</posy>
+						<width>690</width>
+						<label>$VAR[global_Title]</label>
+						<include>detail_Title</include>
+						<scroll>autoscroll_Line</scroll>
+					</control>
+					<control type="image">
+				<posx>2</posx>
+					<posy>-8</posy>
+					<texture>$VAR[status_List]</texture>
+					<colordiffuse>Color3</colordiffuse>
+					<include>status_List</include>
+				</control>
+					<control type="group">
+						<posy>30</posy>
+						<posx>35</posx>
+						<visible>!SubString(ListItem.Icon,default)</visible>
+						<control type="label">
+							<width>550</width>
+							<label>$VAR[global_Info]</label>
+							<include>detail_Sub</include>
+							<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+						<control type="label">
+							<width>550</width>
+							<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
+							<include>detail_Sub</include>
+							<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+					</control>
+				</control>
+			</control>
+
+			<control type="grouplist" id="100">
+			<visible>Control.IsVisible(543)</visible>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<posx>65</posx>
+				<bottom>25</bottom>
+				<width>900</width>
+				<height>50</height>
+				<itemgap>35</itemgap>
+				<orientation>horizontal</orientation>
+				<control type="image">
+					<width>100</width>
+					<height>50</height>
+					<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
+					<aspectratio align="center">keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$INFO[ListItem.Property(mediaTag-videoResolution),flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$INFO[ListItem.Property(mediaTag-videoCodec),flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$INFO[ListItem.Property(mediaTag-audioCodec),flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$INFO[ListItem.Property(mediaTag-audioChannels),flags/audio/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>50</height>
+					<texture>$VAR[flag_Studio]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+				</control>
+			</control>
+	</include>
+</includes>

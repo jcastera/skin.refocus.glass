@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">22</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<include>transition_Dialog</include>
+	<coordinates>
+		<system>1</system>
+		<posx>315</posx>
+		<posy>28</posy>
+	</coordinates>
+	<controls>
+		<control type="group">
+			<control type="image">
+				<width>650</width>
+				<height>665</height>
+				<include>dialog_Window</include>
+			</control>
+			<control type="label" id="2">
+				<width>648</width>
+				<label>$LOCALIZE[21432]</label>
+				<include>dialog_Windowtitle</include>
+			</control>
+			<control type="group">
+				<posx>4</posx>
+				<posy>60</posy>
+				<control type="image">
+					<width>642</width>
+					<include>dialog_Separator</include>
+				</control>
+				<!--name & type-->
+				<control type="group">
+					<!--set playlist type-->
+					<control type="spincontrolex" id="22">
+						<posy>0</posy>
+						<width>642</width>
+						<label>$LOCALIZE[467]</label>
+						<onleft>22</onleft>
+						<onright>10</onright>
+						<onup>9001</onup>
+						<ondown>12</ondown>
+						<include>dialog_ControlCommons</include>
+						<include>dialog_Spin</include>
+					</control>
+					<!--set playlist name-->
+					<control type="edit" id="12">
+						<posy>40</posy>
+						<width>642</width>
+						<onup>22</onup>
+						<ondown>10</ondown>
+						<onleft>-</onleft>
+						<onright>9000</onright>
+						<label>$LOCALIZE[551]</label>
+						<hinttext>$LOCALIZE[16012]</hinttext>
+						<include>dialog_ControlCommons</include>
+					</control>
+				</control>
+				<!--rules-->
+				<control type="group">
+					<posy>80</posy>
+					<control type="label">
+						<width>642</width>
+						<label>$LOCALIZE[21434]:</label>
+						<include>dialog_Header</include>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="image">
+						<posy>38</posy>
+						<width>642</width>
+						<include>dialog_SectionSeparator</include>
+					</control>
+					<control type="image">
+						<posy>80</posy>
+						<width>642</width>
+						<include>dialog_Separator</include>
+					</control>
+					<control type="image">
+						<posy>120</posy>
+						<width>642</width>
+						<include>dialog_Separator</include>
+					</control>
+					<control type="image">
+						<posy>160</posy>
+						<width>642</width>
+						<include>dialog_Separator</include>
+					</control>
+					<!--rules list control-->
+					<control type="list" id="10">
+						<posy>40</posy>
+						<width>543</width>
+						<height>120</height>
+						<onleft>22</onleft>
+						<onright>9000</onright>
+						<onup>12</onup>
+						<ondown>16</ondown>
+						<itemlayout height="40">
+							<control type="label">
+								<width>543</width>
+								<info>ListItem.Label</info>
+								<include>dialog_CommonListItem</include>
+							</control>
+						</itemlayout>
+						<focusedlayout height="40">
+							<control type="image">
+								<width>522</width>
+								<include>dialog_CommonListFocus</include>
+								<visible>Control.HasFocus(10)</visible>
+							</control>
+							<control type="label">
+								<width>512</width>
+								<info>ListItem.Label</info>
+								<textcolor>Color4</textcolor>
+								<include>dialog_CommonListItemFocus</include>
+								<visible>!Control.HasFocus(10)</visible>
+							</control>
+							<control type="label">
+								<width>512</width>
+								<info>ListItem.Label</info>
+								<include>dialog_CommonListItemFocus</include>
+								<visible>Control.HasFocus(10)</visible>
+							</control>
+						</focusedlayout>
+					</control>
+					<!--list controls-->
+					<control type="group" id="9000">
+						<posx>522</posx>
+						<posy>40</posy>
+						<animation effect="slide" end="0,40" time="0" condition="Container(10).Row(1)">Conditional</animation>
+						<animation effect="slide" end="0,80" time="0" condition="Container(10).Row(2)">Conditional</animation>
+						<animation effect="slide" end="0,120" time="0" condition="Container(10).Row(3)">Conditional</animation>
+						<control type="image">
+							<height>39</height>
+							<include>dialog_Separator-y</include>
+						</control>
+						<control type="image">
+							<posx>40</posx>
+							<height>40</height>
+							<include>dialog_Separator-y</include>
+						</control>
+						<control type="image">
+							<posx>80</posx>
+							<height>40</height>
+							<include>dialog_Separator-y</include>
+						</control>
+						<control type="image">
+							<posx>120</posx>
+							<height>40</height>
+							<include>dialog_Separator-y</include>
+						</control>
+						<!--edit rule button-->
+						<control type="button" id="15">
+							<label>-</label>
+							<onleft>10</onleft>
+							<onright>14</onright>
+							<onup>10</onup>
+							<ondown>10</ondown>
+							<include>dialog_Inline-edit</include>
+						</control>
+						<!--remove rule button-->
+						<control type="button" id="14">
+							<posx>40</posx>
+							<label>-</label>
+							<onleft>15</onleft>
+							<onright>13</onright>
+							<onup>10</onup>
+							<ondown>10</ondown>
+							<include>dialog_Inline-remove</include>
+						</control>
+						<!--add rule button-->
+						<control type="button" id="13">
+							<posx>80</posx>
+							<label>-</label>
+							<onleft>14</onleft>
+							<onright>-</onright>
+							<onup>10</onup>
+							<ondown>10</ondown>
+							<include>dialog_Inline-add</include>
+						</control>
+					</control>
+				</control>
+				<!--options-->
+				<control type="group">
+					<posy>240</posy>
+					<control type="label" id="0">
+						<width>512</width>
+						<height>40</height>
+						<label>$LOCALIZE[33063]</label>
+						<include>dialog_Header</include>
+						<include>dialog_ControlCommons</include>
+					</control>
+					<control type="image">
+						<posy>38</posy>
+						<width>642</width>
+						<include>dialog_SectionSeparator</include>
+					</control>
+					<control type="group" id="9002">
+						<posy>40</posy>
+						<control type="spincontrolex" id="16">
+							<width>642</width>
+							<label>$LOCALIZE[21424]</label>
+							<onleft>10</onleft>
+							<onright>9001</onright>
+							<onup>10</onup>
+							<ondown>17</ondown>
+							<include>dialog_Spin</include>
+							<include>dialog_ControlCommons</include>
+						</control>
+						<!--limit to-->
+						<control type="spincontrolex" id="17">
+							<posy>40</posy>
+							<width>642</width>
+							<label>$LOCALIZE[21427]</label>
+							<onleft>10</onleft>
+							<onright>9001</onright>
+							<onup>16</onup>
+							<ondown>18</ondown>
+							<include>dialog_Spin</include>
+							<include>dialog_ControlCommons</include>
+						</control>
+						<!--order by-->
+						<control type="spincontrolex" id="18">
+							<posy>80</posy>
+							<width>642</width>
+							<label>$LOCALIZE[21429]</label>
+							<onleft>10</onleft>
+							<onright>9001</onright>
+							<onup>17</onup>
+							<ondown>19</ondown>
+							<include>dialog_Spin</include>
+							<include>dialog_ControlCommons</include>
+						</control>
+						<!--direction-->
+						<control type="togglebutton" id="19">
+							<posy>120</posy>
+							<width>642</width>
+							<label>- $LOCALIZE[31141] $LOCALIZE[21431]</label>
+							<altlabel>- $LOCALIZE[31141] $LOCALIZE[21430]</altlabel>
+							<onleft>10</onleft>
+							<onright>9001</onright>
+							<onup>18</onup>
+							<ondown>23</ondown>
+							<include>dialog_Spin</include>
+							<include>dialog_ControlCommons</include>
+						</control>
+						<!--group by-->
+						<control type="spincontrolex" id="23">
+							<posy>160</posy>
+							<width>642</width>
+							<label>$LOCALIZE[21458]</label>
+							<onleft>10</onleft>
+							<onright>24</onright>
+							<onup>18</onup>
+							<ondown>24</ondown>
+							<include>dialog_Spin</include>
+							<include>dialog_ControlCommons</include>
+						</control>
+						<!--mixed-->
+						<control type="radiobutton" id="24">
+							<posy>200</posy>
+							<width>642</width>
+							<label>- $LOCALIZE[21459]</label>
+							<onleft>10</onleft>
+							<onright>9001</onright>
+							<onup>23</onup>
+							<ondown>9001</ondown>
+							<include>dialog_Radio</include>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+		<!--confirm buttons-->
+		<control type="group" id="9001">
+			<posx>377</posx>
+			<posy>600</posy>
+			<!--ok-->
+			<control type="button" id="20">
+				<label>$LOCALIZE[186]</label>
+				<onleft>-</onleft>
+				<onright>21</onright>
+				<onup>24</onup>
+				<ondown>22</ondown>
+				<include>dialog_WindowButton</include>
+			</control>
+			<!--cancel-->
+			<control type="button" id="21">
+				<posx>130</posx>
+				<label>$LOCALIZE[222]</label>
+				<onleft>20</onleft>
+				<onright>-</onright>
+				<onup>24</onup>
+				<ondown>22</ondown>
+				<include>dialog_WindowButton</include>
+			</control>
+		</control>
+	</controls>
+</window>

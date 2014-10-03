@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="6911">
+	<defaultcontrol>149</defaultcontrol>
+	<include>Animation_TopDialogPopup</include>
+	<height>250</height>
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+		<origin x="0" y="0" />
+	</coordinates>
+	<zorder>1</zorder>
+	<controls>
+	<control type="image" id="149">
+			<width>270</width>
+			<height>80</height>
+			<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+		</control>
+		<control type="image">
+			<posx>4</posx>
+			<posy>18</posy>
+			<width>650</width>
+			<include>dialog_Separator</include>
+		</control>
+		<!-- Thumbnails Small-->
+		<control type="image">
+			<posx>0</posx>
+			<posy>60</posy>
+			<width>270</width>
+			<height>720</height>
+			<include>dialog_Menu</include>
+			<colordiffuse></colordiffuse>
+		</control>
+		<control type="image" id="1490">
+	<posy>185</posy>
+	<posx>0</posx>
+			<width>270</width>
+			<height>20</height>
+			<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
+			<colordiffuse>Color3</colordiffuse>
+		</control>
+		<control type="label">
+					<posx>-1050</posx>
+			<posy>15</posy>
+					    <label>SETTINGS</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>Color3</textcolor>
+					</control>
+			<control type="label">
+					<posx>-1150</posx>
+			<posy>70</posy>
+					    <label>LAYOUT</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+		<control type="label">
+					<posx>-1050</posx>
+			<posy>95</posy>
+					    <label>Panel</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+		<control type="label">
+					<posx>-1170</posx>
+			<posy>125</posy>
+					    <label>VIEW</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+					<control type="label">
+				<posx>-1100</posx>
+			<posy>150</posy>
+					    <label>ART</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+		<control type="label">
+					<posx>-1050</posx>
+			<posy>200</posy>
+					    <label>OPTIONS</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+		<control type="grouplist" id="149">
+		<onleft>back</onleft>
+		<onright>back</onright>
+			<posx>5</posx>
+			<posy>250</posy>
+			<width>275</width>
+			<height min="40" max="720">auto</height>
+			<itemgap>0</itemgap>
+			<control type="radiobutton" id="153">
+		            <label>Thumbs</label>
+					<width>260</width>
+                    <onclick>Skin.ToggleSetting(PanelArt_thumb.enable)</onclick>
+		            <onclick condition="Skin.HasSetting(PanelArt_Casting.enable)">Skin.ToggleSetting(PanelArt_Casting.enable)</onclick>
+                    <onclick condition="Skin.HasSetting(PanelArt_logo.enable)">Skin.ToggleSetting(PanelArt_logo.enable)</onclick>
+                    <selected>!Skin.HasSetting(PanelArt_thumb.enable)</selected>
+		           <include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+					<visible>!SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+                </control>
+                <control type="radiobutton" id="154">
+	                <label>Logo & Thumb</label>
+					<width>260</width>
+                    <onclick>Skin.ToggleSetting(PanelArt_logo.enable)</onclick>
+                    <onclick condition="!Skin.HasSetting(PanelArt_thumb.enable)">Skin.ToggleSetting(PanelArt_thumb.enable)</onclick>
+                    <onclick condition="Skin.HasSetting(PanelArt_Casting.enable)">Skin.ToggleSetting(PanelArt_Casting.enable)</onclick>
+		            <selected>Skin.HasSetting(PanelArt_logo.enable)</selected>
+		            <include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+					<visible>!SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+                </control>
+	            <control type="radiobutton" id="155">
+	                <label>Casting</label>
+					<width>260</width>
+                    <onclick>Skin.ToggleSetting(PanelArt_Casting.enable)</onclick>
+                    <onclick condition="!Skin.HasSetting(PanelArt_thumb.enable)">Skin.ToggleSetting(PanelArt_thumb.enable)</onclick>
+                    <onclick condition="Skin.HasSetting(PanelArt_logo.enable)">Skin.ToggleSetting(PanelArt_logo.enable)</onclick>
+                    <selected>Skin.HasSetting(PanelArt_Casting.enable)</selected>
+		            <include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+                </control>
+		</control>
+	</controls>
+</window>

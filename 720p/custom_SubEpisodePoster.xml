@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="705">
+	<defaultcontrol>149</defaultcontrol>
+	<include>Animation_TopDialogPopup</include>
+	<height>300</height>
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+		<origin x="0" y="0" />
+	</coordinates>
+	<zorder>1</zorder>
+	<controls>
+	<control type="image" id="149">
+			<width>270</width>
+			<height>80</height>
+			<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+		</control>
+		<control type="image">
+			<posx>4</posx>
+			<posy>18</posy>
+			<width>650</width>
+			<include>dialog_Separator</include>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>60</posy>
+			<width>270</width>
+			<height>720</height>
+			<include>dialog_Menu</include>
+			<colordiffuse></colordiffuse>
+		</control>
+		<control type="image" id="1490">
+	<posy>185</posy>
+	<posx>0</posx>
+			<width>270</width>
+			<height>20</height>
+			<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
+			<colordiffuse>Color3</colordiffuse>
+		</control>
+		<control type="label">
+					<posx>-1050</posx>
+			<posy>15</posy>
+					    <label>SETTINGS</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>Color3</textcolor>
+					</control>
+			<control type="label">
+					<posx>-1150</posx>
+			<posy>70</posy>
+					    <label>LAYOUT</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+		<control type="label">
+					<posx>-1050</posx>
+			<posy>95</posy>
+					    <label>Episode</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+		<control type="label">
+					<posx>-1170</posx>
+			<posy>125</posy>
+					    <label>VIEW</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+						<control type="label">
+				<posx>-1100</posx>
+			<posy>150</posy>
+					    <label>Poster</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+		<control type="label">
+					<posx>-1050</posx>
+			<posy>200</posy>
+					    <label>OPTIONS</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+
+		<control type="grouplist" id="149">
+		<onleft>back</onleft>
+		<onright>back</onright>
+			<posx>5</posx>
+			<posy>250</posy>
+			<width>275</width>
+			<height min="40" max="720">auto</height>
+			<itemgap>0</itemgap>
+				<control type="radiobutton" id="150">
+                        <label>Glass</label>
+						<width>260</width>
+		                <onclick>Skin.ToggleSetting(EpisodePoster.Glass)</onclick>
+		                <selected>Skin.HasSetting(EpisodePoster.Glass)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+		            </control>
+					<control type="radiobutton" id="151">
+                        <label>Case</label>
+						<width>260</width>
+		              <onclick>Skin.ToggleSetting(EpisodePoster.case)</onclick>
+		                <selected>Skin.HasSetting(EpisodePoster.case)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+		            </control>
+				<control type="radiobutton" id="152">
+                        <label>Discart</label>
+						<width>260</width>
+		                <onclick>Skin.ToggleSetting(EpisodesPosterdiscart.movies.enable)</onclick>
+		                <selected>Skin.HasSetting(EpisodesPosterdiscart.movies.enable)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+					<visible>![Container.Content(seasons) | Container.Content(episodes)]</visible>
+		            </control>
+					<control type="radiobutton" id="153">
+                        <label>Logo</label>
+						<width>260</width>
+		                <onclick>Skin.ToggleSetting(logoepisode.disable)</onclick>
+					<selected>Skin.HasSetting(logoepisode.disable)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+		            </control>
+				<!--Frame Episode-->
+				 <control type="radiobutton" id="154">
+					<label>Panel Black</label>
+					<width>260</width>
+					<onclick>Skin.ToggleSetting(episodeframe.enable)</onclick>
+					<selected>Skin.HasSetting(episodeframe.enable)</selected>
+						<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+				 </control>
+		</control>
+	</controls>
+</window>

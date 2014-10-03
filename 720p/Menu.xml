@@ -1,0 +1,1417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="menu_Commons">
+		<posx>-262</posx>
+		<control type="image" id="1">
+			<width>270</width>
+			<height>screen_Height</height>
+			<texture background="true">white.png</texture>
+			<animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
+			<colordiffuse>base_2</colordiffuse>
+		</control>
+		<animation type="Conditional" reversible="true" condition="ControlGroup(6000).HasFocus() | ControlGroup(4000).HasFocus() | Control.HasFocus(7000)">
+			<effect type="slide" time="350" start="0" end="262" tween="Quadratic" easing="Out" />
+		</animation>
+		<include>transition_Content</include>
+		<include>transition_Info</include>
+		<visible>!Skin.HasSetting(global.kiosk)</visible>
+	</include>
+	<include name="menu_ContainerCommons">
+		<posy>45</posy>
+		<width>270</width>
+		<height>670</height>
+		<onleft>-</onleft>
+		<onright>50</onright>
+		<onup>6000</onup>
+		<ondown>6000</ondown>
+		<onback>50</onback>
+		<itemgap>0</itemgap>
+		<animation type="Conditional" reversible="true" condition="ControlGroup(4000).HasFocus() | Control.HasFocus(7000)">
+			<effect type="fade" time="0" start="100" end="0" tween="Quadratic" easing="Out" />
+		</animation>
+	</include>
+	<include name="menu_SubContainerCommons">
+		<posy>25</posy>
+		<onup>4000</onup>
+		<ondown>4000</ondown>
+		<width>270</width>
+		<height>670</height>
+		<onleft>6000</onleft>
+		<onright>50</onright>
+		<onback>6000</onback>
+		<itemgap>0</itemgap>
+		<visible allowhiddenfocus="true">ControlGroup(4000).HasFocus()</visible>
+	</include>
+	<include name="menu_Header">
+		<height>50</height>
+		<font>semibold_Small-U</font>
+		<textoffsetx>15</textoffsetx>
+		<textoffsety>4</textoffsety>
+		<textcolor>Color3</textcolor>
+	</include>
+	<include name="menu_Button">
+		<width>270</width>
+		<height>40</height>
+		<font>light_Menu</font>
+		<textcolor>Color3</textcolor>
+		<focusedcolor>Color5</focusedcolor>
+		<textoffsety>3</textoffsety>
+		<textoffsetx>15</textoffsetx>
+		<texturenofocus>-</texturenofocus>
+		<texturefocus>white.png</texturefocus>
+		<colordiffuse>Color1</colordiffuse>
+		<alttexturefocus>white.png</alttexturefocus>
+		<colordiffuse>Color1</colordiffuse>
+		<alttexturenofocus>-</alttexturenofocus>
+		<onback condition="ControlGroup(6000).HasFocus()">50</onback>
+		<onback condition="ControlGroup(4000).HasFocus()">6000</onback>
+		<onclick condition="ControlGroup(4000).HasFocus()">back</onclick>
+	</include>
+	<include name="menu_RadioButton">
+		<textureradiofocus>settings/radio/on.png</textureradiofocus>
+		<textureradionofocus>settings/radio/off.png</textureradionofocus>
+		<colordiffuse>Color1</colordiffuse>
+		<radiowidth>29</radiowidth>
+		<radioheight>24</radioheight>
+		<disabledcolor>Disabled</disabledcolor>
+	</include>
+	<include name="menu_ViewMode">
+		<control type="label" id="102">
+			<height>50</height>
+			<label>$LOCALIZE[582]</label>
+			<include>menu_Header</include>
+		</control>
+		<control type="button" id="103">
+			<label>$LOCALIZE[31114]$INFO[Container.ViewMode,: ]</label>
+			<include>menu_Button</include>
+			<onclick>SetFocus(4000)</onclick>
+		</control>
+	</include>
+	<include name="menu_Sorting">
+		<control type="label" id="200">
+			<height>50</height>
+			<label>$LOCALIZE[31140]</label>
+			<include>menu_Header</include>
+		</control>
+		<control type="button" id="201">
+			<label>$LOCALIZE[31149]$INFO[Container.SortMethod,: ]</label>
+			<onclick>SendClick(3)</onclick>
+			<include>menu_Button</include>
+		</control>
+		<control type="togglebutton" id="202">
+			<label>$LOCALIZE[31141]: $LOCALIZE[584]</label>
+			<altlabel>$LOCALIZE[31141]: $LOCALIZE[585]</altlabel>
+			<include>menu_Button</include>
+			<onclick>SendClick(4)</onclick>
+			<enable>Control.IsEnabled(4)</enable>
+		</control>
+	</include>
+	<include name="menu_LibraryHeader">
+		<control type="label" id="208">
+			<label>$LOCALIZE[14022]</label>
+			<include>menu_Header</include>
+		</control>
+	</include>
+	<include name="menu_Shares">
+		<control type="radiobutton" id="209">
+			<label>$LOCALIZE[20336]</label>
+			<onclick>XBMC.Mastermode</onclick>
+			<selected>System.IsMaster</selected>
+			<include>menu_RadioButton</include>
+			<include>menu_Button</include>
+			<visible>System.HasLocks</visible>
+		</control>
+	</include>
+	<include name="menu_SwitchMode">
+		<control type="togglebutton" id="210">
+			<label>$LOCALIZE[31150]</label>
+			<altlabel>$LOCALIZE[29800]</altlabel>
+			<onclick>ReplaceWindow(MusicFiles)</onclick>
+			<altclick>ReplaceWindow(MusicLibrary)</altclick>
+			<usealttexture>Window.IsVisible(MusicFiles)</usealttexture>
+			<include>menu_Button</include>
+			<visible>Window.IsActive(MusicLibrary) | Window.IsActive(MusicFiles)</visible>
+		</control>
+	</include>
+	<include name="menu_Watched">
+		<control type="radiobutton" id="14">
+			<label>$LOCALIZE[20367]</label>
+			<include>menu_Button</include>
+			<include>menu_RadioButton</include>
+			<visible>Control.IsEnabled(14)</visible>
+		</control>
+	</include>
+	<include name="menu_Filter">
+		<control type="edit" id="213">
+			<label>$LOCALIZE[587]</label>
+			<include>menu_Button</include>
+			<onclick>SendClick(19)</onclick>
+			<visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
+		</control>
+		<control type="radiobutton" id="214">
+			<label>$LOCALIZE[587]</label>
+			<onclick>right</onclick>
+			<onclick>Filter</onclick>
+			<selected>Container.Filtered</selected>
+			<include>menu_Button</include>
+			<include>menu_RadioButton</include>
+			<visible>Container.CanFilterAdvanced</visible>
+		</control>
+	</include>
+	<include name="menu_PartyMode">
+		<control type="radiobutton" id="215">
+			<label>$LOCALIZE[589]</label>
+			<onclick condition="Window.IsVisible(MusicLibrary)">PlayerControl(PartyMode(music))</onclick>
+			<onclick condition="Container.Content(musicvideos)">PlayerControl(PartyMode(video))</onclick>
+			<include>menu_Button</include>
+			<include>menu_RadioButton</include>
+			<visible>Container.Content(musicvideos) | Window.IsVisible(MusicLibrary)</visible>
+		</control>
+	</include>
+	<include name="menu_Update">
+		<control type="togglebutton" id="216">
+			<label>$LOCALIZE[653]</label>
+			<altlabel>$LOCALIZE[13353]</altlabel>
+			<onclick>SetFocus(50)</onclick>
+			<onclick condition="Skin.HasSetting(cleanlibrary.enable) + Window.IsActive(videolibrary)">XBMC.CleanLibrary(video)</onclick>
+			<onclick condition="Skin.HasSetting(cleanlibrary.enable) + Window.IsActive(musiclibrary)">XBMC.CleanLibrary(music)</onclick>
+			<onclick>SendClick(20)</onclick>
+			<usealttexture>Library.IsScanningVideo | Library.IsScanningMusic</usealttexture>
+			<include>menu_Button</include>
+		</control>
+	</include>
+	<include name="menu_Search">
+		<control type="button" id="217">
+			<label>$LOCALIZE[137]</label>
+			<onclick>SetFocus(300)</onclick>
+			<onclick condition="Skin.HasSetting(search.disable)">SendClick(8)</onclick>
+			<onclick condition="!Skin.HasSetting(search.disable)">RunAddon(script.globalsearch)</onclick>
+			<include>menu_Button</include>
+		</control>
+	</include>
+	<include name="menu_ControlsButton">
+		<width>40</width>
+		<height>40</height>
+	</include>
+	<include name="menu_Playing">
+		<control type="label" id="218">
+			<label>$LOCALIZE[31034]</label>
+			<include>menu_Header</include>
+			<visible>Control.IsVisible(219) | Control.IsVisible(230) | Control.IsVisible(231)</visible>
+		</control>
+		<!--playing media / current playlist-->
+		<control type="button" id="219">
+			<label>$VAR[playing_Title]</label>
+			<onclick condition="Player.HasVideo">fullscreen</onclick>
+			<onclick condition="Player.HasAudio | !Player.HasMedia">$VAR[playlist_Type]</onclick>
+			<include>menu_Button</include>
+			<visible>StringCompare(Skin.String(menu.controls),fullscreen) + [Player.HasMedia | !Player.HasMedia + Skin.HasSetting(menu.playlist) + [[Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0)] | [[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)]+ !StringCompare(Playlist.Length(music),0)]]]</visible>
+		</control>
+		<!--player controls-->
+		<control type="group" id="230">
+			<onright>50</onright>
+			<visible>Player.HasMedia + StringCompare(Skin.String(menu.controls),player)</visible>
+			<control type="image">
+				<texture colordiffuse="column2">white.png</texture>
+				<width>270</width>
+				<height>48</height>
+				<aspectratio>stretch</aspectratio>
+				<visible>ControlGroup(230).HasFocus()</visible>
+			</control>
+			<control type="grouplist" id="231">
+				<posx>15</posx>
+				<posy>4</posy>
+				<width>250</width>
+				<onback>50</onback>
+				<onleft>241</onleft>
+				<onright>50</onright>
+				<onup>218</onup>
+				<ondown>102</ondown>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<!--previous-->
+				<control type="button" id="232">
+					<texturefocus colordiffuse="Color1">player/sidebar/prev-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/prev-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Previous)</onclick>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<!--pause-->
+				<control type="togglebutton" id="233">
+					<texturenofocus colordiffuse="Color3">player/sidebar/pause-nf.png</texturenofocus>
+					<texturefocus colordiffuse="Color1">player/sidebar/pause-fo.png</texturefocus>
+					<alttexturenofocus colordiffuse="Color3">player/sidebar/play-nf.png</alttexturenofocus>
+					<alttexturefocus colordiffuse="Color1">player/sidebar/play-fo.png</alttexturefocus>
+					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Play)</onclick>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+					<enable>Player.PauseEnabled</enable>
+				</control>
+				<!--stop-->
+				<control type="button" id="234">
+					<texturefocus colordiffuse="Color1">player/sidebar/stop-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/stop-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Stop)</onclick>
+				</control>
+				<!--next-->
+				<control type="button" id="235">
+					<texturefocus colordiffuse="Color1">player/sidebar/next-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/next-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Next)</onclick>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<!--fullscreen-->
+				<control type="button" id="240">
+					<texturefocus colordiffuse="Color1">player/sidebar/fullscreen-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/fullscreen-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>fullscreen</onclick>
+					<visible>Player.HasVideo</visible>
+				</control>
+				<!--playlist-->
+				<control type="button" id="241">
+					<texturefocus colordiffuse="Color1">player/sidebar/playlist-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/playlist-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>ActivateWindow(musicplaylist)</onclick>
+					<visible>Player.HasAudio</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+	<!--Setting Views Menu-->
+	<!--Thumbnails-->
+	<include name="menuSetting_ViewMode">
+		<control type="button" id="3010">
+			<label>Setting</label>
+			<onclick>ActivateWindow(68)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(571)</visible>
+		</control>
+		<control type="button" id="301">
+			<label>Setting</label>
+			<onclick>ActivateWindow(681)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(573)</visible>
+		</control>
+		<control type="button" id="302">
+			<label>Setting</label>
+			<onclick>ActivateWindow(682)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(576)</visible>
+		</control>
+		<control type="button" id="303">
+			<label>Setting</label>
+			<onclick>ActivateWindow(683)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(578)</visible>
+		</control>
+		<control type="button" id="304">
+			<label>Setting</label>
+			<onclick>ActivateWindow(684)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(57)</visible>
+		</control>
+		<!-- List Small-->
+		<control type="button" id="305">
+			<label>Setting</label>
+			<onclick>ActivateWindow(685)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(67)</visible>
+		</control>
+		<!-- List -->
+		<control type="button" id="306">
+		<label>Setting</label>
+		<onclick>ActivateWindow(686)</onclick>
+		<include>menu_Button</include>
+		<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
+		</control>
+		<!-- Big List -->
+		<control type="button" id="307">
+			<label>Setting</label>
+			<onclick>ActivateWindow(687)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(51)</visible>
+		</control>
+		<!-- Slide Portrait -->
+		<control type="button" id="308">
+			<label>Setting</label>
+			<onclick>ActivateWindow(688)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(52)</visible>
+		</control>
+		<!-- Slide Landscape -->
+		<control type="button" id="309">
+			<label>Setting</label>
+			<onclick>ActivateWindow(689)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(521)</visible>
+		</control>
+		<!-- Slide Big Portrait -->
+		<control type="button" id="310">
+			<label>Setting</label>
+			<onclick>ActivateWindow(690)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(523)</visible>
+		</control>
+		<!-- Panel TextBox -->
+		<control type="button" id="311">
+			<label>Setting</label>
+			<onclick>ActivateWindow(691)</onclick>
+				<include>menu_Button</include>
+
+			<visible>Control.IsVisible(69) + ![Container.Content(episodes)]</visible>
+		</control>
+		<!-- Banner Episode-->
+		<control type="button" id="312">
+			<label>Setting</label>
+			<onclick>ActivateWindow(692)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(632)</visible>
+		</control>
+		<!-- Banner small grid-->
+		<control type="button" id="313">
+			<label>Setting</label>
+			<onclick>ActivateWindow(693)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(54)</visible>
+		</control>
+		<!-- Gallery Full Alt-->
+		<control type="button" id="314">
+			<label>Setting</label>
+			<onclick>ActivateWindow(694)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(532)</visible>
+		</control>
+		<!-- Gallery Full Alt2-->
+		<control type="button" id="315">
+			<label>Setting</label>
+			<onclick>ActivateWindow(695)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(533)</visible>
+		</control>
+		<!-- Gallery Full Alt3-->
+		<control type="button" id="316">
+			<label>Setting</label>
+			<onclick>ActivateWindow(696)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(534)</visible>
+		</control>
+		<!-- Strip big-->
+		<control type="button" id="317">
+			<label>Setting</label>
+			<onclick>ActivateWindow(697)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(535)</visible>
+		</control>
+		<!-- Strip Small-->
+		<control type="button" id="318">
+			<label>Setting</label>
+			<onclick>ActivateWindow(698)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(581)</visible>
+		</control>
+		<!-- Shelf-->
+		<control type="button" id="319">
+			<label>Setting</label>
+			<onclick>ActivateWindow(699)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(594)</visible>
+		</control>
+		<!-- Fanart Poster-->
+		<control type="button" id="320">
+			<label>Setting</label>
+			<onclick>ActivateWindow(700)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(59)</visible>
+		</control>
+		<!-- Landscape & Poster-->
+		<control type="button" id="321">
+			<label>Setting</label>
+			<onclick>ActivateWindow(701)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(591)</visible>
+		</control>
+		<!-- Big Fanart-->
+		<control type="button" id="322">
+			<label>Setting</label>
+			<onclick>ActivateWindow(702)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(596)</visible>
+		</control>
+		<!-- Strip Fanart-->
+		<control type="button" id="324">
+			<label>Setting</label>
+			<onclick>ActivateWindow(703)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(597)</visible>
+		</control>
+		<!-- Poster List-->
+		<control type="button" id="325">
+			<label>Setting</label>
+			<onclick>ActivateWindow(704)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(61)</visible>
+		</control>
+		<!-- Poster List-->
+		<control type="button" id="3250">
+			<label>Setting</label>
+			<onclick>ActivateWindow(7040)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(611)</visible>
+		</control>
+		<!-- Episode Poster-->
+		<control type="button" id="326">
+			<label>Setting</label>
+			<onclick>ActivateWindow(705)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(63)</visible>
+		</control>
+		<!--Episode Landscape-->
+		<control type="button" id="327">
+			<label>Setting</label>
+			<onclick>ActivateWindow(706)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(631)</visible>
+		</control>
+		<!--Movies Sets 1-->
+		<control type="button" id="328">
+			<label>Setting</label>
+			<onclick>ActivateWindow(707)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(579)</visible>
+		</control>
+			<!--Movies Sets 2-->
+		<control type="button" id="329">
+			<label>Setting</label>
+			<onclick>ActivateWindow(708)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(542)</visible>
+		</control>
+			<!--Banner Big Grid-->
+		<control type="button" id="330">
+			<label>Setting</label>
+			<onclick>ActivateWindow(709)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(541)</visible>
+		</control>
+		<!--Simple-->
+		<control type="button" id="331">
+			<label>Setting</label>
+			<onclick>ActivateWindow(710)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(595)</visible>
+		</control>
+		<!--Poster Landscape-->
+		<control type="button" id="332">
+			<label>Setting</label>
+			<onclick>ActivateWindow(711)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(593)</visible>
+		</control>
+		<!--Wall-->
+		<control type="button" id="333">
+			<label>Setting</label>
+			<onclick>ActivateWindow(712)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(592)</visible>
+		</control>
+		<!--Wall 3-->
+		<control type="button" id="3331">
+			<label>Setting</label>
+			<onclick>ActivateWindow(7121)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(621)</visible>
+		</control>
+		<!--Showcase-->
+		<control type="button" id="334">
+			<label>Setting</label>
+			<onclick>ActivateWindow(713)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(527)</visible>
+		</control>
+		<!--Panel ART Wrap-->
+		<control type="button" id="335">
+			<label>Setting</label>
+			<onclick>ActivateWindow(6911)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(691) + !SubString(Container.FolderPath,plugin://)</visible>
+		</control>
+		<!--Panel ART List-->
+		<control type="button" id="336">
+			<label>Setting</label>
+			<onclick>ActivateWindow(6912)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(692)</visible>
+		</control>
+		<!--Panel Strip-->
+		<control type="button" id="337">
+			<label>Setting</label>
+			<onclick>ActivateWindow(7400)</onclick>
+				<include>menu_Button</include>
+			<visible>Control.IsVisible(693) + ![Container.Content(episodes) | Container.Content(seasons)]</visible>
+		</control>
+		<!--Panel Strip-->
+		<control type="button" id="338">
+			<label>Setting</label>
+			<onclick>ActivateWindow(7401)</onclick>
+				<include>menu_Button</include>
+			<visible>Control.IsVisible(543)</visible>
+		</control>
+	</include>
+
+<!--VIDEO MENU-->
+	<include name="menu_Video">
+		<control type="group">
+			<include>menu_Commons</include>
+			<control type="grouplist" id="6000">
+				<include>menu_ContainerCommons</include>
+				<!--<include>menu_QuickNav</include>-->
+				<include>menu_ViewMode</include>
+			<!--viewtype options-->
+				<!--list: poster or fanart-->
+				<control type="togglebutton" id="110">
+					<label>$LOCALIZE[31120]: $LOCALIZE[31121] </label>
+					<altlabel>$LOCALIZE[31120]: $LOCALIZE[31122] </altlabel>
+					<onclick>Skin.ToggleSetting(view.list.fanart)</onclick>
+					<usealttexture>!Skin.HasSetting(view.list.fanart)</usealttexture>
+					<include>menu_Button</include>
+					<visible>Control.IsVisible(50) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<!--List small-->
+				<control type="togglebutton" id="127">
+					<label>$LOCALIZE[31120]: $LOCALIZE[31121] </label>
+					<altlabel>$LOCALIZE[31120]: $LOCALIZE[31122] </altlabel>
+					<onclick>Skin.ToggleSetting(view.listsmall.fanart)</onclick>
+					<usealttexture>!Skin.HasSetting(view.listsmall.fanart)</usealttexture>
+					<include>menu_Button</include>
+					<visible>Control.IsVisible(67) + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
+		 </control>
+			<!--biglist: poster or fanart-->
+				<control type="togglebutton" id="111">
+					<label>$LOCALIZE[31120]: $LOCALIZE[31121]</label>
+					<altlabel>$LOCALIZE[31120]: $LOCALIZE[31122]</altlabel>
+					<onclick>Skin.ToggleSetting(view.biglist.posters)</onclick>
+					<usealttexture>Skin.HasSetting(view.biglist.posters)</usealttexture>
+					<include>menu_Button</include>
+					<visible>Control.IsVisible(51) + !Container.Content(episodes) + !SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+			<!--slide: poster or fanart-->
+				<control type="button" id="112">
+					<label>$VAR[view_Layout]</label>
+					<onclick>Container.NextViewMode</onclick>
+					<!--onclick condition="Control.IsVisible(52)">Container.SetViewMode(521)</onclick>
+					<onclick condition="Control.IsVisible(521)">Container.SetViewMode(527)</onclick>
+					<onclick condition="Control.IsVisible(527)">Container.SetViewMode(523)</onclick>
+					<onclick condition="Control.IsVisible(523)">Container.SetViewMode(526)</onclick>
+					<onclick condition="Control.IsVisible(526)">Container.SetViewMode(525)</onclick>
+					<onclick condition="Control.IsVisible(525)">Container.SetViewMode(595)</onclick>
+					<onclick condition="Control.IsVisible(595)">Container.SetViewMode(52)</onclick-->
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(523) | Control.IsVisible(525) | Control.IsVisible(526) | Control.IsVisible(527) | Control.IsVisible(595)] + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+			<!--gallery: fullscreen or strip-->
+				<control type="button" id="113">
+					<label>$VAR[view_Layout]</label>
+					<onclick>Container.NextViewMode</onclick>
+					<!--onclick condition="Control.IsVisible(53)">Container.SetViewMode(531)</onclick>
+					<onclick condition="Control.IsVisible(531)">Container.SetViewMode(532)</onclick>
+					<onclick condition="Control.IsVisible(532)">Container.SetViewMode(533)</onclick>
+					<onclick condition="Control.IsVisible(533)">Container.SetViewMode(534)</onclick>
+					<onclick condition="Control.IsVisible(534)">Container.SetViewMode(53)</onclick-->
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(53) | Control.IsVisible(531) | Control.IsVisible(532) | Control.IsVisible(533) | Control.IsVisible(534)] +  [Container.Content(movies) | Container.Content(tvshows)]</visible>
+				</control>
+			<!--thumbnails: large grid / small /Small Alt / Small Original-->
+				<control type="button" id="114">
+					<label>$VAR[view_Layout]</label>
+					<onclick>Container.NextViewMode</onclick>
+					<!--onclick condition="Control.IsVisible(57)">Container.SetViewMode(571)</onclick>
+					<onclick condition="Control.IsVisible(571)">Container.SetViewMode(573)</onclick>
+					<onclick condition="Control.IsVisible(573)">Container.SetViewMode(576)</onclick>
+					<onclick condition="Control.IsVisible(576)">Container.SetViewMode(578)</onclick>
+					<onclick condition="Control.IsVisible(578)">Container.SetViewMode(57)</onclick>
+					<onclick condition="Control.IsVisible(579) + Container.Content(movies) + Container.Content(sets)">Container.SetViewMode(57)</onclick>
+					<onclick condition="Control.IsVisible(572) + Container.Content(addons)">Container.SetViewMode(574)</onclick>
+					<onclick condition="Control.IsVisible(574) + Container.Content(addons) + Container.Content(albums)">Container.SetViewMode(572)</onclick-->
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(57) | Control.IsVisible(571) | Control.IsVisible(572) | Control.IsVisible(573) | Control.IsVisible(574) | Control.IsVisible(576) | Control.IsVisible(578)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(addons) |  Container.Content(albums) + !SubString(Container.FolderPath,plugin://)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+				</control>
+			<!--banners: small or large grid-->
+				<control type="button" id="115">
+					<label>$VAR[view_Layout]</label>
+					<onclick>Container.NextViewMode</onclick>
+					<!--onclick condition="Control.IsVisible(54)">Container.SetViewMode(541)</onclick>
+					<onclick condition="Control.IsVisible(541)">Container.SetViewMode(543)</onclick>
+					<onclick condition="Control.IsVisible(543)">Container.SetViewMode(632)</onclick>
+					<onclick condition="Control.IsVisible(632)">Container.SetViewMode(54)</onclick-->
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(54) | Control.IsVisible(541) | Control.IsVisible(543) | Control.IsVisible(632)] + [Container.Content(tvshows) | [Container.Content(movies) + Skin.HasSetting(banner.movies.enable)]]</visible>
+			    </control>
+			<!--Strip: small or Large-->
+				<control type="button" id="116">
+					<label>$VAR[view_Layout]</label>
+					<onclick>Container.NextViewMode</onclick>
+					<!--onclick condition="Control.IsVisible(535)">Container.SetViewMode(581)</onclick>
+					<onclick condition="Control.IsVisible(581)">Container.SetViewMode(594)</onclick>
+					<onclick condition="Control.IsVisible(594)">Container.SetViewMode(597)</onclick>
+					<onclick condition="Control.IsVisible(597)">Container.SetViewMode(535)</onclick-->
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(535) | Control.IsVisible(581) | Control.IsVisible(594) | Control.IsVisible(597)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+				</control>
+			<!--Poster Fanart -->
+				<control type="button" id="117">
+				<label>$VAR[view_Layout]</label>
+					<onclick>Container.NextViewMode</onclick>
+					<!--onclick condition="Control.IsVisible(59)">Container.SetViewMode(591)</onclick>
+					<onclick condition="Control.IsVisible(591)">Container.SetViewMode(596)</onclick>
+					<onclick condition="Control.IsVisible(596)">Container.SetViewMode(593)</onclick>
+					<onclick condition="Control.IsVisible(593)">Container.SetViewMode(59)</onclick-->
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(59) | Control.IsVisible(591) | Control.IsVisible(593) | Control.IsVisible(596)] + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers) </visible>
+				</control>
+			<!--thumbnail WALL -->
+				<control type="button" id="118">
+					<label>$VAR[view_Layout]</label>
+					<onclick>Container.NextViewMode</onclick>
+					<!--onclick condition="Control.IsVisible(592)">Container.SetViewMode(62)</onclick>
+					<onclick condition="Control.IsVisible(62)">Container.SetViewMode(621)</onclick>
+					<onclick condition="Control.IsVisible(621)">Container.SetViewMode(592)</onclick-->
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(592) | Control.IsVisible(62) | Control.IsVisible(621)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+				</control>
+			<!--Movies Sets -->
+				<control type="button" id="119">
+					<label>$VAR[view_Layout]</label>
+					<onclick>Container.NextViewMode</onclick>
+					<!--onclick condition="Control.IsVisible(542)">Container.SetViewMode(579)</onclick>
+					<onclick condition="Control.IsVisible(579)">Container.SetViewMode(542)</onclick>
+					<include>menu_Button</include-->
+					<visible>[Control.IsVisible(542) | Control.IsVisible(579)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)]</visible>
+				</control>
+			<!--Episode-->
+				<control type="button" id="125">
+				<label>$VAR[view_Layout]</label>
+					<onclick>Container.NextViewMode</onclick>
+					<!--onclick condition="Control.IsVisible(63)">Container.SetViewMode(631)</onclick>
+					<onclick condition="Control.IsVisible(631)">Container.SetViewMode(63)</onclick-->
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(63) | Control.IsVisible(631)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+				  </control>
+				<!--ART-->
+				<control type="button" id="128">
+				<label>$VAR[view_Layout]</label>
+					<onclick>Container.NextViewMode</onclick>
+					<!--onclick condition="Control.IsVisible(691)">Container.SetViewMode(692)</onclick>
+					<onclick condition="Control.IsVisible(692)">Container.SetViewMode(691)</onclick-->
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(691) | Control.IsVisible(692)] + [Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://)</visible>
+				  </control>
+				<!--Panel-->
+				<control type="button" id="130">
+				<label>$VAR[view_Layout]</label>
+				<onclick>Container.NextViewMode</onclick>
+					<!--onclick condition="Control.IsVisible(693)">Container.SetViewMode(69)</onclick>
+					<onclick condition="Control.IsVisible(69)">Container.SetViewMode(693)</onclick-->
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(69) | Control.IsVisible(693)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + !SubString(Container.FolderPath,plugin://)</visible>
+				  </control>
+				  <!--Poster & Fanart List-->
+				<control type="button" id="131">
+				<label>$VAR[view_Layout]</label>
+				<onclick>Container.NextViewMode</onclick>
+					<!--onclick condition="Control.IsVisible(61)">Container.SetViewMode(611)</onclick>
+					<onclick condition="Control.IsVisible(611)">Container.SetViewMode(61)</onclick-->
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(61) | Control.IsVisible(611)] + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+				  </control>
+
+			<!--options-->
+
+			    <include>menuSetting_ViewMode</include>
+				<include>menu_Sorting</include>
+				<include>menu_LibraryHeader</include>
+				<include>menu_Shares</include>
+				<include>menu_Watched</include>
+				<include>menu_Filter</include>
+				<include>menu_PartyMode</include>
+				<include>menu_Update</include>
+				<include>menu_Search</include>
+				<include>menu_Playing</include>
+				<!--include condition="!IsEmpty(Skin.String(menu.controls))">menu_PlayerControls</include-->
+			</control>
+		<!--viewtypes-->
+			<control type="group">
+				<control type="grouplist" id="4000">
+					<include>menu_SubContainerCommons</include>
+					<control type="label" id="401">
+						<label>$LOCALIZE[31100]</label>
+						<include>menu_Header</include>
+					</control>
+					<!--list-->
+					<control type="button" id="402">
+						<label>$LOCALIZE[535]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(50)</onclick>
+					</control>
+					<!--list Small-->
+					<control type="button" id="403">
+						<label>$LOCALIZE[535] Small</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(67)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+					</control>
+					<!--big list-->
+					<control type="button" id="404">
+						<label>$LOCALIZE[537]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(51)</onclick>
+						<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+					</control>
+					<!--slide portrait-->
+					<control type="button" id="405">
+						<label>$LOCALIZE[31112]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(52)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)]</visible>
+					</control>
+					<!--slide landscape-->
+					<control type="button" id="406">
+						<label>$LOCALIZE[31112]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(521)</onclick>
+						<visible>Container.Content(episodes) | [Container.Content(files) + Container.HasFiles + !SubString(Container.FolderPath,plugin://plugin)]</visible>
+					</control>
+					<!--slide square-->
+					<control type="button" id="407">
+						<label>$LOCALIZE[31112]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(522)</onclick>
+						<visible>Container.Content(addons)</visible>
+					</control>
+					<!--thumbnails portrait-->
+					<control type="button" id="408">
+						<label>$LOCALIZE[31113]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(57)</onclick>
+						<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets) | Container.Content(actors) | Container.Content(artists)</visible>
+					</control>
+					<!--thumbnails portrait actors-->
+					<control type="button" id="4080">
+						<label>$LOCALIZE[31113] Actors</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(576)</onclick>
+						<visible>Container.Content(actors) | Container.Content(artists)</visible>
+					</control>
+					<!--thumbnails landscape-->
+					<control type="button" id="409">
+						<label>$LOCALIZE[31113]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(575)</onclick>
+						<visible>Container.Content(episodes) | [Container.Content(files) + Container.HasFiles]</visible>
+					</control>
+					<!--thumbnails landscape small-->
+					<control type="button" id="410">
+						<label>$LOCALIZE[31113] Small</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(577)</onclick>
+						<visible>Container.Content(episodes) | [Container.Content(files) + Container.HasFiles]</visible>
+					</control>
+					<!--thumbnails square-->
+					<control type="button" id="411">
+						<label>$LOCALIZE[31113]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(572)</onclick>
+						<visible>[Container.Content(addons) | Container.Content(files)] + [!Container.HasFiles + SubString(Container.FolderPath,plugin://)]</visible>
+					</control>
+					<!--banners-->
+					<control type="button" id="412">
+						<label>$LOCALIZE[31110]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(541)</onclick>
+						<visible>[Container.Content(tvshows) | Container.Content(movies)] + [Skin.HasSetting(banner.movies.enable) + !SubString(Container.FolderPath,plugin://plugin)]</visible>
+					</control>
+					<!--gallery-->
+					<control type="button" id="413">
+						<label>$LOCALIZE[31111]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(53)</onclick>
+						<visible>[Container.Content(tvshows) | Container.Content(movies)] + !SubString(Container.FolderPath,plugin://plugin)</visible>
+					</control>
+                    <!--Strip portrait-->
+					<control type="button" id="414">
+						<label>Strip</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(535)</onclick>
+							<visible>[Container.Content(movies)] + !SubString(Container.FolderPath,plugin://plugin)</visible>
+					</control>
+					 <!--Strip portrait-->
+					<control type="button" id="4140">
+						<label>Strip</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(597)</onclick>
+						<visible>Container.Content(tvshows)</visible>
+					</control>
+					<!--Poster & Fanart-->
+					<control type="button" id="415">
+						<label>Poster & Fanart</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(59)</onclick>
+						<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets)</visible>
+					 </control>
+					<!--thumbnails Wall-->
+					<control type="button" id="416">
+						<label>Wall</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(592)</onclick>
+						<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(sets) | Container.Content(actors) | Container.Content(artists)</visible>
+					</control>
+					<!--tiles-->
+					<control type="button" id="422">
+						<label>$LOCALIZE[31109]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(60)</onclick>
+						<visible>Container.Content(addons) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://) | [Container.Content(files) + !SubString(Container.FolderPath,plugin://)]</visible>
+					</control>
+					<!--Poster List-->
+					<control type="button" id="423">
+						<label>Poster & Fanart List</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(61)</onclick>
+						<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+					 	</control>
+					<!--Episode-->
+					<control type="button" id="424">
+						<label>Episode</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(63)</onclick>
+					    <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(sets)</visible>
+							</control>
+					<!--Movies Sets-->
+					<control type="button" id="425">
+						<label>Movies Sets</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(542)</onclick>
+					    <visible>[Container.Content(movies) | Container.Content(sets)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+					</control>
+					<!--Panel-->
+					<control type="button" id="426">
+						<label>Panel</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(69)</onclick>
+						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+					</control>
+					<!--ART-->
+					<control type="button" id="427">
+						<label>ART</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(691)</onclick>
+						<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+					</control>
+
+				</control>
+			</control>
+		</control>
+	</include>
+
+<!--MUSIC MENU-->
+<!--Icon album-->
+	<include name="menuSetting_MusicMode">
+		<control type="button" id="3010">
+			<label>Setting</label>
+			<onclick>ActivateWindow(7200)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(68)</visible>
+			<visible>Container.Content(albums)</visible>
+		</control>
+		<control type="button" id="3011">
+			<label>Setting</label>
+			<onclick>ActivateWindow(7201)</onclick>
+				<include>menu_Button</include>
+				<visible>Control.IsVisible(574)</visible>
+			<visible>Container.Content(albums)</visible>
+		</control>
+	</include>
+
+	<include name="menu_Music">
+		<control type="group">
+			<include>menu_Commons</include>
+			<control type="grouplist" id="6000">
+				<include>menu_ContainerCommons</include>
+				<include>menu_ViewMode</include>
+			<!--viewtype options-->
+				<!--list: artist thumb or fanart-->
+				<control type="togglebutton" id="110">
+					<label>$LOCALIZE[31120]: $LOCALIZE[31121]</label>
+					<altlabel>$LOCALIZE[31120]: $LOCALIZE[31122]</altlabel>
+					<onclick>Skin.ToggleSetting(view.list.artistfanart)</onclick>
+					<usealttexture>Skin.HasSetting(view.list.artistfanart)</usealttexture>
+					<include>menu_Button</include>
+					<visible>Control.IsVisible(50) + Container.Content(artists) + !SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<!--slide: landscape or portrait-->
+				<control type="button" id="111">
+					<label>$VAR[view_Layout]</label>
+					<textwidth>250</textwidth>
+					<onclick condition="Control.IsVisible(522)">Container.SetViewMode(521)</onclick>
+					<onclick condition="Control.IsVisible(521)">Container.SetViewMode(522)</onclick>
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(521) | Control.IsVisible(522)] + Container.Content(artists)</visible>
+				</control>
+			<!--options-->
+			    <include>menuSetting_MusicMode</include>
+				<include>menu_Sorting</include>
+				<include>menu_LibraryHeader</include>
+				<include>menu_SwitchMode</include>
+				<include>menu_Shares</include>
+				<include>menu_Filter</include>
+				<include>menu_PartyMode</include>
+				<include>menu_Update</include>
+				<include>menu_Search</include>
+				<include>menu_Playing</include>
+				<!--include condition="!IsEmpty(Skin.String(menu.controls))">menu_PlayerControls</include-->
+			</control>
+		</control>
+	<!--viewtypes-->
+		<control type="group">
+			<control type="grouplist" id="4000">
+				<include>menu_SubContainerCommons</include>
+				<control type="label" id="401">
+					<label>$LOCALIZE[31100]</label>
+					<include>menu_Header</include>
+				</control>
+				<!--list-->
+				<control type="button" id="402">
+					<label>$LOCALIZE[535]</label>
+					<include>menu_Button</include>
+					<onclick>Container.SetViewMode(50)</onclick>
+				</control>
+				<!--slide-->
+				<control type="button" id="403">
+					<label>$LOCALIZE[31112]</label>
+					<include>menu_Button</include>
+					<onclick>Container.SetViewMode(522)</onclick>
+					<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs) + Container.Content(singles) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<!--thumbnails-->
+				<control type="button" id="404">
+					<label>$LOCALIZE[31113]</label>
+					<onclick>Container.SetViewMode(572)</onclick>
+					<include>menu_Button</include>
+					<visible>Container.Content(artists)</visible>
+				</control>
+				<!--thumbnails square-->
+				<control type="button" id="405">
+					<label>$LOCALIZE[31113]</label>
+					<onclick>Container.SetViewMode(574)</onclick>
+					<include>menu_Button</include>
+					<visible>Container.Content(albums) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<!--tiles-->
+				<control type="button" id="412">
+					<label>$LOCALIZE[31109]</label>
+					<include>menu_Button</include>
+					<onclick>Container.SetViewMode(60)</onclick>
+					<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+				<!--Icon ALbum-->
+				<control type="button" id="413">
+					<label>Icon Album</label>
+					<include>menu_Button</include>
+					<onclick>Container.SetViewMode(68)</onclick>
+					<visible>Container.Content(albums) | Container.Content(artists) | Container.Content(songs) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://)</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+
+<!--FILES MENU-->
+	<include name="menu_Files">
+		<control type="group">
+			<include>menu_Commons</include>
+			<control type="grouplist" id="6000">
+				<include>menu_ContainerCommons</include>
+				<include>menu_ViewMode</include>
+			<!--viewtype options-->
+				<!--thumbnails: small or large grid (add-ons)-->
+				<control type="button" id="110">
+					<label>$VAR[view_Layout]</label>
+					<onclick condition="Control.IsVisible(574)">Container.SetViewMode(572)</onclick>
+					<onclick condition="Control.IsVisible(572)">Container.SetViewMode(574)</onclick>
+					<include>menu_Button</include>
+					<visible>[Control.IsVisible(572) | Control.IsVisible(574)] + !Window.IsActive(pictures)</visible>
+				</control>
+			<!--options-->
+				<include>menu_Sorting</include>
+				<!--slideshow-->
+				<control type="label" id="203">
+					<label>$LOCALIZE[33063]</label>
+					<include>menu_Header</include>
+					<visible>Window.IsActive(pictures)</visible>
+				</control>
+				<control type="button" id="204">
+					<label>$LOCALIZE[108]</label>
+					<onclick>SendClick(6)</onclick>
+					<include>menu_Button</include>
+					<visible>Window.IsActive(pictures)</visible>
+				</control>
+				<!--recursive slideshow-->
+				<control type="button" id="205">
+					<label>$LOCALIZE[361]</label>
+					<onclick>SendClick(7)</onclick>
+					<include>menu_Button</include>
+					<visible>Window.IsActive(pictures)</visible>
+				</control>
+				<!--randomize toggle-->
+				<control type="radiobutton" id="206">
+					<label>$LOCALIZE[13319]</label>
+					<onclick>SendClick(9)</onclick>
+					<include>menu_Button</include>
+					<include>menu_RadioButton</include>
+					<visible>Window.IsActive(pictures)</visible>
+				</control>
+				<include>menu_LibraryHeader</include>
+				<include>menu_SwitchMode</include>
+				<include>menu_Filter</include>
+				<include>menu_Search</include>
+				<include>menu_Playing</include>
+			</control>
+		</control>
+	<!--viewtypes-->
+		<control type="group">
+			<control type="grouplist" id="4000">
+				<include>menu_SubContainerCommons</include>
+				<control type="label" id="401">
+					<label>$LOCALIZE[31100]</label>
+					<include>menu_Header</include>
+				</control>
+				<!--list-->
+				<control type="button" id="402">
+					<label>$LOCALIZE[535]</label>
+					<textwidth>250</textwidth>
+					<include>menu_Button</include>
+					<onclick>Container.SetViewMode(50)</onclick>
+				</control>
+				<!--slide-->
+				<control type="button" id="403">
+					<label>$LOCALIZE[31112]</label>
+					<textwidth>250</textwidth>
+					<include>menu_Button</include>
+					<onclick>Container.SetViewMode(522)</onclick>
+					<visible>Container.Content(addons)</visible>
+				</control>
+				<!--thumbnails-->
+				<control type="button" id="404">
+					<label>$LOCALIZE[31113]</label>
+					<textwidth>250</textwidth>
+					<include>menu_Button</include>
+					<onclick>Container.SetViewMode(572)</onclick>
+					<visible>!IsEmpty(Container.FolderPath)</visible>
+				</control>
+				<!--slide-->
+				<control type="button" id="405">
+					<label>$LOCALIZE[31113] Small</label>
+					<textwidth>250</textwidth>
+					<include>menu_Button</include>
+					<onclick>Container.SetViewMode(577)</onclick>
+					<visible>Window.IsActive(Pictures) + Container.HasFiles + !IsEmpty(Container.FolderPath) + !SubString(Container.Folderpath,addons://sources/)</visible>
+				</control>
+				<!--gallery-->
+				<control type="button" id="406">
+					<label>$LOCALIZE[31111]</label>
+					<textwidth>250</textwidth>
+					<include>menu_Button</include>
+					<onclick>Container.SetViewMode(53)</onclick>
+					<visible>Window.IsActive(Pictures) + Container.HasFiles + !IsEmpty(Container.FolderPath) + !SubString(Container.Folderpath,addons://sources/)</visible>
+				</control>
+				<!--tiles-->
+				<control type="button" id="407">
+					<label>$LOCALIZE[31109]</label>
+					<include>menu_Button</include>
+					<onclick>Container.SetViewMode(60)</onclick>
+					<visible>[Window.IsActive(Pictures) + !SubString(Container.Folderpath,addons://sources/)] | [Window.IsActive(Programs) + !IsEmpty(Container.FolderPath)]</visible>
+				</control>
+			</control>
+		</control>
+	</include>
+
+<!--ADD-ONS MENU-->
+	<include name="menu_Addons">
+		<control type="group">
+			<include>menu_Commons</include>
+			<control type="grouplist" id="6000">
+				<include>menu_ContainerCommons</include>
+				<include>menu_ViewMode</include>
+			<!--viewtype options-->
+				<!--thumbnails: small or large grid (add-ons)-->
+				<control type="button" id="110">
+					<label>$VAR[view_Layout]</label>
+					<onclick condition="Control.IsVisible(574)">Container.SetViewMode(572)</onclick>
+					<onclick condition="Control.IsVisible(572)">Container.SetViewMode(574)</onclick>
+					<include>menu_Button</include>
+					<visible>Control.IsVisible(572) | Control.IsVisible(574)</visible>
+				</control>
+			<!--options-->
+				<include>menu_Sorting</include>
+				<!--add-ons header-->
+				<control type="label" id="203">
+					<label>$LOCALIZE[24001]</label>
+					<include>menu_Header</include>
+				</control>
+				<!--auto-updates-->
+				<control type="radiobutton" id="5">
+					<label>$LOCALIZE[24063]</label>
+					<include>menu_Button</include>
+					<include>menu_RadioButton</include>
+				</control>
+				<!--notifications-->
+				<control type="radiobutton" id="6">
+					<label>$LOCALIZE[25000]</label>
+					<include>menu_Button</include>
+					<include>menu_RadioButton</include>
+				</control>
+				<!--hide foreign-->
+				<control type="radiobutton" id="7">
+					<label>$LOCALIZE[25001]</label>
+					<include>menu_Button</include>
+					<include>menu_RadioButton</include>
+				</control>
+				<include>menu_LibraryHeader</include>
+				<include>menu_Search</include>
+				<include>menu_Playing</include>
+			</control>
+		<!--viewtypes-->
+			<control type="group">
+				<control type="grouplist" id="4000">
+					<include>menu_SubContainerCommons</include>
+					<control type="label" id="401">
+						<label>$LOCALIZE[31100]</label>
+						<include>menu_Header</include>
+					</control>
+					<!--list-->
+					<control type="button" id="402">
+						<label>$LOCALIZE[535]</label>
+						<textwidth>250</textwidth>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(50)</onclick>
+					</control>
+					<!--slide-->
+					<control type="button" id="403">
+						<label>$LOCALIZE[31112]</label>
+						<textwidth>250</textwidth>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(522)</onclick>
+						<visible>Container.Content(addons) + !IsEmpty(Container.FolderPath) + ![StringCompare(Container.FolderPath,addons://disabled/) | StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://repos/)]</visible>
+					</control>
+					<!--thumbnails-->
+					<control type="button" id="404">
+						<label>$LOCALIZE[31113]</label>
+						<textwidth>250</textwidth>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(572)</onclick>
+						<visible>Container.Content(addons) + !IsEmpty(Container.FolderPath) + ![StringCompare(Container.FolderPath,addons://disabled/) | StringCompare(Container.FolderPath,addons://enabled/) | StringCompare(Container.FolderPath,addons://repos/)]</visible>
+					</control>
+					<!--tiles-->
+					<control type="button" id="405">
+						<label>$LOCALIZE[31109]</label>
+						<include>menu_Button</include>
+						<onclick>Container.SetViewMode(60)</onclick>
+						<visible>Container.Content(addons)</visible>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+
+<!--PLAYLIST MENU-->
+	<include name="menu_Playlist">
+		<control type="group">
+			<include>menu_Commons</include>
+			<control type="grouplist" id="6000">
+				<include>menu_ContainerCommons</include>
+				<!--playlist header-->
+				<control type="label" id="19">
+					<label>$LOCALIZE[559]</label>
+					<include>menu_Header</include>
+				</control>
+				<!--shuffle-->
+				<control type="radiobutton" id="20">
+					<label>$LOCALIZE[191]</label>
+					<include>menu_Button</include>
+					<include>menu_RadioButton</include>
+				</control>
+				<!--repeat-->
+				<control type="button" id="26">
+					<label>$LOCALIZE[486]</label>
+					<include>menu_Button</include>
+				</control>
+				<!--save-->
+				<control type="button" id="21">
+					<label>$LOCALIZE[190]</label>
+					<include>menu_Button</include>
+				</control>
+				<!--clear-->
+				<control type="button" id="22">
+					<label>$LOCALIZE[192]</label>
+					<include>menu_Button</include>
+					<onclick>back</onclick>
+				</control>
+				<include>menu_LibraryHeader</include>
+				<include>menu_Search</include>
+				<include>menu_Playing</include>
+			</control>
+		</control>
+	</include>
+
+<!--TV MENU-->
+	<include name="menu_TV">
+		<control type="group">
+			<include>menu_Commons</include>
+			<control type="grouplist" id="6000">
+				<include>menu_ContainerCommons</include>
+			<!--options-->
+				<control type="label" id="203">
+					<label>$LOCALIZE[33063]</label>
+					<include>menu_Header</include>
+				</control>
+				<!--tv channels-->
+				<control type="button" id="32">
+					<onback>PreviousMenu</onback>
+					<label>$VAR[pvr_TVChannelGroup]</label>
+					<include>menu_Button</include>
+				</control>
+				<!--radio channels-->
+				<control type="button" id="33">
+					<onback>PreviousMenu</onback>
+					<label>$VAR[pvr_RadioChannelGroup]</label>
+					<include>menu_Button</include>
+				</control>
+				<!--guide-->
+				<control type="button" id="31">
+					<onback>PreviousMenu</onback>
+					<label>$LOCALIZE[19222]: $LOCALIZE[19030]</label>
+					<include>menu_Button</include>
+				</control>
+				<!--recordings-->
+				<control type="button" id="34">
+					<onback>PreviousMenu</onback>
+					<label>$LOCALIZE[19163]</label>
+					<include>menu_Button</include>
+				</control>
+				<!--timers-->
+				<control type="button" id="35">
+					<onback>PreviousMenu</onback>
+					<label>$LOCALIZE[19040]</label>
+					<include>menu_Button</include>
+				</control>
+				<!--search-->
+				<control type="button" id="36">
+					<onback>PreviousMenu</onback>
+					<label>$LOCALIZE[137]</label>
+					<include>menu_Button</include>
+				</control>
+				<!--now playing-->
+				<include>menu_Playing</include>
+			</control>
+		</control>
+	</include>
+
+<!--SETTINGS MENU-->
+	<include name="menu_Settings">
+		<control type="group">
+			<include>menu_Commons</include>
+			<control type="grouplist" id="6000">
+				<include>menu_ContainerCommons</include>
+			<!--Settings level-->
+				<control type="label" id="19">
+					<label>$LOCALIZE[31205]</label>
+					<include>menu_Header</include>
+				</control>
+				<control type="button" id="20">
+					<onback>PreviousMenu</onback>
+					<label>$LOCALIZE[10037]</label>
+					<onclick>SettingsLevelChange</onclick>
+					<include>menu_Button</include>
+				</control>
+				<!--now playing-->
+				<include>menu_Playing</include>
+			</control>
+		</control>
+	</include>
+
+<!--WEATHER-->
+	<include name="menu_Weather">
+		<control type="group">
+			<include>menu_Commons</include>
+			<control type="grouplist" id="6000">
+				<include>menu_ContainerCommons</include>
+				<!--weather functions-->
+				<control type="label" id="203">
+					<label>$LOCALIZE[8]</label>
+					<include>menu_Header</include>
+				</control>
+				<!--location-->
+				<control type="group" id="300">
+					<height>46</height>
+					<onright>50</onright>
+					<control type="spincontrolex" id="3">
+						<label>-</label>
+						<font>-</font>
+						<onup>218</onup>
+						<ondown>2</ondown>
+						<onright>50</onright>
+						<textureup colordiffuse="base_2">settings/spin/up-nf.png</textureup>
+						<textureupfocus colordiffuse="Color1">settings/spin/up-fo.png</textureupfocus>
+						<texturedown colordiffuse="base_2">settings/spin/down-nf.png</texturedown>
+						<texturedownfocus colordiffuse="Color1">settings/spin/down-fo.png</texturedownfocus>
+						<include>menu_Button</include>
+					</control>
+					<control type="label" id="301">
+						<label>$LOCALIZE[35500]</label>
+						<width>175</width>
+						<include>menu_Button</include>
+					</control>
+				</control>
+				<!--refresh-->
+				<control type="button" id="2">
+					<label>$LOCALIZE[103]</label>
+					<onright>50</onright>
+					<include>menu_Button</include>
+				</control>
+				<!--settings-->
+				<control type="button" id="4">
+					<label>$LOCALIZE[5]</label>
+					<onclick>ActivateWindow(MyWeatherSettings)</onclick>
+					<include>menu_Button</include>
+				</control>
+				<!--options-->
+				<control type="label" id="204">
+					<label>$LOCALIZE[33063]</label>
+					<include>menu_Header</include>
+				</control>
+				<!--fanart-->
+				<control type="radiobutton" id="5">
+					<label>$LOCALIZE[31231]</label>
+					<onclick>Skin.ToggleSetting(fanart.weather)</onclick>
+					<selected>Skin.HasSetting(fanart.weather)</selected>
+					<include>menu_RadioButton</include>
+					<include>menu_Button</include>
+				</control>
+				<control type="button" id="6">
+					<label>$LOCALIZE[31232]</label>
+					<onclick>Skin.Reset(fanart.weather.path)</onclick>
+					<onclick>Skin.SetPath(fanart.weather.path)</onclick>
+					<enable>Skin.HasSetting(fanart.weather)</enable>
+					<include>menu_Button</include>
+					<visible>Skin.HasSetting(fanart.weather)</visible>
+				</control>
+				<!--commons-->
+				<include>menu_Playing</include>
+			</control>
+		</control>
+	</include>
+</includes>

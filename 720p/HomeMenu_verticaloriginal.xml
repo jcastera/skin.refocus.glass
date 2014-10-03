@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+		<include name="home_Menu-vertical">
+		<!--WIDGETS-->
+		<include>widget_Container</include>
+		<!--MAIN MENU-->
+		<control type="group" id="9109">
+			<width>340</width>
+			<animation type="Conditional" condition="Control.HasFocus(9210)">
+				<effect type="Slide" time="300" center="auto" start="0" end="-340" easing="In" tween="Quadratic"/>
+			</animation>
+			<control type="image">
+				<width>340</width>
+				<height>screen_Height</height>
+				<texture background="true">white.png</texture>
+				<colordiffuse>base_3</colordiffuse>
+				<animation effect="fade" start="100" end="90" time="0" condition="!Skin.HasSetting(widgets.disable)">Conditional</animation>
+				<visible>!Skin.HasSetting(homemenu.compact)</visible>
+			</control>
+			<control type="image">
+				<width>340</width>
+				<height>10</height>
+				<texture background="true">white.png</texture>
+				<colordiffuse>base_3</colordiffuse>
+				<visible>Skin.HasSetting(homemenu.compact)</visible>
+			</control>
+			<control type="list" id="300">
+				<posx>0</posx>
+				<posy>10</posy>
+				<width>340</width>
+				<height min="50" max="screen_Height">auto</height>
+				<onback>300</onback>
+				<onup>300</onup>
+				<ondown>300</ondown>
+				<onright condition="Skin.HasSetting(widgets.disable) + !IsEmpty(Container(300).ListItem.Property(Widget))">9210</onright>
+				<onleft>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=300)</onleft>
+				<onback>RunScript(script.skinshortcuts,type=hidesubmenu&amp;mainmenuID=300)</onback>
+				<itemgap>0</itemgap>
+					<pagecontrol>80</pagecontrol>
+					<include>global_ListScroll</include>
+					<orientation>vertical</orientation>
+					<itemlayout width="340" height="50">
+						<control type="image">
+							<width>340</width>
+							<height>60</height>
+							<texture colordiffuse="base_3">white.png</texture>
+							<visible>Skin.HasSetting(homemenu.compact)</visible>
+						</control>
+						<control type="group">
+							<posx>10</posx>
+							<control type="image">
+								<width>320</width>
+								<height>49</height>
+								<texture colordiffuse="base_2">white.png</texture>
+								<visible>IsEmpty(ListItem.Property(isSubmenu))</visible>
+							</control>
+							<control type="image">
+								<width>320</width>
+								<height>49</height>
+								<texture colordiffuse="accent_2">white.png</texture>
+								<visible>!IsEmpty(ListItem.Property(isSubmenu))</visible>
+							</control>
+						</control>
+						<control type="group">
+							<posx>10</posx>
+							<posy>1</posy>
+							<control type="label">
+								<posx>15</posx>
+								<height>46</height>
+								<font>light_Home</font>
+								<textcolor>Color3</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+							<control type="label">
+								<posx>300</posx>
+								<height>46</height>
+								<font>light_Home</font>
+								<label>›</label>
+								<visible>!IsEmpty(ListItem.Property(hasSubmenu))</visible>
+								<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility") )</visible>
+							</control>
+						</control>
+					</itemlayout>
+					<focusedlayout width="340" height="50">
+						<control type="image">
+							<width>340</width>
+							<height>60</height>
+							<texture colordiffuse="base_3">white.png</texture>
+							<visible>Skin.HasSetting(homemenu.compact) + IsEmpty(Container(300).ListItemNoWrap(1).Label) + Container(300).HasFocus() + ![Window.IsActive(keyboard)]</visible>
+						</control>
+						<control type="image">
+							<width>340</width>
+							<height>50</height>
+							<texture colordiffuse="base_3">white.png</texture>
+							<visible>Skin.HasSetting(homemenu.compact)</visible>
+						</control>
+						<control type="image">
+							<posx>10</posx>
+							<posy>0</posy>
+							<width>320</width>
+							<height>49</height>
+							<texture colordiffuse="Color1">white.png</texture>
+						</control>
+						<control type="group">
+							<posx>10</posx>
+							<posy>1</posy>
+							<control type="label">
+								<posx>15</posx>
+								<height>46</height>
+								<font>light_Home</font>
+								<textcolor>Focused</textcolor>
+								<label>$INFO[ListItem.Label]</label>
+							</control>
+							<control type="label">
+								<posx>300</posx>
+								<height>46</height>
+								<font>light_Home</font>
+								<textcolor>Focused</textcolor>
+								<label>›</label>
+								<visible>!IsEmpty(ListItem.Property(hasSubmenu))</visible>
+								<visible>!StringCompare(ListItem.Property("submenuVisibility"),Window(10000).Property("submenuVisibility") )</visible>
+							</control>
+						</control>
+				</focusedlayout>
+				<content>
+
+				</content>
+			</control>
+		</control>
+		<!--now playing widget-->
+		<control type="group">
+			<posx>370</posx>
+			<posy>590</posy>
+			<include>home_Playing</include>
+			<visible>!Control.HasFocus(9210)</visible>
+		</control>
+	</include>
+
+	<include name="home_Menu-horizontal">
+		<!--WIDGETS-->
+		<include>widget_Container</include>
+		<!--MAIN MENU-->
+		<control type="group">
+			<posy>565</posy>
+			<animation type="Conditional" condition="Skin.HasSetting(topmenu.enable)" reversible="false">
+				<effect type="Slide"  center="auto" start="0,0" end="0,-165" easing="Out" tween="Cubic"/>
+			</animation>
+			<posx>50</posx>
+			<control type="image">
+			<posy>-25</posy>
+			<posx>-150</posx>
+					<width>1920</width>
+					<height>115</height>
+					<aspectratio>stretch</aspectratio>
+					<texture colordiffuse="base_3">home/panel.png</texture>
+					<visible>ControlGroup(229).HasFocus() | Control.HasFocus(300) | Control.HasFocus(9111)</visible>
+			</control>
+			<animation type="Conditional" condition="Control.HasFocus(9210)" reversible="false">
+				<effect type="Slide"  center="auto" start="0,0" end="0,400" easing="In" tween="Cubic"/>
+			</animation>
+			<animation type="Conditional" condition="!Control.HasFocus(9210)" reversible="false">
+				<effect type="Slide" time="350" center="auto" start="0,400" end="0,0" easing="In" tween="Cubic"/>
+			</animation>
+			<animation effect="fade" start="100" end="70" time="0" condition="Skin.HasSetting(opacitymenu.disable)">Conditional</animation>
+
+			<control type="group">
+				<include>transition_Home-horizontal</include>
+				<control type="fixedlist" id="300">
+					<width>1182</width>
+					<height>70</height>
+					<onleft>300</onleft>
+					<onright>300</onright>
+					<onup condition="Skin.HasSetting(widgets.disable) + !IsEmpty(Container(300).ListItem.Property(Widget))">9210</onup>
+					<ondown>9111</ondown>
+					<focusposition>2</focusposition>
+					<movement>2</movement>
+					<orientation>horizontal</orientation>
+					<pagecontrol>80</pagecontrol>
+					<include>global_ListScroll</include>
+					<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(300).NumItems,2)">Conditional</animation>
+					<animation effect="slide" start="0" end="-118" condition="StringCompare(Container(300).NumItems,4)">Conditional</animation>
+					<itemlayout width="236" height="70">
+						<control type="label">
+							<posx>118</posx>
+							<width>236</width>
+							<height>60</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>semibold_Big-U</font>
+							<align>center</align>
+							<textcolor>Color3</textcolor>
+						</control>
+					</itemlayout>
+					<focusedlayout width="260" height="70">
+						<control type="group">
+							<visible>Control.HasFocus(300)</visible>
+							<control type="image">
+							<posx>-10</posx>
+								<width>260</width>
+								<height>70</height>
+								<texture colordiffuse="ffffffff">frame_Gallery.png</texture>
+								<bordertexture colordiffuse="Color1"></bordertexture>
+								<bordersize>5</bordersize>
+								</control>
+							<control type="group">
+							<control type="label">
+								<posx>118</posx>
+								<width>236</width>
+								<height>60</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>bold_Bigger-U</font>
+								<align>center</align>
+								<textcolor>Color3</textcolor>
+							</control>
+							<visible>!Skin.HasSetting(Big_FontMenuHrz.enable)</visible>
+							</control>
+							<control type="group">
+							<control type="label">
+								<posx>118</posx>
+								<width>236</width>
+								<height>60</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>bold_Bigger-U2</font>
+								<align>center</align>
+								<textcolor>Color3</textcolor>
+							</control>
+							<visible>Skin.HasSetting(Big_FontMenuHrz.enable)</visible>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(300)</visible>
+							<control type="image">
+								<width>238</width>
+								<height>65</height>
+								<texture colordiffuse="base_2">white.png</texture>
+								<bordertexture colordiffuse="base_3">white.png</bordertexture>
+								<bordersize>2</bordersize>
+							</control>
+							<control type="label">
+								<posx>118</posx>
+								<width>236</width>
+								<height>60</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>condensed_Home</font>
+								<align>center</align>
+								<textcolor>Color3</textcolor>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>
+						 <include>skinshortcuts-mainmenu</include>
+					</content>
+				</control>
+			</control>
+				<!--SUB MENU-->
+			<control type="group">
+			<control type="image">
+			<posy>70</posy>
+			<posx>-150</posx>
+					<width>1920</width>
+					<height>58</height>
+					<aspectratio>stretch</aspectratio>
+					<texture colordiffuse="base_5">home/panel.png</texture>
+					<animation type="Conditional" condition="!IntegerGreaterThan(Container(9111).NumItems,0)" reversible="true">
+							<effect type="Slide" time="50" center="auto" start="0,0" end="-4000,0" easing="In" tween="Cubic"/>
+						</animation>
+					<visible>ControlGroup(229).HasFocus() | Control.HasFocus(300) | Control.HasFocus(9111)</visible>
+				 	</control>
+			<include>transition_Home-horizontal2</include>
+				<control type="list" id="9111">
+				<posx>0</posx>
+					<posy>78</posy>
+					<width>1280</width>
+					<height>80</height>
+					<onback>300</onback>
+					<onleft>9111</onleft>
+					<onright>9111</onright>
+					<onup>300</onup>
+					<ondown>229</ondown>
+					<focusposition>1</focusposition>
+					<movement>0</movement>
+					<preloaditems>4</preloaditems>
+					<pagecontrol>80</pagecontrol>
+					<include>global_ListScroll</include>
+					<orientation>horizontal</orientation>
+					<animation effect="slide" start="0" end="470" condition="StringCompare(Container(9111).NumItems,1)">Conditional</animation>
+					<animation effect="slide" start="0" end="345" condition="StringCompare(Container(9111).NumItems,2)">Conditional</animation>
+					<animation effect="slide" start="0" end="270" condition="StringCompare(Container(9111).NumItems,3)">Conditional</animation>
+					<animation effect="slide" start="0" end="118" condition="StringCompare(Container(9111).NumItems,4)">Conditional</animation>
+					<animation effect="slide" start="0" end="auto" condition="StringCompare(Container(9111).NumItems,5)">Conditional</animation>
+					<itemlayout width="236" height="55">
+						<control type="label">
+							<posx>118</posx>
+							<width>199</width>
+							<height>40</height>
+							<label>$INFO[ListItem.Label]</label>
+							<font>condensed_HomeSub</font>
+							<align>center</align>
+							<textcolor>Color3</textcolor>
+						</control>
+					</itemlayout>
+					<focusedlayout width="238" height="55">
+						<control type="group">
+							<visible>Control.HasFocus(9111)</visible>
+							<control type="image">
+							<posx>2</posx>
+								<width>238</width>
+								<height>41</height>
+								<texture colordiffuse="Color1">white.png</texture>
+								<bordertexture colordiffuse="base_3"></bordertexture>
+								<bordersize>0</bordersize>
+							</control>
+							<control type="label">
+								<posx>118</posx>
+								<width>199</width>
+								<height>40</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>condensed_HomeSub</font>
+								<align>center</align>
+								<textcolor>Color4</textcolor>
+							</control>
+						</control>
+						<control type="group">
+							<visible>!Control.HasFocus(9111)</visible>
+							<control type="image">
+								<width>220</width>
+								<height>42</height>
+								<texture colordiffuse="base_2"></texture>
+								<bordertexture colordiffuse="base_3">white.png</bordertexture>
+								<bordersize>2</bordersize>
+							</control>
+							<control type="label">
+								<posx>118</posx>
+								<width>199</width>
+								<height>40</height>
+								<label>$INFO[ListItem.Label]</label>
+								<font>condensed_HomeSub</font>
+								<align>center</align>
+								<textcolor>Color3</textcolor>
+							</control>
+						</control>
+					</focusedlayout>
+					<content>
+						 <include>skinshortcuts-submenu</include>
+					</content>
+				</control>
+			</control>
+		<control type="group" id="229">
+			<posy>-60</posy>
+			<posx>-365</posx>
+			<visible>Player.HasMedia + StringCompare(Skin.String(menu.controls),player)</visible>
+			<animation effect="slide" end="1278,0" time="600" tween="quadratic" easing="out" condition="Control.HasFocus(230) | ControlGroup(229).HasFocus">conditional</animation>
+			<animation effect="slide" end="0,-30" time="600" tween="quadratic" easing="out" condition="Control.HasFocus(230) | ControlGroup(229).HasFocus + [Skin.HasSetting(downstats.enable) + !Skin.HasSetting(topmenu.enable)]">conditional</animation>
+			<control type="image" id="230">
+			<posx>-10</posx>
+			<posy>-10</posy>
+                    <width>380</width>
+                    <height>70</height>
+                    <texture colordiffuse="column2">home/frame_Wide.png</texture>
+					<visible></visible>
+					<visible>ControlGroup(229).HasFocus() | ControlGroupList(231).HasFocus() | ControlGroupList(232).HasFocus() | ControlGroupList(233).HasFocus() | ControlGroupList(234).HasFocus() | ControlGroupList(235).HasFocus() | ControlGroupList(236).HasFocus() | ControlGroupList(237).HasFocus() | ControlGroupList(238).HasFocus() | Control.HasFocus(300) | Control.HasFocus(9111)</visible>
+                </control>
+			<control type="grouplist" id="231">
+				<posx>75</posx>
+				<posy>5</posy>
+				<width>305</width>
+				<onback>300</onback>
+				<onleft>231</onleft>
+				<onright>231</onright>
+				<onup>300</onup>
+				<ondown>102</ondown>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<!--previous-->
+				<control type="button" id="233">
+					<texturefocus colordiffuse="Color1">player/sidebar/prev-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/prev-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Previous)</onclick>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<!--pause-->
+				<control type="togglebutton" id="234">
+					<texturenofocus colordiffuse="Color3">player/sidebar/pause-nf.png</texturenofocus>
+					<texturefocus colordiffuse="Color1">player/sidebar/pause-fo.png</texturefocus>
+					<alttexturenofocus colordiffuse="Color3">player/sidebar/play-nf.png</alttexturenofocus>
+					<alttexturefocus colordiffuse="Color1">player/sidebar/play-fo.png</alttexturefocus>
+					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Play)</onclick>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+					<enable>Player.PauseEnabled</enable>
+				</control>
+				<!--stop-->
+				<control type="button" id="235">
+				<onback>300</onback>
+					<texturefocus colordiffuse="Color1">player/sidebar/stop-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/stop-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Stop)</onclick>
+				</control>
+				<!--next-->
+				<control type="button" id="236">
+					<texturefocus colordiffuse="Color1">player/sidebar/next-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/next-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>PlayerControl(Next)</onclick>
+					<visible>!VideoPlayer.Content(LiveTV)</visible>
+				</control>
+				<!--fullscreen-->
+				<control type="button" id="237">
+					<texturefocus colordiffuse="Color1">player/sidebar/fullscreen-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/fullscreen-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>fullscreen</onclick>
+					<visible>Player.HasVideo</visible>
+				</control>
+				<!--playlist-->
+				<control type="button" id="238">
+					<texturefocus colordiffuse="Color1">player/sidebar/playlist-fo.png</texturefocus>
+					<texturenofocus colordiffuse="Color3">player/sidebar/playlist-nf.png</texturenofocus>
+					<include>menu_ControlsButton</include>
+					<onclick>ActivateWindow(musicplaylist)</onclick>
+					<visible>Player.HasAudio</visible>
+				</control>
+			</control>
+			<control type="image" id="243">
+			<include>nav_IndicatorLeft</include>
+				           <posy>12</posy>
+				           <posx>320</posx>
+				           <width>28</width>
+				           <height>28</height>
+			 <aspectratio>scale</aspectratio>
+			<texture background="true">navigation/down.png</texture>
+			<include>nav_IndicatorLeft</include>
+			<visible>!ControlGroup(229).HasFocus() | ControlGroup(230).HasFocus()</visible>
+			 </control>
+			 <control type="image" id="244">
+				           <posy>12</posy>
+				           <posx>25</posx>
+				           <width>28</width>
+				           <height>28</height>
+			 <aspectratio>scale</aspectratio>
+			<texture background="true">navigation/up.png</texture>
+			<visible>ControlGroup(229).HasFocus() | ControlGroup(230).HasFocus()</visible>
+			 </control>
+		</control>
+
+			<!--now playing widget-->
+			<control type="group">
+				<posy>200</posy>
+				<include>home_Playing</include>
+			</control>
+		</control>
+	</include>
+</includes>

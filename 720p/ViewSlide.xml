@@ -1,0 +1,2232 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="detail_Slide">
+	<control type="group">
+	<control type="image">
+			<include>screen_Dimensions</include>
+			<texture background="true">$VAR[global_Fanart]</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+		</control>
+		<control type="image">
+		<posy>120</posy>
+			<include>screen_Dimensions</include>
+			<texture background="true" colordiffuse="50ff111111">overlays\vignetteFullScreen.png</texture>
+			<aspectratio align="center" aligny="top">scale</aspectratio>
+		</control>
+		<control type="label">
+				<posx>20</posx>
+			<posy>680</posy>
+						<label>$VAR[global_Title]</label>
+						<width>625</width>
+						<include>detail_Title</include>
+					</control>
+		<visible>[Control.IsVisible(52) | Control.IsVisible(521)] + Control.HasFocus(8000)</visible>
+		</control>
+		<control type="group">
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<visible>[Control.IsVisible(52) | Control.IsVisible(521) | Control.IsVisible(522)] + !Control.HasFocus(8000)</visible>
+			<control type="image">
+				<posx>33</posx>
+				<posy>460</posy>
+				<width>80</width>
+				<height>40</height>
+				<aspectratio align="right">keep</aspectratio>
+				<texture colordiffuse="Color11">$VAR[flag_VideoType-fo]</texture>
+			</control>
+			<control type="image">
+				<posx>40</posx>
+				<posy>520</posy>
+				<width>90</width>
+				<height>50</height>
+				<aspectratio align="right">keep</aspectratio>
+				<texture colordiffuse="Color11">$VAR[flag_Studio]</texture>
+			</control>
+			<control type="image">
+					<posx>55</posx>
+					   <width>80</width>
+				       <height>40</height>
+					   <posy>590</posy>
+					   <aspectratio align="right">keep</aspectratio>
+						<texture colordiffuse="Color11">$INFO[ListItem.Property(mediaTag-videoResolution),flags/video/resolution/,.png]</texture>
+						<visible>true</visible>
+					</control>
+				<!-- logo -->
+				<control type="image">
+					<posx>55</posx>
+					<posy>470</posy>
+					   <width>112</width>
+				       <height>100</height>
+					  <aspectratio align="center">keep</aspectratio>
+				<texture>$VAR[art_Logo.Condition]</texture>
+				<visible>Container.Content(artists) | Container.Content(albums)</visible>
+			</control>
+						<control type="image">
+						<posx>70</posx>
+					    <posy>645</posy>
+						<width>50</width>
+						<height>40</height>
+						<aspectratio align="center">keep</aspectratio>
+						<texture colordiffuse="Color11">$INFO[ListItem.Property(mediaTag-audioChannels),flags/audio/,.png]</texture>
+						<visible>true</visible>
+					</control>
+			<control type="group">
+				<posx>192</posx>
+				<posy>477</posy>
+				<animation effect="slide" start="0" end="57" time="0" condition="Control.IsVisible(522)">Conditional</animation>
+				<control type="group">
+					<control type="label">
+					<posx>-2</posx>
+						<width>1000</width>
+						<label>$VAR[global_Title]</label>
+						<include>detail_Title</include>
+					</control>
+					<control type="group">
+						<posy>30</posy>
+						<posx>-2</posx>
+						<visible>!SubString(ListItem.Icon,default)</visible>
+						<control type="label">
+							<width>960</width>
+							<label>$VAR[global_Info]</label>
+							<include>detail_Sub</include>
+							<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+						<control type="label">
+							<width>960</width>
+							<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
+							<include>detail_Sub</include>
+							<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+					</control>
+					<control type="textbox">
+						<posy>90</posy>
+						<width>995</width>
+						<height>110</height>
+						<label>$VAR[global_Plot]</label>
+						<include>detail_Text</include>
+					</control>
+				</control>
+				<control type="grouplist">
+					<posy>53</posy>
+					<posx>-5</posx>
+					<width>600</width>
+					<height>40</height>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="image">
+						<width>128</width>
+						<height>32</height>
+						<texture>$VAR[global_Rating]</texture>
+						<aspectratio align="center">keep</aspectratio>
+						<visible>!Container.Content(files)</visible>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+<!--PORTRAIT-->
+	<include name="view_SlidePoster">
+		<control type="fixedlist" id="52">
+			<viewtype label="31112">wrap</viewtype>
+			<posx>8</posx>
+			<posy>110</posy>
+			<width>1272</width>
+			<height>425</height>
+			<onup>6000</onup>
+			<ondown condition="!Window.IsVisible(52)">8000</ondown>
+			<ondown condition="Window.IsVisible(52)">71</ondown>
+			<onleft>52</onleft>
+			<onright>52</onright>
+			<focusposition>1</focusposition>
+			<pagecontrol>71</pagecontrol>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+			<itemlayout width="205" height="300">
+			<include>viewSlidePoster-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="205" height="300">
+			<control type="image">
+                        <posx>37</posx>
+                        <posy>125</posy>
+                        <width>120</width>
+                        <height>120</height>
+                        <aspectratio>keep</aspectratio>
+                        <texture background="true">$VAR[Icon_Discart]</texture>
+                        <animation effect="slide" delay="1600" end="140,0" time="300" tween="quadratic">Focus</animation>
+                        <animation effect="slide" start="140,0" end="0" time="150" tween="quadratic" easing="in">Unfocus</animation>
+                        <animation effect="zoom" start="70" end="200" center="auto" time="160" condition="Control.HasFocus(52)">Conditional</animation>
+                        <visible>Container.Content(movies) + Skin.HasSetting(SlidePosterDiscart.movies.enable)</visible>
+                        <bordersize>7</bordersize>
+                    </control>
+				<include>viewSlidePoster-ContainerCommons</include>
+				<control type="image">
+					<posx>185</posx>
+					<posy>13</posy>
+					<width>32</width>
+            <height>32</height>
+			<texture background="true" diffuse="videoextras_overlay.png">$VAR[VideoextrasOverlay]</texture>
+			<visible>Control.IsVisible(52) + System.HasAddon(script.videoextras) + Window.IsVisible(Videos) + Container.Content(Movies) + !Skin.HasSetting(Enable.videoextrasOverlays)</visible>
+		<colordiffuse>FFFFFFFF</colordiffuse>
+		</control>
+			</focusedlayout>
+		</control>
+	</include>
+	<include name="viewSlidePoster-ContainerCommons">
+		<control type="group">
+			<include>focus_SlidePoster</include>
+			<control type="image">
+				<posy>-8</posy>
+				<posx>-2</posx>
+				<width>206</width>
+				<height>323</height>
+			<texture border="5">frames/frame-back-alt.png</texture>
+			<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="group">
+				<posx>10</posx>
+				<posy>10</posy>
+				<control type="image">
+					<width>183</width>
+					<height>280</height>
+					<texture background="true">thumbs/default_Portrait.png</texture>
+					<aspectratio align="center">stretch</aspectratio>
+				</control>
+				<control type="image">
+					<posx>43.5</posx>
+					<posy>92</posy>
+					<width>96</width>
+					<height>96</height>
+					<include>art_DefaultIcon</include>
+				</control>
+				<control type="image">
+					<width>183</width>
+					<height>280</height>
+					<texture background="true">$VAR[thumb_Portrait]</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+				</control>
+				<control type="group">
+					<posx>157</posx>
+					<posy>254</posy>
+					<include>status_Info</include>
+					<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+				</control>
+				<control type="group">
+					<posx>151</posx>
+					<posy>249</posy>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+					<control type="image">
+					<info>ListItem.Overlay</info>
+					</control>
+				</control>
+				<control type="image">
+				   <posx>-5</posx>
+				   <posy>-5</posy>
+				   <width>193</width>
+				   <height>293</height>
+		           <texture>frames/Glass.png</texture>
+		           <visible>Skin.HasSetting(SlidePoster.Glass)</visible>
+				   <aspectratio align="center" aligny="top">stretch</aspectratio>
+		           </control>
+				<control type="group">
+				   <!-- MikeBZH44 : ajout du boitier selon la resolution du film -->
+				<control type="image">
+				<posx>-24</posx>
+					<posy>-15</posy>
+					<width>230</width>
+					<height>312</height>
+					<texture background="true" fallback="thumbs/boxes/p.png">thumbs/boxes/$INFO[ListItem.Property(mediaTag-videoResolution)]p.png</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+				    <!--MikeBZH44-->
+				</control>
+				 <control type="image">
+				<posx>-24</posx>
+					<posy>-15</posy>
+					<width>230</width>
+					<height>312</height>
+				<texture>$VAR[UnFocusHDIndicator]</texture>
+						<visible>true</visible>
+						<aspectratio align="center" aligny="top">stretch</aspectratio>
+						</control>
+						<visible>Skin.HasSetting(SlidePoster.case)</visible>
+				</control>
+		    </control>
+		</control>
+</include>
+<!--LANDSCAPE-->
+	<include name="view_SlideLandscape">
+		<control type="fixedlist" id="521">
+			<viewtype label="31112">bigwrap</viewtype>
+			<posx>-177</posx>
+			<posy>150</posy>
+			<width>2200</width>
+			<height>430</height>
+			<onleft>521</onleft>
+			<onright>521</onright>
+			<onup>6000</onup>
+			<ondown condition="!Window.IsVisible(521)">8000</ondown>
+			<ondown condition="Window.IsVisible(521)">71</ondown>
+			<focusposition>1</focusposition>
+			<pagecontrol>71</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(artists) | [Container.Content(files) + Container.HasFiles + !SubString(Container.FolderPath,plugin://plugin)]</visible>
+			<itemlayout width="445" height="259">
+				<include>view_SlideLandscape-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="445" height="259">
+				<include>view_SlideLandscape-ContainerCommons</include>
+			</focusedlayout>
+		</control>
+	</include>
+	<include name="view_SlideLandscape-ContainerCommons">
+		<control type="group">
+			<include>focus_SlideWide</include>
+			<control type="image">
+				<posy>-5</posy>
+				<posx>-10</posx>
+				<width>465</width>
+				<height>277</height>
+			<texture border="5">frames/frame-landscape-back-alt.png</texture>
+			<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="group">
+				<posx>10</posx>
+				<posy>10</posy>
+				<control type="image">
+					<width>425</width>
+					<height>239</height>
+					<texture background="true">thumbs/default_Landscape.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<posx>164.5</posx>
+					<posy>71.5</posy>
+					<width>96</width>
+					<height>96</height>
+					<include>art_DefaultIcon</include>
+				</control>
+				<control type="image">
+					<width>425</width>
+					<height>239</height>
+					<texture background="true">$VAR[thumb_Landscape]</texture>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="image">
+					<posx>130</posx>
+					<posy>160</posy>
+					<width>165</width>
+					<height>64</height>
+					<include>art_ClearLogo</include>
+				</control>
+				<control type="group">
+					<posx>399</posx>
+					<posy>213</posy>
+					<include>status_Info</include>
+					<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+				</control>
+				<control type="group">
+					<posx>393</posx>
+					<posy>208</posy>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+					<control type="image">
+						<info>ListItem.Overlay</info>
+					</control>
+				</control>
+				 <control type="image">
+					<posx>-7</posx>
+					<posy>-5</posy>
+					<width>438</width>
+					<height>250</height>
+		           <texture>frames/Glass_Landscape.png</texture>
+		           <visible>Skin.HasSetting(SlideLandscape.Glass)</visible>
+				   <aspectratio align="center" aligny="top">stretch</aspectratio>
+		           </control>
+			</control>
+		</control>
+</include>
+<!--SQUARE-->
+	<include name="view_SlideSquare">
+		<control type="fixedlist" id="522">
+			<viewtype label="31112">wrap</viewtype>
+			<posx>9</posx>
+			<posy>140</posy>
+			<width>screen_Width</width>
+			<height>560</height>
+			<onleft>522</onleft>
+			<onright>522</onright>
+			<onup>6000</onup>
+			<ondown>71</ondown>
+			<pagecontrol>71</pagecontrol>
+			<focusposition>1</focusposition>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(artists) | Container.Content(albums) | Container.Content(songs) + Container.Content(singles) | Container.Content(addons) | SubString(Container.FolderPath,addons://sources/) | SubString(Container.FolderPath,plugin://) | [Container.Content(files) + !Container.HasFiles]</visible>
+			<itemlayout height="280" width="280">
+			<include>view_SlideSquare-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout height="280" width="280">
+			<include>view_SlideSquare-ContainerCommons</include>
+			</focusedlayout>
+		</control>
+	</include>
+	<include name="view_SlideSquare-ContainerCommons">
+		<control type="group">
+			<include>focus_SlideMusic</include>
+			<control type="group">
+				<posx>10</posx>
+				<posy>10</posy>
+				<control type="image">
+					<width>260</width>
+					<height>260</height>
+					<texture background="true">thumbs/default_Square.png</texture>
+					<aspectratio align="center">stretch</aspectratio>
+				</control>
+				<control type="image">
+					<centerleft>130</centerleft>
+					<centertop>130</centertop>
+					<width>96</width>
+					<height>96</height>
+					<include>art_DefaultIcon</include>
+				</control>
+				<control type="image">
+					<width>260</width>
+					<height>260</height>
+					<texture background="true">$VAR[thumb_Square]</texture>
+					<aspectratio align="center">stretch</aspectratio>
+				</control>
+				<control type="image">
+				<posx>-8</posx>
+				<posy>-8</posy>
+				<width>275</width>
+				<height>275</height>
+				<texture>frames/Glass.png</texture>
+		           <visible>Skin.HasSetting(Enable.Glass)</visible>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			</control>
+		</control>
+	</include>
+	<include name="detail_SlideBigPoster">
+		<control type="group">
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<visible>Control.IsVisible(523)</visible>
+			<control type="grouplist" id="100">
+				<posx>615</posx>
+				<posy>650</posy>
+				<width>900</width>
+				<height>48</height>
+				<itemgap>10</itemgap>
+				<orientation>horizontal</orientation>
+				<control type="image">
+					<width>128</width>
+					<height>60</height>
+					<texture>$INFO[ListItem.StarRating,rating/nf-,]</texture>
+					<aspectratio align="center">keep</aspectratio>
+				</control>
+				<control type="image">
+					<width>96</width>
+					<height>60</height>
+					<texture>$INFO[ListItem.Property(mediaTag-videoResolution),flags/video/resolution/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+				<control type="image">
+					<width>96</width>
+					<height>60</height>
+					<texture>$INFO[ListItem.Property(mediaTag-videoCodec),flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+				<control type="image">
+					<width>96</width>
+					<height>60</height>
+					<texture>$INFO[ListItem.Property(mediaTag-audioCodec),flags/codec/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+				<control type="image">
+					<width>96</width>
+					<height>60</height>
+					<texture>$INFO[ListItem.Property(mediaTag-audioChannels),flags/audio/,.png]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>[Container.Content(movies) | Container.Content(episodes)]</visible>
+				</control>
+				<control type="image">
+					<width>96</width>
+					<height>60</height>
+					<texture>$VAR[flag_Studio]</texture>
+					<aspectratio align="center">keep</aspectratio>
+					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)</visible>
+				</control>
+				</control>
+			<control type="group">
+				<posx>15</posx>
+				<posy>640</posy>
+				<animation effect="slide" start="0" end="57" time="0" condition="Control.IsVisible(523)">Conditional</animation>
+				<control type="group">
+					<control type="label">
+					<posx>-2</posx>
+					<posy>-8</posy>
+						<width>950</width>
+						<label>$VAR[global_Title]</label>
+						<include>detail_Title</include>
+						<animation effect="zoom" start="100" end="125" center="0,0" condition="Control.IsVisible(523)">Conditional</animation>
+					</control>
+					<control type="group">
+						<posy>40</posy>
+						<posx>-2</posx>
+						<visible>!SubString(ListItem.Icon,default)</visible>
+						<control type="label">
+							<width>500</width>
+							<label>$VAR[global_Info]</label>
+							<include>detail_Sub</include>
+							<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+						<control type="label">
+							<width>960</width>
+							<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
+							<include>detail_Sub</include>
+							<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+					</control>
+				</control>
+			</control>
+		</control>
+	</include>
+	<!--BIG PORTRAIT-->
+	<include name="view_SlideBigPoster">
+		<control type="wraplist" id="523">
+			<viewtype label="31112">wrap</viewtype>
+			<posx>69</posx>
+			<posy>90</posy>
+			<width>1920</width>
+			<height>480</height>
+			<onup>6000</onup>
+			<ondown>71</ondown>
+			<onleft>523</onleft>
+			<onright>523</onright>
+			<focusposition>1</focusposition>
+			<pagecontrol>71</pagecontrol>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(sets)</visible>
+			<itemlayout width="405" height="455">
+			<include>view_SlideBigPoster-ContainerCommons</include>
+			</itemlayout>
+			<focusedlayout width="405" height="455">
+				<include>view_SlideBigPoster-ContainerCommons</include>
+			</focusedlayout>
+		</control>
+	</include>
+	<include name="view_SlideBigPoster-ContainerCommons">
+		<control type="group">
+			<include>focus_SlidePoster2</include>
+			<control type="image">
+				<posy>-8</posy>
+				<posx>-2</posx>
+				<width>300</width>
+				<height>445</height>
+			<texture border="5">frames/frame-back-alt.png</texture>
+			<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="group">
+				<posx>10</posx>
+				<posy>10</posy>
+				<control type="image">
+					<width>300</width>
+					<height>445</height>
+					<texture background="true">thumbs/default_Portrait.png</texture>
+					<aspectratio align="center">stretch</aspectratio>
+				</control>
+				<control type="image">
+					<posx>9%</posx>
+					<posy>92</posy>
+					<width>250</width>
+					<height>250</height>
+					<include>art_DefaultIcon</include>
+				</control>
+				<control type="image">
+					<width>300</width>
+					<height>445</height>
+					<texture background="true">$VAR[thumb_Portrait]</texture>
+					<aspectratio align="center" aligny="top">stretch</aspectratio>
+				</control>
+				<control type="group">
+					<posx>275</posx>
+					<posy>422</posy>
+					<include>status_Info</include>
+					<visible>Skin.HasSetting(overlay_statu.disable)</visible>
+				</control>
+				<control type="group">
+					<posx>272</posx>
+					<posy>418</posy>
+					<width>32</width>
+					<height>32</height>
+					<visible>Skin.HasSetting(watched.alternative)</visible>
+					<control type="image">
+					<info>ListItem.Overlay</info>
+					</control>
+				</control>
+				<control type="image">
+					<posx>-7</posx>
+					<posy>-5</posy>
+					<width>314</width>
+					<height>456</height>
+		           <texture>frames/Glass.png</texture>
+		           <visible>Skin.HasSetting(SlideBigPoster.Glass)</visible>
+				   <aspectratio align="center" aligny="top">stretch</aspectratio>
+		        </control>
+		    </control>
+		</control>
+</include>
+
+	<!--view Coverflow-->
+	<include name="view_SlideCoverflow">
+	<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+	<visible>Control.IsVisible(525)</visible>
+	<control type="image">
+	<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<posy>190</posy>
+				<posx>0</posx>
+				<width>1280</width>
+				<height>500</height>
+			<texture border="5">coverflow/coverflow_frame.png</texture>
+			<colordiffuse>fa000000</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(525)</visible>
+			</control>
+        <control type="group">
+		<include>transition_Content</include>
+		<include>transition_Info</include>
+		<visible>Control.IsVisible(525)</visible>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300"/>
+                <effect type="fade" start="0" end="100" time="300"/>
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300"/>
+                <effect type="fade" start="100" end="0" time="300"/>
+            </animation>
+            <visible>Control.IsVisible(525)</visible>
+        </control>
+
+        <!--  Animation Right -->
+        <control type="group" id="7001">
+		<include>transition_Content</include>
+			<include>transition_Info</include>
+			<visible>Control.IsVisible(525)</visible>
+            <include>Window_OpenClose_Animation</include>
+            <posy>80</posy>
+            <visible>Control.IsVisible(525) + Container.OnNext</visible>
+            <animation effect="slide" end="-100,0" time="250" reversible="false">Hidden</animation>
+            <control type="group">
+                <posx>80</posx>
+                <visible>Container.OnNext</visible>
+                <animation effect="fade" start="100" end="0" time="250" reversible="false">Hidden</animation>
+                <animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(-4).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				<control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-4).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>180</posx>
+                <animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(-3).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				<control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-3).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>280</posx>
+                <animation effect="rotatey" center="260" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(-2).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				<control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-2).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>1000</posx>
+                <visible>!Container.OnNext</visible>
+                <animation effect="fade" start="0" end="100" delay="0" time="250" reversible="false">Visible</animation>
+                <animation effect="rotatey" center="1320" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(3).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				<control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(3).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>900</posx>
+                <animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(2).Icon]</texture>
+                   <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				<control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(2).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>800</posx>
+                <animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(1).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				<control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(1).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <visible>Container.OnNext</visible>
+                <animation effect="slide" end="-110,0" time="250" reversible="false">Hidden</animation>
+                <control type="group">
+                    <posx>700</posx>
+                    <visible>Container.OnNext</visible>
+                    <animation effect="rotatey" center="1020" start="0" end="-60" time="250" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+                    <animation effect="rotatey" center="1020" start="60" end="60" time="0" condition="true">Conditional</animation>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>300</width>
+                        <height>440</height>
+                        <texture background="true">$INFO[ListItem(0).Icon]</texture>
+                       <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                    </control>
+					<control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(0).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+                </control>
+                <control type="group">
+                    <posx>490</posx>
+                    <visible>Container.OnNext</visible>
+                    <animation effect="rotatey" center="470" start="0" end="-60" time="250" reversible="false" tween="quadratic" easing="out">Hidden</animation>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>300</width>
+                        <height>440</height>
+                        <texture background="true">$INFO[ListItem(-1).Icon]</texture>
+                       <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                    </control>
+					<control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-1).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+                </control>
+            </control>
+        </control>
+
+
+        <!-- animations left  -->
+        <control type="group" id="7002">
+		<include>transition_Content</include>
+	<include>transition_Info</include>
+	<visible>Control.IsVisible(525)</visible>
+            <posy>80</posy>
+            <visible>Control.IsVisible(525) + Container.OnPrevious</visible>
+            <animation effect="slide" end="100,0" time="250" reversible="false">Hidden</animation>
+            <control type="group">
+                <posx>900</posx>
+                <visible>Container.OnPrevious</visible>
+                <animation effect="fade" start="100" end="0" time="250" reversible="false">Hidden</animation>
+                <animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(4).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                            <posx>0</posx>
+							<posy>440</posy>
+							<width>300</width>
+							<height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(4).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+
+            </control>
+            <control type="group">
+                <posx>800</posx>
+                <animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(3).Icon]</texture>
+                   <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(3).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>700</posx>
+                <animation effect="rotatey" center="1020" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(2).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+                 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(2).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+
+            </control>
+            <control type="group">
+                <posx>-20</posx>
+                <visible>!Container.OnPrevious</visible>
+                <animation effect="fade" start="0" end="100" time="250" reversible="false">Visible</animation>
+                <animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(-3).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-3).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>80</posx>
+                <animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(-2).Icon]</texture>
+                   <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-2).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>180</posx>
+                <animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(-1).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-1).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <visible>Container.OnPrevious</visible>
+                <animation effect="slide" end="110,0" time="250" reversible="false">Hidden</animation>
+                <control type="group">
+                    <posx>280</posx>
+                    <visible>Container.OnPrevious</visible>
+                    <animation effect="rotatey" center="260" start="0" end="60" time="250" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+                    <animation effect="rotatey" center="260" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>300</width>
+                        <height>440</height>
+                        <texture background="true">$INFO[ListItem(0).Icon]</texture>
+                        <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                    </control>
+					 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(0).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+                </control>
+                <control type="group">
+                    <posx>490</posx>
+                    <visible>Container.OnPrevious</visible>
+                    <animation effect="rotatey" center="810" start="0" end="60" time="250" reversible="false" tween="quadratic" easing="out">Hidden</animation>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>300</width>
+                        <height>440</height>
+                        <texture background="true">$INFO[ListItem(1).Icon]</texture>
+                        <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                    </control>
+					 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(1).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+                </control>
+            </control>
+        </control>
+        <!--  -->
+        <control type="group" id="7000">
+		<include>transition_Content</include>
+		<include>transition_Info</include>
+		<include>toggle_Menu</include>
+		<visible>Control.IsVisible(525)</visible>
+            <include>Window_OpenClose_Animation</include>
+            <posy>80</posy>
+            <visible>Control.IsVisible(525) + !Control.IsVisible(7001)  + !Control.IsVisible(7002)</visible>
+            <control type="group">
+                <posx>80</posx>
+                <animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(-3).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                    <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-3).Icon]</texture>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>180</posx>
+                <animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(-2).Icon]</texture>
+                   <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-2).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>280</posx>
+                <animation effect="rotatey" center="260" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(-1).Icon]</texture>
+                   <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-1).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>900</posx>
+                <animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(3).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(3).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>800</posx>
+                <animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(2).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(2).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>700</posx>
+                <animation effect="rotatey" center="1020" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem(1).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(1).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+
+            <!-- Poster principal -->
+            <control type="group">
+                <animation type="WindowOpen" reversible="false">
+                    <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300"/>
+                    <effect type="fade" start="0" end="100" time="300"/>
+                </animation>
+                <animation type="WindowClose" reversible="false">
+                    <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300"/>
+                    <effect type="fade" start="100" end="0" time="300"/>
+                </animation>
+                <posx>490</posx>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>440</height>
+                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                    <bordertexture border="4">framecoverborder.png</bordertexture>
+                    <bordersize>8</bordersize>
+                    <visible>Control.HasFocus(525) | !Control.HasFocus(525)</visible>
+                </control>
+				 <control type="image">
+                           <posx>0</posx>
+						   <posy>440</posy>
+                           <width>300</width>
+                            <height>440</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem.Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+							<visible>Control.HasFocus(525) | !Control.HasFocus(525)</visible>
+                        </control>
+                </control>
+        </control>
+        <control type="wraplist" id="525">
+		<viewtype label="31112">list</viewtype>
+			<visible>Control.IsVisible(525) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+            <posx>490</posx>
+            <posy>150</posy>
+            <width>306</width>
+            <height>440</height>
+            <onup>6000</onup>
+			<ondown>71</ondown>
+			<onleft>525</onleft>
+			<onright>525</onright>
+			<pagecontrol>71</pagecontrol>
+			<focusedposition>3</focusedposition>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+            <itemlayout height="1" width="1">
+            </itemlayout>
+            <focusedlayout height="440" width="300">
+            </focusedlayout>
+        </control>
+    </include>
+	<include name="detail_SlideCoverflow">
+	<visible>Control.IsVisible(525)</visible>
+	<include>transition_Content</include>
+	<include>transition_Info</include>
+	<control type="group">
+	<visible>Control.IsVisible(525)</visible>
+	<include>transition_Content</include>
+	<include>transition_Info</include>
+	<include>toggle_Menu</include>
+		<control type="image">
+		<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<posy>600</posy>
+				<posx>0</posx>
+				<width>1280</width>
+				<height>150</height>
+			<texture border="5">coverflow/coverflow_frame.png</texture>
+			<colordiffuse>ff000000</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<posy>280</posy>
+				<posx>0</posx>
+				<width>1280</width>
+				<height>500</height>
+			<texture border="5">coverflow/coverflow_frame.png</texture>
+			<colordiffuse>cc151f27</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="grouplist" id="100">
+				   <posx>860</posx>
+				   <posy>600</posy>
+				   <width>900</width>
+				   <height>50</height>
+				   <itemgap>10</itemgap>
+				   <orientation>horizontal</orientation>
+			<control type="image">
+				   <width>80</width>
+				   <height>40</height>
+				   <aspectratio align="right">keep</aspectratio>
+				   <texture>$VAR[flag_VideoType-fo]</texture>
+			</control>
+			<control type="image">
+				    <width>90</width>
+				    <height>40</height>
+				    <aspectratio align="right">keep</aspectratio>
+				    <texture>$VAR[flag_Studio]</texture>
+			</control>
+			<control type="image">
+					<width>80</width>
+				    <height>40</height>
+					<aspectratio align="right">keep</aspectratio>
+					<texture>$INFO[ListItem.Property(mediaTag-videoResolution),flags/video/resolution/,.png]</texture>
+					<visible>true</visible>
+			</control>
+			<control type="image">
+					<width>50</width>
+					<height>40</height>
+					<aspectratio align="center">keep</aspectratio>
+					<texture>$INFO[ListItem.Property(mediaTag-audioChannels),flags/audio/,.png]</texture>
+					<visible>true</visible>
+			</control>
+			</control>
+			<control type="group">
+				<posx>100</posx>
+				<posy>560</posy>
+				<animation effect="slide" start="0" end="57" time="0" condition="Control.IsVisible(522)">Conditional</animation>
+				<control type="group">
+					<control type="label">
+					<posx>00</posx>
+						<width>800</width>
+						<label>$VAR[global_Title]</label>
+						<include>detail_Title</include>
+					</control>
+					<control type="group">
+						<posy>30</posy>
+						<posx>-2</posx>
+						<visible>!SubString(ListItem.Icon,default)</visible>
+						<control type="label">
+							<width>700</width>
+							<label>$VAR[global_Info]</label>
+							<include>detail_Sub</include>
+							<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+						<control type="label">
+							<width>700</width>
+							<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
+							<include>detail_Sub</include>
+							<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+					</control>
+					<control type="textbox">
+						<posy>90</posy>
+						<width>1080</width>
+						<height>60</height>
+						 <align>justify</align>
+						<label>$VAR[global_Plot]</label>
+						<include>detail_Text</include>
+					</control>
+				</control>
+				<control type="grouplist">
+					<posy>53</posy>
+					<posx>-5</posx>
+					<width>600</width>
+					<height>40</height>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="image">
+						<width>128</width>
+						<height>32</height>
+						<texture>$VAR[global_Rating]</texture>
+						<aspectratio align="center">keep</aspectratio>
+						<visible>!Container.Content(files)</visible>
+					</control>
+				</control>
+				<control type="image">
+				<posy>5</posy>
+					<posx>-35</posx>
+					<texture>$VAR[status_List]</texture>
+					<include>status_List</include>
+				</control>
+			</control>
+		</control>
+	</include>
+
+	<!--view Coverflow Small-->
+	<include name="view_SlideCoverflowSmall">
+	<include>transition_Content</include>
+	<include>transition_Info</include>
+	<visible>Control.IsVisible(526)</visible>
+	<control type="group">
+	<posx>6%</posx>
+	<control type="image">
+	<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<posy>200</posy>
+				<posx>-70</posx>
+				<width>1300</width>
+				<height>500</height>
+			<texture border="5">coverflow/coverflow_frame.png</texture>
+			<colordiffuse>fa000000</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(526)</visible>
+			</control>
+        <control type="group">
+		<include>transition_Content</include>
+		<include>transition_Info</include>
+		<visible>Control.IsVisible(526)</visible>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300"/>
+                <effect type="fade" start="0" end="100" time="250"/>
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300"/>
+                <effect type="fade" start="100" end="0" time="250"/>
+            </animation>
+            <visible>Control.IsVisible(526)</visible>
+        </control>
+
+        <!--  Animation Right -->
+        <control type="group" id="7004">
+		<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Control.IsVisible(526)</visible>
+            <include>Window_OpenClose_Animation</include>
+            <posy>300</posy>
+            <visible>Control.IsVisible(526) + Container.OnNext</visible>
+            <animation effect="slide" end="-100,0" time="250" reversible="false">Hidden</animation>
+            <control type="group">
+                <posx>80</posx>
+                <visible>Container.OnNext</visible>
+                <animation effect="fade" start="100" end="0" time="250" reversible="false">Visible</animation>
+                <animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+            </control>
+			<control type="group">
+                <posx>80</posx>
+			   <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+				<animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(-4).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				<control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-4).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>180</posx>
+                <animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(-3).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				<control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-3).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>280</posx>
+                <animation effect="rotatey" center="260" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(-2).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				<control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-2).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>1000</posx>
+                <visible>!Container.OnNext</visible>
+                <animation effect="fade" start="0" end="100" delay="0" time="250" reversible="false">Visible</animation>
+                <animation effect="rotatey" center="1320" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                <texture background="true">$INFO[ListItem(3).Icon]</texture>
+                <bordertexture border="3">framecoverborder.png</bordertexture>
+                <bordersize>3</bordersize>
+                </control>
+				<control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                <aspectratio>stretch</aspectratio>
+                <texture background="true" flipy="true">$INFO[ListItem(3).Icon]</texture>
+                <bordersize>6</bordersize>
+                <colordiffuse>ff666666</colordiffuse>
+                </control>
+            </control>
+            <control type="group">
+                <posx>900</posx>
+                <animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(2).Icon]</texture>
+                   <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				<control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(2).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>800</posx>
+                <animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(1).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				<control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(1).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+
+			<!--test-->
+            <control type="group">
+                <visible>Container.OnNext</visible>
+                <animation effect="slide" end="-110,0" time="350" reversible="false">Hidden</animation>
+                 <animation effect="fade" start="0" end="100" delay="0" time="250" reversible="false">Visible</animation>
+				<control type="group">
+                    <posx>700</posx>
+                    <visible>Container.OnNext</visible>
+                    <animation effect="rotatey" center="1020" start="0" end="-60" time="350" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+                    <animation effect="rotatey" center="1020" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>60</posx>
+                <posy>0</posy>
+                <width>350</width>
+                <height>240</height>
+                    <texture background="true">$VAR[thumb_Landscape]</texture>
+                    <bordertexture border="4">framecoverborder.png</bordertexture>
+                    <bordersize>8</bordersize>
+                </control>
+				<control type="image">
+                <posx>-90</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(0).Icon]</texture>
+                    <bordertexture border="4">framecoverborder.png</bordertexture>
+                    <bordersize>8</bordersize>
+                </control>
+				<control type="image">
+                <posx>60</posx>
+                <posy>240</posy>
+                <width>350</width>
+                <height>240</height>
+                    <texture background="true" flipy="true">$VAR[thumb_Landscape]</texture>
+                    <bordertexture border="4">framecoverborder.png</bordertexture>
+                    <bordersize>8</bordersize>
+                </control>
+				 <control type="image">
+                 <posx>-90</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(0).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+                </control>
+                <control type="group">
+                    <posx>490</posx>
+                    <visible>Container.OnNext</visible>
+                    <animation effect="rotatey" center="470" start="0" end="-60" time="350" reversible="false" tween="quadratic" easing="out">Hidden</animation>
+                    <control type="image">
+                    <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                <texture background="true">$INFO[ListItem(-1).Icon]</texture>
+                <bordertexture border="3">framecoverborder.png</bordertexture>
+                <bordersize>3</bordersize>
+                </control>
+				<control type="image">
+                <posx>0</posx>
+				<posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                <aspectratio>stretch</aspectratio>
+                <texture background="true" flipy="true">$INFO[ListItem(-1).Icon]</texture>
+                <bordersize>6</bordersize>
+                <colordiffuse>ff666666</colordiffuse>
+                </control>
+                </control>
+            </control>
+        </control>
+        <!-- animations left  -->
+        <control type="group" id="7005">
+		<include>transition_Content</include>
+	<include>transition_Info</include>
+	<include>toggle_Menu</include>
+	<visible>Control.IsVisible(526)</visible>
+            <posy>300</posy>
+            <visible>Control.IsVisible(526) + Container.OnPrevious</visible>
+            <animation effect="slide" end="100,0" time="250" reversible="false">Hidden</animation>
+            <control type="group">
+                <posx>900</posx>
+                <visible>Container.OnPrevious</visible>
+                <animation effect="fade" start="100" end="0" time="250" reversible="false">Hidden</animation>
+                <animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(4).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(4).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>800</posx>
+                <animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(3).Icon]</texture>
+                   <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(3).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>700</posx>
+                <animation effect="rotatey" center="1020" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(2).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+                 <control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(2).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>-20</posx>
+                <visible>!Container.OnPrevious</visible>
+                <animation effect="fade" start="0" end="100" time="350" reversible="false">Visible</animation>
+                <animation effect="rotatey" center="-40" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(-3).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-3).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>80</posx>
+                <animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(-2).Icon]</texture>
+                   <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-2).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>180</posx>
+                <animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(-1).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-1).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <visible>Container.OnPrevious</visible>
+                <animation effect="fade" start="0" end="100" delay="0" time="250" reversible="false">Visible</animation>
+			   <animation effect="slide" end="110,0" time="250" reversible="false">Hidden</animation>
+                <control type="group">
+                    <posx>280</posx>
+                    <visible>Container.OnPrevious</visible>
+                    <animation effect="rotatey" center="260" start="0" end="60" time="250" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+                    <animation effect="rotatey" center="260" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                    <control type="image">
+                <posx>60</posx>
+                <posy>0</posy>
+                <width>350</width>
+                <height>240</height>
+                    <texture background="true">$VAR[thumb_Landscape]</texture>
+                    <bordertexture border="4">framecoverborder.png</bordertexture>
+                    <bordersize>8</bordersize>
+                </control>
+				<control type="image">
+                <posx>-90</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(0).Icon]</texture>
+                    <bordertexture border="4">framecoverborder.png</bordertexture>
+                    <bordersize>8</bordersize>
+                </control>
+				<control type="image">
+                <posx>60</posx>
+                <posy>240</posy>
+                <width>350</width>
+                <height>240</height>
+                    <texture background="true" flipy="true">$VAR[thumb_Landscape]</texture>
+                    <bordertexture border="4">framecoverborder.png</bordertexture>
+                    <bordersize>8</bordersize>
+                </control>
+				 <control type="image">
+                 <posx>-90</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(0).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+                </control>
+                <control type="group">
+                    <posx>490</posx>
+                    <visible>Container.OnPrevious</visible>
+                    <animation effect="rotatey" center="810" start="0" end="60" time="250" reversible="false" tween="quadratic" easing="out">Hidden</animation>
+                    <control type="image">
+                    <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                        <texture background="true">$INFO[ListItem(1).Icon]</texture>
+                        <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                    </control>
+					 <control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(1).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+                </control>
+            </control>
+        </control>
+        <!--  -->
+        <control type="group" id="7003">
+		<include>transition_Content</include>
+		<include>transition_Info</include>
+		<include>toggle_Menu</include>
+		<visible>Control.IsVisible(526)</visible>
+            <include>Window_OpenClose_Animation</include>
+            <posy>300</posy>
+            <visible>Control.IsVisible(526) + !Control.IsVisible(7004)  + !Control.IsVisible(7005)</visible>
+            <control type="group">
+                <posx>80</posx>
+                <animation effect="rotatey" center="60" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(-3).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                    <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-3).Icon]</texture>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>180</posx>
+                <animation effect="rotatey" center="160" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(-2).Icon]</texture>
+                   <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-2).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>280</posx>
+                <animation effect="rotatey" center="260" start="-60" end="-60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(-1).Icon]</texture>
+                   <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(-1).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>900</posx>
+                <animation effect="rotatey" center="1220" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(3).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(3).Icon]</texture>
+                            <bordersize>6</bordersize>
+                           <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>800</posx>
+                <animation effect="rotatey" center="1120" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(2).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(2).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+            <control type="group">
+                <posx>700</posx>
+                <animation effect="rotatey" center="1020" start="60" end="60" time="0" condition="true">Conditional</animation>
+                <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem(1).Icon]</texture>
+                    <bordertexture border="3">framecoverborder.png</bordertexture>
+                        <bordersize>3</bordersize>
+                </control>
+				 <control type="image">
+                 <posx>0</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem(1).Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+                        </control>
+            </control>
+
+            <!-- Poster principal -->
+            <control type="group">
+                <animation type="WindowOpen" reversible="false">
+                    <effect type="zoom" start="80" end="100" center="640,360" easing="out" tween="back" time="300"/>
+                    <effect type="fade" start="0" end="100" time="250"/>
+                </animation>
+                <animation type="WindowClose" reversible="false">
+                    <effect type="zoom" start="100" end="80" center="640,360" easing="in" tween="back" time="300"/>
+                    <effect type="fade" start="100" end="0" time="250"/>
+                </animation>
+                <posx>430</posx>
+                <control type="image">
+                <posx>60</posx>
+                <posy>0</posy>
+                <width>350</width>
+                <height>240</height>
+                    <texture background="true">$VAR[thumb_Landscape]</texture>
+                    <bordertexture border="4">framecoverborder.png</bordertexture>
+                    <bordersize>8</bordersize>
+                    <visible>Control.HasFocus(526) | !Control.HasFocus(526)</visible>
+                </control>
+				<control type="image">
+                <posx>-90</posx>
+                <posy>0</posy>
+                <width>160</width>
+                <height>240</height>
+                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                    <bordertexture border="4">framecoverborder.png</bordertexture>
+                    <bordersize>8</bordersize>
+                    <visible>Control.HasFocus(526) | !Control.HasFocus(526)</visible>
+                </control>
+				<control type="image">
+                <posx>60</posx>
+                <posy>240</posy>
+                <width>350</width>
+                <height>240</height>
+                    <texture background="true" flipy="true">$VAR[thumb_Landscape]</texture>
+                    <bordertexture border="4">framecoverborder.png</bordertexture>
+                    <bordersize>8</bordersize>
+                    <visible>Control.HasFocus(526) | !Control.HasFocus(526)</visible>
+                </control>
+				 <control type="image">
+                 <posx>-90</posx>
+				 <posy>240</posy>
+                <width>160</width>
+                <height>240</height>
+                            <aspectratio>stretch</aspectratio>
+                            <texture background="true" flipy="true">$INFO[ListItem.Icon]</texture>
+                            <bordersize>6</bordersize>
+                            <colordiffuse>ff666666</colordiffuse>
+							<visible>Control.HasFocus(525) | !Control.HasFocus(525)</visible>
+                        </control>
+                </control>
+        </control>
+		</control>
+        <control type="wraplist" id="526">
+			<viewtype label="31112">list</viewtype>
+			<visible>Control.IsVisible(526) | Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons)</visible>
+            <posx>490</posx>
+            <posy>150</posy>
+            <width>800</width>
+            <height>440</height>
+            <onup>6000</onup>
+			<ondown>71</ondown>
+			<onleft>526</onleft>
+			<onright>526</onright>
+			<pagecontrol>71</pagecontrol>
+			<preloaditems>2</preloaditems>
+			<orientation>horizontal</orientation>
+			<include></include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+            <focusedposition>3</focusedposition>
+			<preloaditems>2</preloaditems>
+            <itemlayout height="490" width="300">
+            </itemlayout>
+            <focusedlayout height="440" width="300">
+
+            </focusedlayout>
+        </control>
+    </include>
+	<include name="detail_SlideCoverflowSmall">
+	<visible>Control.IsVisible(526)</visible>
+	<include>transition_Content</include>
+	<include>transition_Info</include>
+	<include>toggle_Menu</include>
+		<control type="group">
+		<visible>Control.IsVisible(526)</visible>
+	<include>transition_Content</include>
+	<include>transition_Info</include>
+	<include>toggle_Menu</include>
+		<control type="image">
+		<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<posy>600</posy>
+				<posx>0</posx>
+				<width>1280</width>
+				<height>150</height>
+			<texture border="5">coverflow/coverflow_frame.png</texture>
+			<colordiffuse>ff000000</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<posy>280</posy>
+				<posx>0</posx>
+				<width>1280</width>
+				<height>500</height>
+			<texture border="5">coverflow/coverflow_frame.png</texture>
+			<colordiffuse>cc151f27</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="grouplist" id="100">
+				   <posx>860</posx>
+				   <posy>600</posy>
+				   <width>900</width>
+				   <height>50</height>
+				   <itemgap>10</itemgap>
+				   <orientation>horizontal</orientation>
+			<control type="image">
+				   <width>80</width>
+				   <height>40</height>
+				   <aspectratio align="right">keep</aspectratio>
+				   <texture>$VAR[flag_VideoType-fo]</texture>
+			</control>
+			<control type="image">
+				    <width>90</width>
+				    <height>40</height>
+				    <aspectratio align="right">keep</aspectratio>
+				    <texture>$VAR[flag_Studio]</texture>
+			</control>
+			<control type="image">
+					<width>80</width>
+				    <height>40</height>
+					<aspectratio align="right">keep</aspectratio>
+					<texture>$INFO[ListItem.Property(mediaTag-videoResolution),flags/video/resolution/,.png]</texture>
+					<visible>true</visible>
+			</control>
+			<control type="image">
+					<width>50</width>
+					<height>40</height>
+					<aspectratio align="center">keep</aspectratio>
+					<texture>$INFO[ListItem.Property(mediaTag-audioChannels),flags/audio/,.png]</texture>
+					<visible>true</visible>
+			</control>
+			</control>
+			<control type="group">
+				<posx>100</posx>
+				<posy>560</posy>
+				<animation effect="slide" start="0" end="57" time="0" condition="Control.IsVisible(522)">Conditional</animation>
+				<control type="group">
+					<control type="label">
+					<posx>00</posx>
+						<width>800</width>
+						<label>$VAR[global_Title]</label>
+						<include>detail_Title</include>
+					</control>
+					<control type="group">
+						<posy>30</posy>
+						<posx>-2</posx>
+						<visible>!SubString(ListItem.Icon,default)</visible>
+						<control type="label">
+							<width>700</width>
+							<label>$VAR[global_Info]</label>
+							<include>detail_Sub</include>
+							<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+						<control type="label">
+							<width>700</width>
+							<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
+							<include>detail_Sub</include>
+							<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+					</control>
+					<control type="textbox">
+						<posy>90</posy>
+						<width>1080</width>
+						<height>60</height>
+						 <align>justify</align>
+						<label>$VAR[global_Plot]</label>
+						<include>detail_Text</include>
+					</control>
+				</control>
+				<control type="grouplist">
+					<posy>53</posy>
+					<posx>-5</posx>
+					<width>600</width>
+					<height>40</height>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="image">
+						<width>128</width>
+						<height>32</height>
+						<texture>$VAR[global_Rating]</texture>
+						<aspectratio align="center">keep</aspectratio>
+						<visible>!Container.Content(files)</visible>
+					</control>
+				</control>
+				<control type="image">
+				<posy>5</posy>
+					<posx>-35</posx>
+					<texture colordiffuse="Color3">$VAR[status_List]</texture>
+					<include>status_List</include>
+				</control>
+			</control>
+		</control>
+	</include>
+</includes>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="67">
+	<defaultcontrol always="true">149</defaultcontrol>
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	<controls>
+		<control type="grouplist" id="149">
+			<posx>460</posx>
+			<posy>0</posy>
+			<width>352</width>
+			<height>720</height>
+			<onup>149</onup>
+			<ondown>149</ondown>
+			<onright>402</onright>
+			<itemgap>0</itemgap>
+			<align>center</align>
+			<include>global_ListScroll</include>
+			<include>transition_Dialog</include>
+			<control type="image" id="150">
+				<width>352</width>
+				<height>20</height>
+				<texture border="20,0,20,0">dialogs/frame/menu_top.png</texture>
+			</control>
+			<control type="button" id="152">
+			<width>352</width>
+							<label>Director</label>
+							<onclick condition="System.HasAddon(script.metadata.actors)">RunScript(script.metadata.actors,$INFO[ListItem.Director])</onclick>
+							<visible>System.HasAddon(script.metadata.actors)</visible>
+							<onclick>Close</onclick>
+							<include>dialog_MenuButton</include>
+							</control>
+			<control type="button" id="153">
+			<width>352</width>
+							<label>Writer</label>
+							<onclick condition="System.HasAddon(script.metadata.actors)">RunScript(script.metadata.actors,$INFO[ListItem.Writer])</onclick>
+							<visible>System.HasAddon(script.metadata.actors)</visible>
+							<onclick>Close</onclick>
+							<include>dialog_MenuButton</include>
+							</control>
+
+			<control type="image" id="154">
+				<width>352</width>
+				<height>20</height>
+				<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
+			</control>
+		</control>
+	</controls>
+</window>

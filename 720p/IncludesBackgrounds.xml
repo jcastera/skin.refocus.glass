@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<includes>
+	<include name="global_Background">
+		<control type="group">
+			<include></include>
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<include>toggle_Menu</include>
+				<texture background="true">$VAR[window:Background]</texture>
+				<visible>Skin.HasSetting(fanart.global) + IsEmpty(ListItem.Property(Fanart_Image)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)]</visible>
+				<fadetime>fadetime_Fanart</fadetime>
+			</control>
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<include>toggle_Menu</include>
+				<texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
+				<visible>Skin.HasSetting(fanart.global) + !IsEmpty(ListItem.Property(Fanart_Image)) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)] + !Control.IsVisible(531) + !Control.IsVisible(532) + !Control.IsVisible(596) + !Control.IsVisible(611)</visible>
+				<include>fadeinout</include>
+				<fadetime>fadetime_Fanart</fadetime>
+			</control>
+			<!--use the fanart image of the first real item in the list as a fallback for the "parent folder" entry. seasons and episodes level only.-->
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<include>toggle_Menu</include>
+				<texture background="true">$INFO[Container().ListItem(1).Property(Fanart_Image)]</texture>
+				<visible>StringCompare(Listitem.Icon,DefaultFolderBack.png) + [Container.Content(seasons) | Container.Content(episodes)] + !Skin.HasSetting(fanart.global) + ![Player.HasVideo + Skin.HasSetting(backgroundvideo.global)] + !Control.IsVisible(531)</visible>
+				<fadetime>fadetime_Fanart</fadetime>
+			</control>
+			<control type="multiimage" id="7890">
+                <include>screen_Dimensions</include>
+                <imagepath background="true">$VAR[extrafanart.path]</imagepath>
+                <aspectratio align="center">scale</aspectratio>
+                <timeperimage>9000</timeperimage>
+                <randomize>true</randomize>
+                <fadetime>5</fadetime>
+                <loop>yes</loop>
+                <visible>[!Control.IsVisible(53) + !Control.IsVisible(53) + !Control.IsVisible(532) + !Control.IsVisible(571) + !Control.IsVisible(591) + !Control.IsVisible(596) + !Control.IsVisible(611) + !SubString(Container.FolderPath,plugin://)] + Skin.HasSetting(fanart.extra) + !IsEmpty(ListItem.Title) + !Skin.HasSetting(fanart.global) + !Container.Content(sets)</visible>
+                </control>
+		<!--playing video background-->
+			<control type="group">
+				<visible>Skin.HasSetting(backgroundvideo.global) + Player.HasVideo + !Window.IsActive(weather)</visible>
+				<control type="image">
+					<aspectratio>stretch</aspectratio>
+					<include>screen_Dimensions</include>
+					<texture>black.png</texture>
+				</control>
+				<control type="videowindow">
+					<include>screen_Dimensions</include>
+					<visible>![Window.IsActive(pictures) + Control.IsVisible(531)]</visible>
+				</control>
+			</control>
+		</control>
+		<!--base color-->
+		<control type="group">
+		<control type="image">
+			<aspectratio>scale</aspectratio>
+			<include>screen_Dimensions</include>
+			<texture background="true">overlays/base_color.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+			<visible>[![Window.IsActive(Pictures) + Control.IsVisible(531)] + !Window.IsActive(Visualisation)] + !Window.IsActive(Weather)</visible>
+		</control>
+		<visible>Skin.HasSetting(base_color.opacity.enable) + !Skin.HasSetting(base_color_glass_middle)</visible>
+		</control>
+			<control type="group">
+		<control type="image">
+			<aspectratio>scale</aspectratio>
+			<include>screen_Dimensions</include>
+			<texture background="true">overlays/opacity/base_color_glass.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+			<visible>[![Window.IsActive(Pictures) + Control.IsVisible(531)] + !Window.IsActive(Visualisation)] + !Window.IsActive(Weather)</visible>
+		</control>
+		<visible>Skin.HasSetting(base_color_glass.opacity.enable)</visible>
+		</control>
+		<control type="group">
+		<control type="image">
+			<aspectratio>scale</aspectratio>
+			<include>screen_Dimensions</include>
+			<texture background="true">overlays/opacity/vignette2_40.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+			<visible>[![Window.IsActive(Pictures) + Control.IsVisible(531)] + !Window.IsActive(Visualisation)] + !Window.IsActive(Weather)</visible>
+		</control>
+		<visible>Skin.HasSetting(base_color_glass3.opacity.enable)</visible>
+		</control>
+		<control type="group">
+		<control type="image">
+			<aspectratio>scale</aspectratio>
+			<include>screen_Dimensions</include>
+			<texture background="true">overlays/opacity/base_color_glass4.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+			<visible>[![Window.IsActive(Pictures) + Control.IsVisible(531)] + !Window.IsActive(Visualisation)] + !Window.IsActive(Weather)</visible>
+		</control>
+		<visible>Skin.HasSetting(base_color_glass4.opacity.enable)</visible>
+		</control>
+		<control type="group">
+		<control type="image">
+			<aspectratio>scale</aspectratio>
+			<include>screen_Dimensions</include>
+			<texture background="true">overlays/opacity/base_color_glass_white.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+			<visible>[![Window.IsActive(Pictures) + Control.IsVisible(531)] + !Window.IsActive(Visualisation)] + !Window.IsActive(Weather)</visible>
+		</control>
+		<visible>Skin.HasSetting(base_color_glass_white.opacity.enable)</visible>
+		</control>
+		<control type="group">
+		<control type="image">
+			<aspectratio>scale</aspectratio>
+			<include>screen_Dimensions</include>
+			<texture background="true">overlays/base_color_glass_middle.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+			<visible>[![Window.IsActive(Pictures) + Control.IsVisible(531)] + !Window.IsActive(Visualisation)] + !Window.IsActive(Weather)</visible>
+		</control>
+		<visible>Skin.HasSetting(base_color_glass_middle)</visible>
+		</control>
+	</include>
+</includes>

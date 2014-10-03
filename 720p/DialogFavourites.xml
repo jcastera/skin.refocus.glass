@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog">
+	<defaultcontrol always="true">450</defaultcontrol>
+	<include>transition_Background</include>      
+	<include>transition_Dialog</include>
+	<include>global_background</include>
+	<coordinates>
+		<system>1</system>
+		<left>0</left>
+		<top>0</top>
+	</coordinates>
+	<controls>
+		<control type="image">
+					<include>screen_Dimensions</include>
+					<texture background="true">overlays/base_color.png</texture>
+					<colordiffuse>base_2</colordiffuse>
+				</control>	
+		<control type="image">
+		<top>400</top>
+					<width>1280</width>
+					<height>100</height>
+					<texture background="true">black.png</texture>					
+				</control>			
+		<control type="label" id="1">
+			<width>592</width>
+			<top>435</top>
+			<left>1000</left>
+			<label>$LOCALIZE[1036]</label>
+			<textcolor>ffffffff</textcolor>
+			<include>windowTitle</include>			
+		</control>
+		<control type="group">						
+			<control type="wraplist" id="450">
+			<left>25</left>
+			<top>120</top>
+				<width>1280</width>
+                <height>350</height>
+				<onup>back</onup>
+				<ondown>-</ondown>
+				<onright>450</onright>
+				<onleft>450</onleft>
+				<focusposition>3</focusposition>				
+				 <orientation>horizontal</orientation>				
+				<itemlayout height="350" width="180">
+					<control type="image">
+					<top>15</top>
+				<width>150</width>
+				<height>232</height>
+				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<aspectratio align="center" aligny="top">stretch</aspectratio>					
+					</control>					
+				</itemlayout>				
+				<focusedlayout height="350" width="185">
+					<control type="image">
+					<left>-5</left>
+					<top>10</top>
+					<width>160</width>
+				<height>240</height>
+					<include>art_Frame-fo</include>					
+				</control>					
+					 <control type="image">	
+				<top>15</top>	 
+				<width>150</width>
+				<height>232</height>
+				<texture background="true">$VAR[thumb_Portrait]</texture>
+				<aspectratio align="center" aligny="top">stretch</aspectratio>				
+			</control>
+				</focusedlayout>
+			</control>
+		</control>
+		<control type="label">				
+						<top>415</top>
+						<left>100</left>	
+                            <width>700</width>
+                            <height>70</height>
+                            <align>left</align>                           
+                            <font>light_Window</font>                           
+                            <label>$INFO[ListItem.Label]</label>
+							<textcolor>ffffffff</textcolor>
+                        </control>
+			<control type="image">
+			<left>20</left>
+		<top>430</top>
+					<width>40</width>
+					<height>40</height>
+					<texture background="true">navigation/up.png</texture>					
+				</control>				
+						
+		<control type="label">
+			<left>960</left>
+			<top>460</top>
+			<width>592</width>
+			<label>$INFO[Container(450).CurrentPage]/$INFO[Container(450).NumPages]</label>
+			<align>center</align>
+			<include>dialog_ControlCommons</include>
+			<textcolor>ffffffff</textcolor>
+		</control>
+	</controls>
+</window>

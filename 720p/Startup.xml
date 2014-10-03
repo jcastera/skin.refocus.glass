@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window>
+	<defaultcontrol always="true">10</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<onload condition="Stringcompare(Skin.String(startupcount),2)">Skin.SetString(startupcount,3)</onload>
+    <onload condition="Stringcompare(Skin.String(startupcount),1)">Skin.SetString(startupcount,2)</onload>
+    <onload condition="IsEmpty(Skin.String(startupcount))">Skin.SetString(startupcount,1)</onload>
+
+
+	<!--set alarm to prevent startup loop if fanart grabber is version 0.12.6 or lower-->
+
+	 <animation type="WindowClose" reversible="false">
+        <effect type="fade" start="100" end="0" time="640" />
+    </animation>
+    <animation type="WindowOpen" reversible="false">
+        <effect type="fade" end="100" delay="800" time="640" />
+    </animation>
+	<controls>
+		<control type="button" id="8999">
+			<onfocus>SetFocus(10)</onfocus>
+			<label>SHOULD NOT SEE ME</label>
+			<visible allowhiddenfocus="true">false</visible>
+		</control>
+		<control type="button" id="10">
+			<onfocus>ReplaceWindow(Home)</onfocus>
+			<texturenofocus>-</texturenofocus>
+			<texturefocus>-</texturefocus>
+			<animation effect="fade" delay="4950" end="100" time="350">Focus</animation>
+		</control>
+		<control type="image">
+			<include>screen_Dimensions</include>
+			<texture>special://skin/fanart.jpg</texture>
+			<onfocus>AlarmClock(StartupDelay,ReplaceWindow($INFO[System.StartupWindow]),00:03,silent)</onfocus>
+		</control>
+		<control type="label">
+			<posy>500</posy>
+			<width>screen_Width</width>
+			<height>20</height>
+			<font>regular_Small</font>
+			<align>center</align>
+			<textcolor>Color1</textcolor>
+			<include>fadeinout</include>
+		</control>
+	</controls>
+</window>
+

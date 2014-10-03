@@ -1,0 +1,581 @@
+<!--view recovered  on avalon and aeon nox-->
+<!--thx guys -->
+<includes>
+	<include name="View_Showcase">
+	<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<visible>Control.IsVisible(527)</visible>
+		<control type="group">
+		<control type="image">
+		<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+					 <posx>20</posx>
+					 <posy>125</posy>
+				     <width>860</width>
+				     <height>550</height>
+				     <texture background="true">frames/Landscape-overlays.png</texture>
+				     <aspectratio>scale</aspectratio>
+					 <colordiffuse>base_1</colordiffuse>
+					<visible>Control.IsVisible(527)</visible>
+					<visible>Skin.HasSetting(showcaseInfo)</visible>
+			    </control>
+				<control type="image">
+				<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+				     <posy>85</posy>
+				     <posx>0</posx>
+				     <width>1280</width>
+				     <height>700</height>
+                     <texture background="true">overlays/panel.png</texture>
+                     <colordiffuse>160FFFFFF</colordiffuse>
+			         <aspectratio>stretch</aspectratio>
+			         <visible>Control.IsVisible(527)</visible>
+					 <visible>Skin.HasSetting(showcaseInfo)</visible>
+			    </control>
+			<control type="group">
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<visible>Control.IsVisible(527)</visible>
+				<posx>160</posx>
+				<posy>235</posy>
+				<animation effect="slide" start="0" end="57" time="0" condition="Control.IsVisible(527)">Conditional</animation>
+					<control type="group">
+					<control type="label">
+					<posy>-50</posy>
+					<posx>-100</posx>
+						<width>750</width>
+						<label>$VAR[global_Title]</label>
+						<include>detail_Title</include>
+					</control>
+					<control type="group">
+						<posy>-10</posy>
+						<posx>-102</posx>
+						<visible>!SubString(ListItem.Icon,default)</visible>
+						<control type="label">
+							<width>650</width>
+							<label>$VAR[global_Info]</label>
+							<include>detail_Sub</include>
+							<visible>![Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+						<control type="label">
+							<width>650</width>
+							<label>$LOCALIZE[19114] $INFO[ListItem.Property(Addon.Version),, • ]$LOCALIZE[31144] $INFO[ListItem.Property(Addon.Creator)]</label>
+							<include>detail_Sub</include>
+							<visible>[Container.Content(addons) | Container.Content(programs)]</visible>
+						</control>
+					</control>
+				<visible>Skin.HasSetting(showcaseInfo)</visible>
+				</control>
+				<control type="grouplist">
+				<visible>Control.IsVisible(527)</visible>
+					<posy>20</posy>
+					<posx>-104</posx>
+					<width>600</width>
+					<height>40</height>
+					<itemgap>10</itemgap>
+					<orientation>horizontal</orientation>
+					<control type="image">
+					<posy>-48</posy>
+					<posx>550</posx>
+						<width>128</width>
+						<height>32</height>
+						<texture>$VAR[global_Rating]</texture>
+						<aspectratio align="center">keep</aspectratio>
+						<visible>!Container.Content(files)</visible>
+					</control>
+					<visible>Skin.HasSetting(showcaseInfo)</visible>
+				</control>
+				<control type="image">
+				<posy>-48</posy>
+					<posx>-130</posx>
+					<texture>$VAR[status_List]</texture>
+					<colordiffuse>Color3</colordiffuse>
+					<include>status_List</include>
+					<visible>Skin.HasSetting(showcaseInfo)</visible>
+				</control>
+			</control>
+			<control type="grouplist" id="100">
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<visible>Control.IsVisible(527)</visible>
+				   <posx>850</posx>
+				   <posy>180</posy>
+				   <width>900</width>
+				   <height>50</height>
+				   <itemgap>10</itemgap>
+				   <orientation>horizontal</orientation>
+			<control type="image">
+				   <width>80</width>
+				   <height>40</height>
+				   <aspectratio align="right">keep</aspectratio>
+				   <texture>$VAR[flag_VideoType-fo]</texture>
+				   <colordiffuse>Color11</colordiffuse>
+			</control>
+			<control type="image">
+				    <width>90</width>
+				    <height>40</height>
+				    <aspectratio align="right">keep</aspectratio>
+				    <texture>$VAR[flag_Studio]</texture>
+				    <colordiffuse>Color11</colordiffuse>
+			</control>
+			<control type="image">
+					<width>80</width>
+				    <height>40</height>
+					<aspectratio align="right">keep</aspectratio>
+					<texture>$INFO[ListItem.Property(mediaTag-videoResolution),flags/video/resolution/,.png]</texture>
+					<colordiffuse>Color11</colordiffuse>
+					<visible>true</visible>
+			</control>
+			<control type="image">
+					<width>50</width>
+					<height>40</height>
+					<aspectratio align="center">keep</aspectratio>
+					<texture>$INFO[ListItem.Property(mediaTag-audioCodec),flags/codec/,.png]</texture>
+					<visible>true</visible>
+			</control>
+			<visible>Skin.HasSetting(showcaseInfo)</visible>
+			</control>
+			<control type="textbox">
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+			<visible>Control.IsVisible(527)</visible>
+			        <posx>800</posx>
+					<posy>225</posy>
+					<width>388</width>
+					<height>135</height>
+					<align>justify</align>
+					<label>$VAR[global_Plot]</label>
+					<include>detail_Text</include>
+					<visible>Skin.HasSetting(showcaseInfo)</visible>
+					</control>
+			<control type="image">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+					 <posx>600</posx>
+					 <posy>230</posy>
+				     <width>860</width>
+				     <height>550</height>
+				     <texture background="true">frames/Landscape-overlays.png</texture>
+				     <aspectratio>scale</aspectratio>
+					 <colordiffuse>base_1</colordiffuse>
+					<visible>Control.IsVisible(527)</visible>
+			    </control>
+				<control type="image">
+				<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+					 <posx>-50</posx>
+					 <posy>230</posy>
+				     <width>860</width>
+				     <height>550</height>
+				     <texture background="true">frames/Landscape-overlays.png</texture>
+				     <aspectratio>scale</aspectratio>
+					 <colordiffuse>base_1</colordiffuse>
+					<visible>Control.IsVisible(527)</visible>
+			    </control>
+			<control type="image">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<posy>250</posy>
+				<posx>0</posx>
+				<width>1280</width>
+				<height>450</height>
+			<texture border="5">coverflow/coverflow_frame.png</texture>
+			<colordiffuse>ee000000</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(527)</visible>
+			</control>
+		</control>
+		<!--Showcase-->
+		<control type="group">
+		<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<include>transition_Content</include>
+		<posx>-325</posx>
+				<posy>-250</posy>
+			<visible>Control.IsVisible(527)</visible>
+			<camera x="760" y="610" />
+			<control type="group" id="6001"><!--On Next-->
+				<posx>55</posx>
+				<posy>550</posy>
+				<visible>Container.OnNext</visible>
+				<animation effect="slide" end="-135,0" time="200" reversible="false">Hidden</animation>
+				<control type="group"><!-- -7 out-->
+					<posx>15</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-7).FolderPath)</visible>
+					<visible>Container.OnNext</visible>
+					<animation effect="fade" start="100" end="0" time="200" reversible="false">Hidden</animation>
+					<animation effect="rotatey" center="-135" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+
+				</control>
+				<control type="group">
+					<posx>150</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-6).FolderPath)</visible>
+					<animation effect="rotatey" center="0" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+
+				</control>
+				<control type="group">
+					<posx>285</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-5).FolderPath)</visible>
+					<animation effect="rotatey" center="135" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-5</include>
+				</control>
+				<control type="group">
+					<posx>420</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-4).FolderPath)</visible>
+					<animation effect="rotatey" center="270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-4</include>
+				</control>
+				<control type="group">
+					<posx>555</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-3).FolderPath)</visible>
+					<animation effect="rotatey" center="405" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-3</include>
+				</control>
+				<control type="group">
+					<posx>690</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-2).FolderPath)</visible>
+					<animation effect="rotatey" center="540" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-2</include>
+				</control>
+				<control type="group">
+					<posx>1635</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(6).FolderPath)</visible>
+					<visible>!Container.OnNext</visible>
+					<animation effect="fade" end="100" time="200" reversible="false">Visible</animation>
+					<animation effect="rotatey" center="2100" start="55" end="55" time="0" condition="true">Conditional</animation>
+
+				</control>
+				<control type="group">
+					<posx>1500</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(5).FolderPath)</visible>
+					<animation effect="rotatey" center="1965" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem5</include>
+				</control>
+				<control type="group">
+					<posx>1365</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(4).FolderPath)</visible>
+					<animation effect="rotatey" center="1830" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem4</include>
+				</control>
+				<control type="group">
+					<posx>1230</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(3).FolderPath)</visible>
+					<animation effect="rotatey" center="1695" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem3</include>
+				</control>
+				<control type="group">
+					<posx>1095</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(2).FolderPath)</visible>
+					<animation effect="rotatey" center="1560" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem2</include>
+				</control>
+				<control type="group">
+					<posx>960</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(1).FolderPath)</visible>
+					<animation effect="rotatey" center="1425" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem1</include>
+				</control>
+				<control type="group">
+					<visible>Container.OnNext</visible>
+					<animation effect="slide" end="75,0" time="200" reversible="false">Hidden</animation>
+					<control type="group">
+						<posx>835</posx>
+						<visible>Container.OnNext</visible>
+						<visible>!IsEmpty(Container(527).ListItemNoWrap(0).FolderPath)</visible>
+						<animation effect="rotatey" center="1290" end="-55" time="200" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+						<animation effect="rotatey" center="1290" start="55" end="55" time="0" condition="true">Conditional</animation>
+						<include>MovieShowCaseItem0</include>
+					</control>
+					<control type="group">
+						<posx>758</posx>
+						<visible>!IsEmpty(Container(527).ListItemNoWrap(-1).FolderPath)</visible>
+						<visible>Container.OnNext</visible>
+						<animation effect="rotatey" center="608" end="-55" time="200" reversible="false" tween="quadratic">Hidden</animation>
+						<control type="image">
+							<texture background="true">$VAR[ShowcaseItem-1Var]</texture>
+							<include>MovieShowcaseThumb</include>
+						</control>
+						<control type="image">
+							<texture background="true" flipy="true">$VAR[ShowcaseItem-1Var]</texture>
+							<aspectratio aligny="posy" align="posx">scale</aspectratio>
+							<include>MovieShowcaseThumbReflection</include>
+						</control>
+					</control>
+				</control>
+			</control>
+			<control type="group" id="6002"><!--On Prev-->
+				<posx>55</posx>
+				<posy>550</posy>
+				<visible>Container.OnPrevious</visible>
+				<animation effect="slide" end="135,0" time="200" reversible="false">Hidden</animation>
+				<control type="group"><!-- +7 out -->
+					<posx>1500</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(7).FolderPath)</visible>
+					<visible>Container.OnPrevious</visible>
+					<animation effect="fade" start="100" end="0" time="200" reversible="false">Hidden</animation>
+					<animation effect="rotatey" center="1965" start="55" end="55" time="0" condition="true">Conditional</animation>
+
+				</control>
+				<control type="group">
+					<posx>1365</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(6).FolderPath)</visible>
+					<animation effect="rotatey" center="1830" start="55" end="55" time="0" condition="true">Conditional</animation>
+
+				</control>
+				<control type="group">
+					<posx>1230</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(5).FolderPath)</visible>
+					<animation effect="rotatey" center="1695" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem5</include>
+				</control>
+				<control type="group">
+					<posx>1095</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(4).FolderPath)</visible>
+					<animation effect="rotatey" center="1560" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem4</include>
+				</control>
+				<control type="group">
+					<posx>960</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(3).FolderPath)</visible>
+					<animation effect="rotatey" center="1425" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem3</include>
+				</control>
+				<control type="group">
+					<posx>825</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(2).FolderPath)</visible>
+					<animation effect="rotatey" center="1290" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem2</include>
+				</control>
+				<control type="group"><!-- -6 in -->
+					<posx>-120</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-6).FolderPath)</visible>
+					<visible>!Container.OnPrevious</visible>
+					<animation effect="fade" end="100" time="200" reversible="false">Visible</animation>
+					<animation effect="rotatey" center="-270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+
+				</control>
+				<control type="group">
+					<posx>15</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-5).FolderPath)</visible>
+					<animation effect="rotatey" center="-135" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-5</include>
+				</control>
+				<control type="group">
+					<posx>150</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-4).FolderPath)</visible>
+					<animation effect="rotatey" center="0" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-4</include>
+				</control>
+				<control type="group">
+					<posx>285</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-3).FolderPath)</visible>
+					<animation effect="rotatey" center="135" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-3</include>
+				</control>
+				<control type="group">
+					<posx>420</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-2).FolderPath)</visible>
+					<animation effect="rotatey" center="270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-2</include>
+				</control>
+				<control type="group">
+					<posx>555</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-1).FolderPath)</visible>
+					<animation effect="rotatey" center="405" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-1</include>
+				</control>
+				<control type="group">
+					<visible>Container.OnPrevious</visible>
+					<animation effect="slide" end="-75,0" time="200" reversible="false">Hidden</animation>
+					<control type="group">
+						<posx>690</posx>
+						<visible>Container.OnPrevious</visible>
+						<visible>!IsEmpty(Container(527).ListItemNoWrap(0).FolderPath)</visible>
+						<animation effect="rotatey" center="540" end="55" time="200" reversible="false" tween="quadratic" easing="in">Hidden</animation>
+						<animation effect="rotatey" center="540" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+						<include>MovieShowCaseItem0</include>
+					</control>
+					<control type="group">
+						<posx>758</posx>
+						<visible>!IsEmpty(Container(527).ListItemNoWrap(1).FolderPath)</visible>
+						<visible>Container.OnPrevious</visible>
+						<animation effect="rotatey" center="1223" end="55" time="200" reversible="false" tween="quadratic">Hidden</animation>
+						<control type="image">
+							<texture background="true" diffuse="poster_matte.png">$VAR[ShowcaseItem1Var]</texture>
+							<include>MovieShowcaseThumb</include>
+						</control>
+						<control type="image">
+							<texture background="true" flipy="true" diffuse="poster_matte_reflect.png">$VAR[ShowcaseItem1Var]</texture>
+							<aspectratio scalediffuse="false" aligny="posy" align="right">scale</aspectratio>
+							<include>MovieShowcaseThumbReflection</include>
+						</control>
+					</control>
+				</control>
+			</control>
+			<control type="group" id="6000"><!--No Move-->
+				<animation type="WindowOpen" reversible="false">
+					<effect type="fade" start="0" end="100" tween="sine" easing="inout" time="800"/>
+					<effect type="zoom" start="150" end="100" center="980,550" tween="cubic" easing="out" time="450" />
+				</animation>
+				<animation type="WindowClose" reversible="false">
+					<effect type="zoom" start="100" end="130" center="960,540" time="300" tween="cubic" easing="in"/>
+					<effect type="fade" start="100" end="0" time="300"/>
+				</animation>
+				<posx>55</posx>
+				<posy>550</posy>
+				<visible>!Control.IsVisible(6001) + !Control.IsVisible(6002)</visible>
+				<control type="group">
+					<posx>15</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-6).FolderPath)</visible>
+					<animation effect="rotatey" center="-135" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+
+				</control>
+				<control type="group">
+					<posx>150</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-5).FolderPath)</visible>
+					<animation effect="rotatey" center="0" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-5</include>
+				</control>
+				<control type="group">
+					<posx>285</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-4).FolderPath)</visible>
+					<animation effect="rotatey" center="135" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-4</include>
+				</control>
+				<control type="group">
+					<posx>420</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-3).FolderPath)</visible>
+					<animation effect="rotatey" center="270" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-3</include>
+				</control>
+				<control type="group">
+					<posx>555</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-2).FolderPath)</visible>
+					<animation effect="rotatey" center="405" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-2</include>
+				</control>
+				<control type="group">
+					<posx>690</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(-1).FolderPath)</visible>
+					<animation effect="rotatey" center="540" start="-55" end="-55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem-1</include>
+				</control>
+				<control type="group">
+					<posx>1500</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(6).FolderPath)</visible>
+					<animation effect="rotatey" center="1965" start="55" end="55" time="0" condition="true">Conditional</animation>
+
+				</control>
+				<control type="group">
+					<posx>1365</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(5).FolderPath)</visible>
+					<animation effect="rotatey" center="1830" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem5</include>
+				</control>
+				<control type="group">
+					<posx>1230</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(4).FolderPath)</visible>
+					<animation effect="rotatey" center="1695" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem4</include>
+				</control>
+				<control type="group">
+					<posx>1095</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(3).FolderPath)</visible>
+					<animation effect="rotatey" center="1560" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem3</include>
+				</control>
+				<control type="group">
+					<posx>960</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(2).FolderPath)</visible>
+					<animation effect="rotatey" center="1425" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem2</include>
+				</control>
+				<control type="group">
+					<posx>825</posx>
+					<visible>!IsEmpty(Container(527).ListItemNoWrap(1).FolderPath)</visible>
+					<animation effect="rotatey" center="1290" start="55" end="55" time="0" condition="true">Conditional</animation>
+					<include>MovieShowCaseItem1</include>
+				</control>
+				<control type="group">
+					<posx>790</posx>
+					<control type="group">
+						<visible>!IsEmpty(Container(527).ListItemNoWrap(0).FolderPath)</visible>
+						<include>MovieShowCaseItem0</include>
+					</control>
+				</control>
+			</control>
+		</control>
+		<control type="image">
+		<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<posy>400</posy>
+				<posx>0</posx>
+				<width>1280</width>
+				<height>450</height>
+			<texture border="5">coverflow/coverflow_frame.png</texture>
+			<colordiffuse>cc151f27</colordiffuse>
+			<aspectratio>stretch</aspectratio>
+			<visible>Control.IsVisible(527)</visible>
+			</control>
+				<control type="label">
+				<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+					<posy>670</posy>
+					<posx>100</posx>
+						<width>750</width>
+						<label>$VAR[global_Title]</label>
+						<include>detail_Title</include>
+						<visible>!Skin.HasSetting(showcaseInfo)</visible>
+						<visible>Control.IsVisible(527)</visible>
+					</control>
+			<control type="image">
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+				<posy>675</posy>
+					<posx>50</posx>
+					<texture>$VAR[status_List]</texture>
+					<colordiffuse>Color3</colordiffuse>
+					<include>status_List</include>
+					<visible>!Skin.HasSetting(showcaseInfo)</visible>
+					<visible>Control.IsVisible(527)</visible>
+				</control>
+		<!--Wraplist-->
+		<control type="wraplist" id="527">
+			<posx>-150</posx>
+			<posy>540</posy>
+			<width>2058</width>
+			<height>525</height>
+			<onup>6000</onup>
+			<ondown>71</ondown>
+			<onleft>527</onleft>
+			<onright>527</onright>
+			<pagecontrol>71</pagecontrol>
+			<orientation>horizontal</orientation>
+			<include>global_Scrolltime</include>
+			<include>transition_Content</include>
+			<include>transition_Info</include>
+			<include>toggle_Menu</include>
+			<visible>Container.Content(movies) | Container.Content(tvshows)</visible>
+			<visible>!substring(Container.FolderPath,addons://sources/video/) + !substring(Container.FolderPath,plugin://plugin.video)</visible>
+			<viewtype label="31112">wrap</viewtype>
+			<focusposition>3</focusposition>
+			<preloaditems>2</preloaditems>
+			<itemlayout width="325" height="260">
+			</itemlayout>
+			<focusedlayout width="325" height="260">
+			</focusedlayout>
+		</control>
+	</include>
+</includes>

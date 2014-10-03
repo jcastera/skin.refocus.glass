@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="68">
+	<defaultcontrol>149</defaultcontrol>
+	<include>Animation_TopDialogPopup</include>
+	<height>250</height>
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+		<origin x="0" y="0" />
+	</coordinates>
+	<zorder>1</zorder>
+	<controls>
+	<control type="image" id="149">
+			<width>270</width>
+			<height>80</height>
+			<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
+			<colordiffuse>base_2</colordiffuse>
+		</control>
+		<control type="image">
+			<posx>4</posx>
+			<posy>18</posy>
+			<width>650</width>
+			<include>dialog_Separator</include>
+		</control>
+		<control type="image">
+			<posx>0</posx>
+			<posy>60</posy>
+			<width>270</width>
+			<height>720</height>
+			<include>dialog_Menu</include>
+			<colordiffuse></colordiffuse>
+		</control>
+		<control type="image" id="1490">
+	<posy>185</posy>
+	<posx>0</posx>
+			<width>270</width>
+			<height>20</height>
+			<texture border="20,0,20,0">dialogs/frame/menu_bottom.png</texture>
+			<colordiffuse>Color3</colordiffuse>
+		</control>
+		<control type="label">
+					<posx>-1050</posx>
+			<posy>15</posy>
+					    <label>SETTINGS</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>Color3</textcolor>
+					</control>
+			<control type="label">
+					<posx>-1150</posx>
+			<posy>70</posy>
+					    <label>LAYOUT</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+		<control type="label">
+					<posx>-1050</posx>
+			<posy>95</posy>
+					    <label>Thumbnails</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+		<control type="label">
+					<posx>-1170</posx>
+			<posy>125</posy>
+					    <label>VIEW</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+			<control type="label">
+				<posx>-1100</posx>
+			<posy>150</posy>
+					    <label>Small Grid</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+		<control type="label">
+					<posx>-1050</posx>
+			<posy>200</posy>
+					    <label>OPTIONS</label>
+						<align>center</align>
+					    <font>normal</font>
+				        <textcolor>ff000000</textcolor>
+					</control>
+
+		<control type="grouplist" id="149">
+		<onleft>back</onleft>
+		<onright>back</onright>
+			<posx>4</posx>
+			<posy>250</posy>
+			<width>270</width>
+			<height min="40" max="720">auto</height>
+			<itemgap>0</itemgap>
+
+			 <control type="radiobutton" id="152">
+                        <label>Glass</label>
+						<width>260</width>
+		                <onclick>Skin.ToggleSetting(Icon2.Glass)</onclick>
+		                <selected>Skin.HasSetting(Icon2.Glass)</selected>
+						 <include>menu_Button2</include>
+		            <include>menu_RadioButton2</include>
+		            </control>
+				<control type="radiobutton" id="153">
+                        <label>Case</label>
+						<width>260</width>
+		                <onclick>Skin.ToggleSetting(Icon2.case)</onclick>
+		                <selected>Skin.HasSetting(Icon2.case)</selected>
+						<include>menu_Button2</include>
+		            <include>menu_RadioButton2</include>
+		            </control>
+					<control type="radiobutton" id="154">
+                        <label>Discart</label>
+						<width>260</width>
+		                <onclick>Skin.ToggleSetting(Icon2Discart.movies.enable)</onclick>
+		                <selected>Skin.HasSetting(Icon2Discart.movies.enable)</selected>
+						<include>menu_Button2</include>
+		            <include>menu_RadioButton2</include>
+					<visible>![Container.Content(seasons) | Container.Content(episodes)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+		            </control>
+
+					<control type="radiobutton" id="155">
+                    <label>Panel Back</label>
+					<width>260</width>
+		            <onclick>Skin.ToggleSetting(Enable.panelback)</onclick>
+		            <selected>Skin.HasSetting(Enable.panelback)</selected>
+					<include>menu_Button2</include>
+					<include>menu_RadioButton2</include>
+		            </control>
+
+<!--info thumbnail small 1-->
+                <control type="radiobutton" id="156">
+		          <label>Option 1</label>
+				  <width>260</width>
+                  <onclick>Skin.ToggleSetting(thumbnailinfo1.enable)</onclick>
+                  <onclick condition="Skin.HasSetting(thumbnailinfo2.enable)">Skin.ToggleSetting(thumbnailinfo2.enable)</onclick>
+                  <selected>!Skin.HasSetting(thumbnailinfo1.enable)</selected>
+		         	<include>menu_Button2</include>
+		            <include>menu_RadioButton2</include>
+				</control>
+				<control type="radiobutton" id="157">
+				   <label>Option 2</label>
+				   <width>260</width>
+                   <onclick>Skin.ToggleSetting(thumbnailinfo2.enable)</onclick>
+                   <onclick condition="!Skin.HasSetting(thumbnailinfo1.enable)">Skin.ToggleSetting(thumbnailinfo1.enable)</onclick>
+                   <selected>Skin.HasSetting(thumbnailinfo2.enable)</selected>
+		           	<include>menu_Button2</include>
+		            <include>menu_RadioButton2</include>
+					<visible>![Container.Content(episodes)] + !SubString(Container.FolderPath,plugin://plugin.video.the.trailers)</visible>
+				</control>
+		</control>
+	</controls>
+</window>

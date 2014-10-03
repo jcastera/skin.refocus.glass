@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="97">
+	<zorder>10</zorder>
+	<visible>!Window.IsVisible(startup) + Skin.HasSetting(dev.images)</visible>
+	<controls>
+		<control type="group">
+			<posx>10</posx>
+			<posy>10</posy>
+			<control type="image">
+				<include>screen_Dimensions</include>
+				<texture>black.png</texture>
+				<animation effect="fade" end="80" time="0" condition="true">Conditional</animation>
+			</control>
+
+			<!--<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(tvshow.banner)]</texture>-->
+
+			<control type="group">
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(thumb)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>300</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(thumb)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<posx>180</posx>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(poster)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>300</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(poster)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<posx>360</posx>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(tvshow.poster)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>300</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(tvshow.poster)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<posx>540</posx>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(season.poster)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>300</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(season.poster)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<posx>720</posx>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(tvshow.banner)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>300</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(tvshow.banner)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<posx>900</posx>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(season.banner)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>300</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(season.banner)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<posx>1080</posx>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(tvshow.banner)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>300</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(tvshow.banner)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<posy>340</posy>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(banner)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>320</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(banner)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<posx>180</posx>
+				<posy>340</posy>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(landscape)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>320</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(landscape)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<posx>360</posx>
+				<posy>340</posy>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(fanart)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>320</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(fanart)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<posx>540</posx>
+				<posy>340</posy>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[Player.Art(fanart)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>320</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>Player.Art(fanart)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<posx>720</posx>
+				<posy>340</posy>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[Player.Art(tvshow.poster)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>320</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>Player.Art(tvshow.poster)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<posx>900</posx>
+				<posy>340</posy>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[Player.Art(tvshow.landscape)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>320</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>Player.Art(tvshow.landscape)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+			<control type="group">
+				<posx>1080</posx>
+				<posy>340</posy>
+				<width>160</width>
+				<height>360</height>
+				<control type="image">
+					<width>160</width>
+					<height>360</height>
+					<texture fallback="DefaultIconError.png">$INFO[ListItem.Art(tvshow.landscape)]</texture>
+					<aspectratio align="center" aligny="top">keep</aspectratio>
+				</control>
+				<control type="label">
+					<posy>320</posy>
+					<width>160</width>
+					<font>condensed_Smaller</font>
+					<haspath>true</haspath>
+					<align>center</align>
+					<label>ListItem.Art(tvshow.landscape)</label>
+					<textcolor>yellow</textcolor>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

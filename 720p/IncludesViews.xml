@@ -1,0 +1,213 @@
+<!--view recovered  on avalon and aeon nox-->
+<!--thx guys -->
+
+<includes>
+	<include name="MovieShowcaseThumb">
+		<posx>-4</posx>
+		<posy>-11</posy>
+		<width>264</width>
+		<height>376</height>
+		<align>center</align>		
+		<aspectratio scalediffuse="false">stretch</aspectratio>
+		<fadetime>0</fadetime>		
+		<bordersize>18</bordersize>
+	</include>
+	<include name="MovieShowcaseThumbReflection">	
+		<aspectratio scalediffuse="false" aligny="posy">scale</aspectratio>
+		<fadetime>0</fadetime>
+		<posx>16</posx>
+		<posy>385</posy>
+		<width>230</width>
+		<height>346</height>		
+	</include>
+	
+	<include name="MovieShowCaseItem-5">
+		<control type="image">
+			<texture background="true">$VAR[ShowcaseItem-5Var]</texture>
+			<include>MovieShowcaseThumb</include>
+		</control>
+		<control type="image">
+			<texture background="true" flipy="true">$VAR[ShowcaseItem-5Var]</texture>
+			<aspectratio scalediffuse="false" aligny="posy" align="posx">scale</aspectratio>
+			<width>131</width>
+			<include>MovieShowcaseThumbReflection</include>
+		</control>
+	</include>
+	<include name="MovieShowCaseItem-4">
+		<control type="image">
+			<texture background="true">$VAR[ShowcaseItem-4Var]</texture>
+			<include>MovieShowcaseThumb</include>
+		</control>
+		<control type="image">
+			<texture background="true" flipy="true">$VAR[ShowcaseItem-4Var]</texture>
+			<aspectratio scalediffuse="false" aligny="posy" align="posx">scale</aspectratio>
+			<width>145</width>
+			<include>MovieShowcaseThumbReflection</include>
+		</control>
+	</include>
+	<include name="MovieShowCaseItem-3">
+		<control type="image">
+			<texture background="true">$VAR[ShowcaseItem-3Var]</texture>
+			<include>MovieShowcaseThumb</include>
+		</control>
+		<control type="image">
+			<texture background="true" flipy="true">$VAR[ShowcaseItem-3Var]</texture>
+			<aspectratio scalediffuse="false" aligny="posy" align="posx">scale</aspectratio>
+			<width>160</width>
+			<include>MovieShowcaseThumbReflection</include>
+		</control>
+	</include>
+	<include name="MovieShowCaseItem-2">
+		<control type="image">
+			<texture background="true">$VAR[ShowcaseItem-2Var]</texture>
+			<include>MovieShowcaseThumb</include>
+		</control>
+		<control type="image">
+			<texture background="true" flipy="true">$VAR[ShowcaseItem-2Var]</texture>
+			<aspectratio scalediffuse="false" aligny="posy" align="posx">scale</aspectratio>
+			<width>179</width>
+			<include>MovieShowcaseThumbReflection</include>
+		</control>
+	</include>
+	<include name="MovieShowCaseItem-1">
+		<control type="image">
+			<texture background="true">$VAR[ShowcaseItem-1Var]</texture>
+			<include>MovieShowcaseThumb</include>
+		</control>
+		<control type="image">
+			<texture background="true" flipy="true">$VAR[ShowcaseItem-1Var]</texture>
+			<aspectratio scalediffuse="false" aligny="posy" align="posx">scale</aspectratio>
+			<width>180</width>
+			<include>MovieShowcaseThumbReflection</include>
+		</control>
+	</include>
+	<include name="MovieShowCaseItem0">
+		<control type="image">
+			<texture background="true">$VAR[ShowcaseItem0Var]</texture>
+			<include>MovieShowcaseThumb</include>
+		</control>
+		<control type="image">
+			<texture background="true" flipy="true">$VAR[ShowcaseItem0Var]</texture>
+			<include>MovieShowcaseThumbReflection</include>
+		</control>
+	</include>
+	<include name="MovieShowCaseItem1">
+		<control type="image">
+			<texture background="true">$VAR[ShowcaseItem1Var]</texture>
+			<include>MovieShowcaseThumb</include>
+		</control>
+		<control type="image">
+			<texture background="true" flipy="true">$VAR[ShowcaseItem1Var]</texture>
+			<aspectratio scalediffuse="false" aligny="posy" align="right">scale</aspectratio>
+			<posx>10</posx>
+			<left>15</left>
+			<posy>385</posy>
+			<width>223</width>
+			<include>MovieShowcaseThumbReflection</include>
+		</control>
+	</include>
+	<include name="MovieShowCaseItem2">
+		<control type="image">
+			<texture background="true">$VAR[ShowcaseItem2Var]</texture>
+			<include>MovieShowcaseThumb</include>
+		</control>
+		<control type="image">
+			<texture background="true" flipy="true">$VAR[ShowcaseItem2Var]</texture>
+			<aspectratio scalediffuse="false" aligny="posy" align="right">scale</aspectratio>
+			<posx>0</posx>
+			<left>15</left>
+			<posy>385</posy>
+			<width>225</width>
+			<include>MovieShowcaseThumbReflection</include>
+		</control>
+	</include>
+	<include name="MovieShowCaseItem3">
+		<control type="image">
+			<texture background="true">$VAR[ShowcaseItem3Var]</texture>
+			<include>MovieShowcaseThumb</include>
+		</control>
+		<control type="image">
+			<texture background="true" flipy="true">$VAR[ShowcaseItem3Var]</texture>
+			<aspectratio scalediffuse="false" aligny="posy" align="right">scale</aspectratio>
+			<posx>0</posx>
+			<left>15</left>
+			<posy>388</posy>
+			<width>225</width>
+			<include>MovieShowcaseThumbReflection</include>
+		</control>
+	</include>
+	<include name="MovieShowCaseItem4">
+		<control type="image">
+			<texture background="true">$VAR[ShowcaseItem4Var]</texture>
+			<include>MovieShowcaseThumb</include>
+		</control>
+		<control type="image">
+			<texture background="true" flipy="true" >$VAR[ShowcaseItem4Var]</texture>
+			<aspectratio scalediffuse="false" aligny="posy" align="right">scale</aspectratio>
+			<posx>0</posx>
+			<left>15</left>
+			<posy>390</posy>
+			<width>225</width>
+			<include>MovieShowcaseThumbReflection</include>
+		</control>
+	</include>
+	<include name="MovieShowCaseItem5">
+		<control type="image">
+			<texture background="true">$VAR[ShowcaseItem5Var]</texture>
+			<include>MovieShowcaseThumb</include>
+		</control>
+		<control type="image">
+			<texture background="true" flipy="true">$VAR[ShowcaseItem5Var]</texture>
+			<aspectratio scalediffuse="false" aligny="posy" align="right">scale</aspectratio>
+			<posx>0</posx>
+			<left>15</left>
+			<posy>392</posy>
+			<width>225</width>
+			<include>MovieShowcaseThumbReflection</include>
+		</control>
+	</include>
+	<variable name="ShowcaseItem-5Var">
+		<value condition="!IsEmpty(ListItem(-5).Art(poster))">$INFO[ListItem(-5).Art(poster)]</value>		
+		<value>$INFO[ListItem(-5).Icon]</value>
+	</variable>
+	<variable name="ShowcaseItem-4Var">
+		<value condition="!IsEmpty(ListItem(-4).Art(poster))">$INFO[ListItem(-4).Art(poster)]</value>
+		<value>$INFO[ListItem(-4).Icon]</value>
+	</variable>
+	<variable name="ShowcaseItem-3Var">
+		<value condition="!IsEmpty(ListItem(-3).Art(poster))">$INFO[ListItem(-3).Art(poster)]</value>
+		<value>$INFO[ListItem(-3).Icon]</value>
+	</variable>
+	<variable name="ShowcaseItem-2Var">
+		<value condition="!IsEmpty(ListItem(-2).Art(poster))">$INFO[ListItem(-2).Art(poster)]</value>
+		<value>$INFO[ListItem(-2).Icon]</value>
+	</variable>
+	<variable name="ShowcaseItem-1Var">
+		<value condition="!IsEmpty(ListItem(-1).Art(poster))">$INFO[ListItem(-1).Art(poster)]</value>
+		<value>$INFO[ListItem(-1).Icon]</value>
+	</variable>
+	<variable name="ShowcaseItem0Var">
+		<value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
+		<value>$INFO[ListItem.Icon]</value>
+	</variable>
+	<variable name="ShowcaseItem1Var">
+		<value condition="!IsEmpty(ListItem(1).Art(poster))">$INFO[ListItem(1).Art(poster)]</value>
+		<value>$INFO[ListItem(1).Icon]</value>
+	</variable>
+	<variable name="ShowcaseItem2Var">
+		<value condition="!IsEmpty(ListItem(2).Art(poster))">$INFO[ListItem(2).Art(poster)]</value>
+		<value>$INFO[ListItem(2).Icon]</value>
+	</variable>
+	<variable name="ShowcaseItem3Var">
+		<value condition="!IsEmpty(ListItem(3).Art(poster))">$INFO[ListItem(3).Art(poster)]</value>
+		<value>$INFO[ListItem(3).Icon]</value>
+	</variable>
+	<variable name="ShowcaseItem4Var">
+		<value condition="!IsEmpty(ListItem(4).Art(poster))">$INFO[ListItem(4).Art(poster)]</value>
+		<value>$INFO[ListItem(4).Icon]</value>
+	</variable>
+	<variable name="ShowcaseItem5Var">
+		<value condition="!IsEmpty(ListItem(5).Art(poster))">$INFO[ListItem(5).Art(poster)]</value>
+		<value>$INFO[ListItem(5).Icon]</value>
+	</variable>
+</includes>
