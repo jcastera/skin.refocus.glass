@@ -100,8 +100,9 @@
 					<control type="radiobutton" id="153">
 		               <label>Landscape</label>
 					   <width>260</width>
-		               <onclick>Skin.ToggleSetting(Landscape_PanelStrip)</onclick>
-		               <selected>Skin.HasSetting(Landscape_PanelStrip)</selected>
+		                <onclick>Skin.ToggleSetting(Landscape_PanelStrip)</onclick>
+					   <onclick condition="Skin.HasSetting(TextBox_PanelStrip)">Skin.ToggleSetting(TextBox_PanelStrip)</onclick>
+		                <selected>Skin.HasSetting(Landscape_PanelStrip)</selected>
 					<include>menu_Button2</include>
 					<include>menu_RadioButton2</include>
 					<visible>![Container.Content(episodes) | Container.Content(seasons)]</visible>
@@ -111,7 +112,8 @@
 					<label>Text Box</label>
 					<width>260</width>
 					<onclick>Skin.ToggleSetting(TextBox_PanelStrip)</onclick>
-		                <selected>Skin.HasSetting(TextBox_PanelStrip)</selected>
+					 <onclick condition="Skin.HasSetting(Landscape_PanelStrip)">Skin.ToggleSetting(Landscape_PanelStrip)</onclick>
+					  <selected>Skin.HasSetting(TextBox_PanelStrip)</selected>
 					<include>menu_Button2</include>
 					<include>menu_RadioButton2</include>
 					<visible>![Container.Content(episodes) | Container.Content(seasons)]</visible>

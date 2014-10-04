@@ -12,13 +12,13 @@
 		<include>Animation_TopPopup</include>
 			<visible>![Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks)]</visible>
 			<control type="group">
-				<left>479</left>
-				<top>205</top>
+				<posx>479</posx>
+				<posy>205</posy>
 				<width>322</width>
 				<include>transition_Dialog</include>
 				<include>player_Controls-commons</include>
 				<control type="grouplist" id="600">
-					<top>60</top>
+					<posy>60</posy>
 					<width>322</width>
 					<height>660</height>
 					<onleft>700</onleft>
@@ -125,7 +125,7 @@
 						<include>dialog_MenuButton</include>
 						<onclick>Dialog.Close(VideoOSD,true)</onclick>
 						<onclick>PlayerControl(ShowVideoMenu)</onclick>
-						<texturenofocus border="3">-</texturenofocus>						
+						<texturenofocus border="3">-</texturenofocus>
 						<visible>VideoPlayer.HasMenu</visible>
 					</control>
 					<!--video settings-->
