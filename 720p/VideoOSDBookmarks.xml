@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>239</left>
-		<top>70</top>
+		<posx>239</posx>
+		<posy>70</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
@@ -21,8 +21,8 @@
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="group">
-				<left>4</left>
-				<top>60</top>
+				<posx>4</posx>
+				<posy>60</posy>
 				<control type="image">
 					<width>795</width>
 					<include>dialog_Separator</include>
@@ -39,24 +39,24 @@
 					<include>fadeinout</include>
 					<itemlayout width="265" height="185">
 						<control type="image">
-							<left>85</left>
-							<top>32</top>
+							<posx>85</posx>
+							<posy>32</posy>
 							<width>96</width>
 							<height>96</height>
 							<texture>DefaultVideo.png</texture>
 							<colordiffuse>Color4</colordiffuse>
 						</control>
 						<control type="image">
-							<left>10</left>
-							<top>10</top>
+							<posx>10</posx>
+							<posy>10</posy>
 							<width>245</width>
 							<height>138</height>
 							<texture>$INFO[ListItem.Icon]</texture>
 							<aspectratio>scale</aspectratio>
 						</control>
 						<control type="label">
-							<left>132</left>
-							<top>145</top>
+							<posx>132</posx>
+							<posy>145</posy>
 							<width>265</width>
 							<align>center</align>
 							<label>$INFO[ListItem.Label]</label>
@@ -71,46 +71,46 @@
 							<colordiffuse>Color5</colordiffuse>
 						</control>
 						<control type="image">
-							<left>85</left>
-							<top>32</top>
+							<posx>85</posx>
+							<posy>32</posy>
 							<width>96</width>
 							<height>96</height>
 							<texture>DefaultVideo.png</texture>
 							<colordiffuse>Color1</colordiffuse>
 						</control>
 						<control type="image">
-							<left>10</left>
-							<top>10</top>
+							<posx>10</posx>
+							<posy>10</posy>
 							<width>245</width>
 							<height>138</height>
 							<texture>$INFO[ListItem.Icon]</texture>
 							<aspectratio>scale</aspectratio>
 						</control>
 						<control type="label">
-							<left>132</left>
-							<top>145</top>
+							<posx>132</posx>
+							<posy>145</posy>
 							<width>265</width>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>Color1</textcolor>
 							<align>center</align>
 							<include>dialog_ControlCommons</include>
 						</control>
-					</focusedlayout>	
+					</focusedlayout>
 				</control>
 				<control type="image">
-					<top>185</top>
+					<posy>185</posy>
 					<width>796</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
-					<top>370</top>
+					<posy>370</posy>
 					<width>796</width>
 					<include>dialog_Separator</include>
 				</control>
 			</control>
 			<control type="grouplist" id="999">
-				<left>91</left>
-				<top>445</top>
+				<posx>91</posx>
+				<posy>445</posy>
 				<onup>11</onup>
 				<ondown>-</ondown>
 				<itemgap>10</itemgap>

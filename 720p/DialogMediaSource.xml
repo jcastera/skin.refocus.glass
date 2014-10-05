@@ -3,8 +3,8 @@
 	<defaultcontrol always="true">10</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<left>290</left>
-		<top>104</top>
+		<posx>290</posx>
+		<posy>104</posy>
 	</coordinates>
 	<include>transition_Dialog</include>
 	<controls>
@@ -19,8 +19,8 @@
 		</control>
 		<!--sources-->
 		<control type="group">
-			<left>4</left>
-			<top>55</top>
+			<posx>4</posx>
+			<posy>55</posy>
 			<control type="label">
 				<width>692</width>
 				<label>$LOCALIZE[1021]</label>
@@ -28,37 +28,37 @@
 				<include>dialog_ControlCommons</include>
 			</control>
 			<control type="image">
-				<top>38</top>
+				<posy>38</posy>
 				<width>692</width>
 				<include>dialog_SectionSeparator</include>
 			</control>
 			<control type="image">
-				<top>80</top>
+				<posy>80</posy>
 				<width>692</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<top>120</top>
+				<posy>120</posy>
 				<width>692</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<top>160</top>
+				<posy>160</posy>
 				<width>692</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<top>200</top>
+				<posy>200</posy>
 				<width>692</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="image">
-				<top>240</top>
+				<posy>240</posy>
 				<width>692</width>
 				<include>dialog_Separator</include>
 			</control>
 			<control type="list" id="10">
-				<top>40</top>
+				<posy>40</posy>
 				<width>572</width>
 				<height>200</height>
 				<onup>9001</onup>
@@ -96,8 +96,8 @@
 			</control>
 			<!--browse controls-->
 			<control type="group" id="9000">
-				<left>572</left>
-				<top>40</top>
+				<posx>572</posx>
+				<posy>40</posy>
 				<animation effect="slide" end="0,40" time="0" condition="Container(10).Row(1)">Conditional</animation>
 				<animation effect="slide" end="0,80" time="0" condition="Container(10).Row(2)">Conditional</animation>
 				<animation effect="slide" end="0,120" time="0" condition="Container(10).Row(3)">Conditional</animation>
@@ -108,12 +108,12 @@
 					<include>dialog_Separator-y</include>
 				</control>
 				<control type="image">
-					<left>40</left>
+					<posx>40</posx>
 					<height>40</height>
 					<include>dialog_Separator-y</include>
 				</control>
 				<control type="image">
-					<left>80</left>
+					<posx>80</posx>
 					<height>40</height>
 					<include>dialog_Separator-y</include>
 				</control>
@@ -128,7 +128,7 @@
 				</control>
 				<!--remove path-->
 				<control type="button" id="14">
-					<left>40</left>
+					<posx>40</posx>
 					<label>-</label>
 					<onup>10</onup>
 					<onleft>11</onleft>
@@ -138,7 +138,7 @@
 				</control>
 				<!--add path-->
 				<control type="button" id="13">
-					<left>80</left>
+					<posx>80</posx>
 					<label>-</label>
 					<onup>10</onup>
 					<onleft>14</onleft>
@@ -150,10 +150,10 @@
 		</control>
 		<!--set source name-->
 		<control type="group">
-			<left>4</left>
-			<top>330</top>
+			<posx>4</posx>
+			<posy>330</posy>
 			<control type="image">
-				<top>38</top>
+				<posy>38</posy>
 				<width>692</width>
 				<include>dialog_SectionSeparator</include>
 			</control>
@@ -165,7 +165,7 @@
 			</control>
 			<!--set name-->
 			<control type="edit" id="12">
-				<top>40</top>
+				<posy>40</posy>
 				<width>692</width>
 				<label>-</label>
 				<hinttext>551</hinttext>
@@ -177,8 +177,8 @@
 			</control>
 		</control>
 		<control type="group" id="9001">
-			<left>417</left>
-			<top>440</top>
+			<posx>417</posx>
+			<posy>440</posy>
 			<!--ok-->
 			<control type="button" id="18">
 				<label>$LOCALIZE[186]</label>
@@ -190,7 +190,7 @@
 			</control>
 			<!--cancel-->
 			<control type="button" id="19">
-				<left>130</left>
+				<posx>130</posx>
 				<label>$LOCALIZE[222]</label>
 				<onleft>18</onleft>
 				<onright>18</onright>

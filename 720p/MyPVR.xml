@@ -18,7 +18,7 @@
 		<include>global_Itemcount</include>
 		<include>windowTitle_PVR</include>
 		<include>PageControls</include>
-		
+
 	<!--VIEWS-->
 		<control type="group" id="50">
 			<include>view_EPG-now</include>
@@ -33,8 +33,8 @@
 
 	<!--EPG INFO-->
 		<control type="group">
-			<left>90</left>
-			<top>530</top>
+			<posx>90</posx>
+			<posy>530</posy>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<visible>[Control.IsVisible(10) | Control.IsVisible(15) |  Control.IsVisible(16) | Control.IsVisible(17)] + !IsEmpty(ListItem.Title)</visible>
@@ -44,8 +44,8 @@
 				<include>art_Frame-nf</include>
 			</control>
 			<control type="group">
-				<left>7</left>
-				<top>7</top>
+				<posx>7</posx>
+				<posy>7</posy>
 				<control type="image">
 					<width>128</width>
 					<height>128</height>
@@ -67,7 +67,7 @@
 				</control>
 			</control>
 			<control type="grouplist">
-				<left>168</left>
+				<posx>168</posx>
 				<itemgap>0</itemgap>
 				<control type="label" id="1">
 					<width>950</width>

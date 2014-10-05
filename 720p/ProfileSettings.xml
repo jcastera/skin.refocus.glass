@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>340</left>
-		<top>168</top>
+		<posx>340</posx>
+		<posy>168</posy>
 	</coordinates>
 	<controls>
 		<control type="image">
@@ -18,8 +18,8 @@
 			<include>dialog_Windowtitle</include>
 		</control>
 		<control type="group">
-			<left>4</left>
-			<top>60</top>
+			<posx>4</posx>
+			<posy>60</posy>
 			<control type="image">
 				<width>592</width>
 				<include>dialog_Separator</include>
@@ -55,8 +55,8 @@
 		</control>
 		<!--dialog buttons-->
 		<control type="group" id="9001">
-			<left>325</left>
-			<top>320</top>
+			<posx>325</posx>
+			<posy>320</posy>
 			<!--ok-->
 			<control type="button" id="28">
 				<label>$LOCALIZE[186]</label>
@@ -68,7 +68,7 @@
 			</control>
 			<!--cancel-->
 			<control type="button" id="29">
-				<left>130</left>
+				<posx>130</posx>
 				<label>$LOCALIZE[222]</label>
 				<onleft>28</onleft>
 				<onright>6</onright>

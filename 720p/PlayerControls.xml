@@ -3,8 +3,8 @@
 	<defaultcontrol always="true">700</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<left>479</left>
-		<top>205</top>
+		<posx>479</posx>
+		<posy>205</posy>
 	</coordinates>
 	<include>transition_Dialog</include>
 	<visible>Player.HasMedia + Window.IsActive(PlayerControls) + !Window.IsActive(FullscreenVideo) + !Window.IsActive(Visualisation)</visible>
@@ -13,7 +13,7 @@
 			<width>322</width>
 			<include>player_Controls-commons</include>
 			<control type="grouplist" id="600">
-				<top>60</top>
+				<posy>60</posy>
 				<width>322</width>
 				<height>720</height>
 				<onleft>700</onleft>

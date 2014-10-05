@@ -5,8 +5,8 @@
 	<zorder>1</zorder>
 	<coordinates>
 		<system>1</system>
-		<left>340</left>
-		<top>102</top>
+		<posx>340</posx>
+		<posy>102</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
@@ -22,14 +22,14 @@
 				<width>600</width>
 				<height>515</height>
 				<visible>Window.IsActive(osdaudiosettings)</visible>
-			</control>	
+			</control>
 			<control type="label" id="2">
 				<width>592</width>
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="group">
-				<left>4</left>
-				<top>55</top>
+				<posx>4</posx>
+				<posx>55</posx>
 				<control type="image">
 					<width>592</width>
 					<include>dialog_Separator</include>

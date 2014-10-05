@@ -3,7 +3,7 @@
 	<defaultcontrol always="true">8000</defaultcontrol>
 	<onload>ClearProperty(script.metadata.actors.isactive)</onload>
 	<allowoverlay>no</allowoverlay>
-	<onload condition="System.HasAddon(script.metadata.actors)">RunScript(script.metadata.actors,backend)</onload> 
+	<onload condition="System.HasAddon(script.metadata.actors)">RunScript(script.metadata.actors,backend)</onload>
 	<controls>
 		<control type="group">
 			<include>Animation_Window</include>
@@ -11,8 +11,8 @@
 			<include>transition_Content</include>
 			<!--images-->
 			<control type="group">
-				<left>20</left>
-				<top>20</top>
+				<posx>20</posx>
+				<posy>20</posy>
 				<control type="image">
 					<width>466</width>
 					<height>466</height>
@@ -21,10 +21,10 @@
 					<bordersize>7</bordersize>
 					<aspectratio align="center" aligny="center">scale</aspectratio>
 					<visible>Container.Content(artists) | Container.Content(albums)</visible>
-				</control>	
+				</control>
 				<control type="image" id="5001">
-                        <left>290</left>
-                        <top>290</top>
+                        <posx>290</posx>
+                        <posy>290</posy>
                         <width>200</width>
                         <height>200</height>
                         <aspectratio>keep</aspectratio>
@@ -38,12 +38,12 @@
                             <effect type="slide" end="0,180" time="320" tween="cubic" easing="in" />
                             <effect type="fade" start="100" end="0" time="0" delay="320" />
                             <condition type="!Player.Playing" />
-                        </animation>						
+                        </animation>
                     </control>
 				<!-- logo -->
-			<control type="image">				
+			<control type="image">
 				<centerleft>233</centerleft>
-					<top>486</top>
+					<posy>486</posy>
 					<width>466</width>
 					<height>185</height>
 				<aspectratio align="center">keep</aspectratio>
@@ -51,11 +51,11 @@
 				<visible>Container.Content(artists) | Container.Content(albums)</visible>
 			</control>
 			</control>
-			
+
 			<!--header-->
 			<control type="grouplist">
-				<left>520</left>
-				<top>30</top>
+				<posx>520</posx>
+				<posy>30</posy>
 				<height>900</height>
 				<itemgap>0</itemgap>
 				<control type="label">
@@ -275,7 +275,7 @@
 							 <onclick>RunScript(script.metadata.actors,$INFO[Listitem.Artist])</onclick>
 							<visible>container.content(Artists) | container.content(Albums) + System.HasAddon(script.metadata.actors)</visible>
 							<onleft>8002</onleft>
-							<onright>8007</onright>							
+							<onright>8007</onright>
 							<include>column_Button</include>
 						</control>
 					</control>
@@ -321,13 +321,13 @@
 							<include>column_ListButton</include>
 						</control>
 						<control type="label">
-							<left>15</left>
+							<posx>15</posx>
 							<width>615</width>
 							<label>$INFO[ListItem.Label]</label>
 							<include>column_ListButtonLabel</include>
 						</control>
 						<control type="label">
-							<left>630</left>
+							<posx>630</posx>
 							<width>615</width>
 							<label>$INFO[ListItem.Duration]</label>
 							<align>right</align>
@@ -348,7 +348,7 @@
 								<include>column_ListButtonLabel</include>
 							</control>
 							<control type="label">
-								<left>630</left>
+								<posx>630</posx>
 								<width>615</width>
 								<label>$INFO[ListItem.Duration]</label>
 								<align>right</align>
@@ -369,7 +369,7 @@
 								<include>column_ListButtonLabel</include>
 							</control>
 							<control type="label">
-								<left>630</left>
+								<posx>630</posx>
 								<width>615</width>
 								<label>$INFO[ListItem.Duration]</label>
 								<align>right</align>
@@ -379,7 +379,7 @@
 						</control>
 					</focusedlayout>
 				</control>
-			</control>			
+			</control>
 		</control>
 	</controls>
 </window>

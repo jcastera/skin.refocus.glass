@@ -287,6 +287,12 @@
 		<variable name="Tracklist_Info">
 		<value condition="Container.Content(albums)">$INFO[Window(home).Property(Album.Songs.Tracklist)]</value>
 		</variable>
+			<!--OSD info -->
+		<variable name="FSInfoLabel1">
+		<value condition="VideoPlayer.Content(Movies) | VideoPlayer.Content(MusicVideos)">$INFO[VideoPlayer.Genre]</value>
+		<value condition="VideoPlayer.Content(Episodes)">$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Season, (,]$INFO[VideoPlayer.Episode,x,)]</value>
+		<value condition="VideoPlayer.Content(LiveTV)">$INFO[VideoPlayer.ChannelNumber]$INFO[VideoPlayer.ChannelName,  -  ]</value>
+	</variable>
 
 <!--ART TYPES-->
 
@@ -465,6 +471,94 @@
 	</variable>
 
 <!--OSD-->
+	<variable name="player:Title">
+		<value condition="Window.IsActive(visualisation) | Window.IsActive(slideshow)">$INFO[MusicPlayer.Title]</value>
+		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelNumber,,. ]$INFO[VideoPlayer.Title]</value>
+		<value condition="VideoPlayer.Content(episodes)">[COLOR=Color3]$INFO[VideoPlayer.TVShowTitle,,: ][/COLOR]$INFO[VideoPlayer.Title]</value>
+		<value condition="VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">$INFO[VideoPlayer.Title]</value>
+	</variable>
+
+	<variable name="player:Info">
+		<value condition="VideoPlayer.Content(files)">$INFO[Player.FolderPath]$INFO[VideoPlayer.VideoResolution, • ,P]</value>
+		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Genre]$INFO[VideoPlayer.Director, • ]$INFO[VideoPlayer.Studio, • ]$INFO[VideoPlayer.Year, • ]$INFO[VideoPlayer.VideoResolution, • ,P]</value>
+		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season,$LOCALIZE[20373] , - ]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]$INFO[VideoPlayer.VideoResolution, • ,P]</value>
+		<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.Artist]$INFO[VideoPlayer.Album, • ]$INFO[VideoPlayer.Year, • ]$INFO[VideoPlayer.VideoResolution, • ,P]</value>
+		<value condition="VideoPlayer.Content(liveTV)">$INFO[VideoPlayer.ChannelName,, • ]$INFO[VideoPlayer.NextTitle,$LOCALIZE[209]: ] ($INFO[VideoPlayer.Endtime])</value>
+		<value condition="Player.ChapterCount">$LOCALIZE[21396]$INFO[Player.Chapter,: ]$INFO[Player.ChapterCount, / ]$INFO[Player.ChapterName, • ,]</value>
+		<value>$LOCALIZE[416]</value>
+	</variable>
+
+	<variable name="player:Art">
+		<value condition="Player.HasAudio">$INFO[Player.Art(thumb)]</value>
+		<value condition="VideoPlayer.Content(movies) + [[Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)]">$INFO[Player.Art(fanart)]</value>
+		<value condition="VideoPlayer.Content(movies) + Skin.HasSetting(landscapethumb.enable) + !IsEmpty(Player.Art(landscape))">$INFO[Player.Art(landscape)]</value>
+		<value condition="VideoPlayer.Content(episodes) + [[Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))] | !Skin.HasSetting(landscapethumb.enable)]">$INFO[Player.Art(fanart)]</value>
+		<value condition="VideoPlayer.Content(episodes) + Skin.HasSetting(landscapethumb.enable) + !IsEmpty(Player.Art(tvshow.landscape))">$INFO[Player.Art(tvshow.landscape)]</value>
+		<value condition="!IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
+		<value condition="!IsEmpty(Player.Art(poster))">$INFO[Player.Art(poster)]</value>
+		<value>$INFO[Player.Art(thumb)]</value>
+	</variable>
+
+	<variable name="player:Logo">
+		<value condition="VideoPlayer.Content(movies) + Skin.HasSetting(logos.movies.enable) + [!Skin.HasSetting(landscapethumb.enable) | [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))]]">$INFO[Player.Art(clearlogo)]</value>
+		<value condition="VideoPlayer.Content(episodes) + Skin.HasSetting(logos.tvshows.enable) + [!Skin.HasSetting(landscapethumb.enable) | [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))]]">$INFO[Player.Art(tvshow.clearlogo)]</value>
+	</variable>
+
+	<variable name="player:Fanart">
+		<value condition="Player.HasAudio + !IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Property(Fanart_Image)]</value>
+		<value condition="Player.HasAudio + IsEmpty(MusicPlayer.Property(Fanart_Image))">$INFO[MusicPlayer.Cover]</value>
+		<value condition="Player.HasVideo + IsEmpty(Player.Art(fanart))">$INFO[Player.Art(thumb)]</value>
+		<value condition="Player.HasVideo + !IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
+	</variable>
+
+	<variable name="player:Description">
+		<value condition="Player.HasAudio + !IsEmpty(MusicPlayer.Property(Album_Description))">$INFO[MusicPlayer.Property(Album_Description)]</value>
+		<value condition="Player.HasAudio + !IsEmpty(MusicPlayer.Property(Artist_Description))">$INFO[MusicPlayer.Property(Artist_Description)]</value>
+		<value condition="Player.HasVideo + !IsEmpty(VideoPlayer.Plotoutline) + !VideoPlayer.Content(livetv)">$INFO[VideoPlayer.Plotoutline]</value>
+		<value condition="Player.HasVideo + !IsEmpty(VideoPlayer.Plot)">$INFO[VideoPlayer.Plot]</value>
+		<value>$LOCALIZE[3152]</value>
+	</variable>
+
+	<variable name="player:Status">
+		<value condition="VideoPlayer.Content(LiveTV) + [Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]]">$LOCALIZE[19020]$INFO[VideoPlayer.ChannelGroup, - ]</value>
+		<value condition="Player.DisplayAfterSeek + ![Player.Forwarding | Player.Rewinding]">$LOCALIZE[773] $INFO[Player.SeekOffset]</value>
+		<value condition="[Player.Paused + Player.Caching] + !Player.Seeking">$LOCALIZE[15107] $INFO[Player.CacheLevel]%</value>
+		<value condition="[Player.Paused + !Player.Caching] + !Player.Seeking + !Player.DisplayAfterSeek">$LOCALIZE[112]</value>
+		<value condition="Player.Forwarding2x">$LOCALIZE[31300]</value>
+		<value condition="Player.Forwarding4x">$LOCALIZE[31301]</value>
+		<value condition="Player.Forwarding8x">$LOCALIZE[31302]</value>
+		<value condition="Player.Forwarding16x">$LOCALIZE[31303]</value>
+		<value condition="Player.Forwarding32x">$LOCALIZE[31304]</value>
+		<value condition="Player.Rewinding2x">$LOCALIZE[31305]</value>
+		<value condition="Player.Rewinding4x">$LOCALIZE[31306]</value>
+		<value condition="Player.Rewinding8x">$LOCALIZE[31307]</value>
+		<value condition="Player.Rewinding16x">$LOCALIZE[31308]</value>
+		<value condition="Player.Rewinding32x">$LOCALIZE[31309]</value>
+	</variable>
+
+	<variable name="player:Subtitles">
+		<value condition="!IsEmpty(VideoPlayer.SubtitlesLanguage)">$LOCALIZE[31321] ($INFO[VideoPlayer.SubtitlesLanguage])</value>
+		<value>$LOCALIZE[31321]</value>
+	</variable>
+
+	<variable name="player:Time">
+		<value condition="!VideoPlayer.Content(LiveTV)">$INFO[Player.Time(hh:mm:ss)]</value>
+		<value>$INFO[Player.StartTime(hh:mm:22)]</value>
+	</variable>
+
+	<variable name="player:Duration">
+		<value condition="!VideoPlayer.Content(LiveTV)">$INFO[Player.Duration(hh:mm:ss)]</value>
+		<value>$INFO[Player.FinishTime(hh:mm:ss)]</value>
+	</variable>
+
+	<variable name="playlist_Type">
+		<value condition="Window.IsActive(videolibrary) + !StringCompare(Playlist.Length(video),0)">ActivateWindow(videoplaylist)</value>
+		<value condition="[Window.IsActive(musiclibrary) | Window.IsActive(musicfiles)] + !StringCompare(Playlist.Length(music),0)">ActivateWindow(musicplaylist)</value>
+	</variable>
+
+
+
+
 	<variable name="osd_Title">
 		<value condition="Window.IsActive(visualisation) | Window.IsActive(slideshow)">$INFO[MusicPlayer.Title]</value>
 		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelNumber,,. ]$INFO[VideoPlayer.Title]</value>
@@ -472,9 +566,9 @@
 		<value condition="VideoPlayer.Content(movies) | VideoPlayer.Content(musicvideos) | VideoPlayer.Content(files)">$INFO[VideoPlayer.Title]</value>
 	</variable>
 
-	<variable name="osd_Info">
+	<variable name="player:Info">
 		<value condition="VideoPlayer.Content(files)">$INFO[Player.FolderPath]$INFO[VideoPlayer.VideoResolution, • ,P]</value>
-		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Genre]$INFO[VideoPlayer.Director, • ]$INFO[VideoPlayer.Studio, • ]$INFO[VideoPlayer.Year, • ]$INFO[VideoPlayer.VideoResolution, • ,P]</value>
+		<value condition="VideoPlayer.Content(movies)">$INFO[VideoPlayer.Genre]$INFO[VideoPlayer.Director, • ]$INFO[VideoPlayer.Studio, • ]$INFO[VideoPlayer.VideoResolution, • ,P]</value>
 		<value condition="VideoPlayer.Content(episodes)">$INFO[VideoPlayer.Season,$LOCALIZE[20373] , - ]$INFO[VideoPlayer.Episode,$LOCALIZE[20359] ]$INFO[VideoPlayer.VideoResolution, • ,P]</value>
 		<value condition="VideoPlayer.Content(musicvideos)">$INFO[VideoPlayer.Artist]$INFO[VideoPlayer.Album, • ]$INFO[VideoPlayer.Year, • ]$INFO[VideoPlayer.VideoResolution, • ,P]</value>
 		<value condition="VideoPlayer.Content(livetv)">$INFO[VideoPlayer.ChannelName,, • ]$INFO[VideoPlayer.NextTitle,$LOCALIZE[209]: ] ($INFO[VideoPlayer.Endtime])</value>
@@ -512,8 +606,6 @@
 		<value condition="VideoPlayer.Content(movies) + Skin.HasSetting(logos.movies.enable) + [!Skin.HasSetting(landscapethumb.enable) | [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))]]">$INFO[Player.Art(clearlogo)]</value>
 		<value condition="VideoPlayer.Content(episodes) + Skin.HasSetting(logos.tvshows.enable) + [!Skin.HasSetting(landscapethumb.enable) | [Skin.HasSetting(landscapethumb.enable) + IsEmpty(Player.Art(landscape))]]">$INFO[Player.Art(tvshow.clearlogo)]</value>
 	</variable>
-
-
 
 <!--MEDIA VIEWS-->
 	<variable name="nextaired_Info">

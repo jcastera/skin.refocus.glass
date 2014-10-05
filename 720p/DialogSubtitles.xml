@@ -2,8 +2,8 @@
 <window type="dialog">
 	<coordinates>
 		<system>1</system>
-		<left>90</left>
-		<top>45</top>
+		<posx>90</posx>
+		<posy>45</posy>
 	</coordinates>
 	<controls>
 		<control type="group" id="250">
@@ -19,8 +19,8 @@
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="image">
-				<left>4</left>
-				<top>55</top>
+				<posx>4</posx>
+				<posy>55</posy>
 				<width>1092</width>
 				<include>dialog_Separator</include>
 			</control>
@@ -29,16 +29,16 @@
 				<visible>false</visible>
 			</control>
 			<control type="group">
-				<left>4</left>
-				<top>55</top>
+				<posx>4</posx>
+				<posy>55</posy>
 				<control type="image">
-					<top>38</top>
+					<posy>38</posy>
 					<width>1092</width>
 					<include>dialog_SectionSeparator</include>
 				</control>
 				<control type="image">
-					<top>40</top>
-					<left>250</left>
+					<posy>40</posy>
+					<posx>250</posx>
 					<height>532</height>
 					<include>dialog_Separator-y</include>
 				</control>
@@ -50,7 +50,7 @@
 					<wrapmultiline>true</wrapmultiline>
 				</control>
 				<control type="label">
-					<left>240</left>
+					<posx>240</posx>
 					<width>850</width>
 					<label>$INFO[Player.Filename]</label>
 					<include>dialog_Header</include>
@@ -59,7 +59,7 @@
 				</control>
 			<!--services-->
 				<control type="list" id="150">
-					<top>40</top>
+					<posy>40</posy>
 					<width>250</width>
 					<height>434</height>
 					<onleft>-</onleft>
@@ -107,8 +107,8 @@
 				</control>
 			<!--search results-->
 				<control type="list" id="120">
-					<left>250</left>
-					<top>40</top>
+					<posx>250</posx>
+					<posy>40</posy>
 					<width>1092</width>
 					<height>520</height>
 					<onleft>150</onleft>
@@ -123,21 +123,21 @@
 							<include>dialog_CommonList</include>
 						</control>
 						<control type="label">
-							<left>48</left>
+							<posx>48</posx>
 							<width>560</width>
 							<label>$INFO[ListItem.Label2]</label>
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="image">
-							<left>8</left>
-							<top>4</top>
+							<posx>8</posx>
+							<posy>4</posy>
 							<width>32</width>
 							<height>32</height>
 							<texture>flags/subtitles/flags/$INFO[ListItem.Thumb].png</texture>
 						</control>
 						<control type="group">
-							<left>640</left>
-							<top>8</top>
+							<posx>640</posx>
+							<posy>8</posy>
 							<control type="image">
 								<width>24</width>
 								<height>24</height>
@@ -146,7 +146,7 @@
 								<colordiffuse>Color4</colordiffuse>
 							</control>
 							<control type="image">
-								<left>44</left>
+								<posx>44</posx>
 								<width>24</width>
 								<height>24</height>
 								<texture>flags/subtitles/icon_sync.png</texture>
@@ -154,7 +154,7 @@
 								<visible>ListItem.property(sync)</visible>
 							</control>
 							<control type="image">
-								<left>74</left>
+								<posx>74</posx>
 								<width>128</width>
 								<height>22</height>
 								<texture>rating/fo-rating0.png</texture>
@@ -163,7 +163,7 @@
 								<aspectratio>keep</aspectratio>
 							</control>
 							<control type="image">
-								<left>74</left>
+								<posx>74</posx>
 								<width>128</width>
 								<height>22</height>
 								<texture>rating/fo-rating$INFO[ListItem.ActualIcon].png</texture>
@@ -185,29 +185,29 @@
 							<visible>Control.HasFocus(120)</visible>
 						</control>
 						<control type="label">
-							<left>48</left>
+							<posx>48</posx>
 							<width>560</width>
 							<label>$INFO[ListItem.Label2]</label>
 							<include>dialog_CommonListItem</include>
 							<visible>!Control.HasFocus(120)</visible>
 						</control>
 						<control type="label">
-							<left>48</left>
+							<posx>48</posx>
 							<width>560</width>
 							<label>$INFO[ListItem.Label2]</label>
 							<include>dialog_CommonListItemFocus</include>
 							<visible>Control.HasFocus(120)</visible>
 						</control>
 						<control type="image">
-							<left>8</left>
-							<top>4</top>
+							<posx>8</posx>
+							<posy>4</posy>
 							<width>32</width>
 							<height>32</height>
 							<texture>flags/subtitles/flags/$INFO[ListItem.Thumb].png</texture>
 						</control>
 						<control type="group">
-							<left>640</left>
-							<top>8</top>
+							<posx>640</posx>
+							<posy>8</posy>
 							<visible>Control.HasFocus(120)</visible>
 							<control type="image">
 								<width>24</width>
@@ -217,7 +217,7 @@
 								<colordiffuse>Color1</colordiffuse>
 							</control>
 							<control type="image">
-								<left>44</left>
+								<posx>44</posx>
 								<width>24</width>
 								<height>24</height>
 								<texture>flags/subtitles/icon_sync.png</texture>
@@ -225,7 +225,7 @@
 								<visible>ListItem.property(sync)</visible>
 							</control>
 							<control type="image">
-								<left>74</left>
+								<posx>74</posx>
 								<width>128</width>
 								<height>22</height>
 								<texture>rating/fo-rating0.png</texture>
@@ -234,7 +234,7 @@
 								<aspectratio>keep</aspectratio>
 							</control>
 							<control type="image">
-								<left>74</left>
+								<posx>74</posx>
 								<width>128</width>
 								<height>22</height>
 								<texture>rating/fo-rating$INFO[ListItem.ActualIcon].png</texture>
@@ -242,8 +242,8 @@
 							</control>
 						</control>
 						<control type="group">
-							<left>640</left>
-							<top>8</top>
+							<posx>640</posx>
+							<posy>8</posy>
 							<visible>!Control.HasFocus(120)</visible>
 							<control type="image">
 								<width>24</width>
@@ -253,7 +253,7 @@
 								<colordiffuse>Color4</colordiffuse>
 							</control>
 							<control type="image">
-								<left>44</left>
+								<posx>44</posx>
 								<width>24</width>
 								<height>24</height>
 								<texture>flags/subtitles/icon_sync.png</texture>
@@ -261,7 +261,7 @@
 								<visible>ListItem.property(sync)</visible>
 							</control>
 							<control type="image">
-								<left>74</left>
+								<posx>74</posx>
 								<width>128</width>
 								<height>22</height>
 								<texture>rating/fo-rating0.png</texture>
@@ -270,7 +270,7 @@
 								<aspectratio>keep</aspectratio>
 							</control>
 							<control type="image">
-								<left>74</left>
+								<posx>74</posx>
 								<width>128</width>
 								<height>22</height>
 								<texture>rating/fo-rating$INFO[ListItem.ActualIcon].png</texture>
@@ -281,7 +281,7 @@
 				</control>
 			</control>
 			<control type="button" id="160">
-				<left>24</left>
+				<posx>24</posx>
 				<bottom>164</bottom>
 				<width>212</width>
 				<onright>120</onright>
@@ -291,7 +291,7 @@
 				<include>dialog_WindowButton</include>
 			</control>
 			<control type="button" id="161">
-				<left>24</left>
+				<posx>24</posx>
 				<bottom>114</bottom>
 				<width>212</width>
 				<onright>120</onright>

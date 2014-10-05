@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>365</left>
-		<top>235</top>
+		<posx>365</posx>
+		<posy>235</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
@@ -21,8 +21,8 @@
 			</control>
 			<!--textbox-->
 			<control type="textbox" id="9">
-				<left>20</left>
-				<top>55</top>
+				<posx>20</posx>
+				<posy>55</posy>
 				<width>552</width>
 				<height>90</height>
 				<label>-</label>
@@ -31,8 +31,8 @@
 				<include>dialog_Text</include>
 			</control>
 			<control type="button" id="10">
-				<left>240</left>
-				<top>155</top>
+				<posx>240</posx>
+				<posy>155</posy>
 				<label>186</label>
 				<include>dialog_WindowButton</include>
 			</control>

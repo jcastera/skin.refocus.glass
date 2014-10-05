@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>340</left>
-		<top>123</top>
+		<posx>340</posx>
+		<posy>123</posy>
 	</coordinates>
 	<controls>
 		<control type="image">
@@ -18,15 +18,15 @@
 			<include>dialog_Windowtitle</include>
 		</control>
 		<control type="group">
-			<left>4</left>
-			<top>60</top>
+			<posx>4</posx>
+			<posy>60</posy>
 			<control type="image">
 				<width>592</width>
 				<include>dialog_Separator</include>
 			</control>
 			<!--no presets-->
 			<control type="label" id="4">
-				<top>175</top>
+				<posy>175</posy>
 				<width>592</width>
 				<label>$LOCALIZE[13389]</label>
 				<align>center</align>
@@ -66,7 +66,7 @@
 			</control>
 		</control>
 		<control type="label">
-			<top>426</top>
+			<posy>426</posy>
 			<width>592</width>
 			<label>$INFO[Container(2).CurrentPage]/$INFO[Container(2).NumPages]</label>
 			<align>center</align>

@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>225</left>
-		<top>70</top>
+		<posx>225</posx>
+		<posy>70</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
@@ -21,14 +21,14 @@
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="image">
-				<left>625</left>
-				<top>61</top>
+				<posx>625</posx>
+				<posy>61</posy>
 				<height>199</height>
 				<include>dialog_Separator-y</include>
 			</control>
 			<control type="group">
-				<left>626</left>
-				<top>60</top>
+				<posx>626</posx>
+				<posy>60</posy>
 				<control type="image">
 					<width>200</width>
 					<height>200</height>
@@ -43,20 +43,20 @@
 				</control>
 			</control>
 			<control type="group">
-				<left>4</left>
-				<top>60</top>
+				<posx>4</posx>
+				<posy>60</posy>
 				<control type="image">
 					<width>822</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
-					<left>628</left>
-					<top>199</top>
+					<posx>628</posx>
+					<posy>199</posy>
 					<width>194</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
-					<top>435</top>
+					<posy>435</posy>
 					<width>822</width>
 					<include>dialog_Separator</include>
 				</control>
@@ -102,8 +102,8 @@
 				</control>
 				<!--description-->
 				<control type="group">
-					<left>15</left>	
-					<top>200</top>
+					<posx>15</posx>
+					<posy>200</posy>
 					<control type="textbox" id="400">
 						<width>795</width>
 						<height>235</height>
@@ -121,30 +121,30 @@
 				</control>
 				<!--status-->
 				<control type="group">
-					<top>370</top>
+					<posy>370</posy>
 					<visible>!IsEmpty(ListItem.Property(Addon.broken))</visible>
 					<control type="image">
 						<width>822</width>
 						<include>dialog_Separator</include>
 					</control>
 					<control type="image">
-						<left>15</left>
-						<top>9</top>
+						<posx>15</posx>
+						<posy>9</posy>
 						<width>48</width>
 						<height>48</height>
 						<texture>toast/error.png</texture>
 						<colordiffuse>Color4</colordiffuse>
 					</control>
 					<control type="group">
-						<left>75</left>
-						<top>7</top>
+						<posx>75</posx>
+						<posy>7</posy>
 						<control type="label">
 							<width>730</width>
 							<label>[B]$LOCALIZE[24096][/B]</label>
 							<include>dialog_Text</include>
 						</control>
 						<control type="label">
-							<top>22</top>
+							<posy>22</posy>
 							<width>730</width>
 							<label>$INFO[ListItem.Property(Addon.Broken)]</label>
 							<include>dialog_Text</include>
@@ -154,8 +154,8 @@
 			</control>
 			<!--dialog buttons-->
 			<control type="grouplist" id="10000">
-				<left>20</left>
-				<top>515</top>
+				<posx>20</posx>
+				<posy>515</posy>
 				<onleft>10000</onleft>
 				<onright>10000</onright>
 				<onup>-</onup>
@@ -164,13 +164,13 @@
 				<orientation>horizontal</orientation>
 				<!--configure-->
 				<control type="button" id="9">
-					<left>266</left>
+					<posx>266</posx>
 					<label>$LOCALIZE[24020]</label>
 					<include>dialog_WindowButton</include>
 				</control>
 				<!--update-->
 				<control type="button" id="8">
-					<left>399</left>
+					<posx>399</posx>
 					<label>$LOCALIZE[24069]</label>
 					<include>dialog_WindowButton</include>
 				</control>
@@ -181,19 +181,19 @@
 				</control>
 				<!--disable-->
 				<control type="button" id="7">
-					<left>133</left>
+					<posx>133</posx>
 					<label>$LOCALIZE[24021]</label>
 					<include>dialog_WindowButton</include>
 				</control>
 				<!--rollback-->
 				<control type="button" id="11">
-					<left>133</left>
+					<posx>133</posx>
 					<label>$LOCALIZE[24048]</label>
 					<include>dialog_WindowButton</include>
 				</control>
 				<!--changelog-->
 				<control type="button" id="10">
-					<left>532</left>
+					<posx>532</posx>
 					<label>$LOCALIZE[24036]</label>
 					<width>135</width>
 					<include>dialog_WindowButton</include>

@@ -12,8 +12,8 @@
 
 	<!--content-->
 		<control type="group">
-			<left>40</left>
-			<top>100</top>
+			<posx>40</posx>
+			<posy>100</posy>
 			<include>transition_Content</include>
 			<!--left column label-->
 			<control type="label" id="101">
@@ -23,14 +23,14 @@
 			</control>
 			<!--right column label-->
 			<control type="label" id="102">
-				<left>605</left>
+				<posx>605</posx>
 				<width>595</width>
 				<font>regular</font>
 				<textcolor>Color2</textcolor>
 			</control>
 			<!--left column-->
 			<control type="list" id="20">
-				<top>40</top>
+				<posy>40</posy>
 				<width>595</width>
 				<height>552</height>
 				<onleft>21</onleft>
@@ -45,14 +45,14 @@
 						<include>column_CommonList</include>
 					</control>
 					<control type="label">
-						<left>15</left>
+						<posx>15</posx>
 						<width>570</width>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>IsEmpty(ListItem.Title)</visible>
 						<include>column_CommonListItem</include>
 					</control>
 					<control type="label">
-						<left>15</left>
+						<posx>15</posx>
 						<width>570</width>
 						<label>$INFO[ListItem.Title]</label>
 						<visible>!IsEmpty(ListItem.Title)</visible>
@@ -65,14 +65,14 @@
 						<include>column_CommonListFocus</include>
 					</control>
 					<control type="label">
-						<left>15</left>
+						<posx>15</posx>
 						<width>570</width>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>IsEmpty(ListItem.Title)</visible>
 						<include>column_CommonListItem-focus</include>
 					</control>
 					<control type="label">
-						<left>15</left>
+						<posx>15</posx>
 						<width>570</width>
 						<label>$INFO[ListItem.Title]</label>
 						<visible>!IsEmpty(ListItem.Title)</visible>
@@ -82,8 +82,8 @@
 			</control>
 			<!--right column-->
 			<control type="list" id="21">
-				<left>605</left>
-				<top>40</top>
+				<posx>605</posx>
+				<posy>40</posy>
 				<width>595</width>
 				<height>552</height>
 				<onleft>20</onleft>
@@ -98,14 +98,14 @@
 						<include>column_CommonList</include>
 					</control>
 					<control type="label">
-						<left>15</left>
+						<posx>15</posx>
 						<width>570</width>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>IsEmpty(ListItem.Title)</visible>
 						<include>column_CommonListItem</include>
 					</control>
 					<control type="label">
-						<left>15</left>
+						<posx>15</posx>
 						<width>570</width>
 						<label>$INFO[ListItem.Title]</label>
 						<visible>!IsEmpty(ListItem.Title)</visible>
@@ -118,14 +118,14 @@
 						<include>column_CommonListFocus</include>
 					</control>
 					<control type="label">
-						<left>15</left>
+						<posx>15</posx>
 						<width>570</width>
 						<label>$INFO[ListItem.Label]</label>
 						<visible>IsEmpty(ListItem.Title)</visible>
 						<include>column_CommonListItem-focus</include>
 					</control>
 					<control type="label">
-						<left>15</left>
+						<posx>15</posx>
 						<width>570</width>
 						<label>$INFO[ListItem.Title]</label>
 						<visible>!IsEmpty(ListItem.Title)</visible>

@@ -10,7 +10,7 @@
 		<!--player controls-->
 		<control type="group">
 		<include>Animation_TopPopup</include>
-			<visible>![Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks)]</visible>
+			<visible allowhiddenfocus="true">![Window.IsVisible(PVROSDChannels) | Window.IsVisible(PVROSDGuide) | Window.IsVisible(SliderDialog) | Window.IsVisible(OSDVideoSettings) | Window.IsVisible(OSDAudioSettings) | Window.IsVisible(VideoBookmarks)]</visible>
 			<control type="group">
 				<posx>479</posx>
 				<posy>205</posy>

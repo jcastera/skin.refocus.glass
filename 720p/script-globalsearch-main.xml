@@ -4,8 +4,8 @@
 	<allowoverlay>yes</allowoverlay>
 	<coordinates>
 		<system>1</system>
-		<left>0</left>
-		<top>0</top>
+		<posx>0</posx>
+		<posy>0</posy>
 	</coordinates>
 	<controls>
 	<!--background-->
@@ -74,12 +74,12 @@
 			<visible>Control.HasFocus(181) | Container(9000).HasFocus(8)</visible>
 		</control>
 		<include>global_Background</include>
-		
+
 	<!--window titles-->
 		<!--searching-->
 		<control type="group">
-			<left>34</left>
-			<top>15</top>
+			<posx>34</posx>
+			<posy>15</posy>
 			<visible>!Control.IsVisible(198) + !Control.IsVisible(199)</visible>
 			<include>transition_WindowTitle</include>
 			<include>toggle_Menu</include>
@@ -129,14 +129,14 @@
 		</control>
 		<!--search results-->
 		<control type="label">
-			<left>34</left>
+			<posx>34</posx>
 			<label>$LOCALIZE[283]</label>
 			<include>windowTitle</include>
 			<visible>Control.IsVisible(198) + !Control.IsVisible(199)</visible>
 		</control>
 		<!--no results-->
 		<control type="label">
-			<left>34</left>
+			<posx>34</posx>
 			<label>$LOCALIZE[284]</label>
 			<include>windowTitle</include>
 			<visible>Control.IsVisible(199)</visible>
@@ -148,8 +148,8 @@
 			<include>transition_Content</include>
 		<!--category list-->
 			<control type="list" id="9000">
-				<left>40</left>
-				<top>80</top>
+				<posx>40</posx>
+				<posy>80</posy>
 				<width>300</width>
 				<height>600</height>
 				<onright>101</onright>
@@ -173,7 +173,7 @@
 						<textcolor>Color1</textcolor>
 					</control>
 					<control type="label">
-						<left>285</left>
+						<posx>285</posx>
 						<label>$INFO[ListItem.Label2]</label>
 						<width>100</width>
 						<height>42</height>
@@ -201,7 +201,7 @@
 							<textcolor>Color1</textcolor>
 						</control>
 						<control type="label">
-							<left>285</left>
+							<posx>285</posx>
 							<label>$INFO[ListItem.Label2]</label>
 							<width>100</width>
 							<height>42</height>
@@ -229,7 +229,7 @@
 							<textcolor>Color5</textcolor>
 						</control>
 						<control type="label">
-							<left>285</left>
+							<posx>285</posx>
 							<label>$INFO[ListItem.Label2]</label>
 							<width>100</width>
 							<height>42</height>
@@ -299,8 +299,8 @@
 
 			<!--new search button trigger-->
 			<control type="button" id="198">
-				<left>2000</left>
-				<top>2000</top>
+				<posx>2000</posx>
+				<posy>2000</posy>
 				<onup>101</onup>
 				<ondown>101</ondown>
 				<onleft>101</onleft>
@@ -308,8 +308,8 @@
 			</control>
 			<!--search status-->
 			<control type="label" id="190">
-				<left>2000</left>
-				<top>2000</top>
+				<posx>2000</posx>
+				<posy>2000</posy>
 				<width>100</width>
 				<height>0</height>
 				<label>-</label>
@@ -318,8 +318,8 @@
 			</control>
 			<!--search category-->
 			<control type="label" id="191">
-				<left>2000</left>
-				<top>2000</top>
+				<posx>2000</posx>
+				<posy>2000</posy>
 				<width>100</width>
 				<height>0</height>
 				<label>-</label>
@@ -327,8 +327,8 @@
 			</control>
 			<!--search no results-->
 			<control type="label" id="199">
-				<left>2000</left>
-				<top>2000</top>
+				<posx>2000</posx>
+				<posy>2000</posy>
 				<width>100</width>
 				<height>0</height>
 				<label>-</label>
@@ -337,7 +337,7 @@
 
 		<!--search results-->
 			<control type="group" id="101">
-				<left>360</left>
+				<posx>360</posx>
 			<!--movie results-->
 				<control type="group" id="119">
 					<control type="label" id="110">
@@ -347,7 +347,7 @@
 						<visible allowhiddenfocus="true">false</visible>
 					</control>
 					<control type="list" id="111">
-						<top>80</top>
+						<posy>80</posy>
 						<width>920</width>
 						<height>600</height>
 						<onup>111</onup>
@@ -366,8 +366,8 @@
 								<include>art_Frame-nf</include>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>90</width>
 									<height>130</height>
@@ -390,27 +390,27 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>126</left>
-								<top>4</top>
-								<control type="label">	
+								<posx>126</posx>
+								<posy>4</posy>
+								<control type="label">
 									<width>657</width>
 									<label>$VAR[global_Title]</label>
 									<include>container_Title</include>
 								</control>
 								<control type="label">
-									<top>28</top>
+									<posy>28</posy>
 									<width>735</width>
 									<label>$VAR[global_Tagline]</label>
 									<include>container_Sub</include>
 								</control>
 								<control type="label">
-									<top>62</top>
+									<posy>62</posy>
 									<width>735</width>
 									<label>$INFO[ListItem.Property(Genre)]</label>
 									<include>container_Text</include>
 								</control>
 								<control type="textbox" id="4">
-									<top>90</top>
+									<posy>90</posy>
 									<width>735</width>
 									<height>60</height>
 									<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
@@ -419,8 +419,8 @@
 								</control>
 							</control>
 							<control type="image">
-								<left>737</left>
-								<top>15</top>
+								<posx>737</posx>
+								<posy>15</posy>
 								<width>128</width>
 								<height>22</height>
 								<texture>$INFO[ListItem.Property(StarRating),rating/nf-,]</texture>
@@ -436,8 +436,8 @@
 									<include>art_Frame-fo</include>
 								</control>
 								<control type="group">
-									<left>7</left>
-									<top>7</top>
+									<posx>7</posx>
+									<posy>7</posy>
 									<control type="image">
 										<width>90</width>
 										<height>130</height>
@@ -460,27 +460,27 @@
 									</control>
 								</control>
 								<control type="group">
-									<left>126</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>126</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>657</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title-focus</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>735</width>
 										<label>$VAR[global_Tagline]</label>
 										<include>container_Sub-focus</include>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>735</width>
 										<label>$INFO[ListItem.Property(Genre)]</label>
 										<include>container_Text-focus</include>
 									</control>
 									<control type="textbox" id="4">
-										<top>90</top>
+										<posy>90</posy>
 										<width>735</width>
 										<height>60</height>
 										<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
@@ -489,8 +489,8 @@
 									</control>
 								</control>
 								<control type="image">
-									<left>737</left>
-									<top>15</top>
+									<posx>737</posx>
+									<posy>15</posy>
 									<width>128</width>
 									<height>22</height>
 									<texture>$INFO[ListItem.Property(StarRating),rating/fo-,]</texture>
@@ -506,27 +506,27 @@
 									<include>art_Frame-nf</include>
 								</control>
 								<control type="group">
-									<left>126</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>126</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>657</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>735</width>
 										<label>$VAR[global_Tagline]</label>
 										<include>container_Sub</include>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>735</width>
 										<label>$INFO[ListItem.Property(Genre)]</label>
 										<include>container_Text</include>
 									</control>
 									<control type="textbox" id="4">
-										<top>90</top>
+										<posy>90</posy>
 										<width>735</width>
 										<height>60</height>
 										<label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ]</label>
@@ -535,8 +535,8 @@
 									</control>
 								</control>
 								<control type="image">
-									<left>737</left>
-									<top>15</top>
+									<posx>737</posx>
+									<posy>15</posy>
 									<width>128</width>
 									<height>22</height>
 									<texture>$INFO[ListItem.Property(StarRating),rating/nf-,]</texture>
@@ -544,8 +544,8 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>90</width>
 									<height>130</height>
@@ -570,7 +570,7 @@
 						</focusedlayout>
 					</control>
 					<control type="scrollbar" id="71">
-						<left>912</left>
+						<posx>912</posx>
 						<height>screen_Height</height>
 						<onleft>111</onleft>
 						<visible>Container(9000).HasFocus(1)</visible>
@@ -586,7 +586,7 @@
 						<visible allowhiddenfocus="true">false</visible>
 					</control>
 					<control type="list" id="121">
-						<top>80</top>
+						<posy>80</posy>
 						<width>920</width>
 						<height>600</height>
 						<onup>121</onup>
@@ -597,7 +597,7 @@
 						<orientation>vertical</orientation>
 						<include>global_Scrolltime</include>
 						<include>fadeinout</include>
-						<visible>Container(9000).HasFocus(2)</visible>					
+						<visible>Container(9000).HasFocus(2)</visible>
 						<itemlayout width="880" height="150">
 							<control type="image">
 								<width>104</width>
@@ -605,8 +605,8 @@
 								<include>art_Frame-nf</include>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>90</width>
 									<height>130</height>
@@ -629,35 +629,35 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>126</left>
-								<top>4</top>
-								<control type="label">	
+								<posx>126</posx>
+								<posy>4</posy>
+								<control type="label">
 									<width>657</width>
 									<label>$VAR[global_Title]</label>
 									<include>container_Title</include>
 								</control>
 								<control type="label">
-									<top>28</top>
+									<posy>28</posy>
 									<width>735</width>
 									<label>$INFO[ListItem.Property(Genre)]</label>
 									<include>container_Sub</include>
 								</control>
 								<control type="label">
-									<top>62</top>
+									<posy>62</posy>
 									<width>735</width>
 									<label>$INFO[ListItem.Property(Studio)]</label>
 									<include>container_Text</include>
 								</control>
 								<control type="label">
-									<top>90</top>
+									<posy>90</posy>
 									<width>735</width>
 									<label>$INFO[ListItem.Property(Premiered)]</label>
 									<include>container_Text</include>
 								</control>
 							</control>
 							<control type="image">
-								<left>737</left>
-								<top>15</top>
+								<posx>737</posx>
+								<posy>15</posy>
 								<width>128</width>
 								<height>22</height>
 								<texture>$INFO[ListItem.Property(StarRating),rating/nf-,]</texture>
@@ -673,35 +673,35 @@
 									<include>art_Frame-fo</include>
 								</control>
 								<control type="group">
-									<left>126</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>126</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>657</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title-focus</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>735</width>
 										<label>$INFO[ListItem.Property(Genre)]</label>
 										<include>container_Sub-focus</include>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>735</width>
 										<label>$INFO[ListItem.Property(Studio)]</label>
 										<include>container_Text-focus</include>
 									</control>
 									<control type="label">
-										<top>90</top>
+										<posy>90</posy>
 										<width>735</width>
 										<label>$INFO[ListItem.Property(Premiered)]</label>
 										<include>container_Text-focus</include>
 									</control>
 								</control>
 								<control type="image">
-									<left>737</left>
-									<top>15</top>
+									<posx>737</posx>
+									<posy>15</posy>
 									<width>128</width>
 									<height>22</height>
 									<texture>$INFO[ListItem.Property(StarRating),rating/fo-,]</texture>
@@ -717,35 +717,35 @@
 									<include>art_Frame-nf</include>
 								</control>
 								<control type="group">
-									<left>126</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>126</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>657</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>735</width>
 										<label>$INFO[ListItem.Property(Genre)]</label>
 										<include>container_Sub</include>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>735</width>
 										<label>$INFO[ListItem.Property(Studio)]</label>
 										<include>container_Text</include>
 									</control>
 									<control type="label">
-										<top>90</top>
+										<posy>90</posy>
 										<width>735</width>
 										<label>$INFO[ListItem.Property(Premiered)]</label>
 										<include>container_Text</include>
 									</control>
 								</control>
 								<control type="image">
-									<left>737</left>
-									<top>15</top>
+									<posx>737</posx>
+									<posy>15</posy>
 									<width>128</width>
 									<height>22</height>
 									<texture>$INFO[ListItem.Property(StarRating),rating/nf-,]</texture>
@@ -753,8 +753,8 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>90</width>
 									<height>130</height>
@@ -779,7 +779,7 @@
 						</focusedlayout>
 					</control>
 					<control type="scrollbar" id="72">
-						<left>912</left>
+						<posx>912</posx>
 						<height>screen_Height</height>
 						<onleft>121</onleft>
 						<visible>Container(9000).HasFocus(2)</visible>
@@ -795,7 +795,7 @@
 						<visible allowhiddenfocus="true">false</visible>
 					</control>
 					<control type="list" id="131">
-						<top>80</top>
+						<posy>80</posy>
 						<width>920</width>
 						<height>600</height>
 						<onup>131</onup>
@@ -806,7 +806,7 @@
 						<orientation>vertical</orientation>
 						<include>global_Scrolltime</include>
 						<include>fadeinout</include>
-						<visible>Container(9000).HasFocus(3)</visible>		
+						<visible>Container(9000).HasFocus(3)</visible>
 						<itemlayout width="880" height="150">
 							<control type="image">
 								<width>104</width>
@@ -814,8 +814,8 @@
 								<include>art_Frame-nf</include>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>90</width>
 									<height>130</height>
@@ -838,21 +838,21 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>126</left>
-								<top>4</top>
-								<control type="label">	
+								<posx>126</posx>
+								<posy>4</posy>
+								<control type="label">
 									<width>735</width>
 									<label>$VAR[global_Title]</label>
 									<include>container_Title</include>
 								</control>
 								<control type="label">
-									<top>28</top>
+									<posy>28</posy>
 									<width>735</width>
 									<label>$INFO[ListItem.Property(TVShowTitle)]</label>
 									<include>container_Sub</include>
 								</control>
 								<control type="label">
-									<top>62</top>
+									<posy>62</posy>
 									<width>735</width>
 									<label>$INFO[ListItem.Property(Episode),, [LOWERCASE]$LOCALIZE[20360][/LOWERCASE]]</label>
 									<include>container_Text</include>
@@ -868,21 +868,21 @@
 									<include>art_Frame-fo</include>
 								</control>
 								<control type="group">
-									<left>126</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>126</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>735</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title-focus</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>735</width>
 										<label>$INFO[ListItem.Property(TVShowTitle)]</label>
 										<include>container_Sub-focus</include>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>735</width>
 										<label>$INFO[ListItem.Property(Episode),, [LOWERCASE]$LOCALIZE[20360][/LOWERCASE]]</label>
 										<include>container_Text-focus</include>
@@ -897,21 +897,21 @@
 									<include>art_Frame-nf</include>
 								</control>
 								<control type="group">
-									<left>126</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>126</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>735</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>735</width>
 										<label>$INFO[ListItem.Property(TVShowTitle)]</label>
 										<include>container_Sub</include>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>735</width>
 										<label>$INFO[ListItem.Property(Episode),, [LOWERCASE]$LOCALIZE[20360][/LOWERCASE]]</label>
 										<include>container_Text</include>
@@ -919,8 +919,8 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>90</width>
 									<height>130</height>
@@ -945,13 +945,13 @@
 						</focusedlayout>
 					</control>
 					<control type="scrollbar" id="73">
-						<left>912</left>
+						<posx>912</posx>
 						<height>screen_Height</height>
 						<onleft>131</onleft>
 						<visible>Container(9000).HasFocus(3)</visible>
 					</control>
 				</control>
-			
+
 			<!--episode results-->
 				<control type="group" id="149">
 					<control type="label" id="140">
@@ -961,7 +961,7 @@
 						<visible allowhiddenfocus="true">false</visible>
 					</control>
 					<control type="list" id="141">
-						<top>80</top>
+						<posy>80</posy>
 						<width>920</width>
 						<height>600</height>
 						<onup>141</onup>
@@ -980,8 +980,8 @@
 								<include>art_Frame-nf</include>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>212</width>
 									<height>130</height>
@@ -1004,21 +1004,21 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>248</left>
-								<top>4</top>
-								<control type="label">	
+								<posx>248</posx>
+								<posy>4</posy>
+								<control type="label">
 									<width>500</width>
 									<label>$VAR[global_Title]</label>
 									<include>container_Title</include>
 								</control>
 								<control type="label">
-									<top>28</top>
+									<posy>28</posy>
 									<width>628</width>
 									<label>$INFO[ListItem.Property(TVShowTitle),, • ]$INFO[ListItem.Property(Premiered)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]</label>
 									<include>container_Sub</include>
 								</control>
 								<control type="textbox">
-									<top>64</top>
+									<posy>64</posy>
 									<width>628</width>
 									<height>60</height>
 									<label>$INFO[ListItem.Property(Plot]</label>
@@ -1026,8 +1026,8 @@
 								</control>
 							</control>
 							<control type="image">
-								<left>737</left>
-								<top>15</top>
+								<posx>737</posx>
+								<posy>15</posy>
 								<width>128</width>
 								<height>22</height>
 								<texture>$INFO[ListItem.Property(StarRating),rating/nf-,]</texture>
@@ -1043,21 +1043,21 @@
 									<include>art_Frame-fo</include>
 								</control>
 								<control type="group">
-									<left>248</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>248</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>500</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title-focus</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>628</width>
 										<label>$INFO[ListItem.Property(TVShowTitle),, • ]$INFO[ListItem.Property(Premiered)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]</label>
 										<include>container_Sub-focus</include>
 									</control>
 									<control type="textbox">
-										<top>64</top>
+										<posy>64</posy>
 										<width>628</width>
 										<height>60</height>
 										<label>$INFO[ListItem.Property(Plot]</label>
@@ -1065,8 +1065,8 @@
 									</control>
 								</control>
 								<control type="image">
-									<left>737</left>
-									<top>15</top>
+									<posx>737</posx>
+									<posy>15</posy>
 									<width>128</width>
 									<height>22</height>
 									<texture>$INFO[ListItem.Property(StarRating),rating/fo-,]</texture>
@@ -1082,21 +1082,21 @@
 									<include>art_Frame-nf</include>
 								</control>
 								<control type="group">
-									<left>248</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>248</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>500</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>628</width>
 										<label>$INFO[ListItem.Property(TVShowTitle),, • ]$INFO[ListItem.Property(Premiered)]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]</label>
 										<include>container_Sub</include>
 									</control>
 									<control type="textbox">
-										<top>64</top>
+										<posy>64</posy>
 										<width>628</width>
 										<height>60</height>
 										<label>$INFO[ListItem.Property(Plot]</label>
@@ -1104,8 +1104,8 @@
 									</control>
 								</control>
 								<control type="image">
-									<left>737</left>
-									<top>15</top>
+									<posx>737</posx>
+									<posy>15</posy>
 									<width>128</width>
 									<height>22</height>
 									<texture>$INFO[ListItem.Property(StarRating),rating/nf-,]</texture>
@@ -1113,8 +1113,8 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>212</width>
 									<height>130</height>
@@ -1139,7 +1139,7 @@
 						</focusedlayout>
 					</control>
 					<control type="scrollbar" id="74">
-						<left>912</left>
+						<posx>912</posx>
 						<height>screen_Height</height>
 						<onleft>141</onleft>
 						<visible>Container(9000).HasFocus(4)</visible>
@@ -1155,7 +1155,7 @@
 						<visible allowhiddenfocus="true">false</visible>
 					</control>
 					<control type="list" id="151">
-						<top>80</top>
+						<posy>80</posy>
 						<width>920</width>
 						<height>600</height>
 						<onup>151</onup>
@@ -1174,8 +1174,8 @@
 								<include>art_Frame-nf</include>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>212</width>
 									<height>130</height>
@@ -1198,27 +1198,27 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>248</left>
-								<top>4</top>
-								<control type="label">	
+								<posx>248</posx>
+								<posy>4</posy>
+								<control type="label">
 									<width>500</width>
 									<label>$VAR[global_Title]</label>
 									<include>container_Title</include>
 								</control>
 								<control type="label">
-									<top>28</top>
+									<posy>28</posy>
 									<width>628</width>
 									<label>$INFO[ListItem.Property(Artist)]</label>
 									<include>container_Sub</include>
 								</control>
 								<control type="label">
-									<top>62</top>
+									<posy>62</posy>
 									<width>800</width>
 									<label>$INFO[ListItem.Property(Genre)]</label>
 									<include>container_Text</include>
 								</control>
 								<control type="label">
-									<top>90</top>
+									<posy>90</posy>
 									<width>800</width>
 									<label>$INFO[ListItem.Property(Duration)]</label>
 									<include>container_Text</include>
@@ -1234,27 +1234,27 @@
 									<include>art_Frame-fo</include>
 								</control>
 								<control type="group">
-									<left>248</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>248</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>500</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title-focus</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>628</width>
 										<label>$INFO[ListItem.Property(Artist)]</label>
 										<include>container_Sub-focus</include>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Genre)]</label>
 										<include>container_Text-focus</include>
 									</control>
 									<control type="label">
-										<top>90</top>
+										<posy>90</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Duration)]</label>
 										<include>container_Text-focus</include>
@@ -1269,27 +1269,27 @@
 									<include>art_Frame-nf</include>
 								</control>
 								<control type="group">
-									<left>248</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>248</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>500</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>628</width>
 										<label>$INFO[ListItem.Property(Artist)]</label>
 										<include>container_Sub</include>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Genre)]</label>
 										<include>container_Text</include>
 									</control>
 									<control type="label">
-										<top>90</top>
+										<posy>90</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Duration)]</label>
 										<include>container_Text</include>
@@ -1297,8 +1297,8 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>212</width>
 									<height>130</height>
@@ -1323,7 +1323,7 @@
 						</focusedlayout>
 					</control>
 					<control type="scrollbar" id="75">
-						<left>912</left>
+						<posx>912</posx>
 						<height>screen_Height</height>
 						<onleft>151</onleft>
 						<visible>Container(9000).HasFocus(5)</visible>
@@ -1339,7 +1339,7 @@
 						<visible allowhiddenfocus="true">false</visible>
 					</control>
 					<control type="list" id="161">
-						<top>80</top>
+						<posy>80</posy>
 						<width>920</width>
 						<height>600</height>
 						<onup>161</onup>
@@ -1358,8 +1358,8 @@
 								<include>art_Frame-nf</include>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>100</width>
 									<height>100</height>
@@ -1382,28 +1382,28 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>136</left>
-								<top>4</top>
-								<control type="label">	
+								<posx>136</posx>
+								<posy>4</posy>
+								<control type="label">
 									<width>657</width>
 									<label>$VAR[global_Title]</label>
 									<include>container_Title</include>
 								</control>
 								<control type="label">
-									<top>28</top>
+									<posy>28</posy>
 									<width>800</width>
 									<label>$INFO[ListItem.Property(Artist_Genre)]</label>
 									<include>container_Sub</include>
 								</control>
 								<control type="label">
-									<top>28</top>
+									<posy>28</posy>
 									<width>800</width>
 									<label>$LOCALIZE[31145]</label>
 									<include>container_Sub</include>
 									<visible>IsEmpty(ListItem.Property(Artist_Genre))</visible>
 								</control>
 								<control type="label">
-									<top>62</top>
+									<posy>62</posy>
 									<width>800</width>
 									<label>$VAR[artist_OriginPrefix,,: ]$VAR[artist_Origin]</label>
 									<include>container_Text</include>
@@ -1419,28 +1419,28 @@
 									<include>art_Frame-fo</include>
 								</control>
 								<control type="group">
-									<left>136</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>136</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>657</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title-focus</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Artist_Genre)]</label>
 										<include>container_Sub-focus</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>800</width>
 										<label>$LOCALIZE[31145]</label>
 										<include>container_Sub-focus</include>
 										<visible>IsEmpty(ListItem.Property(Artist_Genre))</visible>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>800</width>
 										<label>$VAR[artist_OriginPrefix,,: ]$VAR[artist_Origin]</label>
 										<include>container_Text-focus</include>
@@ -1455,21 +1455,21 @@
 									<include>art_Frame-nf</include>
 								</control>
 								<control type="group">
-									<left>136</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>136</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>657</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Artist_Genre)]</label>
 										<include>container_Sub</include>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>800</width>
 										<label>$VAR[artist_OriginPrefix,,: ]$VAR[artist_Origin]</label>
 										<include>container_Text</include>
@@ -1477,8 +1477,8 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>100</width>
 									<height>100</height>
@@ -1503,7 +1503,7 @@
 						</focusedlayout>
 					</control>
 					<control type="scrollbar" id="76">
-						<left>912</left>
+						<posx>912</posx>
 						<height>screen_Height</height>
 						<onleft>161</onleft>
 						<visible>Container(9000).HasFocus(6)</visible>
@@ -1519,7 +1519,7 @@
 						<visible allowhiddenfocus="true">false</visible>
 					</control>
 					<control type="panel" id="171">
-						<top>80</top>
+						<posy>80</posy>
 						<width>920</width>
 						<height>600</height>
 						<onup>171</onup>
@@ -1538,8 +1538,8 @@
 								<include>art_Frame-nf</include>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>100</width>
 									<height>100</height>
@@ -1563,21 +1563,21 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>136</left>
-								<top>4</top>
-								<control type="label">	
+								<posx>136</posx>
+								<posy>4</posy>
+								<control type="label">
 									<width>657</width>
 									<label>$VAR[global_Title]</label>
 									<include>container_Title</include>
 								</control>
 								<control type="label">
-									<top>28</top>
+									<posy>28</posy>
 									<width>800</width>
 									<label>$INFO[ListItem.Property(Artist)]</label>
 									<include>container_Sub</include>
 								</control>
 								<control type="label">
-									<top>62</top>
+									<posy>62</posy>
 									<width>800</width>
 									<label>$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), • ]</label>
 									<include>container_Text</include>
@@ -1593,21 +1593,21 @@
 									<include>art_Frame-fo</include>
 								</control>
 								<control type="group">
-									<left>136</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>136</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>657</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title-focus</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Artist)]</label>
 										<include>container_Sub-focus</include>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), • ]</label>
 										<include>container_Text-focus</include>
@@ -1622,21 +1622,21 @@
 									<include>art_Frame-nf</include>
 								</control>
 								<control type="group">
-									<left>136</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>136</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>657</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Artist)]</label>
 										<include>container_Sub</include>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), • ]</label>
 										<include>container_Text</include>
@@ -1644,8 +1644,8 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>100</width>
 									<height>100</height>
@@ -1671,7 +1671,7 @@
 						</focusedlayout>
 					</control>
 					<control type="scrollbar" id="77">
-						<left>912</left>
+						<posx>912</posx>
 						<height>screen_Height</height>
 						<onleft>171</onleft>
 						<visible>Container(9000).HasFocus(7)</visible>
@@ -1687,7 +1687,7 @@
 						<visible allowhiddenfocus="true">false</visible>
 					</control>
 					<control type="list" id="181">
-						<top>80</top>
+						<posy>80</posy>
 						<width>920</width>
 						<height>600</height>
 						<onup>181</onup>
@@ -1706,8 +1706,8 @@
 								<include>art_Frame-nf</include>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>100</width>
 									<height>100</height>
@@ -1731,29 +1731,29 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>136</left>
-								<top>4</top>
-								<control type="label">	
+								<posx>136</posx>
+								<posy>4</posy>
+								<control type="label">
 									<width>657</width>
 									<label>$VAR[global_Title]</label>
 									<include>container_Title</include>
 								</control>
 								<control type="label">
-									<top>28</top>
+									<posy>28</posy>
 									<width>800</width>
 									<label>$INFO[ListItem.Property(Artist)]</label>
 									<include>container_Sub</include>
 								</control>
 								<control type="label">
-									<top>62</top>
+									<posy>62</posy>
 									<width>800</width>
 									<label>$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), • ]</label>
 									<include>container_Text</include>
 								</control>
 							</control>
 							<control type="image">
-								<left>737</left>
-								<top>15</top>
+								<posx>737</posx>
+								<posy>15</posy>
 								<width>128</width>
 								<height>22</height>
 								<texture>$INFO[ListItem.Property(StarRating),rating/nf-,]</texture>
@@ -1769,21 +1769,21 @@
 									<include>art_Frame-fo</include>
 								</control>
 								<control type="group">
-									<left>136</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>136</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>657</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title-focus</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Artist)]</label>
 										<include>container_Sub-focus</include>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), • ]</label>
 										<include>container_Text-focus</include>
@@ -1798,21 +1798,21 @@
 									<include>art_Frame-nf</include>
 								</control>
 								<control type="group">
-									<left>136</left>
-									<top>4</top>
-									<control type="label">	
+									<posx>136</posx>
+									<posy>4</posy>
+									<control type="label">
 										<width>657</width>
 										<label>$VAR[global_Title]</label>
 										<include>container_Title</include>
 									</control>
 									<control type="label">
-										<top>28</top>
+										<posy>28</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Artist)]</label>
 										<include>container_Sub</include>
 									</control>
 									<control type="label">
-										<top>62</top>
+										<posy>62</posy>
 										<width>800</width>
 										<label>$INFO[ListItem.Property(Genre)]$INFO[ListItem.Property(Year), • ]</label>
 										<include>container_Text</include>
@@ -1820,8 +1820,8 @@
 								</control>
 							</control>
 							<control type="group">
-								<left>7</left>
-								<top>7</top>
+								<posx>7</posx>
+								<posy>7</posy>
 								<control type="image">
 									<width>100</width>
 									<height>100</height>
@@ -1847,8 +1847,8 @@
 						</focusedlayout>
 					</control>
 					<control type="image">
-						<left>737</left>
-						<top>15</top>
+						<posx>737</posx>
+						<posy>15</posy>
 						<width>128</width>
 						<height>22</height>
 						<texture>$INFO[ListItem.Property(StarRating),rating/fo-,]</texture>
@@ -1856,7 +1856,7 @@
 						<aspectratio align="right">keep</aspectratio>
 					</control>
 					<control type="scrollbar" id="78">
-						<left>912</left>
+						<posx>912</posx>
 						<height>screen_Height</height>
 						<onleft>181</onleft>
 						<visible>Container(9000).HasFocus(8)</visible>

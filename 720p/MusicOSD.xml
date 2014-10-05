@@ -3,8 +3,8 @@
 	<defaultcontrol always="true">700</defaultcontrol>
 	<controls>
 		<control type="group">
-			<left>479</left>
-			<top>205</top>
+			<posx>479</posx>
+			<posy>205</posy>
 			<include>transition_Dialog</include>
 
 			<control type="image">
@@ -14,8 +14,8 @@
 			</control>
 
 			<control type="grouplist" id="700">
-				<left>7</left>
-				<top>8</top>
+				<posx>7</posx>
+				<posy>8</posy>
 				<onup>608</onup>
 				<ondown>601</ondown>
 				<itemgap>4</itemgap>
@@ -63,7 +63,7 @@
 				</control>
 			</control>
 			<control type="grouplist" id="600">
-				<top>60</top>
+				<posy>60</posy>
 				<width>322</width>
 				<height>660</height>
 				<onleft>600</onleft>

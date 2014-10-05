@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>190</left>
-		<top>68</top>
+		<posx>190</posx>
+		<posy>68</posy>
 	</coordinates>
 	<controls>
 		<control type="image">
@@ -20,17 +20,17 @@
 		</control>
 		<!--main-->
 		<control type="group">
-			<left>4</left>
-			<top>60</top>
+			<posx>4</posx>
+			<posy>60</posy>
 			<control type="image" id="1">
-				<left>15</left>
+				<posx>15</posx>
 				<width>862</width>
 				<height>40</height>
 				<texture border="142,0,3,0">dialogs/keyboard/edit_alt-nf.png</texture>
 				<visible>!Control.HasFocus(9)</visible>
 			</control>
 			<control type="image" id="1">
-				<left>15</left>
+				<posx>15</posx>
 				<width>862</width>
 				<height>40</height>
 				<texture border="142,0,3,0">dialogs/keyboard/edit_alt-fo.png</texture>
@@ -38,7 +38,7 @@
 			</control>
 			<!--search label-->
 			<control type="label">
-				<left>28</left>
+				<posx>28</posx>
 				<width>200</width>
 				<label>$LOCALIZE[137]</label>
 				<align>left</align>
@@ -46,7 +46,7 @@
 			</control>
 			<!--search field-->
 			<control type="edit" id="9">
-				<left>145</left>
+				<posx>145</posx>
 				<width>737</width>
 				<onleft>9</onleft>
 				<onright>9</onright>
@@ -56,15 +56,15 @@
 			</control>
 			<!--search help-->
 			<control type="textbox">
-				<left>19</left>
-				<top>50</top>
+				<posx>19</posx>
+				<posy>50</posy>
 				<width>750</width>
 				<height>70</height>
 				<include>dialog_Text</include>
 				<label>$LOCALIZE[19001] $LOCALIZE[19002]</label>
 			</control>
 			<control type="group" id="8000">
-				<top>120</top>
+				<posy>120</posy>
 				<control type="image">
 					<width>892</width>
 					<include>dialog_Separator</include>
@@ -137,13 +137,13 @@
 					</control>
 				</control>
 				<control type="image">
-					<left>446</left>
+					<posx>446</posx>
 					<height>318</height>
 					<include>dialog_Separator-y</include>
 				</control>
 			<!--right pane-->
 				<control type="grouplist" id="9002">
-					<left>446</left>
+					<posx>446</posx>
 					<width>446</width>
 					<height>400</height>
 					<onright>9000</onright>
@@ -214,8 +214,8 @@
 			</control>
 		<!--window controls-->
 			<control type="group" id="9000">
-				<left>19</left>
-				<top>460</top>
+				<posx>19</posx>
+				<posy>460</posy>
 				<!--defaults-->
 				<control type="button" id="28">
 					<label>$LOCALIZE[409]</label>
@@ -227,7 +227,7 @@
 				</control>
 				<!--cancel-->
 				<control type="button" id="25">
-					<left>607</left>
+					<posx>607</posx>
 					<label>$LOCALIZE[222]</label>
 					<onleft>28</onleft>
 					<onright>26</onright>
@@ -237,7 +237,7 @@
 				</control>
 				<!--search-->
 				<control type="button" id="26">
-					<left>737</left>
+					<posx>737</posx>
 					<label>$LOCALIZE[137]</label>
 					<onleft>25</onleft>
 					<onright>28</onright>

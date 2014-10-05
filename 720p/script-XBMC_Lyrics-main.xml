@@ -4,8 +4,8 @@
 	<defaultcontrol always="false">101</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<left>0</left>
-		<top>0</top>
+		<posx>0</posx>
+		<posy>0</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
@@ -21,10 +21,10 @@
 				<colordiffuse>bb0c2c40</colordiffuse>
 			</control>
 
-			
+
 			<control type="group">
-				<left>20</left>
-				<top>20</top>
+				<posx>20</posx>
+				<posy>20</posy>
 				<control type="label">
 					<width>1260</width>
 					<label>$VAR[osd_Title]</label>
@@ -32,7 +32,7 @@
 					<include>osd_Title</include>
 				</control>
 				<control type="label">
-					<top>28</top>
+					<posy>28</posy>
 					<width>1260</width>
 					<label>$INFO[MusicPlayer.Artist]</label>
 					<align>center</align>
@@ -43,8 +43,8 @@
 
 			<!-- ** Required ** Do not change <id> or <type> (Smooth scrolling list for lyrics) -->
 			<control type="list" id="110">
-				<left>20</left>
-				<top>100</top>
+				<posx>20</posx>
+				<posy>100</posy>
 				<width>1260</width>
 				<height>620</height>
 				<onleft>dialog.close(all,true)</onleft>
@@ -54,7 +54,7 @@
 				<scrolltime>200</scrolltime>
 				<itemlayout height="40">
 					<control type="label">
-						<left>630</left>
+						<posx>630</posx>
 						<width>1260</width>
 						<label fallback="">$INFO[ListItem.Label]</label>
 						<font>semibold_Big</font>
@@ -65,7 +65,7 @@
 				</itemlayout>
 				<focusedlayout height="40">
 					<control type="label">
-						<left>630</left>
+						<posx>630</posx>
 						<width>1130</width>
 						<label fallback="">[B]$INFO[ListItem.Label][/B]</label>
 						<font>semibold_Big</font>
@@ -105,8 +105,8 @@
 				<animation effect="slide" start="0,0" end="20,0" time="0" condition="!Control.IsVisible(121)">Conditional</animation>
 				<itemlayout height="40">
 					<control type="label">
-						<left>10</left>
-						<top>0</top>
+						<posx>10</posx>
+						<posy>0</posy>
 						<width>530</width>
 						<height>40</height>
 						<font>regular</font>

@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>265</left>
-		<top>70</top>
+		<posx>265</posx>
+		<posy>70</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
@@ -20,14 +20,14 @@
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="group">
-				<left>4</left>
-				<top>60</top>
+				<posx>4</posx>
+				<posy>60</posy>
 				<control type="image">
 					<width>742</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="list" id="5">
-					<top>1</top>
+					<posy>1</posy>
 					<width>742</width>
 					<height>400</height>
 					<onup>5</onup>
@@ -39,13 +39,13 @@
 							<include>dialog_CommonList</include>
 						</control>
 						<control type="label">
-							<left>20</left>
+							<posx>20</posx>
 							<width>600</width>
 							<label>$INFO[ListItem.Label]</label>
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>722</left>
+							<posx>722</posx>
 							<width>473</width>
 							<label>$INFO[ListItem.Label2]</label>
 							<align>right</align>
@@ -58,13 +58,13 @@
 							<include>dialog_CommonListFocus</include>
 						</control>
 						<control type="label">
-							<left>20</left>
+							<posx>20</posx>
 							<width>600</width>
 							<label>$INFO[ListItem.Label]</label>
 							<include>dialog_CommonListItemFocus</include>
 						</control>
 						<control type="label">
-							<left>722</left>
+							<posx>722</posx>
 							<width>473</width>
 							<label>$INFO[ListItem.Label2]</label>
 							<align>right</align>
@@ -74,8 +74,8 @@
 				</control>
 			</control>
 			<control type="label">
-				<left>19</left>
-				<top>485</top>
+				<posx>19</posx>
+				<posy>485</posy>
 				<width>716</width>
 				<label>$INFO[Container(5).CurrentPage]/$INFO[Container(5).NumPages]</label>
 				<align>center</align>

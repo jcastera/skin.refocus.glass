@@ -63,7 +63,7 @@
 
 	<!--window title-->
 		<control type="label">
-			<left>34</left>
+			<posx>34</posx>
 			<label>$LOCALIZE[31606]</label>
 			<include>windowTitle</include>
 		</control>
@@ -73,17 +73,17 @@
 		<include>transition_Content</include>
 		<!--day label-->
 			<control type="label">
-				<left>362</left>
-				<top>65</top>
+				<posx>362</posx>
+				<posy>65</posy>
 				<width>550</width>
 				<label>$VAR[nextaired_Header]</label>
 				<include>column_Header</include>
 			</control>
-			
+
 		<!--day list-->
 			<control type="grouplist" id="9000">
-				<left>40</left>
-				<top>98</top>
+				<posx>40</posx>
+				<posy>98</posy>
 				<width>300</width>
 				<height>600</height>
 				<itemgap>2</itemgap>
@@ -181,8 +181,8 @@
 			</control>
 		<!--results list-->
 			<control type="group" id="199">
-				<left>360</left>
-				<top>98</top>
+				<posx>360</posx>
+				<posy>98</posy>
 				<control type="list" id="200">
 					<width>880</width>
 					<height>600</height>
@@ -265,7 +265,7 @@
 			</control>
 		</control>
 		<control type="scrollbar" id="70">
-			<left>1272</left>
+			<posx>1272</posx>
 			<height>screen_Height</height>
 			<onleft>199</onleft>
 		</control>

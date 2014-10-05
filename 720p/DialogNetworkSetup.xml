@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>340</left>
-		<top>168</top>
+		<posx>340</posx>
+		<posy>168</posy>
 	</coordinates>
 	<controls>
 		<control type="image" id="0">
@@ -19,15 +19,15 @@
 			<include>dialog_Windowtitle</include>
 		</control>
 		<control type="group">
-			<left>4</left>
-			<top>60</top>
+			<posx>4</posx>
+			<posy>60</posy>
 			<control type="image">
 				<width>592</width>
 				<include>dialog_Separator</include>
 			</control>
 			<!--protocol-->
 			<control type="spincontrolex" id="10">
-				<top>0</top>
+				<posy>0</posy>
 				<width>592</width>
 				<label>$LOCALIZE[1008]</label>
 				<reverse>yes</reverse>
@@ -40,7 +40,7 @@
 			</control>
 			<!--server name-->
 			<control type="edit" id="11">
-				<top>40</top>
+				<posy>40</posy>
 				<width>553</width>
 				<onup>10</onup>
 				<onleft>12</onleft>
@@ -50,8 +50,8 @@
 			</control>
 			<!--server browse-->
 			<control type="group">
-				<left>552</left>
-				<top>40</top>
+				<posx>552</posx>
+				<posy>40</posy>
 				<control type="button" id="12">
 					<label>-</label>
 					<onup>10</onup>
@@ -65,14 +65,14 @@
 					<include>dialog_Separator-y</include>
 				</control>
 				<control type="image">
-					<top>39</top>
+					<posy>39</posy>
 					<width>40</width>
 					<include>dialog_Separator</include>
 				</control>
 			</control>
 			<!--remote path-->
 			<control type="edit" id="16">
-				<top>80</top>
+				<posy>80</posy>
 				<width>592</width>
 				<label>-</label>
 				<onup>11</onup>
@@ -83,7 +83,7 @@
 			</control>
 			<!--port-->
 			<control type="edit" id="13">
-				<top>120</top>
+				<posy>120</posy>
 				<width>592</width>
 				<label>$LOCALIZE[1013]</label>
 				<onup>16</onup>
@@ -94,7 +94,7 @@
 			</control>
 			<!--username-->
 			<control type="edit" id="14">
-				<top>160</top>
+				<posy>160</posy>
 				<width>592</width>
 				<label>$LOCALIZE[1014]</label>
 				<onup>13</onup>
@@ -105,7 +105,7 @@
 			</control>
 			<!--password-->
 			<control type="edit" id="15">
-				<top>200</top>
+				<posy>200</posy>
 				<width>592</width>
 				<label>$LOCALIZE[15052]</label>
 				<onup>14</onup>
@@ -117,8 +117,8 @@
 		</control>
 	<!--dialog controls-->
 		<control type="group">
-			<left>327</left>
-			<top>320</top>
+			<posx>327</posx>
+			<posy>320</posy>
 			<!--ok-->
 			<control type="button" id="18">
 				<label>$LOCALIZE[186]</label>
@@ -130,7 +130,7 @@
 			</control>
 			<!--cancel-->
 			<control type="button" id="19">
-				<left>130</left>
+				<posx>130</posx>
 				<label>$LOCALIZE[222]</label>
 				<onup>15</onup>
 				<onleft>18</onleft>

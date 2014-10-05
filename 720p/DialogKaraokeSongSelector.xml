@@ -4,8 +4,8 @@
 	<include>fadeinout</include>
 	<coordinates>
 		<system>1</system>
-		<left>20</left>
-		<top>20</top>
+		<posx>20</posx>
+		<posy>20</posy>
 	</coordinates>
 	<controls>
 		<control type="image">
@@ -15,16 +15,16 @@
 		</control>
 		<!--song number label-->
 		<control type="label" id="401">
-			<left>20</left>
-			<top>20</top>
+			<posx>20</posx>
+			<posy>20</posy>
 			<width>360</width>
 			<textcolor>Color4</textcolor>
 			<include>dialog_Title</include>
 		</control>
 		<!--song name label-->
 		<control type="label" id="402">
-			<left>20</left>
-			<top>50</top>
+			<posx>20</posx>
+			<posy>50</posy>
 			<width>360</width>
 			<scroll>true</scroll>
 			<font>regular_Big</font>

@@ -22,13 +22,13 @@
 		<include>windowTitle_Pictures</include>
 
 	<!--view includes-->
-		<include>view_List</include><!--50-->		
+		<include>view_List</include><!--50-->
 		<include>view_SlideSquare</include><!--522-->
 		<include>view_Gallery</include><!--53-->
 		<include>view_IconSquare</include><!--572-->
 		<include>view_IconSquareSmall</include><!--574-->
 		<include>view_IconWideSmall</include><!--577-->
-		<include>view_Tiles</include><!--60-->		
+		<include>view_Tiles</include><!--60-->
 
 	<!--detail includes-->
 		<include>detail_ListAddons</include>
@@ -41,8 +41,8 @@
 			<include>transition_Content</include>
 			<visible>Control.IsVisible(50) + !IsEmpty(Container.FolderPath) + !SubString(Container.FolderPath,addons)</visible>
 			<control type="group">
-				<left>680</left>
-				<top>80</top>
+				<posx>680</posx>
+				<posy>80</posy>
 				<control type="image">
 					<width>532</width>
 					<height>532</height>
@@ -67,7 +67,7 @@
 
 	<!--scrollbars-->
 		<include>PageControls</include>
-	
+
 	<!--menu-->
 		<include>menu_Files</include>
 	</controls>

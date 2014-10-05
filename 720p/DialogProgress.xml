@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>365</left>
-		<top>210</top>
+		<posx>365</posx>
+		<posy>210</posy>
 	</coordinates>
 	<controls>
 		<control type="image">
@@ -19,8 +19,8 @@
 		</control>
 		<!--textbox-->
 		<control type="textbox" id="9">
-			<left>15</left>
-			<top>50</top>
+			<posx>15</posx>
+			<posy>50</posy>
 			<width>520</width>
 			<height max="110">auto</height>
 			<label>-</label>
@@ -29,8 +29,8 @@
 			<include>dialog_Text</include>
 		</control>
 		<control type="progress" id="20">
-			<left>19</left>
-			<top>192</top>
+			<posx>19</posx>
+			<posy>192</posy>
 			<width>512</width>
 			<height>16</height>
 			<info>System.Progressbar</info>
@@ -38,8 +38,8 @@
 			<include>dialog_Progress</include>
 		</control>
 		<control type="button" id="10">
-			<left>218</left>
-			<top>215</top>
+			<posx>218</posx>
+			<posy>215</posy>
 			<label>$LOCALIZE[222]</label>
 			<include>dialog_WindowButton</include>
 		</control>

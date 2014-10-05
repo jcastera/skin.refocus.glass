@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>240</left>
-		<top>88</top>
+		<posx>240</posx>
+		<posy>88</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
@@ -20,20 +20,20 @@
 			</control>
 			<!--control-->
 			<control type="group">
-				<left>4</left>
-				<top>60</top>
+				<posx>4</posx>
+				<posy>60</posy>
 				<control type="image">
 					<width>792</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
-					<left>200</left>
+					<posx>200</posx>
 					<height>400</height>
 					<include>dialog_Separator-y</include>
 				</control>
 				<!--button area-->
 				<control type="grouplist" id="9">
-					<top>1</top>
+					<posy>1</posy>
 					<width>200</width>
 					<height>400</height>
 					<itemgap>0</itemgap>
@@ -44,14 +44,14 @@
 					<include>global_ListScroll</include>
 				</control>
 				<control type="image">
-					<top>400</top>
+					<posy>400</posy>
 					<width>792</width>
 					<include>dialog_Separator</include>
 				</control>
 				<!--control area-->
 				<control type="grouplist" id="2">
-					<left>200</left>
-					<top>1</top>
+					<posx>200</posx>
+					<posy>1</posy>
 					<width>592</width>
 					<height>400</height>
 					<itemgap>0</itemgap>
@@ -95,8 +95,8 @@
 			</control>
 			<!--dialog buttons-->
 			<control type="group" id="9001">
-				<left>19</left>
-				<top>480</top>
+				<posx>19</posx>
+				<posy>480</posy>
 				<!--defaults-->
 				<control type="button" id="12">
 					<label>409</label>
@@ -108,7 +108,7 @@
 				</control>
 				<!--ok-->
 				<control type="button" id="10">
-					<left>507</left>
+					<posx>507</posx>
 					<label>186</label>
 					<onup>2</onup>
 					<ondown>-</ondown>
@@ -118,7 +118,7 @@
 				</control>
 				<!--cancel-->
 				<control type="button" id="11">
-					<left>637</left>
+					<posx>637</posx>
 					<label>222</label>
 					<onup>2</onup>
 					<ondown>-</ondown>

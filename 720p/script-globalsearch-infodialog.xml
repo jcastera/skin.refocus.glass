@@ -4,13 +4,13 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>315</left>
-		<top>50</top>
+		<posx>315</posx>
+		<posy>50</posy>
 	</coordinates>
 	<controls>
 		<control type="list" id="100">
-			<left>-10</left>
-			<top>-10</top>
+			<posx>-10</posx>
+			<posy>-10</posy>
 			<width>1</width>
 			<height>1</height>
 			<visible>false</visible>
@@ -30,8 +30,8 @@
 			</control>
 		<!--MAIN CONTAINER-->
 			<control type="group" id="101">
-				<left>4</left>
-				<top>60</top>
+				<posx>4</posx>
+				<posy>60</posy>
 				<control type="image">
 					<width>617</width>
 					<include>dialog_Separator</include>
@@ -58,7 +58,7 @@
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>597</left>
+							<posx>597</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -93,7 +93,7 @@
 							<visible>Control.HasFocus(110)</visible>
 						</control>
 						<control type="label">
-							<left>597</left>
+							<posx>597</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -103,7 +103,7 @@
 							<visible>!Control.HasFocus(110)</visible>
 						</control>
 						<control type="label">
-							<left>597</left>
+							<posx>597</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -198,7 +198,7 @@
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -233,7 +233,7 @@
 							<visible>Control.HasFocus(120)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -243,7 +243,7 @@
 							<visible>!Control.HasFocus(120)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -320,7 +320,7 @@
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -355,7 +355,7 @@
 							<visible>Control.HasFocus(130)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -365,7 +365,7 @@
 							<visible>!Control.HasFocus(130)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -424,7 +424,7 @@
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -458,7 +458,7 @@
 							<visible>Control.HasFocus(140)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -468,7 +468,7 @@
 							<visible>!Control.HasFocus(140)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -563,7 +563,7 @@
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -598,7 +598,7 @@
 							<visible>Control.HasFocus(150)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -608,7 +608,7 @@
 							<visible>!Control.HasFocus(150)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -698,7 +698,7 @@
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -733,7 +733,7 @@
 							<visible>Control.HasFocus(160)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -743,7 +743,7 @@
 							<visible>!Control.HasFocus(160)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -832,7 +832,7 @@
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -868,7 +868,7 @@
 							<visible>Control.HasFocus(170)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -878,7 +878,7 @@
 							<visible>!Control.HasFocus(170)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -973,7 +973,7 @@
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -1008,7 +1008,7 @@
 							<visible>Control.HasFocus(180)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -1018,7 +1018,7 @@
 							<visible>!Control.HasFocus(180)</visible>
 						</control>
 						<control type="label">
-							<left>595</left>
+							<posx>595</posx>
 							<width>550</width>
 							<height>36</height>
 							<align>right</align>
@@ -1093,9 +1093,9 @@
 				</control>
 			<!--DESCRIPTION-->
 				<control type="group">
-					<left>15</left>	
+					<posx>15</posx>
 					<control type="textbox">
-						<top>253</top>
+						<posy>253</posy>
 						<width>575</width>
 						<height>195</height>
 						<label>$INFO[Container(100).ListItem.Property(Plot)]$INFO[Container(100).ListItem.Property(Plot)]</label>
@@ -1103,7 +1103,7 @@
 						<visible>Control.IsVisible(110) | Control.IsVisible(120) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
 					</control>
 					<control type="textbox">
-						<top>253</top>
+						<posy>253</posy>
 						<width>575</width>
 						<height>195</height>
 						<label>$INFO[Container(100).ListItem.Property(Artist_Description)]</label>
@@ -1111,7 +1111,7 @@
 						<visible>Control.IsVisible(160)</visible>
 					</control>
 					<control type="textbox">
-						<top>253</top>
+						<posy>253</posy>
 						<width>575</width>
 						<height>195</height>
 						<label>$INFO[Container(100).ListItem.Property(Album_Description)]</label>
@@ -1119,7 +1119,7 @@
 						<visible>Control.IsVisible(170)</visible>
 					</control>
 					<control type="textbox">
-						<top>253</top>
+						<posy>253</posy>
 						<width>575</width>
 						<height>195</height>
 						<label>$INFO[Container(100).ListItem.Property(Comment)]</label>
@@ -1127,15 +1127,15 @@
 					</control>
 				</control>
 				<control type="image">
-					<top>460</top>
+					<posy>460</posy>
 					<width>613</width>
 					<include>dialog_Separator</include>
 				</control>
 			</control>
 		<!--dialog controls-->
 			<control type="group" id="190">
-				<left>97</left>
-				<top>545</top>
+				<posx>97</posx>
+				<posy>545</posy>
 				<animation type="Conditional" condition="Control.IsVisible(120)">
 					<effect type="slide" start="0" end="63" time="0" />
 				</animation>
@@ -1163,7 +1163,7 @@
 					<include>dialog_WindowButton</include>
 				</control>
 				<control type="button" id="192">
-					<left>130</left>
+					<posx>130</posx>
 					<label>-</label>
 					<onleft>191</onleft>
 					<onright>193</onright>
@@ -1172,7 +1172,7 @@
 					<include>dialog_WindowButton</include>
 				</control>
 				<control type="button" id="193">
-					<left>260</left>
+					<posx>260</posx>
 					<label>-</label>
 					<onleft>192</onleft>
 					<onright>191</onright>

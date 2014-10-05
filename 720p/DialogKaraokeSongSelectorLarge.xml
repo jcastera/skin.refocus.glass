@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>415</left>
-		<top>260</top>
+		<posx>415</posx>
+		<posy>260</posy>
 	</coordinates>
 	<controls>
 		<control type="image">
@@ -20,8 +20,8 @@
 		</control>
 		<!--song number label-->
 		<control type="label" id="401">
-			<left>20</left>
-			<top>70</top>
+			<posx>20</posx>
+			<posy>70</posy>
 			<width>502</width>
 			<align>center</align>
 			<textcolor>Color4</textcolor>
@@ -29,8 +29,8 @@
 		</control>
 		<!--song name label-->
 		<control type="label" id="402">
-			<left>20</left>
-			<top>100</top>
+			<posx>20</posx>
+			<posy>100</posy>
 			<width>502</width>
 			<align>center</align>
 			<scroll>true</scroll>

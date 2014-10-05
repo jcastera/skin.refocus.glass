@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>190</left>
-		<top>28</top>
+		<posx>190</posx>
+		<posy>28</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
@@ -21,23 +21,23 @@
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="group">
-				<left>4</left>
-				<top>60</top>		
+				<posx>4</posx>
+				<posy>60</posy>
 				<control type="image">
 					<width>892</width>
 					<include>dialog_Separator</include>
 				</control>
 				<control type="image">
-					<left>400</left>
+					<posx>400</posx>
 					<height>520</height>
 					<include>dialog_Separator-y</include>
 				</control>
 				<control type="image">
-					<top>520</top>
+					<posy>520</posy>
 					<width>892</width>
 					<include>dialog_Separator</include>
 				</control>
-			<!--shortcuts-->	
+			<!--shortcuts-->
 				<control type="list" id="211">
 					<width>400</width>
 					<height>520</height>
@@ -70,14 +70,14 @@
 							<include>dialog_CommonList</include>
 						</control>
 						<control type="label">
-							<left>15</left>
+							<posx>15</posx>
 							<width>260</width>
 							<label>$INFO[ListItem.Label]</label>
 							<include>dialog_CommonListItemFocus</include>
 							<visible>Control.HasFocus(211)</visible>
 						</control>
 						<control type="label">
-							<left>15</left>
+							<posx>15</posx>
 							<width>260</width>
 							<label>$INFO[ListItem.Label]</label>
 							<textcolor>Selected</textcolor>
@@ -88,7 +88,7 @@
 				</control>
 			<!--inline controls-->
 				<control type="group" id="1000">
-					<left>280</left>
+					<posx>280</posx>
 					<animation effect="slide" end="0,40" time="0" condition="Container(211).Row(1)">Conditional</animation>
 					<animation effect="slide" end="0,80" time="0" condition="Container(211).Row(2)">Conditional</animation>
 					<animation effect="slide" end="0,120" time="0" condition="Container(211).Row(3)">Conditional</animation>
@@ -114,12 +114,12 @@
 						<include>dialog_Separator-y</include>
 					</control>
 					<control type="image">
-						<left>40</left>
+						<posx>40</posx>
 						<height>40</height>
 						<include>dialog_Separator-y</include>
 					</control>
 					<control type="image">
-						<left>80</left>
+						<posx>80</posx>
 						<height>40</height>
 						<include>dialog_Separator-y</include>
 					</control>
@@ -134,7 +134,7 @@
 					</control>
 					<!--move down-->
 					<control type="button" id="304">
-						<left>40</left>
+						<posx>40</posx>
 						<label>-</label>
 						<onup>211</onup>
 						<onleft>303</onleft>
@@ -144,7 +144,7 @@
 					</control>
 					<!--remove-->
 					<control type="button" id="302">
-						<left>80</left>
+						<posx>80</posx>
 						<label>-</label>
 						<onup>211</onup>
 						<onleft>304</onleft>
@@ -153,9 +153,9 @@
 						<include>dialog_Inline-remove</include>
 					</control>
 				</control>
-			<!---control area-->	
+			<!---control area-->
 				<control type="grouplist" id="300">
-					<left>400</left>
+					<posx>400</posx>
 					<width>492</width>
 					<height>520</height>
 					<onleft>302</onleft>
@@ -176,7 +176,7 @@
 						<label>$ADDON[script.skinshortcuts 32025]</label>
 						<label2>$INFO[Container(211).ListItem.Label]</label2>
 						<include>dialog_ControlCommons</include>
-					</control>			
+					</control>
 					<!--change action-->
 					<control type="button" id="307">
 						<width>492</width>
@@ -210,8 +210,8 @@
 			</control>
 			<!--reset-->
 			<control type="button" id="308">
-				<left>19</left>
-				<top>600</top>
+				<posx>19</posx>
+				<posy>600</posy>
 				<width>250</width>
 				<label>$ADDON[script.skinshortcuts 32028]</label>
 				<onup>211</onup>
@@ -222,8 +222,8 @@
 			</control>
 			<!--apply-->
 			<control type="button" id="10">
-				<left>756</left>
-				<top>600</top>
+				<posx>756</posx>
+				<posy>600</posy>
 				<label>$LOCALIZE[186]</label>
 				<onup>301</onup>
 				<onleft>308</onleft>
@@ -237,8 +237,8 @@
 			</control>
 			<!--close-->
 			<control type="button" id="10">
-				<left>756</left>
-				<top>600</top>
+				<posx>756</posx>
+				<posy>600</posy>
 				<label>$LOCALIZE[186]</label>
 				<onup>301</onup>
 				<onleft>308</onleft>

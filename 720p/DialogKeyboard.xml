@@ -3,8 +3,8 @@
 	<defaultcontrol>300</defaultcontrol>
 	<coordinates>
 		<system>2</system>
-		<left>256</left>
-		<top>300</top>
+		<posx>256</posx>
+		<posy>300</posy>
 	</coordinates>
 	<include>transition_Dialog</include>
 	<controls>
@@ -28,31 +28,31 @@
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="image" id="1">
-				<left>19</left>
-				<top>60</top>
+				<posx>19</posx>
+				<posy>60</posy>
 				<width>726</width>
 				<height>40</height>
 				<texture border="142,0,3,0">dialogs/keyboard/edit-fo.png</texture>
 				<visible>!ControlGroup(9000).HasFocus()</visible>
 			</control>
 			<control type="image" id="1">
-				<left>19</left>
-				<top>60</top>
+				<posx>19</posx>
+				<posy>60</posy>
 				<width>726</width>
 				<height>40</height>
 				<texture border="142,0,3,0">dialogs/keyboard/edit-nf.png</texture>
 				<visible>ControlGroup(9000).HasFocus()</visible>
 			</control>
 			<control type="label" id="310">
-				<left>19</left>
-				<top>59</top>
+				<posx>19</posx>
+				<posy>59</posy>
 				<width>726</width>
 				<align>center</align>
 				<include>dialog_Edit</include>
 			</control>
 			<control type="group" id="9000">
-				<left>19</left>
-				<top>120</top>
+				<posx>19</posx>
+				<posy>120</posy>
 			<!--row 1-->
 				<control type="grouplist">
 					<width>726</width>
@@ -152,7 +152,7 @@
 				</control>
 			<!--row 2-->
 				<control type="grouplist">
-					<top>58</top>
+					<posy>58</posy>
 					<width>726</width>
 					<height>70</height>
 					<itemgap>10</itemgap>
@@ -241,7 +241,7 @@
 				</control>
 			<!--row 3-->
 				<control type="grouplist">
-					<top>116</top>
+					<posy>116</posy>
 					<width>726</width>
 					<height>70</height>
 					<itemgap>10</itemgap>
@@ -310,7 +310,7 @@
 						<onup>80</onup>
 						<ondown>32</ondown>
 						<include>dialog_KeyboardButton</include>
-					</control>	
+					</control>
 					<control type="button" id="300">
 						<description>DONE button</description>
 						<width>98</width>
@@ -322,7 +322,7 @@
 				</control>
 			<!--row 4-->
 				<control type="grouplist">
-					<top>174</top>
+					<posy>174</posy>
 					<width>726</width>
 					<height>70</height>
 					<itemgap>10</itemgap>
@@ -338,7 +338,7 @@
 					</control>
 					<control type="button" id="306">
 						<description>next button</description>
-						<left>519</left>
+						<posx>519</posx>
 						<width>64</width>
 						<label>&gt;</label>
 						<onup>65</onup>

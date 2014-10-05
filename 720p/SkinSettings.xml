@@ -672,15 +672,21 @@
 				<selected>Skin.HasSetting(TimeRemaining)</selected>
 				<include>settings_Radiobutton</include>
 				</control>
+				<control type="radiobutton" id="507">
+				<label>Disable Discart video OSD</label>
+				<onclick>Skin.ToggleSetting(videoosdDiscart.poster)</onclick>
+				<selected>Skin.HasSetting(videoosdDiscart.poster)</selected>
+				<include>settings_Radiobutton</include>
+				</control>
 				<!--Background video Info-->
-					<control type="radiobutton" id="507">
+					<control type="radiobutton" id="508">
 						<label>Show information playback on Home</label>
 						<onclick>Skin.ToggleSetting(home.VideoNowPlayingInfo)</onclick>
 						<selected>Skin.HasSetting(home.VideoNowPlayingInfo)</selected>
 						<include>settings_Radiobutton</include>
 					</control>
 					<!--playing item on home-->
-					<control type="radiobutton" id="508">
+					<control type="radiobutton" id="509">
 						<label>$LOCALIZE[31216]</label>
 						<onclick>Skin.ToggleSetting(home.nowplaying)</onclick>
 						<selected>Skin.HasSetting(home.nowplaying)</selected>

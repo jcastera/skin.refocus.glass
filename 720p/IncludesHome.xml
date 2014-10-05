@@ -128,7 +128,7 @@
 				<control type="label">
 				<posy>35</posy>
 					<width>880</width>
-					<label>$VAR[osd_Info]</label>
+					<label>$VAR[player:Info]</label>
 					<scroll>true</scroll>
 					<font>semibold</font>
 					<textcolor>Color13</textcolor>
@@ -203,7 +203,7 @@
 				<control type="label">
 				<posy>35</posy>
 					<width>550</width>
-					<label>$VAR[osd_Info]</label>
+					<label>$VAR[player:Info]</label>
 					<scroll>true</scroll>
 					<font>semibold</font>
 					<textcolor>Color13</textcolor>

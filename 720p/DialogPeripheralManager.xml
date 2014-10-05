@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>315</left>
-		<top>110</top>
+		<posx>315</posx>
+		<posy>110</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
@@ -22,8 +22,8 @@
 			</control>
 		<!---control area-->
 			<control type="group">
-				<left>4</left>
-				<top>60</top>
+				<posx>4</posx>
+				<posy>60</posy>
 				<control type="image">
 					<width>642</width>
 					<include>dialog_Separator</include>
@@ -49,14 +49,14 @@
 						</control>
 						<!--vendor id-->
 						<control type="label">
-							<top>25</top>
+							<posy>25</posy>
 							<width>627</width>
 							<label>$LOCALIZE[35504]$INFO[ListItem.Property(Product),: ] $LOCALIZE[35503]$INFO[ListItem.Property(Vendor),: ]</label>
 							<include>dialog_CommonListItem</include>
 						</control>
 						<!--class-->
 						<control type="label">
-							<top>50</top>
+							<posy>50</posy>
 							<width>627</width>
 							<label>$LOCALIZE[35501]$INFO[ListItem.Property(Class),: ] $LOCALIZE[19114]$INFO[ListItem.Property(Version),: ]</label>
 							<include>dialog_CommonListItem</include>
@@ -75,14 +75,14 @@
 						</control>
 						<!--vendor id-->
 						<control type="label">
-							<top>25</top>
+							<posy>25</posy>
 							<width>627</width>
 							<label>$LOCALIZE[35504]$INFO[ListItem.Property(Product),: ] $LOCALIZE[35503]$INFO[ListItem.Property(Vendor),: ]</label>
 							<include>dialog_CommonListItemFocus</include>
 						</control>
 						<!--class-->
 						<control type="label">
-							<top>50</top>
+							<posy>50</posy>
 							<width>627</width>
 							<label>$LOCALIZE[35501]$INFO[ListItem.Property(Class),: ] $LOCALIZE[19114]$INFO[ListItem.Property(Version),: ]</label>
 							<include>dialog_CommonListItemFocus</include>
@@ -92,11 +92,11 @@
 			</control>
 		<!--dialog buttons-->
 			<control type="group" id="9001">
-				<left>19</left>
-				<top>439</top>
+				<posx>19</posx>
+				<posy>439</posy>
 				<!--settings-->
 				<control type="button" id="10">
-					<left>493</left>
+					<posx>493</posx>
 					<label>$LOCALIZE[186]</label>
 					<onup>20</onup>
 					<ondown>20</ondown>

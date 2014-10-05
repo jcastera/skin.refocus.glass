@@ -33,11 +33,11 @@
 		<include>global_MenuGuide</include>
 		<include>windowTitle_Weather</include>
 		<include>global_Itemcount</include>
-	
+
 	<!--content-->
 		<control type="group">
-			<left>55</left>
-			<top>330</top>
+			<posx>55</posx>
+			<posy>330</posy>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<!--current-->
@@ -53,17 +53,17 @@
 					<colordiffuse>column3</colordiffuse>
 				</control>
 				<control type="image">
-		        <top>-6</top>
-				<left>-6</left>
+		        <posy>-6</posy>
+				<posx>-6</posx>
 				<width>240</width>
 				<height>358</height>
 				<texture>frames/Glass.png</texture>
 		           <visible>Skin.HasSetting(Enable.Glassweather)</visible>
-				<aspectratio align="center" aligny="top">stretch</aspectratio>             
+				<aspectratio align="center" aligny="top">stretch</aspectratio>
             </control>
 				<control type="group">
-					<left>10</left>
-					<top>10</top>
+					<posx>10</posx>
+					<posy>10</posy>
 					<control type="label">
 						<width>210</width>
 						<label>$LOCALIZE[31605]</label>
@@ -72,22 +72,22 @@
 						<textcolor>Color1</textcolor>
 					</control>
 					<control type="label">
-						<top>30</top>
+						<posy>30</posy>
 						<width>210</width>
 						<label>$INFO[Weather.Conditions]</label>
 						<font>regular</font>
 						<align>center</align>
 					</control>
 					<control type="image">
-						<top>75</top>
+						<posy>75</posy>
 						<width>210</width>
 						<height>72</height>
 						<texture colordiffuse="weather">$INFO[Window.Property(Current.FanartCode),weather/,.png]</texture>
 						<aspectratio align="center">keep</aspectratio>
-						
+
 					</control>
 					<control type="grouplist">
-						<top>160</top>
+						<posy>160</posy>
 						<orientation>vertical</orientation>
 						<itemgap>0</itemgap>
 						<control type="label">
@@ -127,7 +127,7 @@
 			</control>
 			<!--today-->
 			<control type="group">
-				<left>235</left>
+				<posx>235</posx>
 				<animation type="WindowOpen">
 					<effect type="fade" start="0" end="85" time="300" delay="100"/>
 				</animation>
@@ -138,17 +138,17 @@
 					<colordiffuse>column3</colordiffuse>
 				</control>
 				<control type="image">
-		        <top>-6</top>
-				<left>-6</left>
+		        <posy>-6</posy>
+				<posx>-6</posx>
 				<width>240</width>
 				<height>358</height>
 				<texture>frames/Glass.png</texture>
 		           <visible>Skin.HasSetting(Enable.Glassweather)</visible>
-				<aspectratio align="center" aligny="top">stretch</aspectratio>             
+				<aspectratio align="center" aligny="top">stretch</aspectratio>
             </control>
 				<control type="group">
-					<left>10</left>
-					<top>10</top>
+					<posx>10</posx>
+					<posy>10</posy>
 					<control type="label">
 						<width>210</width>
 						<label>$INFO[Window.Property(Day0.Title)]</label>
@@ -157,7 +157,7 @@
 						<textcolor>Color1</textcolor>
 					</control>
 					<control type="textbox">
-						<top>30</top>
+						<posy>30</posy>
 						<width>210</width>
 						<height>65</height>
 						<label>$INFO[Window.Property(Day0.Outlook)]</label>
@@ -165,14 +165,14 @@
 						<align>center</align>
 					</control>
 					<control type="image">
-						<top>115</top>
+						<posy>115</posy>
 						<width>210</width>
 						<height>128</height>
 						<texture colordiffuse="weather">$INFO[Window.Property(Day0.FanartCode),weather/,.png]</texture>
 						<aspectratio align="center">keep</aspectratio>
 					</control>
 					<control type="label">
-						<top>260</top>
+						<posy>260</posy>
 						<width>210</width>
 						<label>$INFO[Window.Property(Day0.HighTemp)]$INFO[System.TemperatureUnits,, / ]$INFO[Window.Property(Day0.LowTemp)]$INFO[System.TemperatureUnits]</label>
 						<font>semibold</font>
@@ -182,7 +182,7 @@
 			</control>
 			<!--day 1-->
 			<control type="group">
-				<left>470</left>
+				<posx>470</posx>
 				<animation type="WindowOpen">
 					<effect type="fade" start="0" end="85" time="300" delay="200"/>
 				</animation>
@@ -193,17 +193,17 @@
 					<colordiffuse>column3</colordiffuse>
 				</control>
 				<control type="image">
-		        <top>-6</top>
-				<left>-6</left>
+		        <posy>-6</posy>
+				<posx>-6</posx>
 				<width>240</width>
 				<height>358</height>
 				<texture>frames/Glass.png</texture>
 		           <visible>Skin.HasSetting(Enable.Glassweather)</visible>
-				<aspectratio align="center" aligny="top">stretch</aspectratio>             
+				<aspectratio align="center" aligny="top">stretch</aspectratio>
             </control>
 				<control type="group">
-					<left>10</left>
-					<top>10</top>
+					<posx>10</posx>
+					<posy>10</posy>
 					<control type="label">
 						<width>210</width>
 						<label>$INFO[Window.Property(Day1.Title)]</label>
@@ -212,7 +212,7 @@
 						<textcolor>Color1</textcolor>
 					</control>
 					<control type="textbox">
-						<top>30</top>
+						<posy>30</posy>
 						<width>210</width>
 						<height>65</height>
 						<label>$INFO[Window.Property(Day1.Outlook)]</label>
@@ -220,14 +220,14 @@
 						<align>center</align>
 					</control>
 					<control type="image">
-						<top>115</top>
+						<posy>115</posy>
 						<width>210</width>
 						<height>128</height>
 						<texture colordiffuse="weather">$INFO[Window.Property(Day1.FanartCode),weather/,.png]</texture>
 						<aspectratio align="center">keep</aspectratio>
 					</control>
 					<control type="label">
-						<top>260</top>
+						<posy>260</posy>
 						<width>210</width>
 						<label>$INFO[Window.Property(Day1.HighTemp)]$INFO[System.TemperatureUnits,, / ]$INFO[Window.Property(Day1.LowTemp)]$INFO[System.TemperatureUnits]</label>
 						<font>semibold</font>
@@ -237,7 +237,7 @@
 			</control>
 			<!--day 2-->
 			<control type="group">
-				<left>705</left>
+				<posx>705</posx>
 				<animation type="WindowOpen">
 					<effect type="fade" start="0" end="85" time="300" delay="300"/>
 				</animation>
@@ -248,17 +248,17 @@
 					<colordiffuse>column3</colordiffuse>
 				</control>
 				<control type="image">
-		        <top>-6</top>
-				<left>-6</left>
+		        <posy>-6</posy>
+				<posx>-6</posx>
 				<width>240</width>
 				<height>358</height>
 				<texture>frames/Glass.png</texture>
 		           <visible>Skin.HasSetting(Enable.Glassweather)</visible>
-				<aspectratio align="center" aligny="top">stretch</aspectratio>             
+				<aspectratio align="center" aligny="top">stretch</aspectratio>
             </control>
 				<control type="group">
-					<left>10</left>
-					<top>10</top>
+					<posx>10</posx>
+					<posy>10</posy>
 					<control type="label">
 						<width>210</width>
 						<label>$INFO[Window.Property(Day2.Title)] $INFO[Window.Property(Day2.Day)]</label>
@@ -267,7 +267,7 @@
 						<textcolor>Color1</textcolor>
 					</control>
 					<control type="textbox">
-						<top>30</top>
+						<posy>30</posy>
 						<width>210</width>
 						<height>65</height>
 						<label>$INFO[Window.Property(Day2.Outlook)]</label>
@@ -275,14 +275,14 @@
 						<align>center</align>
 					</control>
 					<control type="image">
-						<top>115</top>
+						<posy>115</posy>
 						<width>210</width>
 						<height>128</height>
 						<texture colordiffuse="weather">$INFO[Window.Property(Day2.FanartCode),weather/,.png]</texture>
 						<aspectratio align="center">keep</aspectratio>
 					</control>
 					<control type="label">
-						<top>260</top>
+						<posy>260</posy>
 						<width>210</width>
 						<label>$INFO[Window.Property(Day2.HighTemp)]$INFO[System.TemperatureUnits,, / ]$INFO[Window.Property(Day2.LowTemp)]$INFO[System.TemperatureUnits]</label>
 						<font>semibold</font>
@@ -292,7 +292,7 @@
 			</control>
 			<!--day 3-->
 			<control type="group">
-				<left>940</left>
+				<posx>940</posx>
 				<animation type="WindowOpen">
 					<effect type="fade" start="0" end="85" time="300" delay="400"/>
 				</animation>
@@ -303,17 +303,17 @@
 					<colordiffuse>column3</colordiffuse>
 				</control>
 				<control type="image">
-		        <top>-6</top>
-				<left>-6</left>
+		        <posy>-6</posy>
+				<posx>-6</posx>
 				<width>240</width>
 				<height>358</height>
 				<texture>frames/Glass.png</texture>
 		           <visible>Skin.HasSetting(Enable.Glassweather)</visible>
-				<aspectratio align="center" aligny="top">stretch</aspectratio>             
+				<aspectratio align="center" aligny="top">stretch</aspectratio>
             </control>
 				<control type="group">
-					<left>10</left>
-					<top>10</top>
+					<posx>10</posx>
+					<posy>10</posy>
 					<control type="label">
 						<width>210</width>
 						<label>$INFO[Window.Property(Day3.Title)]</label>
@@ -322,7 +322,7 @@
 						<textcolor>Color1</textcolor>
 					</control>
 					<control type="textbox">
-						<top>30</top>
+						<posy>30</posy>
 						<width>210</width>
 						<height>65</height>
 						<label>$INFO[Window.Property(Day3.Outlook)]</label>
@@ -330,14 +330,14 @@
 						<align>center</align>
 					</control>
 					<control type="image">
-						<top>115</top>
+						<posy>115</posy>
 						<width>210</width>
 						<height>128</height>
 						<texture colordiffuse="weather">$INFO[Window.Property(Day3.FanartCode),weather/,.png]</texture>
 						<aspectratio align="center">keep</aspectratio>
 					</control>
 					<control type="label">
-						<top>260</top>
+						<posy>260</posy>
 						<width>210</width>
 						<label>$INFO[Window.Property(Day3.HighTemp)]$INFO[System.TemperatureUnits,, / ]$INFO[Window.Property(Day3.LowTemp)]$INFO[System.TemperatureUnits]</label>
 						<font>semibold</font>
@@ -345,7 +345,7 @@
 					</control>
 				</control>
 			</control>
-		</control>	
+		</control>
 
 	<!--menu-->
 	<include>menu_Weather</include>

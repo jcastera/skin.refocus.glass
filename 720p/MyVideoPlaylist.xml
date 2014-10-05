@@ -22,11 +22,11 @@
 			<onclick>ActivateWindow(fullscreenvideo)</onclick>
 			<visible allowhiddenfocus="Player.HasVideo">false</visible>
 		</control>
-	
+
 	<!--main-->
 		<control type="group">
-			<left>680</left>
-			<top>90</top>
+			<posx>680</posx>
+			<posy>90</posy>
 			<include>toggle_Menu</include>
 			<include>transition_Content</include>
 			<include>transition_Info</include>
@@ -43,8 +43,8 @@
 				<visible>Control.HasFocus(99)</visible>
 			</control>
 			<control type="group">
-				<left>7</left>
-				<top>7</top>
+				<posx>7</posx>
+				<posy>7</posy>
 				<control type="image">
 					<width>532</width>
 					<height>293</height>
@@ -57,7 +57,7 @@
 					<visible>!Window.IsActive(movieinformation)</visible>
 				</control>
 				<control type="grouplist">
-					<top>315</top>
+					<posy>315</posy>
 					<itemgap>0</itemgap>
 					<control type="label" id="1">
 						<width>532</width>

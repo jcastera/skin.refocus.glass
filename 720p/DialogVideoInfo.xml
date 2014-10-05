@@ -5,7 +5,7 @@
 	<allowoverlay>no</allowoverlay>
 	<onload condition="System.HasAddon(script.tvtunes) + Skin.HasSetting(tvtunes.enable) + !SubString(Window(Videos).Property(CinemaExperienceRunning),True)">RunScript(script.tvtunes,backend=True)</onload>
 	<onload condition="System.HasAddon(script.videoextras) + Skin.HasSetting(Enable.videoextras)">XBMC.RunScript(script.videoextras,check,"$INFO[ListItem.FilenameAndPath]")</onload>
-    <onload condition="System.HasAddon(script.metadata.actors) + Skin.HasSetting(metadataactor.enable)">RunScript(script.metadata.actors,backend)</onload> 
+    <onload condition="System.HasAddon(script.metadata.actors) + Skin.HasSetting(metadataactor.enable)">RunScript(script.metadata.actors,backend)</onload>
 	<controls>
 		<control type="group">
 		<include>Animation_Window</include>
@@ -13,29 +13,29 @@
 
 			<include>transition_Content</include>
 			<!--images-->
-			<control type="image">			
+			<control type="image">
 			<width>screen_Dimensions</width>
 			<height>1080</height>
 			<texture background="true"colordiffuse="190000000">view/frame_dialogInfo_back.png</texture>
 			<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="image">
-			<top>175</top>
-			<left>325</left>
+			<posy>175</posy>
+			<posx>325</posx>
 			<width>1000</width>
 			<height>43</height>
 			<texture background="true"colordiffuse="base_2">frames/strip.png</texture>
 			<aspectratio>stretch</aspectratio>
-			</control>			
-			<control type="group">	
-			<top>250</top>
-			<left>20</left>
+			</control>
+			<control type="group">
+			<posy>250</posy>
+			<posx>20</posx>
 				<width>290</width>
 				<height>450</height>
-				
+
 				<control type="image">
-                        <left>45</left>
-                        <top>110</top>
+                        <posx>45</posx>
+                        <posy>110</posy>
                         <width>205</width>
                         <height>205</height>
                         <aspectratio>keep</aspectratio>
@@ -43,14 +43,14 @@
 						 <animation type="WindowOpen">
 					<effect type="slide" delay="1750" end="0,-230" time="450" tween="quadratic"/>
 					<effect type="fade" start="0" end="100" time="600" delay="1100"/>
-					</animation>					
+					</animation>
 					<animation effect="fade" start="100" end="0" time="300">WindowClose</animation>
 					<animation type="Hidden">
 					<effect type="slide" start="0,-230" end="0" time="150" tween="quadratic" easing="in"/>
 					<effect type="fade" start="-100" end="0" time="250"/>
 					</animation>
 					<visible allowhiddenfocus="true">!Control.HasFocus(50)</visible>
-					 </control>					 
+					 </control>
 				<control type="image">
 				<width>290</width>
 				<height>42</height>
@@ -59,16 +59,16 @@
 				</control>
 				<control type="group">
 					<visible>!Control.HasFocus(50)</visible>
-					<control type="image">					
+					<control type="image">
 						<width>290</width>
 				<height>450</height>
 						<texture background="true">$VAR[thumb_Portrait]</texture>
 						<aspectratio>scale</aspectratio>
 						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
-					</control>					
-						<control type="image">						
-						<top>-35</top>
-						<left>700</left>
+					</control>
+						<control type="image">
+						<posy>-35</posy>
+						<posx>700</posx>
 						<width>580</width>
 				<height>520</height>
 						<texture diffuse="view\frame_dialogInfo.png">$VAR[thumb_Landscape]</texture>
@@ -76,7 +76,7 @@
 						<visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes)]</visible>
 					</control>
 				</control>
-				
+
 				<control type="image">
 					<centerleft>200</centerleft>
 					<centertop>300</centertop>
@@ -87,7 +87,7 @@
 				</control>
 				<control type="group">
 					<visible>Control.HasFocus(50)</visible>
-					
+
 					<control type="image">
 						<width>290</width>
 						<height>450</height>
@@ -105,8 +105,8 @@
 					</control>
 						<control type="image">
 						<visible>Control.HasFocus(8004) | Control.HasFocus(50)</visible>
-						<top>-35</top>
-						<left>700</left>
+						<posy>-35</posy>
+						<posx>700</posx>
 						<width>580</width>
 				<height>520</height>
 						<texture diffuse="view\frame_dialogInfo.png">$VAR[thumb_Landscape]</texture>
@@ -116,10 +116,10 @@
 				</control>
 			</control>
 
-			<!--header-->			
+			<!--header-->
 				<control type="group">
-				<left>350</left>
-				<top>60</top>				
+				<posx>350</posx>
+				<posy>60</posy>
 				<control type="label">
 					<width>650</width>
 					<height>27</height>
@@ -129,7 +129,7 @@
 				<control type="label">
 					<label>$VAR[videoinformation_Header]</label>
 					<width>650</width>
-				<top>30</top>
+				<posy>30</posy>
 					<height>50</height>
 					<include>detail_Sub</include>
 				</control>
@@ -137,8 +137,8 @@
 				<!--info container-->
 				<control type="grouplist" id="1000">
 					<orientation>vertical</orientation>
-					<top>240</top>
-			<left>325</left>
+					<posy>240</posy>
+			<posx>325</posx>
 					<height>320</height>
 					<itemgap>0</itemgap>
 					<control type="group">
@@ -382,8 +382,8 @@
 				</control>
 				<!--button area-->
 				<control type="grouplist" id="8000">
-				<top>175</top>
-			<left>325</left>
+				<posy>175</posy>
+			<posx>325</posx>
 					<height>45</height>
 					<width>910</width>
 					<itemgap>5</itemgap>
@@ -458,13 +458,13 @@
 							<onclick>XBMC.RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
 							<onleft>8005</onleft>
 							<onright>8007</onright>
-							<include>column_Button</include>							
+							<include>column_Button</include>
 						</control>
 					</control>
 					<!--Metadata-->
 					<control type="group">
 						<width>125</width>
-						<visible>System.HasAddon(script.metadata.actors) + Skin.HasSetting(metadataactor.enable)</visible>						
+						<visible>System.HasAddon(script.metadata.actors) + Skin.HasSetting(metadataactor.enable)</visible>
 						<control type="button" id="8007">
 							<label>Actor</label>
 							<onclick>RunScript(script.metadata.actors,$INFO[Container(50).Listitem.Label])</onclick>
@@ -475,7 +475,7 @@
 					</control>
 					<control type="group">
 						<width>125</width>
-						<visible>System.HasAddon(script.metadata.actors) + Skin.HasSetting(metadataactor.enable)</visible>						
+						<visible>System.HasAddon(script.metadata.actors) + Skin.HasSetting(metadataactor.enable)</visible>
 							<control type="button" id="8008">
 							<label>Director / Writer</label>
 							<onclick>ActivateWindow(67)</onclick>
@@ -483,7 +483,7 @@
 							<onleft>8007</onleft>
 							<onright>8010</onright>
 						</control>
-					</control>		
+					</control>
 					<!--manage-->
 					<control type="group">
 						<width>125</width>
@@ -501,12 +501,12 @@
 				<control type="label">
 					<label>-</label>
 					<height>5</height>
-			
+
 				</control>
 				<!--plot-->
 				<control type="textbox" id="400">
-				<top>470</top>
-			<left>325</left>
+				<posy>470</posy>
+			<posx>325</posx>
 					<width>550</width>
 					<height>180</height>
 					<align>justify</align>
@@ -516,8 +516,8 @@
 				</control>
 				<!--cast list-->
 				<control type="list" id="50">
-				<top>475</top>
-			<left>320</left>
+				<posy>475</posy>
+			<posx>320</posx>
 					<width>550</width>
 					<height>176</height>
 					<onback>8004</onback>
@@ -533,7 +533,7 @@
 							<include>column_ListButton</include>
 						</control>
 						<control type="label">
-							<left>15</left>
+							<posx>15</posx>
 							<width>550</width>
 							<label>$INFO[ListItem.Label]</label>
 							<include>column_ListButtonLabel</include>
@@ -569,10 +569,10 @@
 						</control>
 					</focusedlayout>
 				</control>
-			
+
 			<!--flags-->
 			<control type="grouplist" id="100">
-				<left>320</left>
+				<posx>320</posx>
 				<bottom>0</bottom>
 				<width>900</width>
 				<height>50</height>
@@ -616,7 +616,7 @@
 					<width>86</width>
 					<height>50</height>
 					<texture>$VAR[flag_Studio]</texture>
-					<aspectratio align="center">keep</aspectratio>					
+					<aspectratio align="center">keep</aspectratio>
 					<visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes) | Container.Content(musicvideos)</visible>
 				</control>
 			</control>

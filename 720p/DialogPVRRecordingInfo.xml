@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<left>353</left>
-		<top>90</top>
+		<posx>353</posx>
+		<posy>90</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
@@ -20,8 +20,8 @@
 				<include>dialog_Windowtitle</include>
 			</control>
 			<control type="group">
-				<left>4</left>
-				<top>60</top>
+				<posx>4</posx>
+				<posy>60</posy>
 				<control type="image">
 					<width>592</width>
 					<include>dialog_Separator</include>
@@ -47,7 +47,7 @@
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>572</left>
+							<posx>572</posx>
 							<width>572</width>
 							<height>36</height>
 							<align>right</align>
@@ -68,7 +68,7 @@
 							<include>dialog_CommonListItem</include>
 						</control>
 						<control type="label">
-							<left>572</left>
+							<posx>572</posx>
 							<width>572</width>
 							<height>36</height>
 							<align>right</align>
@@ -111,8 +111,8 @@
 				</control>
 				<!--description-->
 				<control type="textbox" id="400">
-					<left>15</left>
-					<top>247</top>
+					<posx>15</posx>
+					<posy>247</posy>
 					<width>560</width>
 					<height>135</height>
 					<label fallback="416">$INFO[ListItem.Plot]</label>
@@ -122,8 +122,8 @@
 		</control>
 		<!--ok-->
 		<control type="button" id="10">
-			<left>240</left>
-			<top>470</top>
+			<posx>240</posx>
+			<posy>470</posy>
 			<label>$LOCALIZE[186]</label>
 			<include>dialog_WindowButton</include>
 		</control>

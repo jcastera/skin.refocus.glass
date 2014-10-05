@@ -4,8 +4,8 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>2</system>
-		<left>474</left>
-		<top>177</top>
+		<posx>474</posx>
+		<posy>177</posy>
 	</coordinates>
 	<controls>
 		<control type="image" id="1">
@@ -19,17 +19,17 @@
 			<include>dialog_Windowtitle</include>
 		</control>
 		<control type="group">
-			<left>19</left>
-			<top>59</top>
+			<posx>19</posx>
+			<posy>59</posy>
 			<control type="image" id="1">
-				<top>1</top>
+				<posy>1</posy>
 				<width>295</width>
 				<height>40</height>
 				<texture border="142,0,3,0">dialogs/keyboard/edit-fo.png</texture>
 				<visible>!ControlGroup(9000).HasFocus()</visible>
 			</control>
 			<control type="image" id="1">
-				<top>1</top>
+				<posy>1</posy>
 				<width>295</width>
 				<height>40</height>
 				<texture border="142,0,3,0">dialogs/keyboard/edit-nf.png</texture>
@@ -39,9 +39,9 @@
 				<width>295</width>
 				<align>center</align>
 				<include>dialog_Edit</include>
-			</control>	
+			</control>
 			<control type="group" id="9000">
-				<top>60</top>
+				<posy>60</posy>
 			<!--row 1-->
 				<control type="grouplist">
 					<width>726</width>
@@ -80,7 +80,7 @@
 				</control>
 			<!--row 2-->
 				<control type="grouplist">
-					<top>58</top>
+					<posy>58</posy>
 					<width>726</width>
 					<height>48</height>
 					<itemgap>10</itemgap>
@@ -118,7 +118,7 @@
 				</control>
 			<!--row 3-->
 				<control type="grouplist">
-					<top>116</top>
+					<posy>116</posy>
 					<width>726</width>
 					<height>48</height>
 					<itemgap>10</itemgap>
@@ -147,7 +147,7 @@
 				</control>
 			<!--row 4-->
 				<control type="grouplist">
-					<top>174</top>
+					<posy>174</posy>
 					<width>726</width>
 					<height>48</height>
 					<itemgap>10</itemgap>

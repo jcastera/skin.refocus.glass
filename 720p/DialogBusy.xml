@@ -3,8 +3,8 @@
 	<defaultcontrol>-</defaultcontrol>
 	<coordinates>
 		<system>1</system>
-		<left>59</left>
-		<top>15</top>
+		<posx>59</posx>
+		<posy>15</posy>
 	</coordinates>
 	<controls>
 		<control type="group">
