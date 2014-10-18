@@ -301,7 +301,7 @@
 				</control>
 				<control type="label">
 					 <posx>250</posx>
-					 <posy>650</posy>
+					 <posy>680</posy>
 					 <width>460</width>
 					 <label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
 					 <include>detail_Sub</include>
