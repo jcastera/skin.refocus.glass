@@ -375,7 +375,8 @@
 				     <posx>0</posx>
 				     <width>1920</width>
 				     <height>70</height>
-                     <texture background="true" colordiffuse="160FFFFFF">frames/strip.png</texture>
+                     <texture background="true">frames/strip.png</texture>
+                     <colordiffuse>160FFFFFF</colordiffuse>
 			         <aspectratio>stretch</aspectratio>
 			         <visible>Control.IsVisible(631)</visible>
 			    </control>
@@ -631,7 +632,7 @@
 				</control>
 				<control type="label">
 					 <posx>250</posx>
-					 <posy>650</posy>
+					 <posy>680</posy>
 					 <width>460</width>
 					 <label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
 					 <include>detail_Sub</include>
@@ -640,7 +641,7 @@
 				</control>
 				<control type="label">
 					 <posx>250</posx>
-					 <posy>650</posy>
+					 <posy>680</posy>
 					 <width>460</width>
 					 <label>$INFO[ListItem.Property(UnWatchedEpisodes),, $LOCALIZE[16101] $LOCALIZE[20360]]</label>
 					 <include>detail_Sub</include>
@@ -657,14 +658,14 @@
 						</control>
 				<control type="image">
 					<width>90</width>
-					<right>30</right>
-					<posy>665</posy>
+					<posx>120r</posx>
+					<posy>680</posy>
 					<include>detail_StarRating</include>
 					<aspectratio align="right" aligny="top">keep</aspectratio>
 					<visible>Control.IsVisible(631)</visible>
 				</control>
 				<control type="label">
-					<right>180</right>
+					<posx>640</posx>
 					<posy>680</posy>
 					<width>450</width>
 					<label>$INFO[ListItem.Genre]</label>
