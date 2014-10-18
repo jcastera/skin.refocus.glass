@@ -341,7 +341,7 @@
         </control>
     <!--time-->
         <control type="group">
-            <include>home_Clock</include>
+            <include>global_Clock</include>
             <include>fadeinout</include>
             <include>toggle_ToastMute</include>
             <visible>!Skin.HasSetting(home.timesmall) + Skin.HasSetting(home.time) + ![Window.IsActive(extendedprogressdialog) | Window.IsActive(infodialog)]</visible>
