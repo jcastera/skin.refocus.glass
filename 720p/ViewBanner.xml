@@ -12,17 +12,19 @@
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="image">
-				<centerleft>279</centerleft>
-				<centertop>51.5</centertop>
+				<posx>0</posx>
+				<posy>0</posy>
 				<width>72</width>
 				<height>72</height>
 				<include>art_DefaultIcon</include>
 			</control>
 			<control type="image">
-				<centerleft>279</centerleft>
-				<centertop>51.5</centertop>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>558</width>
+				<height>103</height>
 				<texture background="true">$VAR[thumb_Banner]</texture>
-				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<aspectratio align="center" aligny="center">stretch</aspectratio>
 			</control>
 			<control type="group">
 				<posx>532</posx>
@@ -37,7 +39,7 @@
 					<height>32</height>
 					<visible>Skin.HasSetting(watched.alternative)</visible>
 					<control type="image">
-						<info>ListItem.Overlay</info>
+					<info>ListItem.Overlay</info>
 					</control>
 				</control>
 			<control type="image">
@@ -376,7 +378,7 @@
 				<width>590</width>
 				<height>109</height>
 				<texture background="true">$VAR[thumb_Banner]</texture>
-				<aspectratio align="center" aligny="center">scale</aspectratio>
+				<aspectratio align="center" aligny="center">stretch</aspectratio>
 			</control>
 				<control type="group">
 				<posx>566</posx>
@@ -411,7 +413,7 @@
                 </control>
 		</control>
 		<control type="image">
-			<right>14</right>
+			<posx>465</posx>
 			<posy>133</posy>
 			<height>22</height>
 			<include>detail_StarRating</include>

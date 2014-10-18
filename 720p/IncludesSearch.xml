@@ -5,32 +5,17 @@
             <width>900</width>
             <height>35</height>
             <texture border="8">search/header.png</texture>
-            <colordiffuse>column3</colordiffuse>
+            <colordiffuse>column3_big</colordiffuse>
             <visible>!Skin.HasSetting(overlay.black)</visible>
         </control>
         <control type="image">
             <width>185</width>
             <height>35</height>
             <texture>search/arrow.png</texture>
-            <colordiffuse>column2</colordiffuse>
+            <colordiffuse>column2_big</colordiffuse>
             <visible>!Skin.HasSetting(overlay.black)</visible>
-        </control>
-        <control type="image">
-            <width>900</width>
-            <height>35</height>
-            <texture border="8">search/header.png</texture>
-            <colordiffuse>column3_black</colordiffuse>
-            <visible>Skin.HasSetting(overlay.black)</visible>
-        </control>
-        <control type="image">
-            <width>185</width>
-            <height>35</height>
-            <texture>search/arrow.png</texture>
-            <colordiffuse>column2_black</colordiffuse>
-            <visible>Skin.HasSetting(overlay.black)</visible>
         </control>
     </include>
-
 
     <include name="Search_Label">
         <posy>1</posy>
