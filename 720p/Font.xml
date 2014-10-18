@@ -1,6 +1,157 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <fonts>
 	<fontset id="Default" unicode="true">
+		<!-- HOME -->
+		<font>
+			<name>homeMenu</name>
+			<filename>big/Light.ttf</filename>
+			<size>52</size>
+		</font>
+		<font>
+			<name>homeMenuInfo</name>
+			<filename>big/Light.ttf</filename>
+			<size>42</size>
+		</font>
+		<font>
+			<name>rss</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>22</size>
+		</font>
+<!-- CONTAINERS -->
+		<font>
+			<name>list</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>22</size>
+		</font>
+		<font>
+			<name>listAlt</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>22</size>
+		</font>
+		<font>
+			<name>listInfo</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>18</size>
+		</font>
+		<font>
+			<name>info</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>20</size>
+		</font>
+		<font>
+			<name>info_sub</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>22</size>
+		</font>
+		<font>
+			<name>info_toast_top</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>28</size>
+		</font>
+		<font>
+			<name>info_toast_bottom</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>20</size>
+		</font>
+		<font>
+			<name>info_toast_side</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>45</size>
+		</font>
+		<font>
+			<name>listBig</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>26</size>
+		</font>
+		<font>
+			<name>listmod</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>26</size>
+		</font>
+		<font>
+			<name>listBig_LongTitle</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>26</size>
+			<aspect>0.70</aspect>
+		</font>
+		<font>
+			<name>title</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>28</size>
+		</font>
+		<font>
+			<name>title_LongTitle</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>28</size>
+			<aspect>0.70</aspect>
+		</font>
+		<font>
+			<name>titleAlt</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>28</size>
+		</font>
+		<font>
+			<name>small</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>26</size>
+		</font>
+		<font>
+			<name>titleSmaller</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>24</size>
+		</font>
+		<font>
+			<name>titleSmallest</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>22</size>
+		</font>
+		<font>
+			<name>titletiny</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>20</size>
+		</font>
+		<font>
+			<name>titleLow</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>28</size>
+		</font>
+		<font>
+			<name>titleSpecial</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>42</size>
+		</font>
+		<font>
+			<name>titleSpecialFit</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>42</size>
+			<aspect>0.70</aspect>
+		</font>
+		<font>
+			<name>titleSpecial2</name>
+			<filename>big/Ubuntu-L.ttf</filename>
+			<size>30</size>
+		</font>
+		<font>
+			<name>description</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>22</size>
+		</font>
+		<font>
+			<name>descriptionbig</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>24</size>
+		</font>
+		<font>
+			<name>descriptionSmall</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>20</size>
+		</font>
+		<font>
+			<name>Ondeck</name>
+			<filename>big/Regular.ttf</filename>
+			<size>20</size>
+		</font>
+
 		<!--regular-->
 		<font>
 			<name>regular</name>
@@ -40,7 +191,83 @@
 			<filename>default/Regular.ttf</filename>
 			<size>24</size>
 		</font>
-
+<!-- GENERAL -->
+		<font>
+			<name>normal</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>22</size>
+		</font>
+		<font>
+			<name>normalAlt</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>22</size>
+		</font>
+		<font>
+			<name>normalCaps</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>22</size>
+		</font>
+		<font>
+			<name>small</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>20</size>
+		</font>
+		<font>
+			<name>smallAlt</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>20</size>
+		</font>
+		<font>
+			<name>smallCaps</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>20</size>
+		</font>
+		<font>
+			<name>smallBold</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<style>bold</style>
+			<size>20</size>
+		</font>
+		<font>
+			<name>smallerCaps</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>18</size>
+		</font>
+		<font>
+			<name>smallerCapsBIG</name>
+			<filename>big/Ubuntu-R.ttf</filename>
+			<size>24</size>
+		</font>
+<!-- Search fonts -->
+		<font>
+			<name>LargeSearchFont</name>
+			<filename>big/Regular.ttf</filename>
+			<variant>Bold</variant>
+			<size>24</size>
+		</font>
+		<font>
+			<name>MediumSearchFont</name>
+			<filename>big/Regular.ttf</filename>
+			<variant>Bold</variant>
+			<size>18</size>
+		</font>
+		<font>
+			<name>SearchResult</name>
+			<filename>big/Regular.ttf</filename>
+			<variant>Bold</variant>
+			<size>16</size>
+		</font>
+		<font>
+			<name>SearchResultSmaller</name>
+			<filename>big/Regular.ttf</filename>
+			<variant>Bold</variant>
+			<size>14</size>
+		</font>
+		<font>
+			<name>SearchResultSmall</name>
+			<filename>big/Regular.ttf</filename>
+			<size>13</size>
+		</font>
 		<!--condensed-->
 		<font>
 			<name>condensed-U</name>
@@ -107,7 +334,7 @@
 			<size>22</size>
 			<style>uppercase</style>
 		</font>
-		
+
 		<!--bold-->
 		<font>
 			<name>bold_Title</name>
@@ -134,7 +361,7 @@
 			<filename>default/Bold.ttf</filename>
 			<size>35</size>
 		</font>
-		
+
 		<!--light-->
 		<font>
 			<name>light_Menu</name>
@@ -171,9 +398,9 @@
 			<name>light_Header</name>
 			<filename>default/Light.ttf</filename>
 			<size>37</size>
-		</font>				
-		
-		
+		</font>
+
+
 		<font>
 			<name>light_Window</name>
 			<filename>default/Light.ttf</filename>
@@ -369,7 +596,7 @@
 			<size>22</size>
 			<style>uppercase</style>
 		</font>
-		
+
 		<!--bold-->
 		<font>
 			<name>bold_Title</name>
@@ -398,7 +625,7 @@
 			<filename>open/Bold.ttf</filename>
 			<size>35</size>
 		</font>
-		
+
 		<!--light-->
 		<font>
 			<name>light_Menu</name>
@@ -442,7 +669,7 @@
 			<size>250</size>
 			<style>uppercase</style>
 		</font>
-		
+
 		<font>
 			<name>light_Window</name>
 			<filename>default/Light.ttf</filename>
@@ -461,7 +688,7 @@
 			<size>29</size>
 			<style>lowercase</style>
 		</font>
-		
+
 		<!--confluence fonts for add-on compatibility-->
 		<font>
 			<name>font10</name>
@@ -547,7 +774,7 @@
 
 
 <!--UNICODE-->
-	<fontset id="Unicode" unicode="true">	
+	<fontset id="Unicode" unicode="true">
 		<!--regular-->
 		<font>
 			<name>regular</name>
@@ -637,7 +864,7 @@
 			<size>22</size>
 			<style>uppercase</style>
 		</font>
-		
+
 		<!--bold-->
 		<font>
 			<name>bold_Title</name>
@@ -665,7 +892,7 @@
 			<filename>Arial.ttf</filename>
 			<size>35</size>
 		</font>
-		
+
 		<!--light-->
 		<font>
 			<name>light_Menu</name>
@@ -708,14 +935,14 @@
 			<size>48</size>
 			<style>lowercase</style>
 		</font>
-		
+
 		<font>
 			<name>light_Window2</name>
 			<filename>default/Light.ttf</filename>
 			<size>38</size>
 			<style>lowercase</style>
 		</font>
-		
+
 		<font>
 			<name>light_OSD</name>
 			<filename>default/Light.ttf</filename>
@@ -805,7 +1032,7 @@
 			<size>80</size>
 		</font>
 	</fontset>
-	
+
 	<fontset id="Big Glass" unicode="true">
 		<!--regular-->
 		<font>
@@ -901,7 +1128,7 @@
 			<size>28</size>
 			<style>uppercase</style>
 		</font>
-		
+
 		<!--bold-->
 		<font>
 			<name>bold_Title</name>
@@ -928,7 +1155,7 @@
 			<filename>default/Bold.ttf</filename>
 			<size>41</size>
 		</font>
-		
+
 		<!--light-->
 		<font>
 			<name>light_Menu</name>
@@ -972,7 +1199,7 @@
 			<size>250</size>
 			<style>uppercase</style>
 		</font>
-		
+
 		<font>
 			<name>light_Window</name>
 			<filename>default/Light.ttf</filename>
@@ -1074,15 +1301,15 @@
 			<size>86</size>
 		</font>
 	</fontset>
-	
+
 	<fontset id="Conq" unicode="true">
-	
+
 		<font>
 			<name>Font72</name>
 			<filename>Roboto-Light.ttf</filename>
 			<size>59</size>
 		</font>
-		
+
 		<font>
 			<name>light_Menu</name>
 			<filename>Roboto-Light.ttf</filename>
@@ -1143,8 +1370,8 @@
 			<size>250</size>
 			<style>uppercase</style>
 		</font>
-		
-		
+
+
 		<!--bold-->
 		<font>
 			<name>bold_Title</name>
@@ -1166,21 +1393,21 @@
 			<filename>Roboto-Regular.ttf</filename>
 			<size>31</size>
 		</font>
-		
+
 		<font>
 			<name>lyrics2</name>
 			<filename>Roboto-Regular.ttf</filename>
 			<size>41</size>
 		</font>
-		
-		
+
+
 		<!-- Required for system -->
 		<font>
 			<name>font13</name>
 			<filename>Arial.ttf</filename>
 			<size>21</size>
 		</font>
-		
+
 		<font>
 			<name>font10</name>
 			<filename>fallback/Roboto-Regular.ttf</filename>
@@ -1261,7 +1488,7 @@
 			<filename>fallback/Roboto-Bold.ttf</filename>
 			<size>86</size>
 		</font>
-		
+
 		<!--condensed-->
 		<font>
 			<name>condensed-U</name>
@@ -1280,7 +1507,7 @@
 			<filename>Roboto-Regular.ttf</filename>
 			<size>16</size>
 		</font>
-		
+
 		<font>
 			<name>semibold</name>
 			<filename>Roboto-Regular.ttf</filename>
@@ -1316,7 +1543,7 @@
 			<style>uppercase</style>
 		</font>
 	</fontset>
-	
+
 	<fontset id="Refocus" unicode="true">
 		<!--regular-->
 		<font>
@@ -1412,7 +1639,7 @@
 			<size>22</size>
 			<style>uppercase</style>
 		</font>
-		
+
 		<!--bold-->
 		<font>
 			<name>bold_Title</name>
@@ -1434,7 +1661,7 @@
 			<filename>default/Bold.ttf</filename>
 			<size>35</size>
 		</font>
-		
+
 		<!--light-->
 		<font>
 			<name>light_Menu</name>
@@ -1482,8 +1709,8 @@
 			<filename>default/Light.ttf</filename>
 			<size>250</size>
 			<style>uppercase</style>
-		</font>		
-		
+		</font>
+
 		<font>
 			<name>light_Window2</name>
 			<filename>Roboto-Light.ttf</filename>
@@ -1574,6 +1801,6 @@
 		</font>
 	</fontset>
 
-	
-	
+
+
 </fonts>

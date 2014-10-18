@@ -9,6 +9,7 @@
 	<include file="IncludesBackgrounds.xml" />
 	<include file="IncludesDialogs.xml" />
 	<include file="IncludesHome.xml" />
+	<include file="IncludesHomeNewLists.xml" />
 	<include file="Menu.xml" />
 	<include file="Variables.xml" />
 	<include file="ViewBanner.xml" /><!--(541)-(632)-(54)-->
@@ -1296,5 +1297,20 @@
 			<label>$VAR[window_Title.Weather]</label>
 			<include>windowTitle</include>
 		</control>
+	</include>
+		<include name="list_Label-sub">
+		<height>40</height>
+		<font>listAlt</font>
+		<aligny>center</aligny>
+		<textcolor>Color2</textcolor>
+		<selectedcolor>Selected</selectedcolor>
+		<scroll>false</scroll>
+	</include>
+	<include name="list_Label-sub-focus">
+		<height>40</height>
+		<font>listAlt</font>
+		<aligny>center</aligny>
+		<textcolor>Focused</textcolor>
+		<selectedcolor>Focused</selectedcolor>
 	</include>
 </includes>

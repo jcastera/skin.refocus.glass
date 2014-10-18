@@ -2,7 +2,6 @@
 <includes>
 	<include name="global_Background">
 		<control type="group">
-			<include></include>
 			<control type="image">
 				<include>screen_Dimensions</include>
 				<include>toggle_Menu</include>
@@ -110,6 +109,59 @@
 			<visible>[![Window.IsActive(Pictures) + Control.IsVisible(531)] + !Window.IsActive(Visualisation)] + !Window.IsActive(Weather)</visible>
 		</control>
 		<visible>Skin.HasSetting(base_color_glass_middle)</visible>
+		</control>
+	</include>
+		<!--slideshows-->
+	<include name="home_Slideshows">
+		<control type="multiimage" id="10101">
+			<visible>!Skin.HasSetting(personalSlideShow)</visible>
+			<visible>![ControlGroup(7001).HasFocus | ControlGroup(7002).HasFocus | ControlGroup(7003).HasFocus | ControlGroup(7004).HasFocus]</visible>
+			<include>home_Slideshow</include>
+		</control>
+		<control type="multiimage" id="1">
+			<info>Skin.String(SlideShow)</info>
+			<visible>Skin.HasSetting(personalSlideShow)</visible>
+			<visible>![ControlGroup(7001).HasFocus | ControlGroup(7002).HasFocus | ControlGroup(7003).HasFocus | ControlGroup(7004).HasFocus]</visible>
+			<include>home_Slideshow</include>
+		</control>
+		<!-- "new list" focused item fanart while using inside the list -->
+		<!-- on deck -->
+		<control type="multiimage">
+			<visible>ControlGroup(7001).HasFocus</visible>
+			<info background="true">Container(11000).ListItem.Property(fanart_image)</info>
+			<include>home_Slideshow</include>
+		</control>
+		<!-- recently added -->
+		<control type="multiimage">
+			<visible>ControlGroup(7002).HasFocus</visible>
+			<info background="true">Container(11001).ListItem.Property(fanart_image)</info>
+			<include>home_Slideshow</include>
+		</control>
+		<!-- recently used -->
+		<control type="multiimage">
+			<visible>ControlGroup(7004).HasFocus</visible>
+			<info background="true">Container(11002).ListItem.Property(fanart_image)</info>
+			<include>home_Slideshow</include>
+		</control>
+
+		<control type="image">
+			<visible>Skin.HasSetting(showNewLists)</visible>
+			<visible>!Control.HasFocus(301) + !Control.HasFocus(1110) + !Control.HasFocus(1120) + !Control.HasFocus(1160)</visible>
+			<visible>Control.IsVisible(11000) | Control.IsVisible(11001) | Control.IsVisible(11002) | Control.IsVisible(11003) | Control.IsVisible(12000)</visible>
+			<aspectratio>scale</aspectratio>
+			<include>screen_Dimensions</include>
+			<animation effect="fade" delay="500" start="0" end="90" time="250" condition="true">Visible</animation>
+			<animation effect="fade" start="90" end="0" time="250" condition="true">Hidden</animation>
+		</control>
+
+		<control type="image">
+			<visible>!Skin.HasSetting(showNewLists)</visible>
+			<visible>!Control.HasFocus(301) + !Control.HasFocus(1110) + !Control.HasFocus(1120) + !Control.HasFocus(1160)</visible>
+			<visible>ControlGroup(7001).HasFocus | ControlGroup(7002).HasFocus | ControlGroup(7003).HasFocus | ControlGroup(7004).HasFocus</visible>
+			<aspectratio>scale</aspectratio>
+			<include>screen_Dimensions</include>
+			<animation effect="fade" start="0" end="90" time="250" condition="true">Visible</animation>
+			<animation effect="fade" start="90" end="0" time="250" condition="true">Hidden</animation>
 		</control>
 	</include>
 </includes>

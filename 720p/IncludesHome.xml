@@ -1,580 +1,100 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
 <includes>
-	<include name="home_Background">
-		<control type="group">
-			<visible>!Control.HasFocus(9210)</visible>
-			<!--<visible>[![Skin.HasSetting(widgets.disable) + !Skin.HasSetting(homemenu.horizontal)] + ![Player.HasVideo + Skin.HasSetting(home.nowplaying)] | IsEmpty(Skin.String(HomeBackground))]</visible>-->
-			<control type="image">
-				<texture background="true" fallback="special://skin/backgrounds/defaults/livetv.jpg">$VAR[home_Background]</texture>
-				<include>home_Slideshow</include>
-				<visible>[Skin.String(HomeBackground,single) | Skin.String(HomeBackground,fanart) | IsEmpty(Skin.String(HomeBackground))] + ![Player.HasAudio + Skin.HasSetting(home.nowplaying) + !Skin.HasSetting(artistslideshow.disable)]</visible>
-			</control>
-			<control type="multiimage" id="1">
-				<imagepath fallback="special://skin/backgrounds/">$VAR[home_Background]</imagepath>
-				<include>home_Slideshow</include>
-				<visible>Skin.String(HomeBackground,multi) | [Player.HasAudio + Skin.HasSetting(home.nowplaying) + !Skin.HasSetting(artistslideshow.disable)]</visible>
-			</control>
-			<control type="image">
-				<texture>overlays/vignette2.png</texture>
-				<include>screen_Dimensions</include>
-				<aspectratio>stretch</aspectratio>
-				<include>fadeinout</include>
-				<visible>Player.HasMedia + Skin.HasSetting(home.nowplaying)</visible>
-			</control>
-		</control>
-		<!--fanart slideshow info-->
-		<control type="group">
-			<animation effect="slide" start="0,0" end="0,-20" time="0" condition="System.GetBool(lookandfeel.enablerssfeeds)">Conditional</animation>
-			<visible>Skin.String(HomeBackground,fanart) + ![Player.HasMedia + Skin.HasSetting(home.nowplaying)]</visible>
-			<control type="label">
-				<right>25</right>
-				<bottom>25</bottom>
-				<width>850</width>
-				<label>$VAR[home_SlideshowInfo]</label>
-				<font>condensed-U</font>
-				<textcolor>Color1</textcolor>
-				<shadowcolor>Color5</shadowcolor>
-				<align>right</align>
-				<visible>Skin.String(fanartinfo.text,true)</visible>
-			</control>
-			<control type="group">
-			<control type="image">
-				<posx>25</posx>
-				<bottom>550</bottom>
-				<width>256</width>
-				<height>99</height>
-				<texture>$VAR[home_SlideshowInfo]</texture>
-				<aspectratio>keep</aspectratio>
-				<visible>Skin.String(fanartinfo.logo,true)</visible>
-			</control>
-			<visible>!Skin.String(homemenu.type,vertical)</visible>
-			</control>
-			<control type="group">
-			<control type="image">
-				<right>25</right>
-				<bottom>50</bottom>
-				<width>256</width>
-				<height>99</height>
-				<texture>$VAR[home_SlideshowInfo]</texture>
-				<aspectratio>keep</aspectratio>
-				<visible>Skin.String(fanartinfo.logo,true)</visible>
-				</control>
-				<visible>!Skin.String(homemenu.type,horizontal)</visible>
-			</control>
-		</control>
-		<!--now playing video-->
-		<control type="group">
-			<visible>Player.HasVideo + Skin.HasSetting(home.nowplaying)</visible>
-			<control type="image">
-				<include>screen_Dimensions</include>
-				<include>fadeinout</include>
-				<texture>black.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="videowindow">
-				<include>screen_Dimensions</include>
-				<include>fadeinout</include>
-			</control>
-			<control type="group">
-			<control type="image">
-					 <posy>0</posy>
-			<posx>0</posx>
-				     <width>1920</width>
-				     <height>170</height>
-				     <texture background="true" colordiffuse="cc000000">frames/strip.png</texture>
-			</control>
-
-			<control type="image">
-			<posy>5</posy>
-			<posx>10</posx>
-				<width>118</width>
-				<height>160</height>
-				<texture>$VAR[osd_Art2]</texture>
-				<bordertexture border="0">frames/frame-fo.png</bordertexture>
-				<bordersize>4</bordersize>
-				<aspectratio align="right">keep</aspectratio>
-			</control>
-			<control type="image">
-			<posy>5</posy>
-			<posx>10</posx>
-				<width>118</width>
-				<height>160</height>
-				<texture>$VAR[osd_ArtAlt]</texture>
-				<bordertexture border="0">frames/frame-fo.png</bordertexture>
-				<bordersize>4</bordersize>
-				<aspectratio align="right">keep</aspectratio>
-			</control>
-			<control type="image">
-			<posy>5</posy>
-			<posx>10</posx>
-				<width>118</width>
-				<height>160</height>
-				<texture>$VAR[osd_Art]</texture>
-				<bordertexture border="0">frames/frame-fo.png</bordertexture>
-				<bordersize>4</bordersize>
-				<aspectratio align="right">keep</aspectratio>
-				<visible>!VideoPlayer.Content(LiveTV) + !VideoPlayer.Content(Movies) + !VideoPlayer.Content(Episodes)</visible>
-			</control>
-			<control type="group">
-			<posy>10</posy>
-				<posx>140</posx>
-				<control type="label">
-					<width>800</width>
-					<label>$INFO[VideoPlayer.Title]</label>
-					<font>bold_Title</font>
-					<textcolor>Color13</textcolor>
-					<selectedcolor>Color13</selectedcolor>
-				</control>
-				<control type="label">
-				<posy>35</posy>
-					<width>880</width>
-					<label>$VAR[player:Info]</label>
-					<scroll>true</scroll>
-					<font>semibold</font>
-					<textcolor>Color13</textcolor>
-					<selectedcolor>Color13</selectedcolor>
-				</control>
-				<control type="textbox">
-				<posy>60</posy>
-					<width>880</width>
-					<height>82</height>
-					<align>justify</align>
-					<label>$INFO[VideoPlayer.Plot]</label>
-					<autoscroll delay="5000" time="2000" repeat="10000">!Control.HasFocus(1)</autoscroll>
-					<font>semibold</font>
-					<textcolor>Color13</textcolor>
-					<selectedcolor>Color13</selectedcolor>
-				</control>
-				</control>
-			<visible>Skin.HasSetting(home.VideoNowPlayingInfo) + !StringCompare(Skin.String(homemenu.type),vertical)</visible>
-		</control>
-		<control type="group">
-		<control type="image">
-					 <posy>520</posy>
-			<posx>340</posx>
-				     <width>950</width>
-				     <height>180</height>
-				     <texture background="true" colordiffuse="cc000000">frames/strip.png</texture>
-			</control>
-		<posy>20</posy>
-			<control type="image">
-			<posy>5</posy>
-			<posx>10</posx>
-				<width>106</width>
-				<height>160</height>
-				<texture>$VAR[osd_Art2]</texture>
-				<bordertexture border="0">frames/frame-fo.png</bordertexture>
-				<bordersize>4</bordersize>
-				<aspectratio align="right">keep</aspectratio>
-				<visible>!StringCompare(Skin.String(homemenu.type),vertical)</visible>
-			</control>
-			<control type="image">
-			<posy>530</posy>
-			<posx>400</posx>
-				<width>118</width>
-				<height>160</height>
-				<texture>$VAR[osd_ArtAlt]</texture>
-				<bordertexture border="0">frames/frame-fo.png</bordertexture>
-				<bordersize>4</bordersize>
-				<aspectratio align="right">keep</aspectratio>
-			</control>
-			<control type="image">
-			<posy>535</posy>
-			<posx>235</posx>
-				<width>300</width>
-				<height>135</height>
-				<texture>$VAR[osd_Art]</texture>
-				<bordertexture border="0">frames/frame-fo.png</bordertexture>
-				<bordersize>4</bordersize>
-				<aspectratio align="right">keep</aspectratio>
-				<visible>!VideoPlayer.Content(LiveTV) + !VideoPlayer.Content(Movies) + !VideoPlayer.Content(Episodes)</visible>
-			</control>
-			<control type="group">
-			<posy>530</posy>
-				<posx>550</posx>
-				<control type="label">
-					<width>550</width>
-					<label>$INFO[VideoPlayer.Title]</label>
-					<autoscroll>true</autoscroll>
-					<font>bold_Title</font>
-					<textcolor>Color13</textcolor>
-					<selectedcolor>Color13</selectedcolor>
-				</control>
-				<control type="label">
-				<posy>35</posy>
-					<width>550</width>
-					<label>$VAR[player:Info]</label>
-					<scroll>true</scroll>
-					<font>semibold</font>
-					<textcolor>Color13</textcolor>
-					<selectedcolor>Color13</selectedcolor>
-				</control>
-				<control type="textbox">
-				<posy>60</posy>
-					<width>680</width>
-					<height>82</height>
-					<align>justify</align>
-					<label>$INFO[VideoPlayer.Plot]</label>
-					<autoscroll delay="5000" time="2000" repeat="10000">!Control.HasFocus(1)</autoscroll>
-					<font>semibold</font>
-					<textcolor>Color13</textcolor>
-					<selectedcolor>Color13</selectedcolor>
-				</control>
-				</control>
-			<visible>Skin.HasSetting(home.VideoNowPlayingInfo) + StringCompare(Skin.String(homemenu.type),vertical)</visible>
-		</control>
-		</control>
-	</include>
-	<include name="home_statuslabelframe">
-	<visible>Skin.HasSetting(home.stats) + !StringCompare(Skin.String(homemenu.type),vertical) + !system.getbool(lookandfeel.enablerssfeeds)</visible>
-	<control type="image">
-	 <posy>100</posy>
-		<width>screen_Width</width>
-		<aspectratio>stretch</aspectratio>
-		<texture>overlays/semitrans.png</texture>
-		</control>
-		<animation type="Conditional" condition="Control.HasFocus(9210)" reversible="false">
-		<effect type="Slide"  center="auto" start="0,0" end="0,850" easing="In" tween="Cubic"/>
-		</animation>
-		<animation type="Conditional" condition="!Control.HasFocus(9210)" reversible="false">
-		<effect type="Slide" time="350" center="auto" start="0,850" end="0,0" easing="In" tween="Cubic"/>
-		</animation>
-	</include>
+    <include name="homeMenusLayout">
+        <itemlayout width="640" height="52">
+            <control type="label">
+                <posx>20</posx>
+                <posy>70</posy>
+                <width>640</width>
+                <height>50</height>
+                <font>homeMenu</font>
+                <align>left</align>
+                <label>$INFO[ListItem.Label]</label>
+                <textcolor>Color3</textcolor>
+            </control>
+        </itemlayout>
+        <focusedlayout width="640" height="52">
+            <control type="image">
+                <posy>0</posy>
+                <width>375</width>
+                <height>200</height>
+                <aspectratio align="left">stretch</aspectratio>
+                <texture border="1">home/menuSelectOriginal.png</texture>
+                <include>home_ListScroll</include>
+                <animation effect="fade" start="100" end="50" time="350" condition="System.IdleTime(5) + !Skin.HasSetting(home.menuselect.disablefading)">Conditional</animation>
+                <visible>!Control.HasFocus(888) + !Skin.HasSetting(home.menuselect.realaska) + !Skin.HasSetting(home.menuselect.realaska)</visible>
+            </control>
+            <control type="image">
+                <posy>0</posy>
+                <width>375</width>
+                <height>200</height>
+                <aspectratio align="left">stretch</aspectratio>
+                <texture border="1">home/menuSelectReAlaska.png</texture>
+                <include>home_ListScroll</include>
+                <animation effect="fade" start="100" end="50" time="350" condition="System.IdleTime(5) + !Skin.HasSetting(home.menuselect.disablefading)">Conditional</animation>
+                <visible>!Control.HasFocus(888) + Skin.HasSetting(home.menuselect.realaska)</visible>
+            </control>
+            <!--
+            <control type="image">
+                <posy>0</posy>
+                <width>950</width>
+                <height>200</height>
+                <aspectratio align="left">stretch</aspectratio>
+                <texture border="80,0,0,0">home/menuSelect.png</texture>
+                <include>home_ListScroll</include>
+                <visible allowhiddenfocus="true">[Container(300).HasFocus(21) | Container(300).HasFocus(22)]</visible>
+            </control>
+            -->
+            <control type="label">
+                <posy>70</posy>
+                <posx>20</posx>
+                <width>640</width>
+                <height>50</height>
+                <font>homeMenu</font>
+                <align>left</align>
+                <textcolor>Color5</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+                <wrapmultiline>true</wrapmultiline>
+            </control>
+            <control type="label">
+                <posy>3000</posy>
+                <posx>200</posx>
+                <width>640</width>
+                <height>50</height>
+                <font>homeMenu</font>
+                <align>left</align>
+                <textcolor>Color1</textcolor>
+                <label>$INFO[ListItem.Label]</label>
+                <visible>Control.HasFocus(888)</visible>
+            </control>
+        </focusedlayout>
+    </include>
     <include name="home_statuslabel">
-	<visible>Skin.HasSetting(home.stats) + !StringCompare(Skin.String(homemenu.type),vertical) + !system.getbool(lookandfeel.enablerssfeeds)</visible>
-		<posy>100</posy>
-		<width>screen_Width</width>
-		<font>rss</font>
-		<align>center</align>
-		<pauseatend>7000</pauseatend>
-		<scroll>true</scroll>
-		<scrollout>false</scrollout>
-		<aligny>center</aligny>
-		<textcolor>Color2</textcolor>
-		<include>fadeinout</include>
-		<animation type="Conditional" condition="Control.HasFocus(9210)" reversible="false">
-				<effect type="Slide"  center="auto" start="0,0" end="0,400" easing="In" tween="Cubic"/>
-			</animation>
-			<animation type="Conditional" condition="!Control.HasFocus(9210)" reversible="false">
-				<effect type="Slide" time="350" center="auto" start="0,400" end="0,0" easing="In" tween="Cubic"/>
-			</animation>
-	</include>
-	<include name="home_Slideshow">
-		<include>screen_Dimensions</include>
-		<aspectratio align="center">scale</aspectratio>
-		<randomize>true</randomize>
-		<loop>yes</loop>
-		<timeperimage>slideshow_Timer</timeperimage>
-		<fadetime>fadetime_Slideshow</fadetime>
-	</include>
-
-	<include name="home_Playing">
-		<control type="group">
-		<posx>30</posx>
-			<visible>Player.HasAudio + Skin.HasSetting(home.nowplaying)</visible>
-			<control type="image">
-						<description>Cd Disc</description>
-						<animation effect="fade" start="100" end="0" time="700" tween="cubic" easing="out" condition="Window.IsActive(musicosd)">Conditional</animation>
-						<animation effect="slide" start="0,0" end="-50,0" time="900" tween="cubic" easing="out" delay="800">WindowOpen</animation>
-						<animation effect="slide" start="50,0" end="0,0" time="900" tween="cubic" easing="out">WindowClose</animation>
-						<animation effect="rotate" end="-360" center="auto" time="4200" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-						<width>74</width>
-						<height>74</height>
-						<texture>$INFO[Player.FolderPath]cdart.png</texture>
-						<aspectratio>keep</aspectratio>
-					</control>
-			<control type="image">
-				<width>74</width>
-				<height>74</height>
-				<texture>$INFO[MusicPlayer.Cover]</texture>
-				<bordertexture border="0">frames/frame-fo.png</bordertexture>
-				<bordersize>4</bordersize>
-				<aspectratio align="right" aligny="top">scale</aspectratio>
-			</control>
-			<control type="group">
-				<posx>90</posx>
-				<control type="label">
-					<width>900</width>
-					<label>$INFO[MusicPlayer.Title]</label>
-					<font>bold_Title</font>
-					<textcolor>Color13</textcolor>
-					<shadowcolor>ff888888</shadowcolor>
-					<selectedcolor>Color13</selectedcolor>
-				</control>
-				<control type="label">
-					<posy>25</posy>
-					<width>900</width>
-					<label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]$INFO[MusicPlayer.Year, • ]</label>
-					<font>semibold-U</font>
-					<textcolor>Color13</textcolor>
-					<shadowcolor>ff888888</shadowcolor>
-					<selectedcolor>Color13</selectedcolor>
-				</control>
-				<control type="textbox">
-					<posy>50</posy>
-					<width>900</width>
-					<height>100</height>
-					<label>$INFO[MusicPlayer.Offset(1).Artist,[B]$LOCALIZE[209]: [/B]]$INFO[MusicPlayer.Offset(1).Title, - ] ($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])</label>
-					<font>condensed-U</font>
-					<shadowcolor>ff888888</shadowcolor>
-					<textcolor>Color13</textcolor>
-				</control>
-			</control>
-			<visible>Skin.HasSetting(topmenu.enable) | StringCompare(Skin.String(homemenu.type),vertical)</visible>
-		</control>
-		<control type="group">
-		<posy>-695</posy>
-		<posx>30</posx>
-			<visible>Player.HasAudio + Skin.HasSetting(home.nowplaying)</visible>
-			<control type="image">
-						<description>Cd Disc</description>
-						<animation effect="fade" start="100" end="0" time="700" tween="cubic" easing="out" condition="Window.IsActive(musicosd)">Conditional</animation>
-						<animation effect="slide" start="0,0" end="-50,0" time="900" tween="cubic" easing="out" delay="800">WindowOpen</animation>
-						<animation effect="slide" start="50,0" end="0,0" time="900" tween="cubic" easing="out">WindowClose</animation>
-						<animation effect="rotate" end="-360" center="auto" time="4200" loop="true" reversible="false" condition="!Player.Paused">Conditional</animation>
-						<width>74</width>
-						<height>74</height>
-						<texture>$INFO[Player.FolderPath]cdart.png</texture>
-						<aspectratio>keep</aspectratio>
-					</control>
-			<control type="image">
-				<width>74</width>
-				<height>74</height>
-				<texture>$INFO[MusicPlayer.Cover]</texture>
-				<bordertexture border="0">frames/frame-fo.png</bordertexture>
-				<bordersize>4</bordersize>
-				<aspectratio align="right" aligny="top">scale</aspectratio>
-			</control>
-			<control type="group">
-				<posx>90</posx>
-				<control type="label">
-					<width>900</width>
-					<label>$INFO[MusicPlayer.Title]</label>
-					<font>bold_Title</font>
-					<textcolor>Color13</textcolor>
-					<shadowcolor>ff888888</shadowcolor>
-					<selectedcolor>Color13</selectedcolor>
-				</control>
-				<control type="label">
-					<posy>25</posy>
-					<width>900</width>
-					<label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ]$INFO[MusicPlayer.Year, • ]</label>
-					<font>semibold-U</font>
-					<textcolor>Color13</textcolor>
-					<shadowcolor>ff888888</shadowcolor>
-					<selectedcolor>Color13</selectedcolor>
-				</control>
-				<control type="textbox">
-					<posy>50</posy>
-					<width>900</width>
-					<height>100</height>
-					<label>$INFO[MusicPlayer.Offset(1).Artist,[B]$LOCALIZE[209]: [/B]]$INFO[MusicPlayer.Offset(1).Title, - ] ($INFO[MusicPlayer.PlaylistPosition,]$INFO[MusicPlayer.PlaylistLength,/])</label>
-					<font>condensed-U</font>
-					<shadowcolor>ff888888</shadowcolor>
-					<textcolor>Color13</textcolor>
-				</control>
-			</control>
-			<visible>!Skin.HasSetting(topmenu.enable) | StringCompare(Skin.String(homemenu.type),vertical)</visible>
-		</control>
-	</include>
-	<include name="widget_Info">
-		<control type="group">
-			<visible>Control.HasFocus(9210)</visible>
-			<control type="group">
-				<posx>50</posx>
-				<posy>30</posy>
-				<include>transition_WindowTitle</include>
-				<control type="label">
-					<width>950</width>
-					<label>$INFO[Container(300).ListItem.Property(widgetName)]</label>
-					<font>light_Header</font>
-					<textcolor>Color1</textcolor>
-				</control>
-				<control type="label">
-					<posy>32</posy>
-					<width>950</width>
-					<label>$LOCALIZE[31033] [B]$INFO[Container(9210).CurrentPage][/B] of [B]$INFO[Container(9210).NumItems][/B]</label>
-					<font>regular_Small-U</font>
-					<textcolor>Color3</textcolor>
-				</control>
-			</control>
-		</control>
-	</include>
-
-	<include name="widget_Horizontal">
-		<orientation>horizontal</orientation>
-	</include>
-	<include name="widget_Vertical">
-		<orientation>vertical</orientation>
-	</include>
-
-	<include name="widget_Container">
-		<control type="group">
-			<control type="list" id="9210">
-				<include>screen_Dimensions</include>
-				<onback>300</onback>
-				<onleft condition="StringCompare(Skin.String(homemenu.type),horizontal)">9210</onleft>
-				<onright condition="StringCompare(Skin.String(homemenu.type),horizontal)">9210</onright>
-				<onup condition="StringCompare(Skin.String(homemenu.type),horizontal)">-</onup>
-				<ondown condition="StringCompare(Skin.String(homemenu.type),horizontal)">300</ondown>
-				<onleft condition="StringCompare(Skin.String(homemenu.type),vertical)">300</onleft>
-				<onright condition="StringCompare(Skin.String(homemenu.type),vertical)">-</onright>
-				<onup condition="StringCompare(Skin.String(homemenu.type),vertical)">9210</onup>
-				<ondown condition="StringCompare(Skin.String(homemenu.type),vertical)">9210</ondown>
-				<include condition="StringCompare(Skin.String(homemenu.type),horizontal)">widget_Horizontal</include>
-				<include condition="StringCompare(Skin.String(homemenu.type),vertical)">widget_Vertical</include>
-				<preloaditems>2</preloaditems>
-				<pagecontrol>70</pagecontrol>
-				<include>global_Scrolltime</include>
-				<include>transition_OSD</include>
-				<visible allowhiddenfocus="true">!IsEmpty(Container(300).ListItem.Property(Widget)) + Control.HasFocus(9210)</visible>
-				<itemlayout width="screen_Width" height="screen_Height">
-					<include>widget_ContainerCommons</include>
-				</itemlayout>
-				<focusedlayout width="screen_Width" height="screen_Height">
-					<include>widget_ContainerCommons</include>
-				</focusedlayout>
-				<content target="url">$VAR[widget_Content]</content>
-			</control>
-			<include>widget_Info</include>
-			<control type="group">
-				<visible>Control.HasFocus(9210)</visible>
-				<control type="scrollbar" id="70">
-					<posx>1272</posx>
-					<orientation>vertical</orientation>
-					<texturesliderbar>views/pagecontrol/grip-fo.png</texturesliderbar>
-					<visible>StringCompare(Skin.String(homemenu.type),vertical)</visible>
-				</control>
-				<control type="scrollbar" id="70">
-					<posy>712</posy>
-					<width>1280</width>
-					<orientation>horizontal</orientation>
-					<texturesliderbar>views/pagecontrol/grip-fo.png</texturesliderbar>
-					<visible>StringCompare(Skin.String(homemenu.type),horizontal)</visible>
-				</control>
-			</control>
-		</control>
-	</include>
-
-	<include name="widget_ContainerCommons">
-		<control type="image">
-			<texture background="true">$VAR[global_Fanart]</texture>
-			<include>screen_Dimensions</include>
-			<aspectratio align="center" aligny="top">scale</aspectratio>
-			<include>fadeinout</include>
-			<fadetime>fadetime_Fanart</fadetime>
-		</control>
-		<control type="group">
-		<control type="image">
-			<texture>overlays/vignette2.png</texture>
-			<include>screen_Dimensions</include>
-			<aspectratio>stretch</aspectratio>
-		</control>
-		<visible>!Skin.HasSetting(overlaysrefocus.enable)</visible>
-		</control>
-		<control type="group">
-		<control type="image">
-			<texture>overlays/vignette4.png</texture>
-			<colordiffuse>base_4</colordiffuse>
-			<include>screen_Dimensions</include>
-			<aspectratio>stretch</aspectratio>
-			</control>
-			<visible>!Skin.HasSetting(overlaysglass.enable)</visible>
-			</control>
-		<control type="group">
-			<posx>50</posx>
-			<posy>520</posy>
-			<control type="group">
-				<visible>!StringCompare(Container(300).ListItem.Property(widgetName),$LOCALIZE[31032]) + !StringCompare(Container(300).ListItem.Property(widgetName),$LOCALIZE[359])</visible>
-				<control type="image">
-                        <posx>-10</posx>
-                        <posy>-100</posy>
-                        <width>180</width>
-                        <height>180</height>
-                        <aspectratio>keep</aspectratio>
-                        <texture background="true">$VAR[Icon_Discart]</texture>
-                        <animation effect="slide" delay="1600" end="0,-120" time="300" tween="quadratic">Focus</animation>
-                        <animation effect="slide" start="140,0" end="0" time="150" tween="quadratic" easing="in">Unfocus</animation>
-                         <visible></visible>
-                        <bordersize>7</bordersize>
-                    </control>
-
-				<control type="image">
-				<posx>-30</posx>
-				<posy>-110</posy>
-					<width>213</width>
-				<height>300</height>
-					<texture background="true">$VAR[thumb_Portrait]</texture>
-					<bordertexture border="0">frames/frame-fo.png</bordertexture>
-					<bordersize>4</bordersize>
-					<aspectratio align="center" aligny="top">scale</aspectratio>
-				</control>
-				<control type="group">
-					<posx>220</posx>
-					<control type="label">
-						<width>980</width>
-						<label>$VAR[widget_ItemTitle]</label>
-						<include>osd_Title</include>
-					</control>
-					<control type="label">
-						<posy>25</posy>
-						<width>980</width>
-						<align>justify</align>
-						<label>$VAR[widget_ItemInfo]</label>
-						<include>osd_Sub</include>
-					</control>
-					<control type="textbox">
-						<posy>55</posy>
-						<width>980</width>
-						<height>105</height>
-						<label>$VAR[widget_ItemDescription]</label>
-						<font>condensed-U</font>
-					</control>
-				</control>
-			</control>
-			<control type="group">
-				<visible>StringCompare(Container(300).ListItem.Property(widgetName),$LOCALIZE[31032]) | StringCompare(Container(300).ListItem.Property(widgetName),$LOCALIZE[359])</visible>
-				<control type="image">
-					<width>106</width>
-					<height>106</height>
-					<texture fallback="thumbs/default_Square.png">$INFO[ListItem.Art(thumb)]</texture>
-					<bordertexture border="0">frames/frame-fo.png</bordertexture>
-					<bordersize>4</bordersize>
-					<aspectratio align="center" aligny="top">scale</aspectratio>
-				</control>
-				<control type="image">
-					<centerleft>53</centerleft>
-					<centertop>53</centertop>
-					<width>72</width>
-					<height>72</height>
-					<texture>$INFO[ListItem.ActualIcon]</texture>
-					<aspectratio align="center" aligny="center">keep</aspectratio>
-					<visible>IsEmpty(ListItem.Art(thumb))</visible>
-				</control>
-				<control type="group">
-					<posx>130</posx>
-					<control type="label">
-						<width>1060</width>
-						<label>$VAR[widget_ItemTitle]</label>
-						<include>osd_Title</include>
-					</control>
-					<control type="label">
-						<posy>25</posy>
-						<width>1060</width>
-						<label>$VAR[widget_ItemInfo]</label>
-						<textcolor>Color1</textcolor>
-						<include>osd_Sub</include>
-					</control>
-					<control type="textbox">
-						<posy>55</posy>
-						<width>1060</width>
-						<height>100</height>
-						<label>$VAR[widget_ItemDescription]</label>
-						<font>condensed-U</font>
-						<textcolor>Color3</textcolor>
-					</control>
-				</control>
-			</control>
-		</control>
-	</include>
+        <posy>7</posy>
+        <width>screen_Width</width>
+        <font>rss</font>
+        <align>center</align>
+        <pauseatend>6000</pauseatend>
+        <scroll>false</scroll>
+        <scrollout>false</scrollout>
+        <aligny>center</aligny>
+        <textcolor>Color2</textcolor>
+        <include>fadeinout</include>
+    </include>
+    <include name="home_Slideshow">
+        <include>screen_Dimensions</include>
+        <aspectratio>scale</aspectratio>
+        <randomize>true</randomize>
+        <loop>yes</loop>
+        <timeperimage>slideshow_Timer</timeperimage>
+        <fadetime>fadetime_Slideshow</fadetime>
+        <animation type="WindowOpen" condition="Window.Previous(startup)">
+            <effect type="fade" start="0" end="100" time="600" delay="0" />
+        </animation>
+        <animation type="WindowClose">
+            <effect type="fade" start="100" end="0" time="200" delay="0" />
+        </animation>
+        <animation type="WindowOpen" condition="!Window.Previous(startup)">
+            <effect type="fade" start="0" end="100" time="200" delay="0" />
+        </animation>
+    </include>
 </includes>

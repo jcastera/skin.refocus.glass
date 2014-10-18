@@ -4,7 +4,7 @@
 	<color name="base_1">ff90a3b6</color><!--main background color-->
 	<color name="base_2">ff7d8994</color><!--primary overlay / menu color-->
 	<color name="base_3">ff0c2c40</color><!--secondary overlay / menu color (home menu)-->
-	<color name="base_4">eeb9b4a4</color><!--vignette2-->	
+	<color name="base_4">eeb9b4a4</color><!--vignette2-->
 	<color name="base_5">ff91a3b0</color><!--main color menu horizontal-->
 	<color name="base_6">ff081e2b</color><!--main color menu vertical-->
 	<color name="base_7">ff667d8e</color><!--main color menu vertical-->
@@ -23,7 +23,7 @@
 	<color name="Color8">FFbcd4e6</color><!--description / plot textcolor-->
 	<color name="Color9">FFd1e0d6</color><!--description / plot textcolor-->
 	<color name="Color10">aa9c9c9c</color><!--OSD color info -->
-	
+
 	<color name="Color14">ff69a0d8</color>
 	<color name="Color15">ff69a0d8</color>
 	<color name="Color16">aa6da3d9</color><!-- Setting focus-->
@@ -39,6 +39,7 @@
 	<color name="column1">ffffffff</color><!--main columns text color-->
 	<color name="column2">dd0c2134</color><!--primary columns base color-->
 	<color name="column3">ff7d8994</color><!--secondary columns base color-->
+	<color name="column3_big">dd0c2134</color><!--New Lists Color-->
 <!--Views-->
-    <color name="Color_Art">ff90a3b6</color><!--frames Panel ART-->		
+    <color name="Color_Art">ff90a3b6</color><!--frames Panel ART-->
 </colors>
