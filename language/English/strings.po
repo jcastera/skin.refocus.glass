@@ -39,7 +39,7 @@ msgid "New Albums"
 msgstr ""
 
 msgctxt "#31013"
-msgid "Watchlist"
+msgid "Quit"
 msgstr ""
 
 msgctxt "#31014"

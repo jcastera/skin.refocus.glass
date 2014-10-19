@@ -93,7 +93,7 @@
                 </item>
                 <item id="11">
                     <label>$LOCALIZE[31013]</label>
-                    <onclick>SetFocus(1160)</onclick>
+                    <onclick>Quit</onclick>
                 </item>
             </content>
         </control>

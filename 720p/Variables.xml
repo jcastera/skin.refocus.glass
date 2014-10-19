@@ -190,7 +190,7 @@
 	</variable>
 
 	<variable name="global_Itemcount">
-		<value condition="[Window.IsActive(programs) | Window.IsActive(pictures) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(videolibrary) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(musicplaylist)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(pvr) | Window.IsActive(script-globalsearch-main.xml)]">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143], $LOCALIZE[31144] $INFO[Container.SortMethod]</value>
+		<value condition="[Window.IsActive(programs) | Window.IsActive(pictures) | Window.IsActive(musiclibrary) | Window.IsActive(musicfiles) | Window.IsActive(videolibrary) | Window.IsActive(videoplaylist) | Window.IsActive(addonbrowser) | Window.IsActive(musicplaylist)] + ![Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(pvr) | Window.IsActive(script-globalsearch-main.xml)]">[B]$INFO[Container.NumItems][/B] $LOCALIZE[31143]</value>
 		<value condition="Window.IsActive(Weather)">[B]$INFO[Window(Weather).Property(Location)][/B] $INFO[Window(Weather).Property(Updated)]</value>
 		<value condition="Window.IsActive(filemanager) + Control.HasFocus(20)">[B]$INFO[Container(20).NumItems][/B] $LOCALIZE[31143]</value>
 		<value condition="Window.IsActive(filemanager) + Control.HasFocus(21)">[B]$INFO[Container(21).NumItems][/B] $LOCALIZE[31143]</value>
@@ -214,16 +214,16 @@
 	</variable>
 
 	<variable name="global_Info">
-		<value condition="Container.Content(movies)">$VAR[video_Type,, • ]$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[31701]]$INFO[ListItem.Genre, • ]</value>
+		<value condition="Container.PlexContent(Movies)">$VAR[video_Type,, • ]$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[31701]]$INFO[ListItem.Genre, • ]</value>
 		<value condition="Container.Content(sets) | SubString(ListItem.Path,videodb://movies/sets)">Saga • $INFO[ListItem.Year]$INFO[Window(home).Property(Set.Movies.Runtime), • , $LOCALIZE[31701]]$INFO[Window(home).Property(Set.Movies.Genre), • ]</value>
 		<value condition="Container.Content(sets)">$INFO[ListItem.Year]</value>
-		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[global_EpisodeCount]$VAR[nextaired_Info, • ]</value>
-		<value condition="Container.Content(tvshows) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[global_EpisodeCount]</value>
-		<value condition="Container.Content(seasons) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[global_EpisodeCount]</value>
-		<value condition="Container.Content(seasons)">$INFO[ListItem.Genre]</value>
-		<value condition="Container.Content(episodes) + ListItem.Property(IsSpecial)">$LOCALIZE[20381]$INFO[ListItem.Episode, - ]$INFO[ListItem.Premiered, • ]$VAR[video_Type, • ]</value>
-		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Season)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]$VAR[video_Type, • ]</value>
-		<value condition="Container.Content(episodes)">$INFO[ListItem.Date]$INFO[ListItem.Genre, • ]</value>
+		<value condition="Container.PlexContent(TVShows) + !IsEmpty(Window(Home).Property(NextAired.Label))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[global_EpisodeCount]$VAR[nextaired_Info, • ]</value>
+		<value condition="Container.PlexContent(TVShows) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[global_EpisodeCount]</value>
+		<value condition="Container.PlexContent(Seasons) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[global_EpisodeCount]</value>
+		<value condition="Container.PlexContent(Seasons)">$INFO[ListItem.Genre]</value>
+		<value condition="Container.PlexContent(Episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]$VAR[video_Type, • ]</value>
+		<value condition="Container.PlexContent(Episodes)">$LOCALIZE[20381]$INFO[ListItem.Episode, - ]$INFO[ListItem.Premiered, • ]$VAR[video_Type, • ]</value>
+		<value condition="Container.PlexContent(Episodes)">$INFO[ListItem.Date]$INFO[ListItem.Genre, • ]</value>
 		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]$VAR[video_Type, • ]</value>
 		<value condition="Container.Content(files) + !SubString(Container.FolderPath,plugin://)">$VAR[video_Type,, • ]$INFO[ListItem.Date]$INFO[ListItem.Size, • ]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]</value>
 		<value condition="Container.Content(files) + ![IsEmpty(ListItem.Duration) + IsEmpty(ListItem.Genre) + IsEmpty(ListItem.Date) + IsEmpty(ListItem.Studio)]">$INFO[ListItem.Duration,, $LOCALIZE[12391]]$INFO[ListItem.Genre, • ]$INFO[ListItem.Date, • ]$INFO[ListItem.Studio]</value>

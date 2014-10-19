@@ -32,6 +32,15 @@
 			<texture>special://skin/fanart.jpg</texture>
 			<onfocus>AlarmClock(StartupDelay,ReplaceWindow($INFO[System.StartupWindow]),00:03,silent)</onfocus>
 		</control>
+		<control type="image">
+				<posx>730</posx>
+				<posy>400</posy>
+				<width>193</width>
+				<height>70</height>
+				<texture>home/forplexlogo.png</texture>
+				<aspectratio align="right">keep</aspectratio>
+				<include>transition2</include>
+			</control>
 		<control type="label">
 			<posy>500</posy>
 			<width>screen_Width</width>

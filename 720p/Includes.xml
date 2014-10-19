@@ -186,7 +186,7 @@
 			<label>[B]$INFO[ListItem.SortLetter][/B]</label>
 			<include>transition_WindowTitle</include>
 			<include>toggle_Menu</include>
-			<visible>Skin.HasSetting(sortletter.enable) + Container.Scrolling + [StringCompare(Container.SortMethod,$LOCALIZE[551]) | StringCompare(Container.SortMethod,$LOCALIZE[561]) | StringCompare(Container.SortMethod,$LOCALIZE[558]) | StringCompare(Container.SortMethod,$LOCALIZE[557]) | StringCompare(Container.SortMethod,$LOCALIZE[556])] + !Window.IsActive(script-globalsearch-main.xml)</visible>
+			<visible>Skin.HasSetting(sortletter.enable) + Container.Scrolling</visible>
 		</control>
 	</include>
 
@@ -380,8 +380,10 @@
 		<textcolor>Color3</textcolor>
 		<focusedcolor>Color5</focusedcolor>
 		<selectedcolor>Color5</selectedcolor>
-		<texturenofocus colordiffuse="column2">white.png</texturenofocus>
-		<texturefocus colordiffuse="Color1">white.png</texturefocus>
+		<texturefocus>white.png</texturefocus>
+		<colordiffuse>Color1</colordiffuse>
+
+
 	</include>
 	<include name="column_ListButton">
 		<height>42</height>
