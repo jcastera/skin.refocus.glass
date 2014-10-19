@@ -380,7 +380,8 @@
 		<textcolor>Color3</textcolor>
 		<focusedcolor>Color5</focusedcolor>
 		<selectedcolor>Color5</selectedcolor>
-		<texturefocus>white.png</texturefocus>
+		<texturenofocus border="8">button.png</texturenofocus>
+		<texturefocus border="8">button-focus.png</texturefocus>
 		<colordiffuse>Color1</colordiffuse>
 
 

@@ -10,7 +10,7 @@
             <include>transition_Content</include>
             <!--images-->
             <control type="image">
-            <width>screen_Dimensions</width>
+            <width>560</width>
             <height>1080</height>
             <texture background="true">view/frame_dialogInfo_back.png</texture>
             <colordiffuse>190000000</colordiffuse>
@@ -22,7 +22,7 @@
             <width>1000</width>
             <height>43</height>
             <texture background="true">frames/strip.png</texture>
-            <colordiffuse>color1</colordiffuse>
+            <colordiffuse>Column2</colordiffuse>
             <aspectratio>stretch</aspectratio>
             </control>
             <control type="group">
@@ -392,8 +392,7 @@
                         <visible>!Container.Content(tvshows)</visible>
                         <control type="button" id="8001">
                             <label>$LOCALIZE[208]</label>
-                            <onclick>SendClick(2003,8)</onclick>
-                            <onleft>8010</onleft>
+                            <onclick>Plex.PlayWith(VideoDefaultPlayer)</onclick>            <onleft>8010</onleft>
                             <onright>8002</onright>
                             <include>column_Button</include>
                         </control>
