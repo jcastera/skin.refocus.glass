@@ -491,7 +491,7 @@
                     <align>justify</align>
                     <label>$INFO[ListItem.Plot]</label>
                     <include>detail_Text</include>
-                    <visible allowhiddenfocus="true">![Control.HasFocus(3) | Control.HasFocus(50)]</visible>
+                    <visible allowhiddenfocus="true">![Control.HasFocus(3) | Control.HasFocus(50) | Window.IsActive(plexsubtitlepicker) | Window.IsActive(plexaudiopicker)]</visible>
                 </control>
 
 <!-- Extras -->

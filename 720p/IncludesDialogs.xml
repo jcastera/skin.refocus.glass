@@ -1,7 +1,8 @@
 <includes>
 <!--textures-->
 	<include name="dialog_Window">
-		<texture border="10">dialogs/frame/window.png</texture>
+		<texture border="10">button-focus.png</texture>
+		<colordiffuse>accent_5</colordiffuse>
 	</include>
 
 	<include name="dialog_Separator">
@@ -35,7 +36,7 @@
 		<align>center</align>
 		<aligny>center</aligny>
 		<height>51</height>
-		<textcolor>Color4</textcolor>
+		<textcolor>Color3</textcolor>
 		<scroll>false</scroll>
 	</include>
 	<include name="dialog_WindowButton">
@@ -171,7 +172,7 @@
 		<height>40</height>
 		<font>regular</font>
 		<aligny>center</aligny>
-		<textcolor>Color4</textcolor>
+		<textcolor>Color1</textcolor>
 		<selectedcolor>Selected</selectedcolor>
 	</include>
 
@@ -192,7 +193,8 @@
 
 	<include name="dialog_CommonListFocus">
 		<height>40</height>
-		<texture border="3">dialogs/select-fo.png</texture>
+		<texture border="3">button.png</texture>
+		<colordiffuse>Color1</colordiffuse>
 	</include>
 
 <!--filebrowser-->
