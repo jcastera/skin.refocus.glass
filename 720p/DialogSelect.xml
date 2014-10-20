@@ -4,7 +4,7 @@
 	<include>transition_Dialog</include>
 	<coordinates>
 		<system>1</system>
-		<posx>550</posx>
+		<posx>520</posx>
 		<posy>350</posy>
 	</coordinates>
 	<zorder>1</zorder>

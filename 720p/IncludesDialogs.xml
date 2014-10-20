@@ -173,7 +173,7 @@
 		<font>regular</font>
 		<aligny>center</aligny>
 		<textcolor>Color1</textcolor>
-		<selectedcolor>Selected</selectedcolor>
+		<selectedcolor>Color2</selectedcolor>
 	</include>
 
 	<include name="dialog_CommonList">
@@ -187,7 +187,7 @@
 		<font>regular</font>
 		<aligny>center</aligny>
 		<textcolor>Color1</textcolor>
-		<selectedcolor>Selected</selectedcolor>
+		<selectedcolor>Color2</selectedcolor>
 		<include>autoscroll_Line</include>
 	</include>
 
