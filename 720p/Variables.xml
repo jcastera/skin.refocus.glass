@@ -200,7 +200,7 @@
 	<variable name="global_Title">
 		<value condition="Window.IsActive(videoplaylist) + !IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.Title]</value>
 		<value condition="Window.IsActive(videoplaylist) + IsEmpty(ListItem.TVShowTitle)">$INFO[ListItem.Label]</value>
-		<value condition="Container.Content(episodes) + [SubString(Container.FolderName,$LOCALIZE[20387]) | SubString(Container.FolderPath,special://skin/playlists/) | SubString(Container.FolderPath,special://profile/playlists/) | SubString(Container.FolderPath,plugin://script.watchlist/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
+		<value condition="Container.PlexContent(episodes) + [SubString(Container.FolderName,$LOCALIZE[20387]) | SubString(Container.FolderPath,special://skin/playlists/) | SubString(Container.FolderPath,special://profile/playlists/) | SubString(Container.FolderPath,plugin://script.watchlist/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.TVShowTitle]$INFO[ListItem.Title,: ]</value>
 		<value condition="Container.Content(episodes) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<value condition="Container.Content(musicvideos) + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
 		<value condition="[SubString(Container.FolderPath,musicdb://singles/) | SubString(Container.FolderPath,musicdb://top100/songs/)] + !IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
@@ -222,7 +222,7 @@
 		<value condition="Container.PlexContent(Seasons) + !IsEmpty(ListItem.Property(UnWatchedEpisodes))">$INFO[ListItem.Property(UnWatchedEpisodes)] $VAR[global_EpisodeCount]</value>
 		<value condition="Container.PlexContent(Seasons)">$INFO[ListItem.Genre]</value>
 		<value condition="Container.PlexContent(Episodes)">$INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]$INFO[ListItem.Premiered, • ]$VAR[video_Type, • ]</value>
-		<value condition="Container.PlexContent(Episodes)">$LOCALIZE[20381]$INFO[ListItem.Episode, - ]$INFO[ListItem.Premiered, • ]$VAR[video_Type, • ]</value>
+		<value condition="Container.PlexContent(Episodes)">$INFO[ListItem.TVShowTitle] • $INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="Container.PlexContent(Episodes)">$INFO[ListItem.Date]$INFO[ListItem.Genre, • ]</value>
 		<value condition="Container.Content(musicvideos)">$INFO[ListItem.Artist]$INFO[ListItem.Album, • ]$VAR[video_Type, • ]</value>
 		<value condition="Container.Content(files) + !SubString(Container.FolderPath,plugin://)">$VAR[video_Type,, • ]$INFO[ListItem.Date]$INFO[ListItem.Size, • ]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]</value>
@@ -655,12 +655,12 @@
 	<variable name="videoinformation_Header">
 		<value condition="!IsEmpty(ListItem.Property(ReleaseDate))">$INFO[ListItem.Property(ReleaseDate)]</value>
 		<value condition="!IsEmpty(ListItem.Tagline)">$INFO[ListItem.Tagline]</value>
-		<value condition="Container.Content(movies) + IsEmpty(ListItem.Tagline)">$INFO[ListItem.Genre]</value>
-		<value condition="Container.Content(tvshows) + !IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)] ($INFO[Window(Home).Property(NextAired.AirTime)])</value>
-		<value condition="Container.Content(tvshows) + IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)]</value>
-		<value condition="Container.Content(episodes)">$INFO[ListItem.TVShowTitle] • $INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
+		<value condition="Container.PlexContent(Movie) + IsEmpty(ListItem.Tagline)">$INFO[ListItem.Genre]</value>
+		<value condition="Container.PlexContent(TVShows) + !IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)] ($INFO[Window(Home).Property(NextAired.AirTime)])</value>
+		<value condition="Container.PlexContent(TVShows) + IsEmpty(Window(Home).Property(NextAired.NextDate))">$INFO[Window(Home).Property(NextAired.Status)]</value>
+		<value condition="Container.PlexContent(Episode)">$INFO[ListItem.TVShowTitle] • $INFO[ListItem.Season,$LOCALIZE[20373] , - ]$INFO[ListItem.Episode,$LOCALIZE[20359] ]</value>
 		<value condition="Container.Content(musicvideos) + !Window.IsActive(videofiles)">$INFO[ListItem.Artist]</value>
-		<value condition="Container.Content(movies) + ListItem.IsFolder + Substring(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>
+		<value condition="Container.PlexContent(Movie) + ListItem.IsFolder + Substring(Container.FolderPath,videodb) + !IsEmpty(ListItem.Title)">$LOCALIZE[20338] $LOCALIZE[20141]</value>
 	</variable>
 
 	<variable name="videoinformation_Cast">
@@ -1080,5 +1080,10 @@
 	</variable>
 	<variable name="panel_strip">
 		<value condition="StringCompare(ListItem.MPAA,R)">R</value>
+	</variable>
+	<variable name="ItemStatus">
+    <value condition="ListItem.Status(Watched)">WaTcHeD</value>
+    <value condition="ListItem(0).Status(inprogress)">InProgress</value>
+    <value condition="ListItem(0).Status(unwatched)">Unwatched</value>
 	</variable>
 </includes>

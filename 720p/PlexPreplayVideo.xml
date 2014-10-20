@@ -1,17 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<window>
+<window id="10090">
+    <onload condition="Window.Previous(home)">Skin.SetString(preplay_helper,home)</onload>
+    <onload condition="Window.Previous(videolibrary)">Skin.SetString(preplay_helper,videolibrary)</onload>
+    <onload condition="Window.Previous(51)">Skin.SetString(preplay_helper,51)</onload>
+    <onload condition="Window.Previous(99)">Skin.SetString(preplay_helper,99)</onload>
     <defaultcontrol always="true">8000</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
+        <!-- Preplay Hack -->
+    <control type="button" id="8000">
+        <onfocus>Plex.PlayWith(VideoDefaultPlayer)</onfocus>
+        <visible>!Window.Previous(2005) + Skin.HasSetting(preplay_off)</visible>
+    </control>
+    <control type="button" id="8000">
+        <onfocus>ActivateWindow($INFO[Skin.String(preplay_helper)])</onfocus>
+        <visible>![ Window.Previous(videolibrary) | Window.Previous(home) | Window.Previous(51) | Window.Previous(99) ] + [ Skin.HasSetting(preplay_off) | Skin.HasSetting(preplay_after) ]</visible>
+    </control>
+
         <control type="group">
         <include>Animation_Window</include>
-    <animation effect="fade" start="100" end="0" time="300" condition="StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
+        <animation effect="fade" start="100" end="0" time="300" condition="StringCompare(Window.Property(script.metadata.actors.isactive),1)">Conditional</animation>
             <include>global_Background</include>
             <include>transition_Content</include>
             <!--images-->
             <control type="image">
-            <width>560</width>
-            <height>1080</height>
+            <posy>40</posy>
+            <posx>40</posx>
+            <width>435</width>
+            <height>640</height>
             <texture background="true">view/frame_dialogInfo_back.png</texture>
             <colordiffuse>190000000</colordiffuse>
             <aspectratio>stretch</aspectratio>
@@ -26,8 +42,8 @@
             <aspectratio>stretch</aspectratio>
             </control>
             <control type="group">
-            <posy>0</posy>
-            <posx>0</posx>
+            <posy>40</posy>
+            <posx>-22</posx>
                 <width>290</width>
                 <height>450</height>
 
@@ -47,21 +63,21 @@
                     <effect type="slide" start="0,-230" end="0" time="150" tween="quadratic" easing="in"/>
                     <effect type="fade" start="-100" end="0" time="250"/>
                     </animation>
-                    <visible allowhiddenfocus="true">!Control.HasFocus(50)</visible>
+                    <visible>false</visible>
                      </control>
                 <control type="image">
                 <width>290</width>
                 <height>42</height>
-                    <texture>thumbs/default_Portrait.png</texture>
+
                     <aspectratio>scale</aspectratio>
                 </control>
                 <control type="group">
                     <visible>!Control.HasFocus(50)</visible>
                     <control type="image">
                         <width>560</width>
-                        <height>720</height>
+                        <height>640</height>
                         <texture background="true">$VAR[thumb_Portrait]</texture>
-                        <aspectratio>scale</aspectratio>
+                        <aspectratio>keep</aspectratio>
                         <visible>true</visible>
                     </control>
                         <control type="image">
@@ -116,18 +132,18 @@
 
             <!--header-->
                 <control type="group">
-                <posx>580</posx>
-                <posy>60</posy>
+                <posx>520</posx>
+                <posy>30</posy>
                 <control type="label">
                     <width>650</width>
                     <height>27</height>
-                    <label>$INFO[ListItem.Title]</label>
+                    <label>$INFO[ListItem.Title] ($INFO[ListItem.Year])</label>
                     <include>detail_Header</include>
                 </control>
                 <control type="label">
                     <label>$VAR[videoinformation_Header]</label>
                     <width>650</width>
-                    <posy>30</posy>
+                    <posy>25</posy>
                     <height>50</height>
                     <include>detail_Sub</include>
                 </control>
@@ -136,9 +152,10 @@
                 <control type="grouplist" id="1000">
                     <orientation>vertical</orientation>
                     <posy>120</posy>
-                    <posx>580</posx>
+                    <posx>520</posx>
                     <height>320</height>
                     <itemgap>0</itemgap>
+                    <!--visible>!Control.HasFocus(3)</visible-->
                     <control type="group">
                         <width>650</width>
                         <height>24</height>
@@ -150,18 +167,18 @@
                             <include>autoscroll_Line</include>
                         </control>
                     </control>
-                    <!--episode count-->
+                    <!--episode count>
                     <control type="group">
                         <width>720</width>
                         <height>22</height>
                         <visible>Container.PlexContent(Episode)</visible>
                         <control type="label">
                             <width>720</width>
-                            <label>$LOCALIZE[20360] [COLOR=Color1]$INFO[ListItem.Episode] ($INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101])[/COLOR]</label>
+                            <label>Episode [COLOR=Color1]$INFO[ListItem.Episode] ($INFO[ListItem.Property(UnWatchedEpisodes)] $LOCALIZE[16101])[/COLOR]</label>
                             <include>detail_Sub</include>
                             <include>autoscroll_Line</include>
                         </control>
-                    </control>
+                    </control-->
                     <!--next air date-->
                     <control type="group">
                         <width>720</width>
@@ -231,6 +248,17 @@
                         <control type="label">
                             <width>600</width>
                             <label>$LOCALIZE[20339] [COLOR=Color1]$INFO[ListItem.Director][/COLOR]</label>
+                            <include>detail_Sub</include>
+                            <include>autoscroll_Line</include>
+                        </control>
+                    </control>
+                        <control type="group">
+                        <width>700</width>
+                        <height>22</height>
+                        <visible>!IsEmpty(ListItem.Director)</visible>
+                        <control type="label">
+                            <width>700</width>
+                            <label>Cast [COLOR=Color1]$INFO[ListItem.Cast][/COLOR]</label>
                             <include>detail_Sub</include>
                             <include>autoscroll_Line</include>
                         </control>
@@ -380,11 +408,12 @@
                 </control>
                 <!--button area-->
                 <control type="grouplist" id="8000">
-                <posy>300</posy>
-                <posx>580</posx>
+                <posy>290</posy>
+                <posx>520</posx>
                     <height>45</height>
                     <width>910</width>
                     <itemgap>5</itemgap>
+                    <!--visible>!Control.HasFocus(3)</visible-->
                     <orientation>horizontal</orientation>
                     <!--play-->
                     <control type="group">
@@ -392,104 +421,57 @@
                         <visible>!Container.Content(tvshows)</visible>
                         <control type="button" id="8001">
                             <label>$LOCALIZE[208]</label>
-                            <onclick>Plex.PlayWith(VideoDefaultPlayer)</onclick>            <onleft>8010</onleft>
+                            <onclick>Plex.PlayWith(VideoDefaultPlayer)</onclick>            <onleft>8005</onleft>
                             <onright>8002</onright>
                             <include>column_Button</include>
                         </control>
                     </control>
-                    <!--cinema-->
+                    <!--Audio-->
                     <control type="group">
                         <width>125</width>
-                        <visible>Container.Content(movies) + System.HasAddon(script.cinema.experience) + !SubString(ListItem.Path,plugin://)</visible>
+                        <visible></visible>
                         <control type="button" id="8002">
-                            <label>Cinema</label>
-                            <onclick>Dialog.Close(MovieInformation)</onclick>
-                            <onclick>Playlist.Clear</onclick>
-                            <onclick>XBMC.RunScript(script.cinema.experience,movieid=$INFO[ListItem.DBID])</onclick>
+                            <label>Audio</label>
+                            <onclick>ActivateWindow(10205)</onclick>
                             <onleft>8001</onleft>
                             <onright>8003</onright>
                             <include>column_Button</include>
                         </control>
                     </control>
-                    <!--browse-->
+                    <!--Subs-->
                     <control type="group">
                         <width>125</width>
-                        <visible>Container.Content(tvshows)</visible>
+                        <visible></visible>
                         <control type="button" id="8003">
-                            <label>$LOCALIZE[1024]</label>
-                            <onclick>SendClick(2003,8)</onclick>
+                            <label>Subtitles</label>
+                            <onclick>ActivateWindow(10204)</onclick>
                             <onleft>8002</onleft>
                             <onright>8004</onright>
                             <include>column_Button</include>
                         </control>
                     </control>
-                    <!--cast/artists-->
+                    <!--Extras Button-->
                     <control type="group">
                         <width>125</width>
+                        <visible>!IsEmpty(ListItem.Property(PlexExtras))</visible>
                         <control type="button" id="8004">
-                            <label>$VAR[videoinformation_Cast]</label>
-                            <onclick>SendClick(2003,5)</onclick>
-                            <ondown>50</ondown>
+                            <label>Extras</label>
+                            <onclick>SetFocus(3)</onclick>
                             <onleft>8003</onleft>
                             <onright>8005</onright>
+                            <ondown>8004</ondown>
                             <include>column_Button</include>
                         </control>
                     </control>
-                    <!--trailer-->
-                    <control type="group">
-                        <width>125</width>
-                        <visible>!IsEmpty(ListItem.Trailer)</visible>
-                        <control type="button" id="8005">
-                            <label>$LOCALIZE[20410]</label>
-                            <onclick>SendClick(2003,11)</onclick>
-                            <onleft>8004</onleft>
-                            <onright>8006</onright>
-                            <include>column_Button</include>
-                        </control>
-                    </control>
-                    <!--Video Extras-->
-                    <control type="group">
-                        <width>125</width>
-                            <control type="button" id="8006">
-                            <label>Video Extras</label>
-                            <onclick>XBMC.RunScript(script.videoextras,display,"$INFO[ListItem.FilenameAndPath]")</onclick>
-                            <onleft>8005</onleft>
-                            <onright>8007</onright>
-                            <include>column_Button</include>
-                        </control>
-                    </control>
-                    <!--Metadata-->
-                    <control type="group">
-                        <width>125</width>
-                        <visible>System.HasAddon(script.metadata.actors) + Skin.HasSetting(metadataactor.enable)</visible>
-                        <control type="button" id="8007">
-                            <label>Actor</label>
-                            <onclick>RunScript(script.metadata.actors,$INFO[Container(50).Listitem.Label])</onclick>
-                           <include>column_Button</include>
-                            <onleft>8006</onleft>
-                            <onright>8008</onright>
-                        </control>
-                    </control>
-                    <control type="group">
-                        <width>125</width>
-                        <visible>System.HasAddon(script.metadata.actors) + Skin.HasSetting(metadataactor.enable)</visible>
-                            <control type="button" id="8008">
-                            <label>Director / Writer</label>
-                            <onclick>ActivateWindow(67)</onclick>
-                            <include>column_Button</include>
-                            <onleft>8007</onleft>
-                            <onright>8010</onright>
-                        </control>
-                    </control>
-                    <!--manage-->
+                    <!--Rate-->
                     <control type="group">
                         <width>125</width>
                         <visible>!SubString(Container.FolderPath,plugin://) + !Skin.HasSetting(global.kiosk)</visible>
-                        <control type="button" id="8010">
-                            <label>$LOCALIZE[16106]</label>
-                            <onclick>ActivateWindow(62)</onclick>
+                        <control type="button" id="8005">
+                            <label>Rate</label>
+                            <onclick>ActivateWindow(10200,$INFO[ListItem(0).Path])</onclick>
                             <include>column_Button</include>
-                            <onleft>8008</onleft>
+                            <onleft>8004</onleft>
                             <onright>8001</onright>
                         </control>
                     </control>
@@ -502,79 +484,154 @@
                 </control>
                 <!--plot-->
                 <control type="textbox" id="400">
-                <posy>370</posy>
-                <posx>580</posx>
-                    <width>550</width>
-                    <height>280</height>
+                <posy>350</posy>
+                <posx>520</posx>
+                    <width>640</width>
+                    <height>300</height>
                     <align>justify</align>
                     <label>$INFO[ListItem.Plot]</label>
                     <include>detail_Text</include>
-                    <visible allowhiddenfocus="true">![Control.HasFocus(8004) | Control.HasFocus(50)]</visible>
-                </control>
-                <!--cast list-->
-                <control type="list" id="50">
-                <posy>475</posy>
-                <posx>320</posx>
-                    <width>550</width>
-                    <height>176</height>
-                    <onback>8004</onback>
-                    <onleft>8003</onleft>
-                    <onright>8005</onright>
-                    <onup>50</onup>
-                    <ondown>50</ondown>
-                    <include>global_ListScroll</include>
-                    <visible allowhiddenfocus="true">Control.HasFocus(8004) | Control.HasFocus(50)</visible>
-                    <itemlayout height="44">
-                        <control type="image">
-                            <width>550</width>
-                            <include>column_ListButton</include>
-                        </control>
-                        <control type="label">
-                            <posx>15</posx>
-                            <width>550</width>
-                            <label>$INFO[ListItem.Label]</label>
-                            <include>column_ListButtonLabel</include>
-                        </control>
-                    </itemlayout>
-                    <focusedlayout height="44">
-                        <control type="group">
-                            <visible>Control.HasFocus(8004)</visible>
-                            <control type="image">
-                                <width>550</width>
-                                <include>column_ListButton</include>
-                            </control>
-                            <control type="label">
-                                <width>550</width>
-                                <label>$INFO[ListItem.Label]</label>
-                                <textoffsetx>15</textoffsetx>
-                                <include>column_ListButtonLabel</include>
-                            </control>
-                        </control>
-                        <control type="group">
-                            <visible>!Control.HasFocus(8004)</visible>
-                            <control type="image">
-                            <width>550</width>
-                                <include>column_ListButtonFocus</include>
-                            </control>
-                            <control type="label">
-                                <width>550</width>
-                                <label>$INFO[ListItem.Label]</label>
-                                <textoffsetx>15</textoffsetx>
-                                <textcolor>Color5</textcolor>
-                                <include>column_ListButtonLabel</include>
-                            </control>
-                        </control>
-                    </focusedlayout>
+                    <visible allowhiddenfocus="true">![Control.HasFocus(3) | Control.HasFocus(50)]</visible>
                 </control>
 
+<!-- Extras -->
+        <control type="group">
+            <posx>480</posx>
+            <posy>330</posy>
+            <visible>Control.HasFocus(3)</visible>
+
+            <!-- Animations -->
+
+
+            <!-- Extras Panel -->
+            <control type="panel" id="3">
+                <width>800</width>
+                <height>380</height>
+                <scrolltime>200</scrolltime>
+                <onleft>8004</onleft>
+                <onright>8004</onright>
+                <onup>8004</onup>
+                <ondown>8004</ondown>
+                <pagecontrol>-</pagecontrol>
+
+                <itemlayout width="260" height="200">
+
+                    <!-- Thumb -->
+                    <control type="image">
+                        <posx>20</posx>
+                        <posy>20</posy>
+                        <width>220</width>
+                        <height>130</height>
+                        <texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+                        <bordertexture>frames/frame_Square_clear.png</bordertexture>
+                        <bordersize>6</bordersize>
+                        <aspectratio>keep</aspectratio>
+                    </control>
+
+                    <!-- Extra #1 -->
+                    <control type="label">
+                        <posx>130</posx>
+                        <posy>160</posy>
+                        <width>220</width>
+                        <height>15</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>SearchResultSmaller</font>
+                        <textcolor>FFDDDDDD</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+
+                    <!-- Extra #2 -->
+                    <control type="label">
+                        <posx>130</posx>
+                        <posy>180</posy>
+                        <width>220</width>
+                        <height>15</height>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                        <font>SearchResultSmaller</font>
+                        <textcolor>FFDDDDDD</textcolor>
+                        <label>$INFO[ListItem.Property(extraTypeStr)][COLOR=mainblue] / [/COLOR]$INFO[ListItem.DurationStr]</label>
+                    </control>
+
+
+                </itemlayout>
+
+                <focusedlayout width="260" height="200">
+
+                    <control type="group">
+                        <animation effect="zoom" reversible="false" center="auto" start="100" end="110" time="300" tween="back" easing="out">Focus</animation>
+
+                        <!-- Thumb -->
+                        <control type="image">
+                            <posx>20</posx>
+                            <posy>20</posy>
+                            <width>220</width>
+                            <height>130</height>
+                            <texture background="true">$INFO[ListItem.Art(thumb)]</texture>
+                            <bordertexture>frames/frame_Square-border_clear_inside.png</bordertexture>
+                            <bordersize>6</bordersize>
+                            <aspectratio>keep</aspectratio>
+                        </control>
+
+                        <!-- Extra #1 -->
+                        <control type="label">
+                            <posx>130</posx>
+                            <posy>160</posy>
+                            <width>220</width>
+                            <height>15</height>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <font>SearchResultSmaller</font>
+                            <include>navigation_options_accent</include>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+
+                        <!-- Extra #2 -->
+                        <control type="label">
+                            <posx>130</posx>
+                            <posy>1800</posy>
+                            <width>220</width>
+                            <height>15</height>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <font>SearchResultSmaller</font>
+                            <textcolor>FFFFFFFF</textcolor>
+                            <label>$INFO[ListItem.Property(extraTypeStr)][COLOR=mainblue] / [/COLOR]$INFO[ListItem.DurationStr]</label>
+                        </control>
+
+                        <!-- Play Image -->
+                        <control type="image">
+                            <posx>20</posx>
+                            <posy>20</posy>
+                            <width>220</width>
+                            <height>130</height>
+                            <texture background="true">icons/li-defaultVideo.png</texture>
+                            <aspectratio scalediffuse="false">center</aspectratio>
+                        </control>
+                        <control type="image">
+                            <posx>20</posx>
+                            <posy>20</posy>
+                            <width>220</width>
+                            <height>130</height>
+                            <texture background="true">icons/li-defaultVideo.png</texture>
+                            <aspectratio scalediffuse="false">center</aspectratio>
+                        </control>
+
+                    </control>
+                </focusedlayout>
+            </control>
+
+        </control>
             <!--flags-->
             <control type="grouplist" id="100">
                 <posx>580</posx>
-                <posy>650</posy>
+                <posy>640</posy>
                 <width>900</width>
                 <height>50</height>
                 <itemgap>10</itemgap>
                 <orientation>horizontal</orientation>
+                <visible>!Control.HasFocus(3)</visible>
                 <control type="image">
                     <width>100</width>
                     <height>50</height>
