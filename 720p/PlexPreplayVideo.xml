@@ -435,6 +435,7 @@
                             <onclick>ActivateWindow(10205)</onclick>
                             <onleft>8001</onleft>
                             <onright>8003</onright>
+                            <ondown>ActivateWindow(10205)</ondown>
                             <include>column_Button</include>
                         </control>
                     </control>
@@ -447,6 +448,7 @@
                             <onclick>ActivateWindow(10204)</onclick>
                             <onleft>8002</onleft>
                             <onright>8004</onright>
+                            <ondown>ActivateWindow(10205)</ondown>
                             <include>column_Button</include>
                         </control>
                     </control>
@@ -459,7 +461,8 @@
                             <onclick>SetFocus(3)</onclick>
                             <onleft>8003</onleft>
                             <onright>8005</onright>
-                            <ondown>8004</ondown>
+                            <ondown>SetFocus(3)</ondown>
+                            <onup>8004</onup>
                             <include>column_Button</include>
                         </control>
                     </control>
@@ -625,7 +628,7 @@
         </control>
             <!--flags-->
             <control type="grouplist" id="100">
-                <posx>580</posx>
+                <posx>520</posx>
                 <posy>640</posy>
                 <width>900</width>
                 <height>50</height>
@@ -669,7 +672,7 @@
                 <control type="image">
                     <width>86</width>
                     <height>650</height>
-                    <texture>$VAR[flag_Studio]</texture>
+                    <texture>$INFO[Listitem.Property(mediaTag-studio),flags/studios/,.png]</texture>
                     <aspectratio align="center">keep</aspectratio>
                     <visible>true</visible>
                 </control>
