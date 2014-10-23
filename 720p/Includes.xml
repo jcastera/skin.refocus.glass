@@ -12,6 +12,7 @@
 	<include file="IncludesHomeNewLists.xml" />
 	<include file="IncludesSearch.xml" />
 	<include file="Menu.xml" />
+	<include file="Includes_MyVideoNav.xml" />
 	<include file="Variables.xml" />
 	<include file="ViewBanner.xml" /><!--(541)-(632)-(54)-->
 	<include file="ViewGallery.xml" /><!--(53)-(531)-(532)-(533)-(534)-->
@@ -690,14 +691,14 @@
 		<height>48</height>
 	</include>
 	<include name="player_Controls-commons">
-		<control type="image">
+		<!--control type="image">
 			<width>322</width>
 			<height>60</height>
 			<texture border="20,0,20,1">dialogs/frame/menu_player.png</texture>
-		</control>
+		</control-->
 		<control type="grouplist" id="700">
 			<posx>7</posx>
-			<posy>8</posy>
+			<posy>298</posy>
 			<onup>613</onup>
 			<ondown>601</ondown>
 			<itemgap>4</itemgap>
@@ -724,7 +725,7 @@
 				<texturenofocus>player/prev-nf.png</texturenofocus>
 				<include>player_Button</include>
 				<onclick>PlayerControl(Previous)</onclick>
-				<visible>!VideoPlayer.Content(LiveTV)</visible>
+
 			</control>
 			<!--rewind-->
 			<control type="button" id="704">
@@ -769,7 +770,7 @@
 				<texturenofocus>player/next-nf.png</texturenofocus>
 				<include>player_Button</include>
 				<onclick>PlayerControl(Next)</onclick>
-				<visible>!VideoPlayer.Content(LiveTV)</visible>
+
 			</control>
 			<!--record-->
 			<control type="togglebutton" id="709">
@@ -823,7 +824,7 @@
 					<midtexture>player/progress_Background.png</midtexture>
 					<colordiffuse>Color2</colordiffuse>
 					<righttexture>-</righttexture>
-					<info>Player.ProgressCache</info>
+					<info>Player.Progress</info>
 				</control>
 				<control type="slider">
 					<width>1075</width>

@@ -13,7 +13,7 @@
 			<animation effect="fade" start="400" end="50" time="350" condition="Window.IsActive(virtualkeyboard)">Conditional</animation>
 			<control type="image">
 				<width>400</width>
-				<height>220</height>
+				<height>270</height>
 				<include>dialog_Window</include>
 			</control>
 			<control type="label" id="1">
@@ -30,7 +30,7 @@
 				</control>
 				<control type="list" id="3">
 					<width>800</width>
-					<height>480</height>
+					<height>270</height>
 					<onleft>5</onleft>
 					<onright>5</onright>
 					<onup>3</onup>

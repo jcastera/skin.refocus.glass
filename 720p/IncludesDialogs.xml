@@ -21,7 +21,8 @@
 	</include>
 
 	<include name="dialog_Menu">
-		<texture border="20">dialogs/frame/menu.png</texture>
+		<texture border="20">button.png</texture>
+		<colordiffuse>accent_5</colordiffuse>
 	</include>
 	<include name="dialog_Menu2">
 		<texture border="20">dialogs/frame/menu.png</texture>
@@ -60,7 +61,7 @@
 		<textcolor>Color4</textcolor>
 		<focusedcolor>Color1</focusedcolor>
 		<selectedcolor>Selected</selectedcolor>
-		<texturefocus border="3">dialogs/select-fo.png</texturefocus>
+		<texturefocus border="3">button.png</texturefocus>
 		<texturenofocus border="3">dialogs/select-nf.png</texturenofocus>
 		<alttexturefocus border="3">dialogs/select-fo.png</alttexturefocus>
 		<alttexturenofocus border="3">dialogs/select-nf.png</alttexturenofocus>

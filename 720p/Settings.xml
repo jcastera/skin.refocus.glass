@@ -76,7 +76,7 @@
 						<width>80</width>
 						<height>80</height>
 						<info>ListItem.Icon</info>
-						<colordiffuse>base_1</colordiffuse>
+						<colordiffuse>base_2</colordiffuse>
 					</control>
 					<control type="label">
 						<posx>110</posx>
@@ -84,7 +84,7 @@
 						<width>410</width>
 						<height>40</height>
 						<font>light_Category</font>
-						<textcolor>Color16</textcolor>
+						<textcolor>base_2</textcolor>
 						<label>$INFO[ListItem.Label]</label>
 					</control>
 					<control type="label">
@@ -93,7 +93,7 @@
 						<width>410</width>
 						<height>34</height>
 						<label>$INFO[ListItem.Label2]</label>
-						<textcolor>Color16</textcolor>
+						<textcolor>base_4</textcolor>
 						<include>detail_Sub</include>
 					</control>
 				</focusedlayout>

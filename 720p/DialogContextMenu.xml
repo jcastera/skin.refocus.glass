@@ -6,12 +6,12 @@
 		<system>1</system>
 		<posx>0</posx>
 		<posy>0</posy>
-		<origin x="485" y="100" />
+		<origin x="520" y="350" />
 	</coordinates>
 	<controls>
 		<control type="image" id="995">
-			<width>310</width>
-			<height>350</height>
+			<width>350</width>
+			<height>115</height>
 			<include>dialog_Menu</include>
 		</control>
 		<control type="image">
@@ -23,23 +23,9 @@
 		<control type="grouplist" id="996">
 			<posx>4</posx>
 			<posy>18</posy>
-			<width>302</width>
-			<height min="40" max="580">auto</height>
+			<width>auto</width>
+			<height>auto</height>
 			<itemgap>0</itemgap>
-			<control type="button" id="997">
-				<width>302</width>
-				<label>$LOCALIZE[20410]</label>
-				<onclick>PlayMedia($ESCINFO[ListItem.Trailer])</onclick>
-				<include>dialog_ControlCommons</include>
-				<visible>Container.Content(movies) + !IsEmpty(ListItem.Trailer)</visible>
-			</control>
-			<control type="button" id="998">
-			<width>302</width>
-        <label>Information $INFO[ListItem.Label]</label>
-        <onclick>RunScript(script.metadata.actors,$INFO[ListItem.Label])</onclick>
-        <include>dialog_ControlCommons</include>
-		<visible>System.HasAddon(script.metadata.actors) + [Container.Content(actors)]</visible>
-    </control>
 	</control>
 		<!--default button-->
 		<control type="button" id="1000">
