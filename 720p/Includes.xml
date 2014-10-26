@@ -12,7 +12,7 @@
 	<include file="IncludesHomeNewLists.xml" />
 	<include file="IncludesSearch.xml" />
 	<include file="Menu.xml" />
-	<include file="Includes_MyVideoNav.xml" />
+	<include file="LeftSideMenu.xml" />
 	<include file="Variables.xml" />
 	<include file="ViewBanner.xml" /><!--(541)-(632)-(54)-->
 	<include file="ViewGallery.xml" /><!--(53)-(531)-(532)-(533)-(534)-->

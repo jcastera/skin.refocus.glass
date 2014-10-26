@@ -12,6 +12,7 @@
 		<animation type="Conditional" reversible="true" condition="ControlGroup(6000).HasFocus() | ControlGroup(4000).HasFocus() | Control.HasFocus(7000)">
 			<effect type="slide" time="350" start="0" end="262" tween="Quadratic" easing="Out" />
 		</animation>
+		<visible>!ControlGroup(1300).HasFocus()</visible>
 		<include>transition_Content</include>
 		<include>transition_Info</include>
 		<visible>!Skin.HasSetting(global.kiosk)</visible>
@@ -20,7 +21,7 @@
 		<posy>45</posy>
 		<width>270</width>
 		<height>670</height>
-		<onleft>SetFocus(1400)</onleft>
+		<onleft>Control.SetFocus(1300)</onleft>
 		<onright>50</onright>
 		<onup>6000</onup>
 		<ondown>6000</ondown>

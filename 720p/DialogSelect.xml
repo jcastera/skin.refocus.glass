@@ -15,20 +15,37 @@
 				<width>400</width>
 				<height>270</height>
 				<include>dialog_Window</include>
+				<visible>Control.HasFocus(3)</visible>
+			</control>
+			<control type="image">
+				<posx>-140</posx>
+				<posy>-200</posy>
+				<width>835</width>
+				<height>400</height>
+				<include>dialog_Window2</include>
+				<visible>!Control.HasFocus(3)</visible>
 			</control>
 			<control type="label" id="1">
 				<width>400</width>
 				<scroll>true</scroll>
 				<include>dialog_Windowtitle</include>
+				<visible>Window.IsActive(plexaudiopicker) | Window.IsActive(plexsubtitlepicker)</visible>
+			</control>
+			<control type="label" id="11">
+				<width>400</width>
+				<scroll>true</scroll>
+				<include>dialog_Windowtitle2</include>
+				<visible>![Window.IsActive(plexaudiopicker) | Window.IsActive(plexsubtitlepicker)]</visible>
 			</control>
 			<control type="group">
 				<posx>15</posx>
 				<posy>60</posy>
-				<control type="image">
-					<width>400</width>
-					<include>dialog_Separator</include>
-				</control>
-				<control type="list" id="3">
+			 <control type="image">
+				<width>400</width>
+				<include>dialog_Separator</include>
+			 </control>
+
+			<control type="list" id="3">
 					<width>800</width>
 					<height>270</height>
 					<onleft>5</onleft>
@@ -61,103 +78,104 @@
 				</control>
 
 				<control type="list" id="6">
-					<posy>1</posy>
-					<width>825</width>
-					<height>504</height>
+					<posy>-200</posy>
+					<posx>-140</posx>
+					<width>835</width>
+					<height>320</height>
 					<onleft>5</onleft>
 					<onright>5</onright>
 					<onup>6</onup>
 					<ondown>6</ondown>
 					<include>global_ListScroll</include>
-					<itemlayout width="825" height="220">
+					<itemlayout width="835" height="80">
 						<control type="image">
-							<width>780</width>
-							<height>210</height>
+							<width>815</width>
+							<height>80</height>
 							<include>dialog_CommonList</include>
 						</control>
 						<control type="image">
-							<posx>230</posx>
-							<height>210</height>
+							<posx>75</posx>
+							<height>80</height>
 							<include>dialog_Separator-y</include>
 						</control>
 						<control type="image">
-							<width>200</width>
-							<height>200</height>
+							<width>80</width>
+							<height>80</height>
 							<texture>$INFO[ListItem.Art(thumb)]</texture>
 							<aspectratio align="center">keep</aspectratio>
 							<visible>!IsEmpty(ListItem.Art(thumb))</visible>
 						</control>
 						<control type="image">
-							<width>200</width>
-							<height>210</height>
+							<width>80</width>
+							<height>80</height>
 							<texture>$INFO[ListItem.Icon]</texture>
 							<colordiffuse>Color4</colordiffuse>
 							<aspectratio align="center">keep</aspectratio>
 							<visible>IsEmpty(ListItem.Art(thumb))</visible>
 						</control>
 						<control type="group">
-							<posx>220</posx>
+							<posx>90</posx>
 							<posy>7</posy>
 							<control type="label">
-								<width>600</width>
+								<width>300</width>
 								<label>[B]$INFO[ListItem.Label][/B]</label>
 								<include>dialog_CommonListItem</include>
 							</control>
 							<control type="label">
 								<posy>25</posy>
-								<width>600</width>
+								<width>800</width>
 								<label>$INFO[ListItem.Label2,, • ]$INFO[ListItem.Property(Addon.Creator),$LOCALIZE[31144] ]</label>
 								<include>dialog_CommonListItem</include>
 								<visible>!IsEmpty(ListItem.Property(Addon.Creator))</visible>
 							</control>
 							<control type="label">
 								<posy>25</posy>
-								<width>600</width>
+								<width>800</width>
 								<label>$INFO[ListItem.Label2]</label>
 								<include>dialog_CommonListItem</include>
 								<visible>IsEmpty(ListItem.Property(Addon.Creator))</visible>
 							</control>
 						</control>
 					</itemlayout>
-					<focusedlayout width="825" height="220">
+					<focusedlayout width="835" height="80">
 						<control type="image">
-							<width>780</width>
-							<height>210</height>
+							<width>800</width>
+							<height>80</height>
 							<include>dialog_CommonListFocus</include>
 						</control>
 						<control type="image">
-							<width>200</width>
-							<height>200</height>
+							<width>80</width>
+							<height>80</height>
 							<texture>$INFO[ListItem.Art(thumb)]</texture>
 							<aspectratio align="center">keep</aspectratio>
 							<visible>!IsEmpty(ListItem.Art(thumb))</visible>
 						</control>
 						<control type="image">
-							<width>200</width>
-							<height>210</height>
+							<width>80</width>
+							<height>80</height>
 							<texture>$INFO[ListItem.Icon]</texture>
 							<colordiffuse>Color1</colordiffuse>
 							<aspectratio align="center">keep</aspectratio>
 							<visible>IsEmpty(ListItem.Art(thumb))</visible>
 						</control>
 						<control type="group">
-							<posx>220</posx>
+							<posx>90</posx>
 							<posy>7</posy>
 							<control type="label">
-								<width>600</width>
+								<width>300</width>
 								<label>[B]$INFO[ListItem.Label][/B]</label>
 								<include>dialog_CommonListItemFocus</include>
 							</control>
 							<control type="label">
 								<posy>25</posy>
-								<width>600</width>
+								<width>800</width>
 								<label>$INFO[ListItem.Label2,, • ]$INFO[ListItem.Property(Addon.Creator),$LOCALIZE[31144] ]</label>
 								<include>dialog_CommonListItemFocus</include>
 								<visible>!IsEmpty(ListItem.Property(Addon.Creator))</visible>
 							</control>
 							<control type="label">
 								<posy>25</posy>
-								<width>600</width>
+								<width>800</width>
 								<label>$INFO[ListItem.Label2]</label>
 								<include>dialog_CommonListItemFocus</include>
 								<visible>IsEmpty(ListItem.Property(Addon.Creator))</visible>

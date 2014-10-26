@@ -4,7 +4,10 @@
 		<texture border="10">button.png</texture>
 		<colordiffuse>accent_5</colordiffuse>
 	</include>
-
+	<include name="dialog_Window2">
+		<texture border="10">button.png</texture>
+		<colordiffuse>accent_5</colordiffuse>
+	</include>
 	<include name="dialog_Separator">
 		<height>1</height>
 		<texture>dialogs/separator/horizontal.png</texture>
@@ -31,6 +34,16 @@
 
 <!--window-->
 	<include name="dialog_Windowtitle">
+		<posx>4</posx>
+		<posy>5</posy>
+		<font>light_Dialog</font>
+		<align>center</align>
+		<aligny>center</aligny>
+		<height>51</height>
+		<textcolor>Color3</textcolor>
+		<scroll>false</scroll>
+	</include>
+	<include name="dialog_Windowtitle2">
 		<posx>4</posx>
 		<posy>5</posy>
 		<font>light_Dialog</font>
@@ -230,15 +243,9 @@
 		<texturefocus>dialogs/inline/down-fo.png</texturefocus>
 	</include>
 
-<!--pvr-->
-	<include name="dialog_PVRstatus">
-		<width>22</width>
-		<height>22</height>
-		<colordiffuse>Color4</colordiffuse>
-	</include>
-	<include name="dialog_PVRstatus-focus">
-		<width>22</width>
-		<height>22</height>
-		<colordiffuse>Color1</colordiffuse>
+<!--DialogFilters-->
+	<include name="DialogFadeInOut">
+		<animation effect="fade" time="300">WindowOpen</animation>
+		<animation effect="fade" time="100">WindowClose</animation>
 	</include>
 </includes>
