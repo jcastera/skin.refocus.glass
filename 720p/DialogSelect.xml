@@ -31,11 +31,11 @@
 				<include>dialog_Windowtitle</include>
 				<visible>Window.IsActive(plexaudiopicker) | Window.IsActive(plexsubtitlepicker)</visible>
 			</control>
-			<control type="label" id="11">
+			<control type="label" id="1">
 				<width>400</width>
 				<scroll>true</scroll>
 				<include>dialog_Windowtitle2</include>
-				<visible>![Window.IsActive(plexaudiopicker) | Window.IsActive(plexsubtitlepicker)]</visible>
+				<visible>true</visible>
 			</control>
 			<control type="group">
 				<posx>15</posx>

@@ -133,7 +133,7 @@
 			<posy>110</posy>
 			<width>1272</width>
 			<height>425</height>
-			<onup>6000</onup>
+			<onup>1300</onup>
 			<ondown condition="!Window.IsVisible(52)">8000</ondown>
 			<ondown condition="Window.IsVisible(52)">71</ondown>
 			<onleft>52</onleft>

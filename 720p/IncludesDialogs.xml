@@ -1,5 +1,6 @@
 <includes>
 <!--textures-->
+
 	<include name="dialog_Window">
 		<texture border="10">button.png</texture>
 		<colordiffuse>accent_5</colordiffuse>

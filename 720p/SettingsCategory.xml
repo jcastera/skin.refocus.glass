@@ -46,6 +46,7 @@
 				<onup>5</onup>
 				<ondown>5</ondown>
 				<pagecontrol>70</pagecontrol>
+				<visible>!Window.IsActive(selectdialog)</visible>
 			</control>
 		</control>
 

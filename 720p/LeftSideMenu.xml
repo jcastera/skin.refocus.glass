@@ -9,6 +9,12 @@
         <animation effect="slide" start="0" end="-246" time="500" condition="ControlGroup(1300).HasFocus()">WindowClose</animation>
         <animation effect="slide" start="0" end="-246" time="500" condition="ControlGroup(1300).HasFocus() + Container.PlexContent(Secondary)">Conditional</animation>
     </include>
+    <include name="leftMenuSlide2">
+
+        <animation effect="slide" start="0" end="320" time="500" condition="ControlGroup(998).HasFocus() | ControlGroup(1300).HasFocus()">Conditional</animation>
+        <animation effect="slide" start="0" end="-320" time="500" condition="ControlGroup(998).HasFocus() | ControlGroup(1300).HasFocus()">WindowClose</animation>
+        <animation effect="slide" start="0" end="-320" time="500" condition="[ControlGroup(998).HasFocus() | ControlGroup(1300).HasFocus()] + Container.PlexContent(Secondary)">Conditional</animation>
+    </include>
     <include name="leftMenuSlideHome">
         <animation effect="slide" start="0" end="317" time="500" condition="ControlGroup(1300).HasFocus()">Conditional</animation>
         <animation effect="slide" start="0" end="-317" time="500" condition="ControlGroup(1300).HasFocus()">WindowClose</animation>
@@ -20,131 +26,90 @@
         <animation effect="slide" start="0" end="-390" time="500" condition="ControlGroup(1300).HasFocus() + Container.PlexContent(Secondary)">Conditional</animation>
     </include>
     <include name="rightSideSlide">
-        <include>leftMenuSlide</include>
-        <animation effect="fade" start="100" end="50" time="300" condition="ControlGroup(1300).HasFocus()">Conditional</animation>
+        <!--<include>leftMenuSlide2</include>-->
+        <animation effect="zoom" start="100" end="62" time="500"  center="1067,360" condition="ControlGroup(1300).HasFocus() | ControlGroup(998).HasFocus()">Conditional</animation>
+        <animation effect="fade" start="100" end="80" time="300" condition="ControlGroup(1300).HasFocus() | ControlGroup(998).HasFocus()">Conditional</animation>
     </include>
+    <include name="rightSideSlideExtras">
+        <animation effect="slide" start="0" end="320" time="500" condition="Control.HasFocus(3)">Conditional</animation>
+        <animation effect="slide" start="0" end="-320" time="500" condition="Control.HasFocus(3)">WindowClose</animation>
+        <animation effect="fade" start="100" end="50" time="300" condition="Control.HasFocus(3)">Conditional</animation>
+    </include>
+
     <include name="leftMenuBg">
         <control type="group">
             <posy>0</posy>
             <!-- Background -->
+            <!--
             <control type="image">
-                <posx>-253</posx>
+                <posx>-327</posx>
                 <height>720</height>
-                <width>270</width>
-                <texture background="true">white.png</texture>
-                <colordiffuse>base_2</colordiffuse>
+                <width>327</width>
+                <include>Black</include>
                 <animation type="Conditional" condition="true">
                     <effect type="fade" start="0" end="75"/>
                 </animation>
             </control>
-            <!--><control type="image">
-                <posy>41</posy>
-                <posx>25</posx>
-                <width>24</width>
-                <height>24</height>
-                <aspectratio>keep</aspectratio>
-                <texture>left-menu-filters-icon.png</texture>
-                <colordiffuse>FF999999</colordiffuse>
-                <visible>!Container.PlexContent(Movie) + !Container.PlexContent(Episode) + !Container.PlexContent(Clip) + !Container.PlexContent(Channel) + !Control.IsVisible(998)</visible>
-            </control>-->
+            -->
             <control type="image">
-                <posy>680</posy>
-                <posx>30</posx>
-                <width>12</width>
-                <height>18</height>
-                <aspectratio>scale</aspectratio>
-                <texture flipx="true">left-menu-indicator-arrow.png</texture>
-                <animation effect="rotate" end="-180" center="36,689" time="500" condition="ControlGroup(1300).HasFocus">Conditional</animation>
-                <visible>[!Container.PlexContent(Albums) | [Container.PlexContent(Albums) + !IsEmpty(Container.Property(primaryFilterActivated))]] + !Container.PlexContent(Songs) + !Container.PlexContent(Seasons) + [!Container.PlexContent(Episodes) | [Container.PlexContent(Episodes) + !IsEmpty(Container.Property(primaryFilterActivated)) + IsEmpty(Container.Property(PlexPreplay))]] + ![Container.PlexContent(Channel) + [ListItem.Type(clip) | ListItem.Type(episode)]]</visible>
+                <posx>-327</posx>
+                <height>720</height>
+                <width>327</width>
+                <aspectratio aligny="top">stretch</aspectratio>
+                <texture>backgrounds/background_black3.png</texture>
+                <animation effect="fade" start="0" end="61" time="0" condition="!Skin.HasSetting(DarkerBG)+!Skin.HasSetting(BrighterBG)">Conditional</animation>
+                <animation effect="fade" start="0" end="81" time="0" condition="Skin.HasSetting(DarkerBG)">Conditional</animation>
+                <animation effect="fade" start="0" end="45" time="0" condition="Skin.HasSetting(BrighterBG)">Conditional</animation>
+            </control>
+            <control type="image">
+                <posx>-327</posx>
+                <height>720</height>
+                <width>327</width>
+                <aspectratio aligny="top">stretch</aspectratio>
+                <texture background="true">bg_left.png</texture>
             </control>
         </control>
     </include>
+    <include name="leftMenuBgPreplay">
+        <control type="image">
+            <posx>0</posx>
+            <height>720</height>
+            <width>70</width>
+            <include>Black</include>
+            <animation type="Conditional" condition="true">
+                <effect type="fade" start="0" end="20"/>
+            </animation>
+        </control>
+    </include>
+
+
     <include name="leftMenuBgSettings">
         <control type="group">
             <posy>0</posy>
             <!-- Background -->
+            <!--
             <control type="image">
                 <posx>-253</posx>
                 <height>720</height>
                 <width>254</width>
-                <texture background="true">white.png</texture>
+                <include>Black</include>
                 <animation type="Conditional" condition="true">
                     <effect type="fade" start="0" end="75"/>
                 </animation>
             </control>
+            -->
             <control type="image">
                 <posx>0</posx>
                 <width>74</width>
                 <height>720</height>
-                <texture background="true">white.png</texture>
-            </control>
-            <control type="image">
-                <posy>498</posy>
-                <posx>74</posx>
-                <width>16</width>
-                <height>32</height>
-                <aspectratio>scale</aspectratio>
-                <texture>arrow-big.png</texture>
-                <colordiffuse>FF000000</colordiffuse>
-            </control>
-        </control>
-    </include>
-    <include name="leftMenuBgHome">
-        <control type="group">
-            <posy>0</posy>
-            <!-- Background -->
-            <control type="image">
-                <posx>-324</posx>
-                <height>720</height>
-                <width>325</width>
-                <texture background="true">white.png</texture>
+                <include>Black</include>
                 <animation type="Conditional" condition="true">
-                    <effect type="fade" start="0" end="75"/>
+                    <effect type="fade" start="0" end="40"/>
                 </animation>
-            </control>
-            <control type="image">
-                <posx>0</posx>
-                <width>74</width>
-                <height>720</height>
-                <texture background="true">white.png</texture>
-                <animation type="Conditional" condition="ControlGroup(1300).HasFocus()">
-                    <effect type="fade" start="0" time="300" end="75"/>
-                </animation>
-                <animation type="Conditional" condition="!ControlGroup(1300).HasFocus()">
-                    <effect type="fade" start="75" time="200" end="0"/>
-                </animation>
-            </control>
-            <!--><control type="image">
-                <posy>498</posy>
-                <posx>74</posx>
-                <width>16</width>
-                <height>32</height>
-                <aspectratio>scale</aspectratio>
-                <texture>arrow-big.png</texture>
-                <colordiffuse>FF000000</colordiffuse>
-            </control>-->
-            <control type="image">
-                <posy>41</posy>
-                <posx>25</posx>
-                <width>24</width>
-                <height>24</height>
-                <aspectratio>keep</aspectratio>
-                <texture>left-menu-filters-icon.png</texture>
-                <colordiffuse>FF999999</colordiffuse>
-                <visible>Container.PlexContent(Movies) | Container.PlexContent(TVShows)</visible>
-            </control>
-            <control type="image">
-                <posy>680</posy>
-                <posx>30</posx>
-                <width>12</width>
-                <height>18</height>
-                <aspectratio>scale</aspectratio>
-                <texture flipx="true">left-menu-indicator-arrow.png</texture>
-                <animation effect="rotate" end="-180" center="36,689" time="500" condition="ControlGroup(1300).HasFocus">Conditional</animation>
-                <visible>!ControlGroup(5000).HasFocus</visible>
             </control>
         </control>
     </include>
+
     <include name="leftMenuTitle">
         <textoffsety>5</textoffsety>
         <textoffsetx>20</textoffsetx>
@@ -169,7 +134,7 @@
         <font>Regular-17</font>
         <shadowcolor>ff222222</shadowcolor>
         <textcolor>FFCCCCCC</textcolor>
-        <focusedcolor>orangeLight</focusedcolor>
+        <focusedcolor>orange</focusedcolor>
         <texturefocus>-</texturefocus>
         <texturenofocus>-</texturenofocus>
         <scroll>true</scroll>
@@ -204,6 +169,7 @@
         <textcolor>white</textcolor>
         <focusedcolor>orangeLight</focusedcolor>
         <texturefocus>bg-b-clear-filters-s.png</texturefocus>
+        <colordiffuse>orange</colordiffuse>
         <texturenofocus>-</texturenofocus>
         <animation type="Conditional" condition="true">
             <effect type="fade" start="0" end="100"/>
@@ -244,7 +210,7 @@
         <font>Regular-17</font>
         <shadowcolor>ff222222</shadowcolor>
         <textcolor>FFCCCCCC</textcolor>
-        <focusedcolor>orangeLight</focusedcolor>
+        <focusedcolor>Focused</focusedcolor>
         <texturefocus border="5">black-bottom-grey.png</texturefocus>
         <texturenofocus border="5">-</texturenofocus>
         <radioposx>191</radioposx>
@@ -252,8 +218,9 @@
     </include>
     <include name="leftMenuSortingButton">
         <description>sorting radio button</description>
-        <textureorderascending>arrow-big-up-orange.png</textureorderascending>
-        <textureorderdescending flipy="true">arrow-big-up-orange.png</textureorderdescending>
+        <textureorderascending>arrow-big-up.png</textureorderascending>
+        <textureorderdescending flipy="true">arrow-big-up.png</textureorderdescending>
+        <colordiffuse>orange</colordiffuse>
         <align>right</align>
         <aligny>center</aligny>
         <pulseonselect>false</pulseonselect>
@@ -267,38 +234,418 @@
         <height>30</height>
         <colordiffuse>FF999999</colordiffuse>
     </include>
-    <include name="leftMenuPreplayButton">
-        <width>74</width>
-        <height>30</height>
-        <onleft>1300</onleft>
-        <onright>-</onright>
-    </include>
     <include name="leftMenuBarButton">
         <width>74</width>
         <height>30</height>
         <onleft condition="[!Container.PlexContent(Albums) | [Container.PlexContent(Albums) + [Container.PlexFilter(Albums) | Container.PlexFilter(recentlyAdded)]]] + !Container.PlexContent(Songs) + !Container.PlexContent(Movie) + !Container.PlexContent(Seasons) + [!Container.PlexContent(Episodes) | [Container.PlexContent(Episodes) + !IsEmpty(Container.Property(primaryFilterActivated)) + IsEmpty(Container.Property(PlexPreplay))]] + !Container.PlexContent(Episode) + !Container.PlexContent(Clip) + ![Container.PlexContent(Channel) + [ListItem.Type(clip) | ListItem.Type(episode) | ListItem.Type(song)]]">1300</onleft>
         <onright>777</onright>
     </include>
+    <include name="leftMenuBarButton2">
+        <width>74</width>
+        <height>74</height>
+        <onleft condition="[!Container.PlexContent(Albums) | [Container.PlexContent(Albums) + [Container.PlexFilter(Albums) | Container.PlexFilter(recentlyAdded)]]] + !Container.PlexContent(Songs) + !Container.PlexContent(Movie) + !Container.PlexContent(Seasons) + [!Container.PlexContent(Episodes) | [Container.PlexContent(Episodes) + !IsEmpty(Container.Property(primaryFilterActivated)) + IsEmpty(Container.Property(PlexPreplay))]] + !Container.PlexContent(Episode) + !Container.PlexContent(Clip) + ![Container.PlexContent(Channel) + [ListItem.Type(clip) | ListItem.Type(episode) | ListItem.Type(song)]]">1300</onleft>
+        <onright>777</onright>
+    </include>
     <!-- Home menu -->
+    <include name="PivotMenuHome">
+        <!-- Main Menu -->
+        <control type="group" id="1400">
+            <!-- list -->
+            <control type="list" id="1300">
+                <description>Home Secondary Menu</description>
+                <!--<visible>!Window.IsActive(10051)</visible>-->
+                <posx>20</posx>
+                <posy>76</posy>
+                <width>372</width>
+                <height>370</height>
+                <onup>1300</onup>
+                <ondown>1300</ondown>
+                <onleft>-</onleft>
+                <onright>Dialog.Close(4998)</onright>
+                <focusposition>2</focusposition>
+                <scrolltime>200</scrolltime>
+                <animation type="WindowOpen" condition="true" reversible="false">
+                    <effect type="rotatey" center="304" start="-90,455" end="0,455" time="300"/>
+                    <effect type="fade" start="0" end="100" time="50" delay="0"/>
+                </animation>
+                <animation type="WindowClose" condition="true" reversible="false">
+                    <effect type="rotatey" center="304" start="0,455" end="-90,455" time="300"/>
+                    <effect type="fade" start="100" end="0" time="230"/>
+                </animation>
+                <animation effect="fade" start="100" end="0" time="500" condition="Skin.HasSetting(FadeOutHomeMenu) + System.IdleTime(10) + !ControlGroup(5000).HasFocus">Conditional</animation>
+                <itemlayout width="600" height="40">
+                    <control type="label">
+                        <posx>15</posx>
+                        <posy>0</posy>
+                        <!--<width>200</width>-->
+                        <include condition="!Skin.HasSetting(BiggerHomeMenu)">HomeMenuLabelWidth</include>
+                        <include condition="Skin.HasSetting(BiggerHomeMenu)">HomeMenuLabelWidthBigger</include>
+                        <height>50</height>
+                        <font>homeSubMenu</font>
+                        <align>left</align>
+                        <label>$INFO[ListItem.Label]</label>
+                        <textcolor>Unfocused</textcolor>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="600" height="40">
+                    <control type="image">
+                        <visible>true</visible>
+                        <posy>9</posy>
+                        <posx>0</posx>
+                        <width>240</width>
+                        <height>34</height>
+                        <aspectratio align="left">stretch</aspectratio>
+                        <texture border="0">white.png</texture>
+                        <colordiffuse>FF333333</colordiffuse>
+                        <animation effect="fade" start="0" end="85" time="0" condition="true">Conditional</animation>
+                        <visible>Skin.HasSetting(BiggerHomeMenu)</visible>
+                    </control>
+                    <control type="image">
+                        <visible>true</visible>
+                        <posy>9</posy>
+                        <posx>0</posx>
+                        <width>190</width>
+                        <height>34</height>
+                        <aspectratio align="left">stretch</aspectratio>
+                        <texture border="0">white.png</texture>
+                        <colordiffuse>FF333333</colordiffuse>
+                        <animation effect="fade" start="0" end="85" time="0" condition="true">Conditional</animation>
+                        <visible>!Skin.HasSetting(BiggerHomeMenu)</visible>
+                    </control>
+                    <control type="label">
+                        <posy>0</posy>
+                        <posx>15</posx>
+                        <!--<width>200</width>-->
+                        <include condition="!Skin.HasSetting(BiggerHomeMenu)">HomeMenuLabelWidth</include>
+                        <include condition="Skin.HasSetting(BiggerHomeMenu)">HomeMenuLabelWidthBigger</include>
+                        <height>50</height>
+                        <font>homeSubMenu</font>
+                        <align>left</align>
+                        <textcolor>Color1</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <posy>3</posy>
+                        <posx>15</posx>
+                        <!--<width>200</width>-->
+                        <include condition="!Skin.HasSetting(BiggerHomeMenu)">HomeMenuLabelWidth</include>
+                        <include condition="Skin.HasSetting(BiggerHomeMenu)">HomeMenuLabelWidthBigger</include>
+                        <height>50</height>
+                        <font>homeSubMenu</font>
+                        <align>left</align>
+                        <textcolor>Color1</textcolor>
+                        <label>[LOWERCASE]$INFO[ListItem.Label2][/LOWERCASE]</label>
+                        <visible>!IsEmpty(ListItem.Property(SectionNameCollision))</visible>
+                    </control>
+                </focusedlayout>
+                <!-- additional menu items -->
+                <content>
+                    <item id="7">
+                        <description>Search</description>
+                        <label>$LOCALIZE[137]</label>
+                        <onclick>Dialog.Close(4998)</onclick>
+                        <onclick>Plex.ActivateWindow(10051)</onclick>
+                        <visible>Skin.HasSetting(HideSearch)</visible>
+                    </item>
+                    <item id="12">
+                        <description>Channel Directory</description>
+                        <label>$LOCALIZE[31952]</label>
+                        <onclick>Dialog.Close(4998)</onclick>
+                        <onclick>Plex.ActivateWindow(1,plexserver://channeldirectory,return)</onclick>
+                        <!--<textcolor>50FFFFFF</textcolor>-->
+                    </item>
+                    <item id="6">
+                        <description>Preferences</description>
+                        <label>$LOCALIZE[31955]</label>
+                        <onclick>Dialog.Close(4998)</onclick>
+                        <onclick>XBMC.ActivateWindow(appearancesettings)</onclick>
+                    </item>
+                    <item id="101">
+                        <description>OE Settings Button</description>
+                        <label>$LOCALIZE[41000]</label>
+                        <onclick>Dialog.Close(4998)</onclick>
+                        <onclick>RunAddon(service.openelec.settings)</onclick>
+                        <visible>System.isSystem(openelec)</visible>
+                    </item>
+                    <item id="102">
+                        <description>Control Global Caching</description>
+                        <label>$LOCALIZE[41001]</label>
+                        <onclick>Dialog.Close(4998)</onclick>
+            <onclick>XBMC.ActivateWindow(10208)</onclick>
+                        <visible>System.isSystem(rasplex)</visible>
+                    </item>
+                    <item id="111">
+                        <description>Quit</description>
+                        <label>$LOCALIZE[31007]</label>
+                        <onclick>Dialog.Close(4998)</onclick>
+                        <onclick>Plex.Quit</onclick>
+                        <visible>!System.isSystem(openelec)</visible>
+                    </item>
+                    <item id="112">
+                        <description>Sleep</description>
+                        <label>$LOCALIZE[31960]</label>
+                        <onclick>Dialog.Close(4998)</onclick>
+                        <onclick>Plex.Suspend</onclick>
+                        <visible>!System.isSystem(rasplex)</visible>
+                    </item>
+                    <item id="113">
+                        <description>Shut Down</description>
+                        <label>$LOCALIZE[31961]</label>
+                        <onclick>Dialog.Close(4998)</onclick>
+                        <onclick>Plex.Powerdown</onclick>
+                    </item>
+                    <item id="114">
+                        <description>Restart</description>
+                        <label>$LOCALIZE[31072]</label>
+                        <onclick>Dialog.Close(4998)</onclick>
+                        <onclick>System.Exec(reboot)</onclick>
+                        <visible>System.isSystem(openelec)</visible>
+                    </item>
+                    <item id="115">
+                        <description>Sleep</description>
+                        <label>$LOCALIZE[31960]</label>
+                        <onclick>Dialog.Close(4998)</onclick>
+                        <onclick>System.Exec(pm-suspend)</onclick>
+                        <visible>System.isSystem(openelec) + !System.isSystem(rasplex)</visible>
+                    </item>
+                </content>
+            </control>
+        </control>
+    </include>
+
+    <include name="HideQuitShutdownContent">
+        <content>
+            <item id="7">
+                <description>Search</description>
+                <label>$LOCALIZE[137]</label>
+                <onclick>Dialog.Close(4998)</onclick>
+                <onclick>Plex.ActivateWindow(10051)</onclick>
+                <visible>Skin.HasSetting(HideSearch)</visible>
+            </item>
+            <item id="12">
+                <description>Channel Directory</description>
+                <label>$LOCALIZE[31952]</label>
+                <onclick>Dialog.Close(4998)</onclick>
+                <onclick>Plex.ActivateWindow(1,plexserver://channeldirectory,return)</onclick>
+                <textcolor>50FFFFFF</textcolor>
+            </item>
+            <item id="6">
+                <description>Preferences</description>
+                <label>$LOCALIZE[31955]</label>
+                <onclick>Dialog.Close(4998)</onclick>
+                <onclick>XBMC.ActivateWindow(appearancesettings)</onclick>
+            </item>
+            <item id="112">
+                <description>Sleep</description>
+                <label>$LOCALIZE[31960]</label>
+                <onclick>Dialog.Close(4998)</onclick>
+                <onclick>Plex.Suspend</onclick>
+            </item>
+        </content>
+    </include>
+    <include name="HideSleepShutdownContent">
+        <content>
+            <item id="7">
+                <description>Search</description>
+                <label>$LOCALIZE[137]</label>
+                <onclick>Dialog.Close(4998)</onclick>
+                <onclick>Plex.ActivateWindow(10051)</onclick>
+                <visible>Skin.HasSetting(HideSearch)</visible>
+            </item>
+            <item id="12">
+                <description>Channel Directory</description>
+                <label>$LOCALIZE[31952]</label>
+                <onclick>Dialog.Close(4998)</onclick>
+                <onclick>Plex.ActivateWindow(1,plexserver://channeldirectory,return)</onclick>
+                <textcolor>50FFFFFF</textcolor>
+            </item>
+            <item id="6">
+                <description>Preferences</description>
+                <label>$LOCALIZE[31955]</label>
+                <onclick>Dialog.Close(4998)</onclick>
+                <onclick>XBMC.ActivateWindow(appearancesettings)</onclick>
+            </item>
+            <item id="111">
+                <description>Quit</description>
+                <label>$LOCALIZE[31007]</label>
+                <onclick>Dialog.Close(4998)</onclick>
+                <onclick>Plex.Quit</onclick>
+                <visible>!System.isSystem(openelec)</visible>
+            </item>
+        </content>
+    </include>
 
 
+    <include name="PivotMenuHomeMinimal">
+        <!-- Main Menu -->
+        <control type="group" id="1400">
+            <!-- list -->
+            <control type="list" id="1300">
+                <description>Home Secondary Menu</description>
+                <posx>20</posx>
+                <posy>76</posy>
+                <width>372</width>
+                <height>270</height>
+                <onup>1300</onup>
+                <ondown>1300</ondown>
+                <onleft>-</onleft>
+                <onright>Dialog.Close(4998)</onright>
+                <focusposition>1</focusposition>
+                <scrolltime>200</scrolltime>
+                <animation type="WindowOpen" condition="true" reversible="false">
+                    <effect type="rotatey" center="304" start="-90,455" end="0,455" time="300"/>
+                    <effect type="fade" start="0" end="100" time="50" delay="0"/>
+                </animation>
+                <animation type="WindowClose" condition="true" reversible="false">
+                    <effect type="rotatey" center="304" start="0,455" end="-90,455" time="300"/>
+                    <effect type="fade" start="100" end="0" time="230"/>
+                </animation>
+                <animation effect="fade" start="100" end="0" time="500" condition="Skin.HasSetting(FadeOutHomeMenu) + System.IdleTime(10) + !ControlGroup(5000).HasFocus">Conditional</animation>
+                <itemlayout width="600" height="40">
+                    <control type="label">
+                        <posx>15</posx>
+                        <posy>0</posy>
+                        <!--<width>200</width>-->
+                        <include condition="!Skin.HasSetting(BiggerHomeMenu)">HomeMenuLabelWidth</include>
+                        <include condition="Skin.HasSetting(BiggerHomeMenu)">HomeMenuLabelWidthBigger</include>
+                        <height>50</height>
+                        <font>homeSubMenu</font>
+                        <align>left</align>
+                        <label>$INFO[ListItem.Label]</label>
+                        <textcolor>Unfocused</textcolor>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="600" height="40">
+                    <control type="image">
+                        <visible>true</visible>
+                        <posy>9</posy>
+                        <posx>0</posx>
+                        <width>240</width>
+                        <height>34</height>
+                        <aspectratio align="left">stretch</aspectratio>
+                        <texture border="0">white.png</texture>
+                        <colordiffuse>FF333333</colordiffuse>
+                        <animation effect="fade" start="0" end="85" time="0" condition="true">Conditional</animation>
+                        <visible>Skin.HasSetting(BiggerHomeMenu)</visible>
+                    </control>
+                    <control type="image">
+                        <visible>true</visible>
+                        <posy>9</posy>
+                        <posx>0</posx>
+                        <width>190</width>
+                        <height>34</height>
+                        <aspectratio align="left">stretch</aspectratio>
+                        <texture border="0">white.png</texture>
+                        <colordiffuse>FF333333</colordiffuse>
+                        <animation effect="fade" start="0" end="85" time="0" condition="true">Conditional</animation>
+                        <visible>!Skin.HasSetting(BiggerHomeMenu)</visible>
+                    </control>
+                    <control type="label">
+                        <posy>0</posy>
+                        <posx>15</posx>
+                        <!--<width>200</width>-->
+                        <include condition="!Skin.HasSetting(BiggerHomeMenu)">HomeMenuLabelWidth</include>
+                        <include condition="Skin.HasSetting(BiggerHomeMenu)">HomeMenuLabelWidthBigger</include>
+                        <height>50</height>
+                        <font>homeSubMenu</font>
+                        <align>left</align>
+                        <textcolor>Color1</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <posy>3</posy>
+                        <posx>15</posx>
+                        <!--<width>200</width>-->
+                        <include condition="!Skin.HasSetting(BiggerHomeMenu)">HomeMenuLabelWidth</include>
+                        <include condition="Skin.HasSetting(BiggerHomeMenu)">HomeMenuLabelWidthBigger</include>
+                        <height>50</height>
+                        <font>homeSubMenu</font>
+                        <align>left</align>
+                        <textcolor>Color1</textcolor>
+                        <label>[LOWERCASE]$INFO[ListItem.Label2][/LOWERCASE]</label>
+                        <visible>!IsEmpty(ListItem.Property(SectionNameCollision))</visible>
+                    </control>
+                </focusedlayout>
+                <!-- additional menu items -->
+                <include condition="Skin.HasSetting(HideQuitShutdown)">HideQuitShutdownContent</include>
+                <include condition="Skin.HasSetting(HideSleepShutdown)">HideSleepShutdownContent</include>
+            </control>
+        </control>
+    </include>
     <!-- Library menu -->
     <include name="LeftSideMenu">
         <control type="group" id="995">
             <visible allowhiddenfocus="false">[!Container.PlexContent(Channel) | [Container.PlexContent(Channel) + [ListItem.Type(clip) | ListItem.Type(episode) | ListItem.Type(song)]]]</visible>
             <include>leftMenuInitSlide</include>
-            <include>leftMenuSlide</include>
             <include>leftMenuBg</include>
+            <include>leftMenuSlide2</include>
+            <include>ViewmodeHeader</include>
+            <!-- global search-->
+            <!--><include>GlobalSearch</include>-->
+            <!-- sidebar global -->
+            <control type="grouplist" id="998">
+                <visible>!Container.PlexContent(Movie) + !Container.PlexContent(Episode) + !Container.PlexContent(Clip) + Control.IsVisible(995)</visible>
+                <posy>40</posy>
+                <!--<posx>0</posx>-->
+                <posx>-74</posx>
+                <width>74</width>
+                <aligny>top</aligny>
+                <onup>998</onup>
+                <ondown>998</ondown>
+                <orientation>vertical</orientation>
+                <itemgap>20</itemgap>
+                <!-- Filters -->
+                <control type="button" id="102">
+                    <texturefocus>left-menu-filters-icon-s.png</texturefocus>
+                    <texturenofocus>left-menu-filters-icon-u.png</texturenofocus>
+                    <onclick>Control.SetFocus(1300)</onclick>
+                    <include>leftMenuBarButton</include>
+                    <visible>[!Container.PlexContent(Albums) | [Container.PlexContent(Albums) + [Container.PlexFilter(Albums) | Container.PlexFilter(recentlyAdded)]]] + !Container.PlexContent(Songs) + !Container.PlexContent(Seasons) + [!Container.PlexContent(Episodes) | [Container.PlexContent(Episodes) + !IsEmpty(Container.Property(primaryFilterActivated)) + IsEmpty(Container.Property(PlexPreplay))]] + ![Container.PlexContent(Channel) + [ListItem.Type(clip) | ListItem.Type(episode) | ListItem.Type(song)]]</visible>
+                </control>
+                <!-- Play All -->
+                <control type="button" id="104">
+                    <texturefocus>b-pp-play-s2.png</texturefocus>
+                    <texturenofocus>b-pp-play2.png</texturenofocus>
+                    <onclick>Plex.PlayAll()</onclick>
+                    <include>leftMenuBarButton</include>
+                    <visible>![Window.IsActive(501) + Container.PlexFilter(recentlyAdded)] + !Container.PlexFilter(recentlyViewedShows)</visible>
+                </control>
+                <!-- Shuffle All -->
+                <control type="button" id="105">
+                    <texturefocus>left-menu-shuffle-icon-s2.png</texturefocus>
+                    <texturenofocus>left-menu-shuffle-icon-u2.png</texturenofocus>
+                    <onclick>Plex.ShuffleAll()</onclick>
+                    <include>leftMenuBarButton</include>
+                    <visible>![Window.IsActive(501) + Container.PlexFilter(recentlyAdded)] + !Container.PlexFilter(recentlyViewedShows)</visible>
+                </control>
+                <!-- Now Playing -->
+                <control type="button" id="106">
+                    <texturefocus>-</texturefocus>
+                    <texturenofocus>-</texturenofocus>
+                    <onclick>fullscreen</onclick>
+                    <include>leftMenuBarButton</include>
+                    <visible>Player.HasAudio | Player.HasVideo</visible>
+                </control>
+                <!-- Viewmode -->
+                <control type="button" id="107">
+                    <texturefocus>b-nextviewmode-s3.png</texturefocus>
+                    <texturenofocus>b-nextviewmode-u3.png</texturenofocus>
+                    <onclick>Container.NextViewMode</onclick>
+                    <include>leftMenuBarButton</include>
+                    <visible>true</visible>
+                </control>
+            </control>
+            <!-- filters & sorting menu -->
             <control type="group" id="1300">
-                <animation type="Conditional" condition="!ControlGroup(6000).HasFocus()" reversible="false">
+                <animation type="Conditional" condition="!Window.IsActive(10202)" reversible="false">
                     <effect type="rotatey" center="-120" start="80" end="0" time="300"/>
                     <effect type="fade" start="0" end="100" time="0" delay="0"/>
                 </animation>
-                <animation type="Conditional" condition="ControlGroup(6000).HasFocus()" reversible="false">
+                <animation type="Conditional" condition="Window.IsActive(10202)" reversible="false">
                     <effect type="rotatey" center="-120" start="0" end="80" time="300"/>
                     <effect type="fade" start="100" end="0" time="250"/>
                 </animation>
-                <posx>-253</posx>
+                <posx>-327</posx>
                 <posy>0</posy>
                 <width>253</width>
                 <height>730</height>
@@ -411,7 +758,230 @@
                     <include>leftMenuSortingButton</include>
                 </control>
             </control>
+            <!--<include>NowPlayingSideBar</include>-->
+        </control>
+    </include>
+
+    <include name="LeftSideMenuPreplay">
+        <control type="group" id="995">
+
+            <visible allowhiddenfocus="false">[!Container.PlexContent(Channel) | [Container.PlexContent(Channel) + [ListItem.Type(clip) | ListItem.Type(episode) | ListItem.Type(song)]]]</visible>
+            <include>leftMenuInitSlide</include>
+            <include>leftMenuSlide</include>
+
+            <include>leftMenuBg</include>
+            <!--<include>leftMenuBgPreplay</include>-->
+
+
+            <!-- global search-->
+            <!--><include>GlobalSearch</include>-->
+            <!-- sidebar global -->
+
+            <!-- sidebar preplay -->
+            <control type="grouplist" id="998">
+                <visible>[Container.PlexContent(Movie) | Container.PlexContent(Episode) | Container.PlexContent(Clip)] | [Container.PlexContent(Channel) + !IsEmpty(Container.Property(PlexPreplay))]</visible>
+                <posy>40</posy>
+                <posx>0</posx>
+                <width>74</width>
+                <aligny>top</aligny>
+                <onup>998</onup>
+                <ondown>998</ondown>
+                <orientation>vertical</orientation>
+                <itemgap>20</itemgap>
+                <!-- Play -->
+                <control type="button" id="102">
+                    <texturefocus>b-pp-play-s.png</texturefocus>
+                    <texturenofocus>b-pp-play.png</texturenofocus>
+                    <onright>XBMC.NextItem</onright>
+                    <onleft>XBMC.PrevItem</onleft>
+                    <onclick>Plex.PlayWith(VideoDefaultPlayer)</onclick>
+                    <include>leftMenuBarButton</include>
+                </control>
+                <!-- Audio -->
+                <control type="button" id="103">
+                    <texturefocus>b-pp-audio-s2.png</texturefocus>
+                    <texturenofocus>b-pp-audio2.png</texturenofocus>
+                    <onright>XBMC.NextItem</onright>
+                    <onleft>XBMC.PrevItem</onleft>
+                    <onclick>ActivateWindow(10205)</onclick>
+                    <include>leftMenuBarButton</include>
+                    <onfocus>Skin.SetString(DialogPos,audiostreampicker)</onfocus>
+                    <onunfocus>Skin.Reset(DialogPos)</onunfocus>
+                </control>
+                <!-- Subtitles -->
+                <control type="button" id="104">
+                    <texturefocus>b-pp-subtitles-s.png</texturefocus>
+                    <texturenofocus>b-pp-subtitles.png</texturenofocus>
+                    <onright>XBMC.NextItem</onright>
+                    <onleft>XBMC.PrevItem</onleft>
+                    <onclick>ActivateWindow(10204)</onclick>
+                    <include>leftMenuBarButton</include>
+                    <onfocus>Skin.SetString(DialogPos,subtitlestreampicker)</onfocus>
+                    <onunfocus>Skin.Reset(DialogPos)</onunfocus>
+                </control>
+                <!-- Extras -->
+                <control type="button" id="110">
+                    <texturefocus>b-pp-extras-s.png</texturefocus>
+                    <texturenofocus>b-pp-extras.png</texturenofocus>
+                    <onright>XBMC.NextItem</onright>
+                    <onleft>XBMC.PrevItem</onleft>
+                    <onclick>SetFocus(3)</onclick>
+                    <include>leftMenuBarButton</include>
+                    <visible>!IsEmpty(ListItem.Property(PlexExtras))</visible>
+                </control>
+                <!-- Rate -->
+                <control type="button" id="105">
+                    <texturefocus>b-pp-rate-s.png</texturefocus>
+                    <texturenofocus>b-pp-rate.png</texturenofocus>
+                    <onright>XBMC.NextItem</onright>
+                    <onleft>XBMC.PrevItem</onleft>
+                    <onclick>ActivateWindow(10200,$INFO[ListItem(0).Path])</onclick>
+                    <include>leftMenuBarButton</include>
+                    <onfocus>Skin.SetString(DialogPos,rate)</onfocus>
+                    <onunfocus>Skin.Reset(DialogPos)</onunfocus>
+                </control>
+                <!-- Recommend -->
+                <!--><control type="button" id="106">
+                    <texturefocus>b-pp-recommend-s.png</texturefocus>
+                    <texturenofocus>b-pp-recommend.png</texturenofocus>
+                    <onup>105</onup>
+                    <ondown>107</ondown>
+                    <include>leftMenuBarButton</include>
+                    <visible>!IsEmpty(ListItem(0).Property(canRecommend))</visible>
+                    <onfocus>Skin.SetString(DialogPos,recommend)</onfocus>
+                    <onunfocus>Skin.Reset(DialogPos)</onunfocus>
+                </control>-->
+                <!-- Share -->
+                <control type="button" id="107">
+                    <texturefocus>b-pp-share-s.png</texturefocus>
+                    <texturenofocus>b-pp-share.png</texturenofocus>
+                    <onright>XBMC.NextItem</onright>
+                    <onleft>XBMC.PrevItem</onleft>
+                    <include>leftMenuBarButton</include>
+                    <visible>!IsEmpty(ListItem(0).Property(canShare))</visible>
+                    <onfocus>Skin.SetString(DialogPos,share)</onfocus>
+                    <onunfocus>Skin.Reset(DialogPos)</onunfocus>
+                </control>
+                <!-- Watched -->
+                <control type="button" id="108">
+                    <texturefocus>b-pp-watched-s.png</texturefocus>
+                    <texturenofocus>b-pp-watched.png</texturenofocus>
+                    <onright>XBMC.NextItem</onright>
+                    <onleft>XBMC.PrevItem</onleft>
+                    <onclick>markasunwatched</onclick>
+                    <include>leftMenuBarButton</include>
+                </control>
+                <!-- Unwatched -->
+                <control type="button" id="109">
+                    <texturefocus>b-pp-unwatched-s.png</texturefocus>
+                    <texturenofocus>b-pp-unwatched.png</texturenofocus>
+                    <onright>XBMC.NextItem</onright>
+                    <onleft>XBMC.PrevItem</onleft>
+                    <onclick>markaswatched</onclick>
+                    <include>leftMenuBarButton</include>
+                </control>
+            </control>
+
             <include>NowPlayingSideBar</include>
+        </control>
+    </include>
+
+    <!-- Settings menu -->
+    <include name="LeftSideMenuSettings">
+        <control type="group">
+            <include>leftMenuInitSlide</include>
+            <include>leftMenuBgSettings</include>
+            <!-- page title -->
+            <control type="group">
+                <posx>100</posx>
+                <posy>40</posy>
+                <control type="group">
+                    <posy>13</posy>
+                    <posx>45</posx>
+                    <!-- menu label -->
+                    <control type="label">
+                        <width>1400</width>
+                        <height>0</height>
+                        <label>$LOCALIZE[31606] $INFO[Container(997).ListItem(0).Label]</label>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <font>Bold-36</font>
+                        <textcolor>orange</textcolor>
+                        <shadowcolor>ff111111</shadowcolor>
+                        <animation effect="fade" time="300" start="0" end="100">Focus</animation>
+                        <visible>Control.HasFocus(997)</visible>
+                    </control>
+                    <control type="label">
+                        <width>1400</width>
+                        <height>0</height>
+                        <label>$VAR[TopBarSelectedItemStrings]</label>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <font>Bold-36</font>
+                        <textcolor>white</textcolor>
+                        <shadowcolor>ff111111</shadowcolor>
+                        <animation effect="fade" time="300" start="0" end="30" condition="true">Conditional</animation>
+                        <visible>!Control.HasFocus(997)</visible>
+                    </control>
+                </control>
+            </control>
+            <control type="list" id="997">
+                <posx>0</posx>
+                <posy>90</posy>
+                <width>1000</width>
+                <height>700</height>
+                <onup>997</onup>
+                <ondown>997</ondown>
+                <onleft>-</onleft>
+                <onright>302</onright>
+                <focusposition>1</focusposition>
+                <scrolltime>0</scrolltime>
+                <orientation>vertical</orientation>
+                <itemlayout width="1400" height="50">
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>18</posy>
+                        <aspectratio>keep</aspectratio>
+                        <info>ListItem.Art(thumb)</info>
+                        <include>leftMenuBarIcon</include>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="1400" height="50">
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>18</posy>
+                        <info>ListItem.Art(thumb)</info>
+                        <include>leftMenuBarButton</include>
+                        <colordiffuse>orange</colordiffuse>
+                    </control>
+                </focusedlayout>
+                <content>
+                    <item id="1">
+                        <description>Playback Settings Button</description>
+                        <label>$LOCALIZE[31610]</label>
+                        <thumb>b-s-video.png</thumb>
+                        <onclick>XBMC.ReplaceWindow(17)</onclick>
+                    </item>
+                    <item id="2">
+                        <description>Appearance Settings Button</description>
+                        <label>$LOCALIZE[31601]</label>
+                        <thumb>b-s-photos.png</thumb>
+                        <onclick>XBMC.ReplaceWindow(19)</onclick>
+                    </item>
+                    <item id="5">
+                        <description>System Settings Button</description>
+                        <label>$LOCALIZE[31006]</label>
+                        <thumb>b-s-system.png</thumb>
+                        <onclick>XBMC.ReplaceWindow(16)</onclick>
+                    </item>
+                    <item id="5">
+                        <description>Network Button</description>
+                        <label>$LOCALIZE[31602]</label>
+                        <thumb>b-s-network.png</thumb>
+                        <onclick>XBMC.ReplaceWindow(18)</onclick>
+                    </item>
+                </content>
+            </control>
         </control>
     </include>
 </includes>
